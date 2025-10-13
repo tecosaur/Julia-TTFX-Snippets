@@ -1,0 +1,6 @@
+[deps]
+ComplexityMeasures = "ab4b797d-85ee-42ba-b621-05d793b346a2"
+
+[compat]
+ComplexityMeasures = ">=3.8.5"
+julia = "1.7.0"
