@@ -1,0 +1,8 @@
+[deps]
+DifferentiationInterface = "a0c0ee7d-e4b9-4e03-894e-1c5f64a51d63"
+Mooncake = "da2b9cff-9c12-43a0-ae48-6db2b0edb7d6"
+
+[compat]
+DifferentiationInterface = ">=0.7.12"
+Mooncake = ">=0.4.176"
+julia = "1.10.0"
