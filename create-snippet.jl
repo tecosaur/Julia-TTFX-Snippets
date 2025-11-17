@@ -91,7 +91,7 @@ const issue_checkboxes = (;
     taskrun = IssueItemState("Run task script"),
     taskjulia = IssueItemState("Determine minimum Julia version"))
 
-const issue_checkboxes_julia_versions = @NamedTuple{ver::String, status::Symbol}[]
+const issue_checkboxes_julia_versions = @NamedTuple{ver::String, status::Symbol, extra::String}[]
 
 issue_checkboxes_lastfinished::Float64 = time()
 
@@ -116,7 +116,7 @@ function issue_comment()
     for (name, item) in pairs(issue_checkboxes)
         println(cio, cbox(item))
         if name === :taskjulia
-            for (; ver, status) in issue_checkboxes_julia_versions
+            for (; ver, status, extra) in issue_checkboxes_julia_versions
                 println(cio, "  - $ver: ", if status == :success
                             "✅ succeeded"
                         elseif status == :testing
@@ -129,7 +129,7 @@ function issue_comment()
                             "⏰ timed out"
                         else
                             ""
-                        end)
+                        end, extra)
             end
         end
     end
@@ -387,7 +387,7 @@ minjulia::VersionNumber = VERSION
 for minorver in 0:VERSION.minor
     # We could do a binary search, but it's probably quicker to fail to resolve on old versions
     # than succeed and install all the packages etc. on newer versions.
-    push!(issue_checkboxes_julia_versions, (; ver = "1.$minorver", status = :testing))
+    push!(issue_checkboxes_julia_versions, (; ver = "1.$minorver", status = :testing, extra = ""))
     update_issue_comment()
     @info "Trying Julia 1.$minorver"
     julia = juliacmd(VersionNumber(1, minorver))
@@ -395,7 +395,7 @@ for minorver in 0:VERSION.minor
     resolved = success(pipeline(`$julia --project=$taskdir -e 'using Pkg; Pkg.resolve()'`; stdout, stderr))
     instantiated = resolved && success(pipeline(`$julia --project=$taskdir -e 'using Pkg; Pkg.instantiate()'`; stdout, stderr))
     if !instantiated
-        issue_checkboxes_julia_versions[end] = (; ver = issue_checkboxes_julia_versions[end].ver, status = :noinit)
+        issue_checkboxes_julia_versions[end] = (; ver = issue_checkboxes_julia_versions[end].ver, status = :noinit, extra = "")
         continue
     end
     trialrun = run(`$(unshared(julia)) --project=$taskdir $taskfile`, wait = false)
@@ -405,15 +405,15 @@ for minorver in 0:VERSION.minor
     end
     if process_running(trialrun)
         kill(trialrun)
-        issue_checkboxes_julia_versions[end] = (; ver = issue_checkboxes_julia_versions[end].ver, status = :timeout)
+        issue_checkboxes_julia_versions[end] = (; ver = issue_checkboxes_julia_versions[end].ver, status = :timeout, extra = "")
     elseif trialrun.exitcode == 0
         global minjulia = VersionNumber(1, minorver)
-        issue_checkboxes_julia_versions[end] = (; ver = issue_checkboxes_julia_versions[end].ver, status = :success)
+        issue_checkboxes_julia_versions[end] = (; ver = issue_checkboxes_julia_versions[end].ver, status = :success, extra = "")
         update_issue_comment()
         Pkg.compat("julia", "$minjulia")
         break
     else
-        issue_checkboxes_julia_versions[end] = (; ver = issue_checkboxes_julia_versions[end].ver, status = :failed)
+        issue_checkboxes_julia_versions[end] = (; ver = issue_checkboxes_julia_versions[end].ver, status = :failed, extra = "(exit code: $(trialrun.exitcode))")
     end
 end
 
