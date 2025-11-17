@@ -216,15 +216,15 @@ if isfile(taskfile)
     end
     if isempty(taskauthor)
         cierror("Task already exists: $taskdir")
-    elseif taskauthor != task.author
-        cierror("Task already exists from a different author: $taskdir")
     else
         @info "Task already exists, replacing"
+        println(gh_output, "task_authorship=", ifelse(taskauthor == task.author, "self", "other"))
         println(gh_output, "task_nature=", "Task update")
         rm(taskdir, recursive=true, force=true)
         mkdir(taskdir)
     end
 else
+    println(gh_output, "task_authorship=", "none")
     println(gh_output, "task_nature=", "New task")
     mkpath(taskdir)
 end

@@ -259,14 +259,17 @@ jobs:
           script: |
             const owner = '${{ steps.gensnippet.outputs.pkg_repo_owner }}';
             const repo  = '${{ steps.gensnippet.outputs.pkg_repo_name }}';
-            if (!owner || !repo) {
+            const authorship  = '${{ steps.gensnippet.outputs.task_authorship }}';
+            if ((!owner || !repo) && authorship !== 'self') {
               console.log("No upstream repo detected; skipping automerge.");
               return;
             }
 
             const user = context.payload.issue.user.login;
 
-            if (user === owner) {
+            if (authorship === 'self') {
+              console.log(`Issue author ${user} is the author of the task; auto-merging.`);
+            } else if (user === owner) {
               console.log(`Issue author ${user} is the repo owner; auto-merging.`);
             } else {
               const { data: repoMeta } = await github.rest.repos.get({ owner, repo });
