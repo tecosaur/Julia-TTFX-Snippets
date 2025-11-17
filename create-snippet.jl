@@ -268,8 +268,8 @@ const using_lines = String[]
 const imported_pkgs = String[]
 const script_lines = String[]
 
-using_rx = r"^\s*using ([^ ]*)(?:$|\s|:)"
-import_rx = r"^\s*import ([^ ]*)(?:$|\s|:)"
+using_rx = r"^\s*using ([^ ,]*(?:\s*,\s*[^ ,]*)*)(?:$|\s|:)(?:$|\s|:)"
+import_rx = r"^\s*import ([^ ,]*(?:\s*,\s*[^ ,]*)*)(?:$|\s|:)(?:$|\s|:)"
 
 for line in eachline(IOBuffer(task.snippet))
     if !isempty(script_lines)
@@ -283,9 +283,12 @@ for line in eachline(IOBuffer(task.snippet))
         if isnothing(umatch)  
             push!(script_lines, line)
         else
-            pkg = umatch.captures[1]
-            pkg ∉ imported_pkgs &&
-                push!(imported_pkgs, pkg)
+            pkgs = umatch.captures[1]
+            for pkg in eachsplit(pkgs, ',')
+                pkg = strip(pkg)
+                pkg ∉ imported_pkgs &&
+                    push!(imported_pkgs, pkg)
+            end
             push!(using_lines, line)
         end
     end
