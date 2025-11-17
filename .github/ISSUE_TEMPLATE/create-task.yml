@@ -54,3 +54,8 @@ body:
         MyPkg.dothing()
     validations:
       required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        > <sup>Short snippets of code are not copyrightable. Should you submit an original work, you agree you have the right to license the content under the MIT license ([GitHub T&C's D.6](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service#6-contributions-under-repository-license)).</sup>
