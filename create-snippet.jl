@@ -122,7 +122,7 @@ function issue_comment()
                         elseif status == :testing
                             "❔ testing"
                         elseif status == :noinit
-                            "⛔ failed to resolve/instantiate"
+                            "⛔ couldn't resolve/instantiate"
                         elseif status == :failed
                             "🚨 failed"
                         elseif status == :timeout
