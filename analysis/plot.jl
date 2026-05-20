@@ -90,6 +90,20 @@ panels = map(enumerate(METRICS)) do (idx, m)
           color = :crimson, linewidth = 3, markershape = :diamond, markersize = 6,
           label = "")
 
+    # Annotate each geomean marker with +/- % relative to 1.10
+    baseline = gm[1]
+    if isfinite(baseline) && baseline > 0
+        for (i, v) in enumerate(gm)
+            isfinite(v) && v > 0 || continue
+            if i > 1
+                pct = 100 * (v / baseline - 1)
+                label = @sprintf("%+.0f%%", pct)
+                colour = pct > 0 ? colorant"#c0392b" : colorant"#1e8449"
+                annotate!(plt, i, v * 1.15, text(@sprintf("%+.0f%%", pct), 12, colour, :center, :bottom))
+            end
+        end
+    end
+
     plt
 end
 
@@ -101,7 +115,7 @@ palette = distinguishable_colors(length(task_keys), [colorant"gray"]; dropseed =
 
 # Include geomean as the first entry, then per-task entries.
 legend_entries = vcat(
-    [(label = "Geometric mean of all snippets", color = colorant"crimson", shape = :diamond, size = 6)],
+    [(label = "Geometric mean of all (%'s relative to 1.10)", color = colorant"crimson", shape = :diamond, size = 6)],
     [(label = string(k[1], " / ", k[2]),
       color = palette[i], shape = :circle, size = 5) for (i, k) in enumerate(task_keys)],
 )
