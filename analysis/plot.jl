@@ -155,7 +155,7 @@ layout = eval(Meta.parse("Plots.@layout [a b c; d{$(legend_frac)h}]"))
 final = plot(panels..., legend_pane;
              layout      = layout,
              size        = (1500, total_px),
-             plot_title  = "TTFX across Julia versions ($(length(tasks)) tasks)",
+             plot_title  = "TTFX across Julia versions ($(length(tasks)) tasks from tecosaur/Julia-TTFX-Snippets)",
              left_margin = 10Plots.mm, right_margin = 5Plots.mm, bottom_margin = 5Plots.mm)
 
 savefig(final, OUTPUT)
