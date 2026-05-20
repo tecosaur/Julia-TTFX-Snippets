@@ -2,7 +2,9 @@
 
 using Printf
 
-const JULIA_VERSIONS = ["1.10", "1.11", "1.12", "1.13-nightly", "nightly"]
+const JULIA_VERSIONS = ["1.10", "1.11", "1.12", "1.13-nightly", "nightly", "nightly2"]
+# "nightly2" runs nightly with JULIA_IMAGE_THREADS=Sys.CPU_THREADS
+const VERSION_CHANNEL = Dict("nightly2" => "nightly")
 const TASKS_DIR = joinpath(@__DIR__, "..", "tasks")
 const RESULTS_FILE = joinpath(@__DIR__, "results.json")
 
@@ -30,8 +32,9 @@ function clear_compiled!(depot::String)
 end
 
 function version_available(ver::String)::Bool
+    ch = get(VERSION_CHANNEL, ver, ver)
     try
-        run(pipeline(`julia +$ver --startup-file=no --version`; stdout = devnull, stderr = devnull))
+        run(pipeline(`julia +$ch --startup-file=no --version`; stdout = devnull, stderr = devnull))
         true
     catch
         false
@@ -64,8 +67,15 @@ function capture_soft(cmd::Cmd)
 end
 
 function run_task(ver::String, depot::String, task::TaskInfo)
+    ch = get(VERSION_CHANNEL, ver, ver)
     depot_path = depot * ":"
     proj = task.dir
+    base_env    = ("JULIA_DEPOT_PATH" => depot_path,)
+    inst_env    = ("JULIA_DEPOT_PATH" => depot_path, "JULIA_PKG_PRECOMPILE_AUTO" => "0")
+    precomp_env = ver == "nightly2" ?
+        ("JULIA_DEPOT_PATH" => depot_path, "JULIA_PKG_PRECOMPILE_AUTO" => "0",
+         "JULIA_IMAGE_THREADS" => string(Sys.CPU_THREADS)) :
+        inst_env
 
     # 1. Instantiate packages without triggering precompilation, then rename
     #    Manifest.toml to Manifest-vX.Y.toml to preserve per-version manifests.
@@ -79,9 +89,8 @@ let
 end"""
     try
         capture(addenv(
-            `julia +$ver --startup-file=no --project=$proj -e $inst_code`,
-            "JULIA_DEPOT_PATH" => depot_path,
-            "JULIA_PKG_PRECOMPILE_AUTO" => "0"))
+            `julia +$ch --startup-file=no --project=$proj -e $inst_code`,
+            inst_env...))
     catch e
         return (; status = "error", error = "instantiate: $(sprint(showerror, e))")
     end
@@ -95,8 +104,8 @@ end"""
     precompile_time = nothing
     try
         precomp_out, _ = capture(addenv(
-            `julia +$ver --startup-file=no --project=$proj -e $precomp_code`,
-            "JULIA_DEPOT_PATH" => depot_path))
+            `julia +$ch --startup-file=no --project=$proj -e $precomp_code`,
+            precomp_env...))
         pm = match(r"__TTFX_T__:([\d.eE+-]+)", precomp_out)
         pm === nothing && error("could not parse precompile time from: $(repr(precomp_out))")
         precompile_time = parse(Float64, pm.captures[1])
@@ -109,8 +118,8 @@ end"""
     #    be recovered.  Expected stdout: "$load_t, $run_t, $total_t seconds"
     task_jl = joinpath(task.dir, "task.jl")
     task_out, task_err, task_ok = capture_soft(addenv(
-        `julia +$ver --startup-file=no --project=$proj $task_jl`,
-        "JULIA_DEPOT_PATH" => depot_path))
+        `julia +$ch --startup-file=no --project=$proj $task_jl`,
+        base_env...))
 
     # All three times present
     m3 = match(r"([\d.]+),\s*([\d.]+),\s*([\d.]+)\s+seconds", task_out)

@@ -6,7 +6,7 @@ using JSON, Plots, Statistics, Printf, Colors
 const RESULTS = length(ARGS) >= 1 ? ARGS[1] : joinpath(@__DIR__, "results.json")
 const OUTPUT  = length(ARGS) >= 2 ? ARGS[2] : joinpath(@__DIR__, "results.png")
 
-const JULIA_VERSIONS = ["1.10", "1.11", "1.12", "1.13-nightly", "nightly"]
+const JULIA_VERSIONS = ["1.10", "1.11", "1.12", "1.13-nightly", "nightly", "nightly2"]
 const METRICS = [
     (field = "precompile_time", title = "Precompilation"),
     (field = "load_time",       title = "Package load"),
