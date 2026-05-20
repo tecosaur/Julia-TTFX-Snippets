@@ -47,8 +47,9 @@ function capture(cmd::Cmd)
     err = IOBuffer()
     try
         run(pipeline(cmd; stdout = out, stderr = err))
-    catch e
-        throw(ErrorException("$(sprint(showerror, e))\n--- stderr ---\n$(String(take!(err)))"))
+    catch
+        # Omit the full Cmd (which includes env vars) from the message; only keep stderr.
+        throw(ErrorException("process failed\n--- stderr ---\n$(String(take!(err)))"))
     end
     String(take!(out)), String(take!(err))
 end
