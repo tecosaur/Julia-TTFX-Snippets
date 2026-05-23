@@ -121,8 +121,9 @@ end"""
     # 4. Run the task script; capture output even on failure so partial timing can
     #    be recovered.  Expected stdout: "$load_t, $run_t, $total_t seconds"
     task_jl = joinpath(task.dir, "task.jl")
+    opt_flag = opt === nothing ? `` : `-O$opt`
     task_out, task_err, task_ok = capture_soft(addenv(
-        `julia +$ch --startup-file=no --project=$proj $task_jl`,
+        `julia +$ch $opt_flag --startup-file=no --project=$proj $task_jl`,
         base_env...))
 
     # All three times present

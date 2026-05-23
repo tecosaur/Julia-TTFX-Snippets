@@ -6,7 +6,6 @@ using JSON, Plots, Statistics, Printf, Colors
 const RESULTS = length(ARGS) >= 1 ? ARGS[1] : joinpath(@__DIR__, "results.json")
 const OUTPUT  = length(ARGS) >= 2 ? ARGS[2] : joinpath(@__DIR__, "results.png")
 
-const JULIA_VERSIONS = ["1.10", "1.11", "1.12", "1.13-nightly", "nightly", "nightly2"]
 const METRICS = [
     (field = "precompile_time", title = "Precompilation"),
     (field = "load_time",       title = "Package load"),
@@ -14,6 +13,16 @@ const METRICS = [
 ]
 
 records = JSON.parsefile(RESULTS)
+
+# Versions in order of first appearance (matches benchmark run order)
+const JULIA_VERSIONS = let seen = Set{String}(), vers = String[]
+    for r in records
+        v = r["julia_version"]
+        v ∉ seen && (push!(seen, v); push!(vers, v))
+    end
+    vers
+end
+reverse!(JULIA_VERSIONS)
 
 # Group by task: (package, task) => Dict(version => Dict(metric => seconds))
 tasks = Dict{Tuple{String, String}, Dict{String, Dict{String, Float64}}}()
@@ -115,7 +124,7 @@ palette = distinguishable_colors(length(task_keys), [colorant"gray"]; dropseed =
 
 # Include geomean as the first entry, then per-task entries.
 legend_entries = vcat(
-    [(label = "Geometric mean of all (%'s relative to 1.10)", color = colorant"crimson", shape = :diamond, size = 6)],
+    [(label = "Geometric mean of all (%'s relative to $(JULIA_VERSIONS[1]))", color = colorant"crimson", shape = :diamond, size = 6)],
     [(label = string(k[1], " / ", k[2]),
       color = palette[i], shape = :circle, size = 5) for (i, k) in enumerate(task_keys)],
 )
