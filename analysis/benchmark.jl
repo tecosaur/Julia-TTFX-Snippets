@@ -2,9 +2,10 @@
 
 using Printf
 
-const JULIA_VERSIONS = ["1.10", "1.11", "1.12", "1.13-nightly", "nightly", "nightly2"]
-# "nightly2" runs nightly with JULIA_IMAGE_THREADS=Sys.CPU_THREADS
-const VERSION_CHANNEL = Dict("nightly2" => "nightly")
+const JULIA_VERSIONS = ["nightly-O0", "nightly-O1", "nightly", "1.13-nightly", "1.12", "1.11", "1.10"]
+# "nightly-O1"/"nightly-O0" run nightly with precompilation at the specified optimization level
+const VERSION_CHANNEL = Dict("nightly-O1" => "nightly", "nightly-O0" => "nightly")
+const VERSION_OPT = Dict("nightly-O1" => 1, "nightly-O0" => 0)
 const TASKS_DIR = joinpath(@__DIR__, "..", "tasks")
 const RESULTS_FILE = joinpath(@__DIR__, "results.json")
 
@@ -73,10 +74,7 @@ function run_task(ver::String, depot::String, task::TaskInfo)
     proj = task.dir
     base_env    = ("JULIA_DEPOT_PATH" => depot_path,)
     inst_env    = ("JULIA_DEPOT_PATH" => depot_path, "JULIA_PKG_PRECOMPILE_AUTO" => "0")
-    precomp_env = ver == "nightly2" ?
-        ("JULIA_DEPOT_PATH" => depot_path, "JULIA_PKG_PRECOMPILE_AUTO" => "0",
-         "JULIA_IMAGE_THREADS" => string(Sys.CPU_THREADS)) :
-        inst_env
+    precomp_env = inst_env
 
     # 1. Instantiate packages without triggering precompilation, then rename
     #    Manifest.toml to Manifest-vX.Y.toml to preserve per-version manifests.
@@ -101,7 +99,12 @@ end"""
 
     # 3. Precompile and measure elapsed time.
     #    Use a marker so any stray stdout from Pkg can't contaminate the parse.
-    precomp_code = "using Pkg; t = @elapsed Pkg.precompile(); print(\"__TTFX_T__:\", t)"
+    opt = get(VERSION_OPT, ver, nothing)
+    precomp_code = if opt === nothing
+        "using Pkg; t = @elapsed Pkg.precompile(); print(\"__TTFX_T__:\", t)"
+    else
+        "t = @elapsed Base.Precompilation.precompilepkgs(configs=`` => Base.CacheFlags(opt_level=$opt)); print(\"__TTFX_T__:\", t)"
+    end
     precompile_time = nothing
     try
         precomp_out, _ = capture(addenv(
