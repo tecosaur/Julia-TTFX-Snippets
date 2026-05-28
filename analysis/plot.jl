@@ -14,15 +14,17 @@ const METRICS = [
 
 records = JSON.parsefile(RESULTS)
 
-# Versions in order of first appearance (matches benchmark run order)
-const JULIA_VERSIONS = let seen = Set{String}(), vers = String[]
-    for r in records
-        v = r["julia_version"]
-        v ∉ seen && (push!(seen, v); push!(vers, v))
-    end
-    vers
+# Order versions: numeric releases ascending, then dev-nightlies (e.g. "1.13-nightly"),
+# then "nightly", then any "pr*" builds last.
+function version_sort_key(v::AbstractString)
+    group = startswith(v, "pr") ? 3 :
+            v == "nightly"      ? 2 :
+            occursin("nightly", v) ? 1 : 0
+    m = match(r"^(\d+)\.(\d+)", v)
+    nums = m === nothing ? (0, 0) : (parse(Int, m.captures[1]), parse(Int, m.captures[2]))
+    (group, nums, v)
 end
-reverse!(JULIA_VERSIONS)
+const JULIA_VERSIONS = sort!(unique(r["julia_version"] for r in records); by = version_sort_key)
 
 # Group by task: (package, task) => Dict(version => Dict(metric => seconds))
 tasks = Dict{Tuple{String, String}, Dict{String, Dict{String, Float64}}}()
@@ -35,6 +37,18 @@ for r in records
         v = get(r, m.field, nothing)
         v isa Number && v > 0 && (by_metric[m.field] = float(v))
     end
+end
+# Per-metric: a task contributes to a metric's geomean only if it has a positive
+# value for that metric on every version.
+clean_keys_per_metric = Dict{String, Vector{Tuple{String,String}}}()
+for m in METRICS
+    ks = Tuple{String,String}[]
+    for (key, by_ver) in tasks
+        if all(haskey(get(by_ver, v, Dict{String,Float64}()), m.field) for v in JULIA_VERSIONS)
+            push!(ks, key)
+        end
+    end
+    clean_keys_per_metric[m.field] = ks
 end
 
 # Geometric mean (skipping missing/non-positive)
@@ -91,13 +105,17 @@ panels = map(enumerate(METRICS)) do (idx, m)
               label = key[2])
     end
 
-    # Geometric mean across tasks per version
-    gm = [geomean([get(get(by_ver, v, Dict{String,Float64}()), m.field, 0.0)
-                   for (_, by_ver) in tasks])
+    # Geometric mean across tasks per version (per-metric: only tasks with a
+    # positive value for this metric on every version contribute).
+    metric_keys = clean_keys_per_metric[m.field]
+    gm = [geomean([tasks[k][v][m.field] for k in metric_keys])
           for v in JULIA_VERSIONS]
     plot!(plt, 1:length(JULIA_VERSIONS), gm;
           color = :crimson, linewidth = 3, markershape = :diamond, markersize = 6,
           label = "")
+
+    # Per-panel count of contributing tasks
+    title!(plt, string(m.title, " (geomean of ", length(metric_keys), "/", length(tasks), ")"))
 
     # Annotate each geomean marker with +/- % relative to 1.10
     baseline = gm[1]
@@ -164,7 +182,9 @@ layout = eval(Meta.parse("Plots.@layout [a b c; d{$(legend_frac)h}]"))
 final = plot(panels..., legend_pane;
              layout      = layout,
              size        = (1500, total_px),
-             plot_title  = "TTFX across Julia versions ($(length(tasks)) tasks from tecosaur/Julia-TTFX-Snippets)",
+             plot_title  = "TTFX across Julia versions ($(length(tasks)) tasks from tecosaur/Julia-TTFX-Snippets)\ngeomean per panel uses only tasks with a value for that metric on every version",
+             plot_titlefontsize = 11,
+             plot_titlevspan = 0.08,
              left_margin = 10Plots.mm, right_margin = 5Plots.mm, bottom_margin = 5Plots.mm)
 
 savefig(final, OUTPUT)
