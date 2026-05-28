@@ -2,10 +2,9 @@
 
 using Printf
 
-const JULIA_VERSIONS = ["nightly-O0", "nightly-O1", "nightly", "1.13-nightly", "1.12", "1.11", "1.10"]
-# "nightly-O1"/"nightly-O0" run nightly with precompilation at the specified optimization level
-const VERSION_CHANNEL = Dict("nightly-O1" => "nightly", "nightly-O0" => "nightly")
-const VERSION_OPT = Dict("nightly-O1" => 1, "nightly-O0" => 0)
+const JULIA_VERSIONS = ["pr61920", "nightly", "1.13-nightly", "1.12", "1.11", "1.10"]
+const VERSION_CHANNEL = Dict{String,String}()
+const VERSION_OPT = Dict{String,Int}()
 const TASKS_DIR = joinpath(@__DIR__, "..", "tasks")
 const RESULTS_FILE = joinpath(@__DIR__, "results.json")
 
