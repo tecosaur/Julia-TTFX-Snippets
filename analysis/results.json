@@ -1,872 +1,14 @@
 [
   {
-    "julia_version": "nightly-O0",
-    "package": "Attractors",
-    "task": "Multistability-Of-Discrete-Time-Systems",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 56.418208644,
-    "load_time": 59.51747393608093,
-    "run_time": 1.4921588897705078,
-    "total_time": 61.00963282585144
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "BaseDirs",
-    "task": "Project-Path",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 2.838047174,
-    "load_time": 3.0494141578674316,
-    "run_time": 0.00032782554626464844,
-    "total_time": 3.0497419834136963
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "BaseDirs",
-    "task": "User-Cache",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 2.830699676,
-    "load_time": 3.1500439643859863,
-    "run_time": 0.0002830028533935547,
-    "total_time": 3.15032696723938
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "BenchmarkTools",
-    "task": "Basic-Benchmark",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 14.614441509,
-    "load_time": 15.62122106552124,
-    "run_time": 0.19809579849243164,
-    "total_time": 15.819316864013672
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "CairoMakie",
-    "task": "Plot-A-Sine-Wave",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 177.613462,
-    "load_time": 177.32285404205322,
-    "run_time": 0.6157209873199463,
-    "total_time": 177.93857502937317
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "ComplexityMeasures",
-    "task": "Nonlinear-Timeseries-Analysis",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 25.571687403,
-    "load_time": 27.34019708633423,
-    "run_time": 1.3349618911743164,
-    "total_time": 28.675158977508545
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "ComponentArrays",
-    "task": "Basic-Manipulations",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 21.537743462,
-    "load_time": 22.262696027755737,
-    "run_time": 0.5849258899688721,
-    "total_time": 22.84762191772461
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "DataFrames",
-    "task": "Dataframe-Construction",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 43.314276628,
-    "load_time": 45.446173906326294,
-    "run_time": 0.022356033325195312,
-    "total_time": 45.46852993965149
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "DifferentiationInterface",
-    "task": "Jacobian-With-Finite-Differences",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 2.302309928,
-    "load_time": 2.451223850250244,
-    "run_time": 0.6089520454406738,
-    "total_time": 3.060175895690918
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "Distributions",
-    "task": "Normal-Distribution",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 11.924431776,
-    "load_time": 12.67441701889038,
-    "run_time": 0.18560004234313965,
-    "total_time": 12.86001706123352
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "Enzyme",
-    "task": "Gradient-Of-Square-Norm",
-    "status": "error",
-    "error": "task: \u001b[0KERROR: LoadError: UndefVarError: `hvcat_fill!` not defined in `Base`",
-    "precompile_time": 39.397774128,
-    "load_time": null,
-    "run_time": null,
-    "total_time": null
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "ExplicitImports",
-    "task": "Print_Explicit_Imports",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 25.935770007,
-    "load_time": 26.71387791633606,
-    "run_time": 0.4072740077972412,
-    "total_time": 27.1211519241333
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "FiniteDiff",
-    "task": "Gradient-Of-Square-Norm",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 5.145746805,
-    "load_time": 5.476744174957275,
-    "run_time": 0.2771718502044678,
-    "total_time": 5.753916025161743
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "Flux",
-    "task": "Basic-Model-Gradient",
-    "status": "error",
-    "error": "task: \u001b[0KInternal error: during type inference of",
-    "precompile_time": 33.708837083,
-    "load_time": null,
-    "run_time": null,
-    "total_time": null
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "ForwardDiff",
-    "task": "Gradient-Of-Square-Norm",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 8.619207167,
-    "load_time": 9.078733921051025,
-    "run_time": 0.46828317642211914,
-    "total_time": 9.547017097473145
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "GMT",
-    "task": "Create-A-Xy-Plot",
-    "status": "error",
-    "error": "task: ERROR: LoadError: IOError: unlink(\"gmt.history\"): no such file or directory (ENOENT)",
-    "precompile_time": 68.527351754,
-    "load_time": null,
-    "run_time": null,
-    "total_time": null
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "Graphs",
-    "task": "Graph-Construction",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 13.457218245,
-    "load_time": 14.229879140853882,
-    "run_time": 0.10551095008850098,
-    "total_time": 14.335390090942383
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "HiddenMarkovModels",
-    "task": "Estimate-Hmm-With-Baum-Welch",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 13.744517792,
-    "load_time": 21.508509874343872,
-    "run_time": 1.7476270198822021,
-    "total_time": 23.256136894226074
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "IterativeSolvers",
-    "task": "Conjugate-Gradient-Solve",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 5.673506459,
-    "load_time": 6.234391212463379,
-    "run_time": 0.7740499973297119,
-    "total_time": 7.008441209793091
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "JET",
-    "task": "Type-Stability-Analysis",
-    "status": "error",
-    "error": "instantiate: process failed\n--- stderr ---\n    Updating registry at `/tmp/julia-ttfx-9I1P6e/registries/General.toml`\nERROR: Unsatisfiable requirements detected for package JET [c3a54625]:\n JET [c3a54625] log:\n ├─possible versions are: 0.0.1 - 0.11.3 or uninstalled\n ├─restricted to versions 0.6.1 - * by project [88d8a214], leaving only versions: 0.6.1 - 0.11.3\n │ └─project [88d8a214] log:\n │   ├─possible versions are: 0.0.0 or uninstalled\n │   └─project [88d8a214] is fixed to version 0.0.0\n └─restricted by julia compatibility requirements to versions: uninstalled — no versions left\nStacktrace:\n  [1] propagate_constraints!(graph::Pkg.Resolve.Graph, sources::Set{Int64}; log_events::Bool, err_msg_preamble::String)\n    @ Pkg.Resolve ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/Resolve/graphtype.jl:1198\n  [2] Set{Int64}()\n    @ Base ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/Resolve/graphtype.jl:1115 [inlined]\n  [3] propagate_constraints!(graph::Pkg.Resolve.Graph)\n    @ Pkg.Resolve ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/Resolve/graphtype.jl:1115 [inlined]\n  [4] simplify_graph!(graph::Pkg.Resolve.Graph, sources::Set{Int64}; validate_versions::Bool)\n    @ Pkg.Resolve ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/Resolve/graphtype.jl:1728\n  [5] setindex!(b::Base.RefValue{Union{Nothing, Dict{Base.UUID, Pkg.Types.StdlibInfo}}}, x::Dict{Base.UUID, Pkg.Types.StdlibInfo})\n    @ Base ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/Resolve/graphtype.jl:1727 [inlined]\n  [6] stdlib_infos()\n    @ Pkg.Types ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/Resolve/graphtype.jl:1727 [inlined]\n  [7] resolve_versions!(env::Pkg.Types.EnvCache, registries::Vector{Pkg.Registry.RegistryInstance}, pkgs::Vector{PackageSpec}, julia_version::VersionNumber, installed_only::Bool, preferred_versions::Dict{Base.UUID, VersionNumber})\n    @ Pkg.Operations ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/Operations.jl:831\n  [8] manifest_info(manifest::Pkg.Types.Manifest, uuid::Base.UUID)\n    @ Pkg.Types ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/Operations.jl:760 [inlined]\n  [9] up(ctx::Pkg.Types.Context, pkgs::Vector{PackageSpec}, level::UpgradeLevel; skip_writing_project::Bool, preserve::Nothing)\n    @ Pkg.Operations ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/Operations.jl:2622\n [10] iterate(A::Vector{PackageSpec}, state::Int64)\n    @ Base ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/Operations.jl:2596 [inlined]\n [11] up(ctx::Pkg.Types.Context, pkgs::Vector{PackageSpec}; level::UpgradeLevel, mode::PackageMode, preserve::Nothing, update_registry::Bool, skip_writing_project::Bool, workspace::Bool, kwargs::@Kwargs{})\n    @ Pkg.API ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/API.jl:480\n [12] skip_deleted(h::Dict{Base.UUID, Pkg.Types.PackageEntry}, i::Int64)\n    @ Base ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/API.jl:447 [inlined]\n [13] iterate(t::Dict{Base.UUID, Pkg.Types.PackageEntry})\n    @ Base ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/API.jl:177 [inlined]\n [14] iterate(m::Pkg.Types.Manifest)\n    @ Pkg.Types ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/API.jl:177 [inlined]\n [15] instantiate(ctx::Pkg.Types.Context; manifest::Nothing, update_registry::Bool, verbose::Bool, platform::Base.BinaryPlatforms.Platform, allow_build::Bool, allow_autoprecomp::Bool, workspace::Bool, julia_version_strict::Bool, update_on_mismatch::Bool, kwargs::@Kwargs{})\n    @ Pkg.API ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/API.jl:1324\n [16] instantiate\n    @ ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/API.jl:1293 [inlined]\n [17] instantiate(; kwargs::@Kwargs{})\n    @ Pkg.API ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/API.jl:1292 [inlined]\n [18] top-level scope\n    @ none:2\n [19] eval(m::Module, e::Any)\n    @ Core ./boot.jl:517\n [20] exec_options(opts::Base.JLOptions)\n    @ Base ./client.jl:321\n [21] _start()\n    @ Base ./client.jl:596\n",
-    "precompile_time": null,
-    "load_time": null,
-    "run_time": null,
-    "total_time": null
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "JLArrays",
-    "task": "Matrix-Multiplication-On-Gpu-Like-Arrays",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 18.419347699,
-    "load_time": 19.57948088645935,
-    "run_time": 1.314453125,
-    "total_time": 20.89393401145935
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "JuliaFormatter",
-    "task": "Format-Text",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 27.174619537,
-    "load_time": 27.711592197418213,
-    "run_time": 0.0031828880310058594,
-    "total_time": 27.71477508544922
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "KangarooTwelve",
-    "task": "Hash-Nothing",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 14.832594647,
-    "load_time": 16.940485954284668,
-    "run_time": 0.0002739429473876953,
-    "total_time": 16.940759897232056
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "Krylov",
-    "task": "Conjugate-Gradient-Solve",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 5.992480391,
-    "load_time": 6.281584024429321,
-    "run_time": 1.2514309883117676,
-    "total_time": 7.533015012741089
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "LoopVectorization",
-    "task": "Dot-Product",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 38.159831999,
-    "load_time": 39.744308948516846,
-    "run_time": 0.647130012512207,
-    "total_time": 40.39143896102905
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "Manifolds",
-    "task": "Geodesic-On-Sphere",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 22.321054512,
-    "load_time": 23.490530967712402,
-    "run_time": 0.43640804290771484,
-    "total_time": 23.926939010620117
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "Measurements",
-    "task": "Addition-With-Uncertainties",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 2.052115215,
-    "load_time": 2.191241979598999,
-    "run_time": 0.05170488357543945,
-    "total_time": 2.2429468631744385
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "Mendeleev",
-    "task": "Get-Properties-Of-A-Chemical-Element",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 17.206689879,
-    "load_time": 17.790416955947876,
-    "run_time": 2.6596930027008057,
-    "total_time": 20.45010995864868
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "Mooncake",
-    "task": "Gradient-Of-Square-Norm",
-    "status": "error",
-    "error": "task: \u001b[0KERROR: LoadError: UndefVarError: `WorldView` not defined in `Compiler`",
-    "precompile_time": 17.340663216,
-    "load_time": null,
-    "run_time": null,
-    "total_time": null
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "Optim",
-    "task": "Rosenbrock-Minimization-With-Bfgs",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 8.850802637,
-    "load_time": 9.512075901031494,
-    "run_time": 1.5268311500549316,
-    "total_time": 11.038907051086426
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "Optimization",
-    "task": "Rosenbrock-Minimization-With-Bfgs-Using-Forwarddiff",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 24.889156677,
-    "load_time": 42.90822982788086,
-    "run_time": 2.6176671981811523,
-    "total_time": 45.52589702606201
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "OrdinaryDiffEq",
-    "task": "Solve-The-Lorenz-Equation",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 134.509099808,
-    "load_time": 126.68831992149353,
-    "run_time": 0.189863920211792,
-    "total_time": 126.87818384170532
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "QuantumAlgebra",
-    "task": "Commute-Two-Operators",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 17.315316609,
-    "load_time": 18.79348587989807,
-    "run_time": 0.011090993881225586,
-    "total_time": 18.804576873779297
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "ReverseDiff",
-    "task": "Gradient-Of-Square-Norm",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 22.526482767,
-    "load_time": 24.857715129852295,
-    "run_time": 0.5808908939361572,
-    "total_time": 25.438606023788452
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "ShareAdd",
-    "task": "Get-Info-On-Stdlib-In-Internal-Shareadd-Format",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 8.760231671,
-    "load_time": 9.440149068832397,
-    "run_time": 0.004910945892333984,
-    "total_time": 9.445060014724731
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "SparseMatrixColorings",
-    "task": "Basic-Coloring",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 6.682338392,
-    "load_time": 7.446876049041748,
-    "run_time": 0.058912038803100586,
-    "total_time": 7.505788087844849
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "StaticArrays",
-    "task": "Matrix-Multiplication",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 8.873298731,
-    "load_time": 9.260223865509033,
-    "run_time": 0.059060096740722656,
-    "total_time": 9.319283962249756
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "UnROOT",
-    "task": "Loading-A-Typical-Hep-Ex--Root-File",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 33.329516886,
-    "load_time": 34.93563485145569,
-    "run_time": 2.1111690998077393,
-    "total_time": 37.04680395126343
-  },
-  {
-    "julia_version": "nightly-O0",
-    "package": "Zygote",
-    "task": "Gradient-Of-Square-Norm",
-    "status": "error",
-    "error": "task: \u001b[0KInternal error: during type inference of",
-    "precompile_time": 25.688976282,
-    "load_time": null,
-    "run_time": null,
-    "total_time": null
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "Attractors",
-    "task": "Multistability-Of-Discrete-Time-Systems",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 55.99021937,
-    "load_time": 59.07064604759216,
-    "run_time": 1.5185120105743408,
-    "total_time": 60.589158058166504
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "BaseDirs",
-    "task": "Project-Path",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 2.812183104,
-    "load_time": 3.0940229892730713,
-    "run_time": 0.0003228187561035156,
-    "total_time": 3.094345808029175
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "BaseDirs",
-    "task": "User-Cache",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 2.868894713,
-    "load_time": 3.146615982055664,
-    "run_time": 0.0002880096435546875,
-    "total_time": 3.1469039916992188
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "BenchmarkTools",
-    "task": "Basic-Benchmark",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 14.80683264,
-    "load_time": 15.919423818588257,
-    "run_time": 0.1943950653076172,
-    "total_time": 16.113818883895874
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "CairoMakie",
-    "task": "Plot-A-Sine-Wave",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 168.38671991,
-    "load_time": 176.83762288093567,
-    "run_time": 0.617717981338501,
-    "total_time": 177.45534086227417
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "ComplexityMeasures",
-    "task": "Nonlinear-Timeseries-Analysis",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 25.593037714,
-    "load_time": 27.450721979141235,
-    "run_time": 1.3717641830444336,
-    "total_time": 28.82248616218567
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "ComponentArrays",
-    "task": "Basic-Manipulations",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 21.963642644,
-    "load_time": 22.6669020652771,
-    "run_time": 0.5598728656768799,
-    "total_time": 23.22677493095398
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "DataFrames",
-    "task": "Dataframe-Construction",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 42.821855114,
-    "load_time": 44.81155300140381,
-    "run_time": 0.02298903465270996,
-    "total_time": 44.83454203605652
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "DifferentiationInterface",
-    "task": "Jacobian-With-Finite-Differences",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 2.298704955,
-    "load_time": 2.474760055541992,
-    "run_time": 0.6280820369720459,
-    "total_time": 3.102842092514038
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "Distributions",
-    "task": "Normal-Distribution",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 11.889521038,
-    "load_time": 12.659590005874634,
-    "run_time": 0.1921830177307129,
-    "total_time": 12.851773023605347
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "Enzyme",
-    "task": "Gradient-Of-Square-Norm",
-    "status": "error",
-    "error": "task: \u001b[0KERROR: LoadError: UndefVarError: `hvcat_fill!` not defined in `Base`",
-    "precompile_time": 39.139280844,
-    "load_time": null,
-    "run_time": null,
-    "total_time": null
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "ExplicitImports",
-    "task": "Print_Explicit_Imports",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 26.17557582,
-    "load_time": 26.6040141582489,
-    "run_time": 0.42291998863220215,
-    "total_time": 27.026934146881104
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "FiniteDiff",
-    "task": "Gradient-Of-Square-Norm",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 5.109464338,
-    "load_time": 5.3510260581970215,
-    "run_time": 0.2924470901489258,
-    "total_time": 5.643473148345947
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "Flux",
-    "task": "Basic-Model-Gradient",
-    "status": "error",
-    "error": "task: \u001b[0KInternal error: during type inference of",
-    "precompile_time": 34.030692209,
-    "load_time": null,
-    "run_time": null,
-    "total_time": null
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "ForwardDiff",
-    "task": "Gradient-Of-Square-Norm",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 8.517421791,
-    "load_time": 9.059298038482666,
-    "run_time": 0.46957898139953613,
-    "total_time": 9.528877019882202
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "GMT",
-    "task": "Create-A-Xy-Plot",
-    "status": "error",
-    "error": "task: ERROR: LoadError: IOError: unlink(\"gmt.history\"): no such file or directory (ENOENT)",
-    "precompile_time": 69.799565875,
-    "load_time": null,
-    "run_time": null,
-    "total_time": null
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "Graphs",
-    "task": "Graph-Construction",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 13.298753819,
-    "load_time": 14.157758951187134,
-    "run_time": 0.1123359203338623,
-    "total_time": 14.270094871520996
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "HiddenMarkovModels",
-    "task": "Estimate-Hmm-With-Baum-Welch",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 13.822593177,
-    "load_time": 21.586087942123413,
-    "run_time": 1.7509698867797852,
-    "total_time": 23.3370578289032
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "IterativeSolvers",
-    "task": "Conjugate-Gradient-Solve",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 5.643636039,
-    "load_time": 6.13666296005249,
-    "run_time": 0.7869629859924316,
-    "total_time": 6.923625946044922
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "JET",
-    "task": "Type-Stability-Analysis",
-    "status": "error",
-    "error": "instantiate: process failed\n--- stderr ---\n    Updating registry at `/tmp/julia-ttfx-9I1P6e/registries/General.toml`\nERROR: Unsatisfiable requirements detected for package JET [c3a54625]:\n JET [c3a54625] log:\n ├─possible versions are: 0.0.1 - 0.11.3 or uninstalled\n ├─restricted to versions 0.6.1 - * by project [88d8a214], leaving only versions: 0.6.1 - 0.11.3\n │ └─project [88d8a214] log:\n │   ├─possible versions are: 0.0.0 or uninstalled\n │   └─project [88d8a214] is fixed to version 0.0.0\n └─restricted by julia compatibility requirements to versions: uninstalled — no versions left\nStacktrace:\n  [1] propagate_constraints!(graph::Pkg.Resolve.Graph, sources::Set{Int64}; log_events::Bool, err_msg_preamble::String)\n    @ Pkg.Resolve ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/Resolve/graphtype.jl:1198\n  [2] Set{Int64}()\n    @ Base ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/Resolve/graphtype.jl:1115 [inlined]\n  [3] propagate_constraints!(graph::Pkg.Resolve.Graph)\n    @ Pkg.Resolve ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/Resolve/graphtype.jl:1115 [inlined]\n  [4] simplify_graph!(graph::Pkg.Resolve.Graph, sources::Set{Int64}; validate_versions::Bool)\n    @ Pkg.Resolve ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/Resolve/graphtype.jl:1728\n  [5] setindex!(b::Base.RefValue{Union{Nothing, Dict{Base.UUID, Pkg.Types.StdlibInfo}}}, x::Dict{Base.UUID, Pkg.Types.StdlibInfo})\n    @ Base ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/Resolve/graphtype.jl:1727 [inlined]\n  [6] stdlib_infos()\n    @ Pkg.Types ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/Resolve/graphtype.jl:1727 [inlined]\n  [7] resolve_versions!(env::Pkg.Types.EnvCache, registries::Vector{Pkg.Registry.RegistryInstance}, pkgs::Vector{PackageSpec}, julia_version::VersionNumber, installed_only::Bool, preferred_versions::Dict{Base.UUID, VersionNumber})\n    @ Pkg.Operations ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/Operations.jl:831\n  [8] manifest_info(manifest::Pkg.Types.Manifest, uuid::Base.UUID)\n    @ Pkg.Types ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/Operations.jl:760 [inlined]\n  [9] up(ctx::Pkg.Types.Context, pkgs::Vector{PackageSpec}, level::UpgradeLevel; skip_writing_project::Bool, preserve::Nothing)\n    @ Pkg.Operations ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/Operations.jl:2622\n [10] iterate(A::Vector{PackageSpec}, state::Int64)\n    @ Base ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/Operations.jl:2596 [inlined]\n [11] up(ctx::Pkg.Types.Context, pkgs::Vector{PackageSpec}; level::UpgradeLevel, mode::PackageMode, preserve::Nothing, update_registry::Bool, skip_writing_project::Bool, workspace::Bool, kwargs::@Kwargs{})\n    @ Pkg.API ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/API.jl:480\n [12] skip_deleted(h::Dict{Base.UUID, Pkg.Types.PackageEntry}, i::Int64)\n    @ Base ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/API.jl:447 [inlined]\n [13] iterate(t::Dict{Base.UUID, Pkg.Types.PackageEntry})\n    @ Base ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/API.jl:177 [inlined]\n [14] iterate(m::Pkg.Types.Manifest)\n    @ Pkg.Types ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/API.jl:177 [inlined]\n [15] instantiate(ctx::Pkg.Types.Context; manifest::Nothing, update_registry::Bool, verbose::Bool, platform::Base.BinaryPlatforms.Platform, allow_build::Bool, allow_autoprecomp::Bool, workspace::Bool, julia_version_strict::Bool, update_on_mismatch::Bool, kwargs::@Kwargs{})\n    @ Pkg.API ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/API.jl:1324\n [16] instantiate\n    @ ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/API.jl:1293 [inlined]\n [17] instantiate(; kwargs::@Kwargs{})\n    @ Pkg.API ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/API.jl:1292 [inlined]\n [18] top-level scope\n    @ none:2\n [19] eval(m::Module, e::Any)\n    @ Core ./boot.jl:517\n [20] exec_options(opts::Base.JLOptions)\n    @ Base ./client.jl:321\n [21] _start()\n    @ Base ./client.jl:596\n",
-    "precompile_time": null,
-    "load_time": null,
-    "run_time": null,
-    "total_time": null
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "JLArrays",
-    "task": "Matrix-Multiplication-On-Gpu-Like-Arrays",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 18.41319631,
-    "load_time": 19.708181858062744,
-    "run_time": 1.3069219589233398,
-    "total_time": 21.015103816986084
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "JuliaFormatter",
-    "task": "Format-Text",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 27.471569194,
-    "load_time": 28.277759075164795,
-    "run_time": 0.0032868385314941406,
-    "total_time": 28.28104591369629
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "KangarooTwelve",
-    "task": "Hash-Nothing",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 14.501559911,
-    "load_time": 16.68812608718872,
-    "run_time": 0.0002789497375488281,
-    "total_time": 16.68840503692627
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "Krylov",
-    "task": "Conjugate-Gradient-Solve",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 6.130678043,
-    "load_time": 6.469503879547119,
-    "run_time": 1.2082359790802002,
-    "total_time": 7.677739858627319
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "LoopVectorization",
-    "task": "Dot-Product",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 39.175842728,
-    "load_time": 39.97315692901611,
-    "run_time": 0.6378428936004639,
-    "total_time": 40.61099982261658
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "Manifolds",
-    "task": "Geodesic-On-Sphere",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 22.57454393,
-    "load_time": 23.707443952560425,
-    "run_time": 0.420090913772583,
-    "total_time": 24.127534866333008
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "Measurements",
-    "task": "Addition-With-Uncertainties",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 2.045460475,
-    "load_time": 2.2039690017700195,
-    "run_time": 0.051451921463012695,
-    "total_time": 2.2554209232330322
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "Mendeleev",
-    "task": "Get-Properties-Of-A-Chemical-Element",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 17.862165984,
-    "load_time": 18.21143388748169,
-    "run_time": 2.5401511192321777,
-    "total_time": 20.751585006713867
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "Mooncake",
-    "task": "Gradient-Of-Square-Norm",
-    "status": "error",
-    "error": "task: \u001b[0KERROR: LoadError: UndefVarError: `WorldView` not defined in `Compiler`",
-    "precompile_time": 17.327659994,
-    "load_time": null,
-    "run_time": null,
-    "total_time": null
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "Optim",
-    "task": "Rosenbrock-Minimization-With-Bfgs",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 9.037129712,
-    "load_time": 9.469167947769165,
-    "run_time": 1.5581021308898926,
-    "total_time": 11.027270078659058
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "Optimization",
-    "task": "Rosenbrock-Minimization-With-Bfgs-Using-Forwarddiff",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 24.794793091,
-    "load_time": 43.206936836242676,
-    "run_time": 2.645217180252075,
-    "total_time": 45.85215401649475
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "OrdinaryDiffEq",
-    "task": "Solve-The-Lorenz-Equation",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 119.351944171,
-    "load_time": 127.66795992851257,
-    "run_time": 0.1905820369720459,
-    "total_time": 127.85854196548462
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "QuantumAlgebra",
-    "task": "Commute-Two-Operators",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 18.046692744,
-    "load_time": 19.011389017105103,
-    "run_time": 0.011205911636352539,
-    "total_time": 19.022594928741455
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "ReverseDiff",
-    "task": "Gradient-Of-Square-Norm",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 22.186421997,
-    "load_time": 24.624600887298584,
-    "run_time": 0.5869200229644775,
-    "total_time": 25.21152091026306
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "ShareAdd",
-    "task": "Get-Info-On-Stdlib-In-Internal-Shareadd-Format",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 8.783888587,
-    "load_time": 9.507765054702759,
-    "run_time": 0.004927873611450195,
-    "total_time": 9.512692928314209
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "SparseMatrixColorings",
-    "task": "Basic-Coloring",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 6.765742268,
-    "load_time": 7.419512987136841,
-    "run_time": 0.05890989303588867,
-    "total_time": 7.4784228801727295
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "StaticArrays",
-    "task": "Matrix-Multiplication",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 8.875445308,
-    "load_time": 9.31067705154419,
-    "run_time": 0.05897712707519531,
-    "total_time": 9.369654178619385
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "UnROOT",
-    "task": "Loading-A-Typical-Hep-Ex--Root-File",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 33.551805825,
-    "load_time": 35.08160090446472,
-    "run_time": 2.0391271114349365,
-    "total_time": 37.12072801589966
-  },
-  {
-    "julia_version": "nightly-O1",
-    "package": "Zygote",
-    "task": "Gradient-Of-Square-Norm",
-    "status": "error",
-    "error": "task: \u001b[0KInternal error: during type inference of",
-    "precompile_time": 25.717167086,
-    "load_time": null,
-    "run_time": null,
-    "total_time": null
-  },
-  {
     "julia_version": "nightly",
     "package": "Attractors",
     "task": "Multistability-Of-Discrete-Time-Systems",
     "status": "ok",
     "error": null,
-    "precompile_time": 57.167826689,
-    "load_time": 1.3823120594024658,
-    "run_time": 1.5106308460235596,
-    "total_time": 2.8929429054260254
+    "precompile_time": 63.981233053,
+    "load_time": 2.0041959285736084,
+    "run_time": 1.5896401405334473,
+    "total_time": 3.5938360691070557
   },
   {
     "julia_version": "nightly",
@@ -874,10 +16,10 @@
     "task": "Project-Path",
     "status": "ok",
     "error": null,
-    "precompile_time": 3.109861629,
-    "load_time": 0.00596308708190918,
-    "run_time": 0.00030303001403808594,
-    "total_time": 0.006266117095947266
+    "precompile_time": 2.247342976,
+    "load_time": 0.0058629512786865234,
+    "run_time": 0.009549856185913086,
+    "total_time": 0.01541280746459961
   },
   {
     "julia_version": "nightly",
@@ -885,10 +27,10 @@
     "task": "User-Cache",
     "status": "ok",
     "error": null,
-    "precompile_time": 3.091664375,
-    "load_time": 0.005619049072265625,
-    "run_time": 0.0002498626708984375,
-    "total_time": 0.0058689117431640625
+    "precompile_time": 1.839648645,
+    "load_time": 0.006769895553588867,
+    "run_time": 0.0002970695495605469,
+    "total_time": 0.007066965103149414
   },
   {
     "julia_version": "nightly",
@@ -896,10 +38,10 @@
     "task": "Basic-Benchmark",
     "status": "ok",
     "error": null,
-    "precompile_time": 15.76958611,
-    "load_time": 0.12158608436584473,
-    "run_time": 0.20016980171203613,
-    "total_time": 0.32175588607788086
+    "precompile_time": 11.736081223,
+    "load_time": 0.10831904411315918,
+    "run_time": 0.21587610244750977,
+    "total_time": 0.32419514656066895
   },
   {
     "julia_version": "nightly",
@@ -907,10 +49,10 @@
     "task": "Plot-A-Sine-Wave",
     "status": "ok",
     "error": null,
-    "precompile_time": 172.148192757,
-    "load_time": 4.115967035293579,
-    "run_time": 0.6135220527648926,
-    "total_time": 4.729489088058472
+    "precompile_time": 168.428865401,
+    "load_time": 3.8516440391540527,
+    "run_time": 1.9103379249572754,
+    "total_time": 5.761981964111328
   },
   {
     "julia_version": "nightly",
@@ -918,10 +60,10 @@
     "task": "Nonlinear-Timeseries-Analysis",
     "status": "ok",
     "error": null,
-    "precompile_time": 26.464369729,
-    "load_time": 0.8512458801269531,
-    "run_time": 1.3821182250976562,
-    "total_time": 2.2333641052246094
+    "precompile_time": 18.718765357,
+    "load_time": 1.3482260704040527,
+    "run_time": 1.1925718784332275,
+    "total_time": 2.5407979488372803
   },
   {
     "julia_version": "nightly",
@@ -929,10 +71,10 @@
     "task": "Basic-Manipulations",
     "status": "ok",
     "error": null,
-    "precompile_time": 22.311709793,
-    "load_time": 0.14111804962158203,
-    "run_time": 0.6040189266204834,
-    "total_time": 0.7451369762420654
+    "precompile_time": 28.179441315,
+    "load_time": 0.15050792694091797,
+    "run_time": 0.561790943145752,
+    "total_time": 0.7122988700866699
   },
   {
     "julia_version": "nightly",
@@ -940,10 +82,10 @@
     "task": "Dataframe-Construction",
     "status": "ok",
     "error": null,
-    "precompile_time": 45.437407308,
-    "load_time": 0.46005797386169434,
-    "run_time": 0.02333807945251465,
-    "total_time": 0.483396053314209
+    "precompile_time": 35.858884011,
+    "load_time": 0.5989229679107666,
+    "run_time": 0.02817988395690918,
+    "total_time": 0.6271028518676758
   },
   {
     "julia_version": "nightly",
@@ -951,10 +93,10 @@
     "task": "Jacobian-With-Finite-Differences",
     "status": "ok",
     "error": null,
-    "precompile_time": 2.501542635,
-    "load_time": 0.0075609683990478516,
-    "run_time": 0.6386170387268066,
-    "total_time": 0.6461780071258545
+    "precompile_time": 1.411601425,
+    "load_time": 0.008027076721191406,
+    "run_time": 0.628809928894043,
+    "total_time": 0.6368370056152344
   },
   {
     "julia_version": "nightly",
@@ -962,116 +104,17 @@
     "task": "Normal-Distribution",
     "status": "ok",
     "error": null,
-    "precompile_time": 12.267859931,
-    "load_time": 0.36223602294921875,
-    "run_time": 0.19978117942810059,
-    "total_time": 0.5620172023773193
+    "precompile_time": 8.607707396,
+    "load_time": 0.5066490173339844,
+    "run_time": 0.18874192237854004,
+    "total_time": 0.6953909397125244
   },
   {
     "julia_version": "nightly",
     "package": "Enzyme",
     "task": "Gradient-Of-Square-Norm",
     "status": "error",
-    "error": "task: \u001b[0KERROR: LoadError: UndefVarError: `hvcat_fill!` not defined in `Base`",
-    "precompile_time": 40.370942148,
-    "load_time": null,
-    "run_time": null,
-    "total_time": null
-  },
-  {
-    "julia_version": "nightly",
-    "package": "ExplicitImports",
-    "task": "Print_Explicit_Imports",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 27.005663172,
-    "load_time": 0.35928916931152344,
-    "run_time": 0.4222428798675537,
-    "total_time": 0.7815320491790771
-  },
-  {
-    "julia_version": "nightly",
-    "package": "FiniteDiff",
-    "task": "Gradient-Of-Square-Norm",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 5.437620817,
-    "load_time": 0.003490924835205078,
-    "run_time": 0.2951169013977051,
-    "total_time": 0.29860782623291016
-  },
-  {
-    "julia_version": "nightly",
-    "package": "Flux",
-    "task": "Basic-Model-Gradient",
-    "status": "error",
-    "error": "task: \u001b[0KInternal error: during type inference of",
-    "precompile_time": 34.860359907,
-    "load_time": null,
-    "run_time": null,
-    "total_time": null
-  },
-  {
-    "julia_version": "nightly",
-    "package": "ForwardDiff",
-    "task": "Gradient-Of-Square-Norm",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 8.945502902,
-    "load_time": 0.0833439826965332,
-    "run_time": 0.46246790885925293,
-    "total_time": 0.5458118915557861
-  },
-  {
-    "julia_version": "nightly",
-    "package": "GMT",
-    "task": "Create-A-Xy-Plot",
-    "status": "error",
-    "error": "task: ERROR: LoadError: IOError: unlink(\"gmt.history\"): no such file or directory (ENOENT)",
-    "precompile_time": 73.948136257,
-    "load_time": null,
-    "run_time": null,
-    "total_time": null
-  },
-  {
-    "julia_version": "nightly",
-    "package": "Graphs",
-    "task": "Graph-Construction",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 13.728963963,
-    "load_time": 0.426116943359375,
-    "run_time": 0.1149139404296875,
-    "total_time": 0.5410308837890625
-  },
-  {
-    "julia_version": "nightly",
-    "package": "HiddenMarkovModels",
-    "task": "Estimate-Hmm-With-Baum-Welch",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 13.95127157,
-    "load_time": 0.45134997367858887,
-    "run_time": 1.7568738460540771,
-    "total_time": 2.208223819732666
-  },
-  {
-    "julia_version": "nightly",
-    "package": "IterativeSolvers",
-    "task": "Conjugate-Gradient-Solve",
-    "status": "ok",
-    "error": null,
-    "precompile_time": 5.922076864,
-    "load_time": 0.2599630355834961,
-    "run_time": 0.8342688083648682,
-    "total_time": 1.0942318439483643
-  },
-  {
-    "julia_version": "nightly",
-    "package": "JET",
-    "task": "Type-Stability-Analysis",
-    "status": "error",
-    "error": "instantiate: process failed\n--- stderr ---\n    Updating registry at `/tmp/julia-ttfx-9I1P6e/registries/General.toml`\nERROR: Unsatisfiable requirements detected for package JET [c3a54625]:\n JET [c3a54625] log:\n ├─possible versions are: 0.0.1 - 0.11.3 or uninstalled\n ├─restricted to versions 0.6.1 - * by project [88d8a214], leaving only versions: 0.6.1 - 0.11.3\n │ └─project [88d8a214] log:\n │   ├─possible versions are: 0.0.0 or uninstalled\n │   └─project [88d8a214] is fixed to version 0.0.0\n └─restricted by julia compatibility requirements to versions: uninstalled — no versions left\nStacktrace:\n  [1] propagate_constraints!(graph::Pkg.Resolve.Graph, sources::Set{Int64}; log_events::Bool, err_msg_preamble::String)\n    @ Pkg.Resolve ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/Resolve/graphtype.jl:1198\n  [2] Set{Int64}()\n    @ Base ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/Resolve/graphtype.jl:1115 [inlined]\n  [3] propagate_constraints!(graph::Pkg.Resolve.Graph)\n    @ Pkg.Resolve ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/Resolve/graphtype.jl:1115 [inlined]\n  [4] simplify_graph!(graph::Pkg.Resolve.Graph, sources::Set{Int64}; validate_versions::Bool)\n    @ Pkg.Resolve ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/Resolve/graphtype.jl:1728\n  [5] setindex!(b::Base.RefValue{Union{Nothing, Dict{Base.UUID, Pkg.Types.StdlibInfo}}}, x::Dict{Base.UUID, Pkg.Types.StdlibInfo})\n    @ Base ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/Resolve/graphtype.jl:1727 [inlined]\n  [6] stdlib_infos()\n    @ Pkg.Types ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/Resolve/graphtype.jl:1727 [inlined]\n  [7] resolve_versions!(env::Pkg.Types.EnvCache, registries::Vector{Pkg.Registry.RegistryInstance}, pkgs::Vector{PackageSpec}, julia_version::VersionNumber, installed_only::Bool, preferred_versions::Dict{Base.UUID, VersionNumber})\n    @ Pkg.Operations ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/Operations.jl:831\n  [8] manifest_info(manifest::Pkg.Types.Manifest, uuid::Base.UUID)\n    @ Pkg.Types ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/Operations.jl:760 [inlined]\n  [9] up(ctx::Pkg.Types.Context, pkgs::Vector{PackageSpec}, level::UpgradeLevel; skip_writing_project::Bool, preserve::Nothing)\n    @ Pkg.Operations ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/Operations.jl:2622\n [10] iterate(A::Vector{PackageSpec}, state::Int64)\n    @ Base ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/Operations.jl:2596 [inlined]\n [11] up(ctx::Pkg.Types.Context, pkgs::Vector{PackageSpec}; level::UpgradeLevel, mode::PackageMode, preserve::Nothing, update_registry::Bool, skip_writing_project::Bool, workspace::Bool, kwargs::@Kwargs{})\n    @ Pkg.API ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/API.jl:480\n [12] skip_deleted(h::Dict{Base.UUID, Pkg.Types.PackageEntry}, i::Int64)\n    @ Base ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/API.jl:447 [inlined]\n [13] iterate(t::Dict{Base.UUID, Pkg.Types.PackageEntry})\n    @ Base ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/API.jl:177 [inlined]\n [14] iterate(m::Pkg.Types.Manifest)\n    @ Pkg.Types ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/API.jl:177 [inlined]\n [15] instantiate(ctx::Pkg.Types.Context; manifest::Nothing, update_registry::Bool, verbose::Bool, platform::Base.BinaryPlatforms.Platform, allow_build::Bool, allow_autoprecomp::Bool, workspace::Bool, julia_version_strict::Bool, update_on_mismatch::Bool, kwargs::@Kwargs{})\n    @ Pkg.API ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/API.jl:1324\n [16] instantiate\n    @ ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/API.jl:1293 [inlined]\n [17] instantiate(; kwargs::@Kwargs{})\n    @ Pkg.API ~/.julia/juliaup/julia-nightly/share/julia/stdlib/v1.14/Pkg/src/API.jl:1292 [inlined]\n [18] top-level scope\n    @ none:2\n [19] eval(m::Module, e::Any)\n    @ Core ./boot.jl:517\n [20] exec_options(opts::Base.JLOptions)\n    @ Base ./client.jl:321\n [21] _start()\n    @ Base ./client.jl:596\n",
+    "error": "precompile: process failed\n--- stderr ---\nPrecompiling project...\n   0.3 s  ✓ Reexport\n   0.3 s  ✓ StructIO\n   0.3 s  ✓ CEnum\n   0.3 s  ✓ ExprTools\n   0.4 s  ✓ Scratch\n   0.4 s  ✓ EnzymeCore\n   1.3 s  ✓ Preferences\n   1.0 s  ✓ ObjectFile\n   0.3 s  ✓ PrecompileTools\n   0.4 s  ✓ JLLWrappers\n   0.4 s  ✓ LibTracyClient_jll\n   0.8 s  ✓ Enzyme_jll\n   0.8 s  ✓ LLVMExtra_jll\n   0.8 s  ✓ Tracy\n   5.1 s  ✓ LLVM\nFault at memory address: 0x10000000a\n\n[2460733] signal 11 (1): Segmentation fault\nin expression starting at /tmp/julia-ttfx-PCMjDR/packages/GPUCompiler/BSi1T/src/precompile.jl:7\n__atomic_add at /usr/local/x86_64-linux-gnu/include/c++/9.1.0/ext/atomicity.h:53:54 [inlined]\n__atomic_add_dispatch at /usr/local/x86_64-linux-gnu/include/c++/9.1.0/ext/atomicity.h:96:19 [inlined]\n_M_add_ref_copy at /usr/local/x86_64-linux-gnu/include/c++/9.1.0/bits/shared_ptr_base.h:139:41 [inlined]\n__shared_count at /usr/local/x86_64-linux-gnu/include/c++/9.1.0/bits/shared_ptr_base.h:737:4 [inlined]\n__shared_ptr at /usr/local/x86_64-linux-gnu/include/c++/9.1.0/bits/shared_ptr_base.h:1167:7 [inlined]\nshared_ptr at /usr/local/x86_64-linux-gnu/include/c++/9.1.0/bits/shared_ptr.h:129:7 [inlined]\nwithContextDo<llvm::orc::ThreadSafeModule::withModuleDo(Func&&) [with Func = jl_emit_native_impl(jl_array_t*, jl_array_t*, LLVMOrcThreadSafeModuleRef, const jl_cgparams_t*, int)::<lambda(llvm::Module&)>]::<lambda(llvm::LLVMContext*)> > at /cache/build/builder-amdci5-2/julialang/julia-ci/usr/include/llvm/ExecutionEngine/Orc/ThreadSafeModule.h:50:14 [inlined]\nwithModuleDo<jl_emit_native_impl(jl_array_t*, jl_array_t*, LLVMOrcThreadSafeModuleRef, const jl_cgparams_t*, int)::<lambda(llvm::Module&)> > at /cache/build/builder-amdci5-2/julialang/julia-ci/usr/include/llvm/ExecutionEngine/Orc/ThreadSafeModule.h:117:6 [inlined]\njl_emit_native_impl at /cache/build/builder-amdci5-2/julialang/julia-ci/src/aotcompile.cpp:1017:32\ncompile_method_instance at /tmp/julia-ttfx-PCMjDR/packages/GPUCompiler/BSi1T/src/jlgen.jl:840:0 (pc: 422)\nirgen at /tmp/julia-ttfx-PCMjDR/packages/GPUCompiler/BSi1T/src/irgen.jl:4:0 (pc: 1)\n#emit_llvm#124 at /tmp/julia-ttfx-PCMjDR/packages/GPUCompiler/BSi1T/src/driver.jl:209:0 (pc: 23)\nemit_llvm at /tmp/julia-ttfx-PCMjDR/packages/GPUCompiler/BSi1T/src/driver.jl:191:0 (pc: 1)\n#compile_unhooked#121 at /tmp/julia-ttfx-PCMjDR/packages/GPUCompiler/BSi1T/src/driver.jl:95:0 (pc: 11)\ncompile_unhooked at /tmp/julia-ttfx-PCMjDR/packages/GPUCompiler/BSi1T/src/driver.jl:80:0 [inlined]\n#compile#119 at /tmp/julia-ttfx-PCMjDR/packages/GPUCompiler/BSi1T/src/driver.jl:67:0 [inlined]\ncompile at /tmp/julia-ttfx-PCMjDR/packages/GPUCompiler/BSi1T/src/driver.jl:55:0 [inlined]\n#184 at /tmp/julia-ttfx-PCMjDR/packages/GPUCompiler/BSi1T/src/precompile.jl:39:0 [inlined]\n#JuliaContext#118 at /tmp/julia-ttfx-PCMjDR/packages/GPUCompiler/BSi1T/src/driver.jl:34:0 (pc: 50)\nunknown function (ip: 0x77ddacacf851) at (unknown file)\nJuliaContext at /tmp/julia-ttfx-PCMjDR/packages/GPUCompiler/BSi1T/src/driver.jl:25:0 (pc: 1)\nunknown function (ip: 0x77ddf175c0d2) at (unknown file)\nmacro expansion at /tmp/julia-ttfx-PCMjDR/packages/GPUCompiler/BSi1T/src/precompile.jl:38:0 [inlined]\nmacro expansion at /tmp/julia-ttfx-PCMjDR/packages/PrecompileTools/QUxvR/src/workloads.jl:70:0 [inlined]\nmacro expansion at /tmp/julia-ttfx-PCMjDR/packages/GPUCompiler/BSi1T/src/precompile.jl:29:0 [inlined]\nmacro expansion at /tmp/julia-ttfx-PCMjDR/packages/PrecompileTools/QUxvR/src/workloads.jl:118:0 [inlined]\ntop-level scope at /tmp/julia-ttfx-PCMjDR/packages/GPUCompiler/BSi1T/src/precompile.jl:115:0 (pc: 88)\njl_invoke_oneshot at /cache/build/builder-amdci5-2/julialang/julia-ci/src/gf.c:4625:23\nijl_eval_thunk at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:759:18\njl_toplevel_eval_flex at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:711:26\njl_eval_toplevel_stmts at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:601:15\njl_toplevel_eval_flex at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:683:27\nijl_toplevel_eval at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:781:12\nijl_toplevel_eval_in at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:826:13\neval at ./boot.jl:618:0 (pc: 1)\ninclude_string at ./loading.jl:3263:0 (pc: 208)\n_include at ./loading.jl:3325:0 (pc: 123)\ninclude at ./Base.jl:335:0 (pc: 1)\nIncludeInto at ./Base.jl:336:0 (pc: 2)\njfptr_IncludeInto_1.1 at /home/ian/.julia/juliaup/julia-nightly/lib/julia/sys.so (unknown line)\njl_apply at /cache/build/builder-amdci5-2/julialang/julia-ci/src/julia.h:2516:12 [inlined]\ndo_call at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:123:26\neval_value at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:259:16\neval_stmt_value at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:194:23 [inlined]\neval_body at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:746:17\njl_interpret_toplevel_thunk at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:962:21\nijl_eval_thunk at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:767:18\njl_toplevel_eval_flex at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:711:26\njl_eval_toplevel_stmts at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:601:15\njl_eval_module_expr at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:266:5 [inlined]\njl_toplevel_eval_flex at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:664:27\njl_eval_toplevel_stmts at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:601:15\njl_toplevel_eval_flex at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:683:27\nijl_toplevel_eval at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:781:12\nijl_toplevel_eval_in at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:826:13\neval at ./boot.jl:618:0 (pc: 1)\ninclude_string at ./loading.jl:3263:0 (pc: 208)\n_include at ./loading.jl:3325:0 (pc: 123)\ninclude at ./Base.jl:334:0 (pc: 1)\ninclude_package_for_output at ./loading.jl:3436:0 (pc: 849)\njfptr_include_package_for_output_1.1 at /home/ian/.julia/juliaup/julia-nightly/lib/julia/sys.so (unknown line)\njl_apply at /cache/build/builder-amdci5-2/julialang/julia-ci/src/julia.h:2516:12 [inlined]\ndo_call at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:123:26\neval_value at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:259:16\neval_stmt_value at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:194:23 [inlined]\neval_body at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:746:17\njl_interpret_toplevel_thunk at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:962:21\nijl_eval_thunk at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:767:18\njl_toplevel_eval_flex at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:711:26\njl_eval_toplevel_stmts at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:601:15\njl_toplevel_eval_flex at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:683:27\nijl_toplevel_eval at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:781:12\nijl_toplevel_eval_in at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:826:13\neval at ./boot.jl:618:0 (pc: 1)\ninclude_string at ./loading.jl:3263:0 (pc: 208)\ninclude_string at ./loading.jl:3273:0 [inlined]\n__script_entry_include_string at ./client.jl:104:0 [inlined]\nexec_options at ./client.jl:382:0 (pc: 893)\n_start at ./client.jl:695:0 (pc: 325)\njfptr__start_0.1 at /home/ian/.julia/juliaup/julia-nightly/lib/julia/sys.so (unknown line)\njl_apply at /cache/build/builder-amdci5-2/julialang/julia-ci/src/julia.h:2516:12 [inlined]\ntrue_main at /cache/build/builder-amdci5-2/julialang/julia-ci/src/jlapi.c:989:29\njl_repl_entrypoint at /cache/build/builder-amdci5-2/julialang/julia-ci/src/jlapi.c:1156:15\nmain at /cache/build/builder-amdci5-2/julialang/julia-ci/cli/loader_exe.c:117:15\nunknown function (ip: 0x77de0f02a1c9) at /lib/x86_64-linux-gnu/libc.so.6\n__libc_start_main at /lib/x86_64-linux-gnu/libc.so.6 (unknown line)\nunknown function (ip: 0x4010b8) at /workspace/srcdir/glibc-2.17/csu/../sysdeps/x86_64/start.S\nAllocations: 107233313 (Pool: 107230999; Big: 2314); GC: 30\n              ✗ GPUCompiler\nERROR: LoadError: Precompiled image Base.PkgId(Base.UUID(\"61eb1bfa-7361-4325-ad38-22787b887f55\"), \"GPUCompiler\") not available with flags CacheFlags(; use_pkgimages=true, debug_level=1, check_bounds=0, inline=true, opt_level=2)\nStacktrace:\n [1] error(s::String)\n   @ Base error.jl:56\n [2] require(into::Module, mod::Symbol)\n   @ Base loading.jl:2661 [inlined]\n [3] top-level scope\n   @ /tmp/julia-ttfx-PCMjDR/packages/Enzyme/OvStQ/src/typetree.jl:6\n [4] include(mapexpr::Function, mod::Module, _path::String)\n   @ Base Base.jl:335\n [5] top-level scope\n   @ /tmp/julia-ttfx-PCMjDR/packages/Enzyme/OvStQ/src/Enzyme.jl:148\n [6] include(mod::Module, _path::String)\n   @ Base Base.jl:334\n [7] top-level scope\n   @ stdin:5\nin expression starting at /tmp/julia-ttfx-PCMjDR/packages/Enzyme/OvStQ/src/typetree.jl:6\nin expression starting at /tmp/julia-ttfx-PCMjDR/packages/Enzyme/OvStQ/src/Enzyme.jl:1\nin expression starting at stdin:5\n              ✗ Enzyme\n  15 dependencies successfully precompiled in 38 seconds. 34 already precompiled.\n  2 dependencies had output during precompilation:\n┌ GPUCompiler\n│  Fault at memory address: 0x10000000a\n│  \n│  [2460733] signal 11 (1): Segmentation fault\n│  in expression starting at /tmp/julia-ttfx-PCMjDR/packages/GPUCompiler/BSi1T/src/precompile.jl:7\n│  __atomic_add at /usr/local/x86_64-linux-gnu/include/c++/9.1.0/ext/atomicity.h:53:54 [inlined]\n│  __atomic_add_dispatch at /usr/local/x86_64-linux-gnu/include/c++/9.1.0/ext/atomicity.h:96:19 [inlined]\n│  _M_add_ref_copy at /usr/local/x86_64-linux-gnu/include/c++/9.1.0/bits/shared_ptr_base.h:139:41 [inlined]\n│  __shared_count at /usr/local/x86_64-linux-gnu/include/c++/9.1.0/bits/shared_ptr_base.h:737:4 [inlined]\n│  __shared_ptr at /usr/local/x86_64-linux-gnu/include/c++/9.1.0/bits/shared_ptr_base.h:1167:7 [inlined]\n│  shared_ptr at /usr/local/x86_64-linux-gnu/include/c++/9.1.0/bits/shared_ptr.h:129:7 [inlined]\n│  withContextDo<llvm::orc::ThreadSafeModule::withModuleDo(Func&&) [with Func = jl_emit_native_impl(jl_array_t*, jl_array_t*, LLVMOrcThreadSafeModuleRef, const jl_cgparams_t*, int)::<lambda(llvm::Module&)>]::<lambda(llvm::LLVMContext*)> > at /cache/build/builder-amdci5-2/julialang/julia-ci/usr/include/llvm/ExecutionEngine/Orc/ThreadSafeModule.h:50:14 [inlined]\n│  withModuleDo<jl_emit_native_impl(jl_array_t*, jl_array_t*, LLVMOrcThreadSafeModuleRef, const jl_cgparams_t*, int)::<lambda(llvm::Module&)> > at /cache/build/builder-amdci5-2/julialang/julia-ci/usr/include/llvm/ExecutionEngine/Orc/ThreadSafeModule.h:117:6 [inlined]\n│  jl_emit_native_impl at /cache/build/builder-amdci5-2/julialang/julia-ci/src/aotcompile.cpp:1017:32\n│  compile_method_instance at /tmp/julia-ttfx-PCMjDR/packages/GPUCompiler/BSi1T/src/jlgen.jl:840:0 (pc: 422)\n│  irgen at /tmp/julia-ttfx-PCMjDR/packages/GPUCompiler/BSi1T/src/irgen.jl:4:0 (pc: 1)\n│  #emit_llvm#124 at /tmp/julia-ttfx-PCMjDR/packages/GPUCompiler/BSi1T/src/driver.jl:209:0 (pc: 23)\n│  emit_llvm at /tmp/julia-ttfx-PCMjDR/packages/GPUCompiler/BSi1T/src/driver.jl:191:0 (pc: 1)\n│  #compile_unhooked#121 at /tmp/julia-ttfx-PCMjDR/packages/GPUCompiler/BSi1T/src/driver.jl:95:0 (pc: 11)\n│  compile_unhooked at /tmp/julia-ttfx-PCMjDR/packages/GPUCompiler/BSi1T/src/driver.jl:80:0 [inlined]\n│  #compile#119 at /tmp/julia-ttfx-PCMjDR/packages/GPUCompiler/BSi1T/src/driver.jl:67:0 [inlined]\n│  compile at /tmp/julia-ttfx-PCMjDR/packages/GPUCompiler/BSi1T/src/driver.jl:55:0 [inlined]\n│  #184 at /tmp/julia-ttfx-PCMjDR/packages/GPUCompiler/BSi1T/src/precompile.jl:39:0 [inlined]\n│  #JuliaContext#118 at /tmp/julia-ttfx-PCMjDR/packages/GPUCompiler/BSi1T/src/driver.jl:34:0 (pc: 50)\n│  unknown function (ip: 0x77ddacacf851) at (unknown file)\n│  JuliaContext at /tmp/julia-ttfx-PCMjDR/packages/GPUCompiler/BSi1T/src/driver.jl:25:0 (pc: 1)\n│  unknown function (ip: 0x77ddf175c0d2) at (unknown file)\n│  macro expansion at /tmp/julia-ttfx-PCMjDR/packages/GPUCompiler/BSi1T/src/precompile.jl:38:0 [inlined]\n│  macro expansion at /tmp/julia-ttfx-PCMjDR/packages/PrecompileTools/QUxvR/src/workloads.jl:70:0 [inlined]\n│  macro expansion at /tmp/julia-ttfx-PCMjDR/packages/GPUCompiler/BSi1T/src/precompile.jl:29:0 [inlined]\n│  macro expansion at /tmp/julia-ttfx-PCMjDR/packages/PrecompileTools/QUxvR/src/workloads.jl:118:0 [inlined]\n│  top-level scope at /tmp/julia-ttfx-PCMjDR/packages/GPUCompiler/BSi1T/src/precompile.jl:115:0 (pc: 88)\n│  jl_invoke_oneshot at /cache/build/builder-amdci5-2/julialang/julia-ci/src/gf.c:4625:23\n│  ijl_eval_thunk at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:759:18\n│  jl_toplevel_eval_flex at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:711:26\n│  jl_eval_toplevel_stmts at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:601:15\n│  jl_toplevel_eval_flex at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:683:27\n│  ijl_toplevel_eval at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:781:12\n│  ijl_toplevel_eval_in at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:826:13\n│  eval at ./boot.jl:618:0 (pc: 1)\n│  include_string at ./loading.jl:3263:0 (pc: 208)\n│  _include at ./loading.jl:3325:0 (pc: 123)\n│  include at ./Base.jl:335:0 (pc: 1)\n│  IncludeInto at ./Base.jl:336:0 (pc: 2)\n│  jfptr_IncludeInto_1.1 at /home/ian/.julia/juliaup/julia-nightly/lib/julia/sys.so (unknown line)\n│  jl_apply at /cache/build/builder-amdci5-2/julialang/julia-ci/src/julia.h:2516:12 [inlined]\n│  do_call at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:123:26\n│  eval_value at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:259:16\n│  eval_stmt_value at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:194:23 [inlined]\n│  eval_body at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:746:17\n│  jl_interpret_toplevel_thunk at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:962:21\n│  ijl_eval_thunk at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:767:18\n│  jl_toplevel_eval_flex at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:711:26\n│  jl_eval_toplevel_stmts at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:601:15\n│  jl_eval_module_expr at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:266:5 [inlined]\n│  jl_toplevel_eval_flex at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:664:27\n│  jl_eval_toplevel_stmts at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:601:15\n│  jl_toplevel_eval_flex at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:683:27\n│  ijl_toplevel_eval at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:781:12\n│  ijl_toplevel_eval_in at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:826:13\n│  eval at ./boot.jl:618:0 (pc: 1)\n│  include_string at ./loading.jl:3263:0 (pc: 208)\n│  _include at ./loading.jl:3325:0 (pc: 123)\n│  include at ./Base.jl:334:0 (pc: 1)\n│  include_package_for_output at ./loading.jl:3436:0 (pc: 849)\n│  jfptr_include_package_for_output_1.1 at /home/ian/.julia/juliaup/julia-nightly/lib/julia/sys.so (unknown line)\n│  jl_apply at /cache/build/builder-amdci5-2/julialang/julia-ci/src/julia.h:2516:12 [inlined]\n│  do_call at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:123:26\n│  eval_value at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:259:16\n│  eval_stmt_value at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:194:23 [inlined]\n│  eval_body at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:746:17\n│  jl_interpret_toplevel_thunk at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:962:21\n│  ijl_eval_thunk at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:767:18\n│  jl_toplevel_eval_flex at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:711:26\n│  jl_eval_toplevel_stmts at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:601:15\n│  jl_toplevel_eval_flex at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:683:27\n│  ijl_toplevel_eval at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:781:12\n│  ijl_toplevel_eval_in at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:826:13\n│  eval at ./boot.jl:618:0 (pc: 1)\n│  include_string at ./loading.jl:3263:0 (pc: 208)\n│  include_string at ./loading.jl:3273:0 [inlined]\n│  __script_entry_include_string at ./client.jl:104:0 [inlined]\n│  exec_options at ./client.jl:382:0 (pc: 893)\n│  _start at ./client.jl:695:0 (pc: 325)\n│  jfptr__start_0.1 at /home/ian/.julia/juliaup/julia-nightly/lib/julia/sys.so (unknown line)\n│  jl_apply at /cache/build/builder-amdci5-2/julialang/julia-ci/src/julia.h:2516:12 [inlined]\n│  true_main at /cache/build/builder-amdci5-2/julialang/julia-ci/src/jlapi.c:989:29\n│  jl_repl_entrypoint at /cache/build/builder-amdci5-2/julialang/julia-ci/src/jlapi.c:1156:15\n│  main at /cache/build/builder-amdci5-2/julialang/julia-ci/cli/loader_exe.c:117:15\n│  unknown function (ip: 0x77de0f02a1c9) at /lib/x86_64-linux-gnu/libc.so.6\n│  __libc_start_main at /lib/x86_64-linux-gnu/libc.so.6 (unknown line)\n│  unknown function (ip: 0x4010b8) at /workspace/srcdir/glibc-2.17/csu/../sysdeps/x86_64/start.S\n│  Allocations: 107233313 (Pool: 107230999; Big: 2314); GC: 30\n└  \n┌ Enzyme\n│  ERROR: LoadError: Precompiled image Base.PkgId(Base.UUID(\"61eb1bfa-7361-4325-ad38-22787b887f55\"), \"GPUCompiler\") not available with flags CacheFlags(; use_pkgimages=true, debug_level=1, check_bounds=0, inline=true, opt_level=2)\n│  Stacktrace:\n│   [1] error(s::String)\n│     @ Base error.jl:56\n│   [2] require(into::Module, mod::Symbol)\n│     @ Base loading.jl:2661 [inlined]\n│   [3] top-level scope\n│     @ /tmp/julia-ttfx-PCMjDR/packages/Enzyme/OvStQ/src/typetree.jl:6\n│   [4] include(mapexpr::Function, mod::Module, _path::String)\n│     @ Base Base.jl:335\n│   [5] top-level scope\n│     @ /tmp/julia-ttfx-PCMjDR/packages/Enzyme/OvStQ/src/Enzyme.jl:148\n│   [6] include(mod::Module, _path::String)\n│     @ Base Base.jl:334\n│   [7] top-level scope\n│     @ stdin:5\n│  in expression starting at /tmp/julia-ttfx-PCMjDR/packages/Enzyme/OvStQ/src/typetree.jl:6\n│  in expression starting at /tmp/julia-ttfx-PCMjDR/packages/Enzyme/OvStQ/src/Enzyme.jl:1\n│  in expression starting at stdin:5\n└  \nERROR: The following 2 packages failed to precompile:\n\nGPUCompiler \nFailed to precompile GPUCompiler [61eb1bfa-7361-4325-ad38-22787b887f55] to \"/tmp/julia-ttfx-PCMjDR/compiled/v1.14/GPUCompiler/jl_b4S9C6\" (ProcessSignaled(11)).\n\nEnzyme \nFailed to precompile Enzyme [7da242da-08ed-463a-9acd-ee780be4f1d9] to \"/tmp/julia-ttfx-PCMjDR/compiled/v1.14/Enzyme/jl_oAfAMs\" (ProcessExited(1)).\n\n",
     "precompile_time": null,
     "load_time": null,
     "run_time": null,
@@ -1079,14 +122,113 @@
   },
   {
     "julia_version": "nightly",
+    "package": "ExplicitImports",
+    "task": "Print_Explicit_Imports",
+    "status": "ok",
+    "error": null,
+    "precompile_time": 19.337319114,
+    "load_time": 0.43498897552490234,
+    "run_time": 0.5909559726715088,
+    "total_time": 1.0259449481964111
+  },
+  {
+    "julia_version": "nightly",
+    "package": "FiniteDiff",
+    "task": "Gradient-Of-Square-Norm",
+    "status": "ok",
+    "error": null,
+    "precompile_time": 2.318382117,
+    "load_time": 0.003573894500732422,
+    "run_time": 0.19532012939453125,
+    "total_time": 0.19889402389526367
+  },
+  {
+    "julia_version": "nightly",
+    "package": "Flux",
+    "task": "Basic-Model-Gradient",
+    "status": "ok",
+    "error": null,
+    "precompile_time": 40.819232076,
+    "load_time": 1.8577110767364502,
+    "run_time": 10.496203899383545,
+    "total_time": 12.353914976119995
+  },
+  {
+    "julia_version": "nightly",
+    "package": "ForwardDiff",
+    "task": "Gradient-Of-Square-Norm",
+    "status": "ok",
+    "error": null,
+    "precompile_time": 5.899838383,
+    "load_time": 0.08648204803466797,
+    "run_time": 0.441195011138916,
+    "total_time": 0.527677059173584
+  },
+  {
+    "julia_version": "nightly",
+    "package": "GMT",
+    "task": "Create-A-Xy-Plot",
+    "status": "ok",
+    "error": null,
+    "precompile_time": 63.369275193,
+    "load_time": 1.1481530666351318,
+    "run_time": 7.418129920959473,
+    "total_time": 8.566282987594604
+  },
+  {
+    "julia_version": "nightly",
+    "package": "Graphs",
+    "task": "Graph-Construction",
+    "status": "ok",
+    "error": null,
+    "precompile_time": 8.514253969,
+    "load_time": 0.47582411766052246,
+    "run_time": 0.10561203956604004,
+    "total_time": 0.5814361572265625
+  },
+  {
+    "julia_version": "nightly",
+    "package": "HiddenMarkovModels",
+    "task": "Estimate-Hmm-With-Baum-Welch",
+    "status": "ok",
+    "error": null,
+    "precompile_time": 10.314997305,
+    "load_time": 0.6268148422241211,
+    "run_time": 2.0580320358276367,
+    "total_time": 2.684846878051758
+  },
+  {
+    "julia_version": "nightly",
+    "package": "IterativeSolvers",
+    "task": "Conjugate-Gradient-Solve",
+    "status": "ok",
+    "error": null,
+    "precompile_time": 3.893916637,
+    "load_time": 0.26294898986816406,
+    "run_time": 0.7246689796447754,
+    "total_time": 0.9876179695129395
+  },
+  {
+    "julia_version": "nightly",
+    "package": "JET",
+    "task": "Type-Stability-Analysis",
+    "status": "error",
+    "error": "task: ┌ Warning: Full JET functionality is not available on Julia 1.14.0-DEV.2898.",
+    "precompile_time": 21.08095153,
+    "load_time": null,
+    "run_time": null,
+    "total_time": null
+  },
+  {
+    "julia_version": "nightly",
     "package": "JLArrays",
     "task": "Matrix-Multiplication-On-Gpu-Like-Arrays",
     "status": "ok",
     "error": null,
-    "precompile_time": 19.05041002,
-    "load_time": 0.8784821033477783,
-    "run_time": 1.360295057296753,
-    "total_time": 2.2387771606445312
+    "precompile_time": 12.877320957,
+    "load_time": 1.068971872329712,
+    "run_time": 1.628169059753418,
+    "total_time": 2.69714093208313
   },
   {
     "julia_version": "nightly",
@@ -1094,10 +236,10 @@
     "task": "Format-Text",
     "status": "ok",
     "error": null,
-    "precompile_time": 27.778254798,
-    "load_time": 0.12428903579711914,
-    "run_time": 0.003301858901977539,
-    "total_time": 0.12759089469909668
+    "precompile_time": 24.578265102,
+    "load_time": 0.22154712677001953,
+    "run_time": 0.023942947387695312,
+    "total_time": 0.24549007415771484
   },
   {
     "julia_version": "nightly",
@@ -1105,10 +247,10 @@
     "task": "Hash-Nothing",
     "status": "ok",
     "error": null,
-    "precompile_time": 16.929052343,
-    "load_time": 0.09383702278137207,
-    "run_time": 0.0002770423889160156,
-    "total_time": 0.09411406517028809
+    "precompile_time": 12.055824661,
+    "load_time": 0.08297395706176758,
+    "run_time": 0.0003161430358886719,
+    "total_time": 0.08329010009765625
   },
   {
     "julia_version": "nightly",
@@ -1116,10 +258,10 @@
     "task": "Conjugate-Gradient-Solve",
     "status": "ok",
     "error": null,
-    "precompile_time": 6.340496654,
-    "load_time": 0.21140694618225098,
-    "run_time": 1.2761900424957275,
-    "total_time": 1.4875969886779785
+    "precompile_time": 5.001559264,
+    "load_time": 0.24217987060546875,
+    "run_time": 0.9715590476989746,
+    "total_time": 1.2137389183044434
   },
   {
     "julia_version": "nightly",
@@ -1127,10 +269,10 @@
     "task": "Dot-Product",
     "status": "ok",
     "error": null,
-    "precompile_time": 39.94736156,
-    "load_time": 0.2354581356048584,
-    "run_time": 0.6527509689331055,
-    "total_time": 0.8882091045379639
+    "precompile_time": 43.915451945,
+    "load_time": 0.25865793228149414,
+    "run_time": 0.8270699977874756,
+    "total_time": 1.0857279300689697
   },
   {
     "julia_version": "nightly",
@@ -1138,10 +280,10 @@
     "task": "Geodesic-On-Sphere",
     "status": "ok",
     "error": null,
-    "precompile_time": 23.032454109,
-    "load_time": 0.6713380813598633,
-    "run_time": 0.417280912399292,
-    "total_time": 1.0886189937591553
+    "precompile_time": 19.00253042,
+    "load_time": 0.8238401412963867,
+    "run_time": 0.437471866607666,
+    "total_time": 1.2613120079040527
   },
   {
     "julia_version": "nightly",
@@ -1149,10 +291,10 @@
     "task": "Addition-With-Uncertainties",
     "status": "ok",
     "error": null,
-    "precompile_time": 2.192599594,
-    "load_time": 0.008161067962646484,
-    "run_time": 0.06021690368652344,
-    "total_time": 0.06837797164916992
+    "precompile_time": 1.180347106,
+    "load_time": 0.01046299934387207,
+    "run_time": 0.06558108329772949,
+    "total_time": 0.07604408264160156
   },
   {
     "julia_version": "nightly",
@@ -1160,21 +302,21 @@
     "task": "Get-Properties-Of-A-Chemical-Element",
     "status": "ok",
     "error": null,
-    "precompile_time": 18.102726978,
-    "load_time": 0.12022709846496582,
-    "run_time": 2.512712001800537,
-    "total_time": 2.632939100265503
+    "precompile_time": 13.619366207,
+    "load_time": 0.17658281326293945,
+    "run_time": 2.626927137374878,
+    "total_time": 2.8035099506378174
   },
   {
     "julia_version": "nightly",
     "package": "Mooncake",
     "task": "Gradient-Of-Square-Norm",
-    "status": "error",
-    "error": "task: \u001b[0KERROR: LoadError: UndefVarError: `WorldView` not defined in `Compiler`",
-    "precompile_time": 17.695352123,
-    "load_time": null,
-    "run_time": null,
-    "total_time": null
+    "status": "ok",
+    "error": null,
+    "precompile_time": 142.272837875,
+    "load_time": 0.782271146774292,
+    "run_time": 1.1366260051727295,
+    "total_time": 1.9188971519470215
   },
   {
     "julia_version": "nightly",
@@ -1182,10 +324,10 @@
     "task": "Rosenbrock-Minimization-With-Bfgs",
     "status": "ok",
     "error": null,
-    "precompile_time": 9.321905397,
-    "load_time": 0.24111700057983398,
-    "run_time": 1.5091948509216309,
-    "total_time": 1.7503118515014648
+    "precompile_time": 5.215742492,
+    "load_time": 0.3259909152984619,
+    "run_time": 1.583556890487671,
+    "total_time": 1.9095478057861328
   },
   {
     "julia_version": "nightly",
@@ -1193,10 +335,10 @@
     "task": "Rosenbrock-Minimization-With-Bfgs-Using-Forwarddiff",
     "status": "ok",
     "error": null,
-    "precompile_time": 25.426582337,
-    "load_time": 0.6259009838104248,
-    "run_time": 2.5944769382476807,
-    "total_time": 3.2203779220581055
+    "precompile_time": 21.355458571,
+    "load_time": 0.7909491062164307,
+    "run_time": 2.7923128604888916,
+    "total_time": 3.5832619667053223
   },
   {
     "julia_version": "nightly",
@@ -1204,10 +346,10 @@
     "task": "Solve-The-Lorenz-Equation",
     "status": "ok",
     "error": null,
-    "precompile_time": 126.042057413,
-    "load_time": 1.756235122680664,
-    "run_time": 0.15955090522766113,
-    "total_time": 1.9157860279083252
+    "precompile_time": 177.119365118,
+    "load_time": 2.5448899269104004,
+    "run_time": 0.15413999557495117,
+    "total_time": 2.6990299224853516
   },
   {
     "julia_version": "nightly",
@@ -1215,10 +357,10 @@
     "task": "Commute-Two-Operators",
     "status": "ok",
     "error": null,
-    "precompile_time": 18.801147091,
-    "load_time": 0.2449660301208496,
-    "run_time": 0.010914802551269531,
-    "total_time": 0.25588083267211914
+    "precompile_time": 14.128591371,
+    "load_time": 0.33385515213012695,
+    "run_time": 0.009757041931152344,
+    "total_time": 0.3436121940612793
   },
   {
     "julia_version": "nightly",
@@ -1226,10 +368,10 @@
     "task": "Gradient-Of-Square-Norm",
     "status": "ok",
     "error": null,
-    "precompile_time": 22.659612657,
-    "load_time": 2.0980560779571533,
-    "run_time": 0.5716249942779541,
-    "total_time": 2.6696810722351074
+    "precompile_time": 18.625662955,
+    "load_time": 2.672075033187866,
+    "run_time": 0.3360171318054199,
+    "total_time": 3.008092164993286
   },
   {
     "julia_version": "nightly",
@@ -1237,10 +379,10 @@
     "task": "Get-Info-On-Stdlib-In-Internal-Shareadd-Format",
     "status": "ok",
     "error": null,
-    "precompile_time": 9.183916376,
-    "load_time": 0.3993110656738281,
-    "run_time": 0.00595402717590332,
-    "total_time": 0.40526509284973145
+    "precompile_time": 6.356570866,
+    "load_time": 0.48323798179626465,
+    "run_time": 0.008852958679199219,
+    "total_time": 0.49209094047546387
   },
   {
     "julia_version": "nightly",
@@ -1248,10 +390,10 @@
     "task": "Basic-Coloring",
     "status": "ok",
     "error": null,
-    "precompile_time": 7.343537134,
-    "load_time": 0.2548489570617676,
-    "run_time": 0.05956888198852539,
-    "total_time": 0.31441783905029297
+    "precompile_time": 5.037460886,
+    "load_time": 0.28067898750305176,
+    "run_time": 0.06818819046020508,
+    "total_time": 0.34886717796325684
   },
   {
     "julia_version": "nightly",
@@ -1259,10 +401,10 @@
     "task": "Matrix-Multiplication",
     "status": "ok",
     "error": null,
-    "precompile_time": 9.329292412,
-    "load_time": 0.14219903945922852,
-    "run_time": 0.06139707565307617,
-    "total_time": 0.2035961151123047
+    "precompile_time": 5.272898565,
+    "load_time": 0.1365070343017578,
+    "run_time": 0.06412410736083984,
+    "total_time": 0.20063114166259766
   },
   {
     "julia_version": "nightly",
@@ -1270,21 +412,21 @@
     "task": "Loading-A-Typical-Hep-Ex--Root-File",
     "status": "ok",
     "error": null,
-    "precompile_time": 34.093361782,
-    "load_time": 0.7211630344390869,
-    "run_time": 1.9985558986663818,
-    "total_time": 2.7197189331054688
+    "precompile_time": 24.228505932,
+    "load_time": 0.9023268222808838,
+    "run_time": 1.8140921592712402,
+    "total_time": 2.716418981552124
   },
   {
     "julia_version": "nightly",
     "package": "Zygote",
     "task": "Gradient-Of-Square-Norm",
-    "status": "error",
-    "error": "task: \u001b[0KInternal error: during type inference of",
-    "precompile_time": 26.014532442,
-    "load_time": null,
-    "run_time": null,
-    "total_time": null
+    "status": "ok",
+    "error": null,
+    "precompile_time": 29.318388012,
+    "load_time": 0.6709439754486084,
+    "run_time": 0.7590291500091553,
+    "total_time": 1.4299731254577637
   },
   {
     "julia_version": "1.13-nightly",
@@ -1292,10 +434,10 @@
     "task": "Multistability-Of-Discrete-Time-Systems",
     "status": "ok",
     "error": null,
-    "precompile_time": 52.160471937,
-    "load_time": 1.1785609722137451,
-    "run_time": 1.437075138092041,
-    "total_time": 2.615636110305786
+    "precompile_time": 51.189884014,
+    "load_time": 1.2506349086761475,
+    "run_time": 1.627587080001831,
+    "total_time": 2.8782219886779785
   },
   {
     "julia_version": "1.13-nightly",
@@ -1303,10 +445,10 @@
     "task": "Project-Path",
     "status": "ok",
     "error": null,
-    "precompile_time": 2.287905435,
-    "load_time": 0.005614042282104492,
-    "run_time": 0.00030493736267089844,
-    "total_time": 0.005918979644775391
+    "precompile_time": 2.263686112,
+    "load_time": 0.007852792739868164,
+    "run_time": 0.009303092956542969,
+    "total_time": 0.017155885696411133
   },
   {
     "julia_version": "1.13-nightly",
@@ -1314,10 +456,10 @@
     "task": "User-Cache",
     "status": "ok",
     "error": null,
-    "precompile_time": 2.243400187,
-    "load_time": 0.005628108978271484,
-    "run_time": 0.0002639293670654297,
-    "total_time": 0.005892038345336914
+    "precompile_time": 2.220982987,
+    "load_time": 0.007754087448120117,
+    "run_time": 0.0003209114074707031,
+    "total_time": 0.00807499885559082
   },
   {
     "julia_version": "1.13-nightly",
@@ -1325,10 +467,10 @@
     "task": "Basic-Benchmark",
     "status": "ok",
     "error": null,
-    "precompile_time": 16.131601806,
-    "load_time": 0.11792588233947754,
-    "run_time": 0.19469618797302246,
-    "total_time": 0.3126220703125
+    "precompile_time": 12.962926222,
+    "load_time": 0.10968303680419922,
+    "run_time": 0.19642210006713867,
+    "total_time": 0.3061051368713379
   },
   {
     "julia_version": "1.13-nightly",
@@ -1336,10 +478,10 @@
     "task": "Plot-A-Sine-Wave",
     "status": "ok",
     "error": null,
-    "precompile_time": 179.532671288,
-    "load_time": 2.7845919132232666,
-    "run_time": 0.5070619583129883,
-    "total_time": 3.291653871536255
+    "precompile_time": 176.022336543,
+    "load_time": 2.8166251182556152,
+    "run_time": 0.5859420299530029,
+    "total_time": 3.402567148208618
   },
   {
     "julia_version": "1.13-nightly",
@@ -1347,10 +489,10 @@
     "task": "Nonlinear-Timeseries-Analysis",
     "status": "ok",
     "error": null,
-    "precompile_time": 25.310525541,
-    "load_time": 0.7387409210205078,
-    "run_time": 1.2559831142425537,
-    "total_time": 1.9947240352630615
+    "precompile_time": 23.639842479,
+    "load_time": 0.7342169284820557,
+    "run_time": 1.2427968978881836,
+    "total_time": 1.9770138263702393
   },
   {
     "julia_version": "1.13-nightly",
@@ -1358,10 +500,10 @@
     "task": "Basic-Manipulations",
     "status": "ok",
     "error": null,
-    "precompile_time": 21.102081562,
-    "load_time": 0.122528076171875,
-    "run_time": 0.5999209880828857,
-    "total_time": 0.7224490642547607
+    "precompile_time": 19.882345332,
+    "load_time": 0.1105661392211914,
+    "run_time": 0.6050698757171631,
+    "total_time": 0.7156360149383545
   },
   {
     "julia_version": "1.13-nightly",
@@ -1369,10 +511,10 @@
     "task": "Dataframe-Construction",
     "status": "ok",
     "error": null,
-    "precompile_time": 46.17303768,
-    "load_time": 0.4338500499725342,
-    "run_time": 0.022900819778442383,
-    "total_time": 0.45675086975097656
+    "precompile_time": 45.19567184,
+    "load_time": 0.40296506881713867,
+    "run_time": 0.06874299049377441,
+    "total_time": 0.4717080593109131
   },
   {
     "julia_version": "1.13-nightly",
@@ -1380,10 +522,10 @@
     "task": "Jacobian-With-Finite-Differences",
     "status": "ok",
     "error": null,
-    "precompile_time": 1.598574754,
-    "load_time": 0.007097959518432617,
-    "run_time": 0.6681768894195557,
-    "total_time": 0.6752748489379883
+    "precompile_time": 1.289084913,
+    "load_time": 0.008579015731811523,
+    "run_time": 0.6404139995574951,
+    "total_time": 0.6489930152893066
   },
   {
     "julia_version": "1.13-nightly",
@@ -1391,10 +533,10 @@
     "task": "Normal-Distribution",
     "status": "ok",
     "error": null,
-    "precompile_time": 10.812929297,
-    "load_time": 0.29241418838500977,
-    "run_time": 0.19266390800476074,
-    "total_time": 0.4850780963897705
+    "precompile_time": 10.468224217,
+    "load_time": 0.3177969455718994,
+    "run_time": 0.1916060447692871,
+    "total_time": 0.5094029903411865
   },
   {
     "julia_version": "1.13-nightly",
@@ -1402,10 +544,10 @@
     "task": "Gradient-Of-Square-Norm",
     "status": "ok",
     "error": null,
-    "precompile_time": 81.091621754,
-    "load_time": 0.74111008644104,
-    "run_time": 1.1128158569335938,
-    "total_time": 1.8539259433746338
+    "precompile_time": 81.586682389,
+    "load_time": 0.8779780864715576,
+    "run_time": 2.4315149784088135,
+    "total_time": 3.309493064880371
   },
   {
     "julia_version": "1.13-nightly",
@@ -1413,10 +555,10 @@
     "task": "Print_Explicit_Imports",
     "status": "ok",
     "error": null,
-    "precompile_time": 27.444765823,
-    "load_time": 0.3338289260864258,
-    "run_time": 0.38690900802612305,
-    "total_time": 0.7207379341125488
+    "precompile_time": 26.412031456,
+    "load_time": 0.3362419605255127,
+    "run_time": 0.41170501708984375,
+    "total_time": 0.7479469776153564
   },
   {
     "julia_version": "1.13-nightly",
@@ -1424,10 +566,10 @@
     "task": "Gradient-Of-Square-Norm",
     "status": "ok",
     "error": null,
-    "precompile_time": 4.872188393,
-    "load_time": 0.003410816192626953,
-    "run_time": 0.2955920696258545,
-    "total_time": 0.29900288581848145
+    "precompile_time": 4.334608927,
+    "load_time": 0.004273891448974609,
+    "run_time": 0.28801703453063965,
+    "total_time": 0.29229092597961426
   },
   {
     "julia_version": "1.13-nightly",
@@ -1435,10 +577,10 @@
     "task": "Basic-Model-Gradient",
     "status": "ok",
     "error": null,
-    "precompile_time": 41.790249978,
-    "load_time": 1.2945990562438965,
-    "run_time": 8.050298929214478,
-    "total_time": 9.344897985458374
+    "precompile_time": 36.357648353,
+    "load_time": 1.307337999343872,
+    "run_time": 8.366116046905518,
+    "total_time": 9.67345404624939
   },
   {
     "julia_version": "1.13-nightly",
@@ -1446,21 +588,21 @@
     "task": "Gradient-Of-Square-Norm",
     "status": "ok",
     "error": null,
-    "precompile_time": 7.941176958,
-    "load_time": 0.07976198196411133,
-    "run_time": 0.4492928981781006,
-    "total_time": 0.5290548801422119
+    "precompile_time": 6.937990961,
+    "load_time": 0.06826591491699219,
+    "run_time": 0.450732946395874,
+    "total_time": 0.5189988613128662
   },
   {
     "julia_version": "1.13-nightly",
     "package": "GMT",
     "task": "Create-A-Xy-Plot",
-    "status": "error",
-    "error": "task: ERROR: LoadError: IOError: unlink(\"gmt.history\"): no such file or directory (ENOENT)",
-    "precompile_time": 75.306061737,
-    "load_time": null,
-    "run_time": null,
-    "total_time": null
+    "status": "ok",
+    "error": null,
+    "precompile_time": 74.982471834,
+    "load_time": 1.011965036392212,
+    "run_time": 0.010375022888183594,
+    "total_time": 1.0223400592803955
   },
   {
     "julia_version": "1.13-nightly",
@@ -1468,10 +610,10 @@
     "task": "Graph-Construction",
     "status": "ok",
     "error": null,
-    "precompile_time": 13.567717534,
-    "load_time": 0.36497998237609863,
-    "run_time": 0.1220400333404541,
-    "total_time": 0.48702001571655273
+    "precompile_time": 12.160146366,
+    "load_time": 0.35311388969421387,
+    "run_time": 0.1232461929321289,
+    "total_time": 0.4763600826263428
   },
   {
     "julia_version": "1.13-nightly",
@@ -1479,10 +621,10 @@
     "task": "Estimate-Hmm-With-Baum-Welch",
     "status": "ok",
     "error": null,
-    "precompile_time": 12.371771808,
-    "load_time": 0.36101722717285156,
-    "run_time": 1.644812822341919,
-    "total_time": 2.0058300495147705
+    "precompile_time": 11.432709209,
+    "load_time": 0.4005770683288574,
+    "run_time": 1.8322498798370361,
+    "total_time": 2.2328269481658936
   },
   {
     "julia_version": "1.13-nightly",
@@ -1490,21 +632,21 @@
     "task": "Conjugate-Gradient-Solve",
     "status": "ok",
     "error": null,
-    "precompile_time": 4.839038687,
-    "load_time": 0.19663500785827637,
-    "run_time": 0.7213959693908691,
-    "total_time": 0.9180309772491455
+    "precompile_time": 4.122265171,
+    "load_time": 0.18884515762329102,
+    "run_time": 0.7155838012695312,
+    "total_time": 0.9044289588928223
   },
   {
     "julia_version": "1.13-nightly",
     "package": "JET",
     "task": "Type-Stability-Analysis",
-    "status": "error",
-    "error": "instantiate: process failed\n--- stderr ---\n    Updating registry at `/tmp/julia-ttfx-9I1P6e/registries/General.toml`\nERROR: Unsatisfiable requirements detected for package JET [c3a54625]:\n JET [c3a54625] log:\n ├─possible versions are: 0.0.1 - 0.11.3 or uninstalled\n ├─restricted to versions 0.6.1 - * by project [88d8a214], leaving only versions: 0.6.1 - 0.11.3\n │ └─project [88d8a214] log:\n │   ├─possible versions are: 0.0.0 or uninstalled\n │   └─project [88d8a214] is fixed to version 0.0.0\n └─restricted by julia compatibility requirements to versions: uninstalled — no versions left\nStacktrace:\n   [1] propagate_constraints!(graph::Pkg.Resolve.Graph, sources::Set{Int64}; log_events::Bool, err_msg_preamble::String)\n     @ Pkg.Resolve ~/.julia/juliaup/julia-1.13-nightly/share/julia/stdlib/v1.13/Pkg/src/Resolve/graphtype.jl:1195\n ┌ [2] propagate_constraints!\n │   @ ~/.julia/juliaup/julia-1.13-nightly/share/julia/stdlib/v1.13/Pkg/src/Resolve/graphtype.jl:1112 [inlined]\n ╰──── repeated 2 times\n   [4] simplify_graph!(graph::Pkg.Resolve.Graph, sources::Set{Int64}; validate_versions::Bool)\n     @ Pkg.Resolve ~/.julia/juliaup/julia-1.13-nightly/share/julia/stdlib/v1.13/Pkg/src/Resolve/graphtype.jl:1719\n ┌ [5] simplify_graph!\n │   @ ~/.julia/juliaup/julia-1.13-nightly/share/julia/stdlib/v1.13/Pkg/src/Resolve/graphtype.jl:1718 [inlined]\n ╰──── repeated 2 times\n   [7] resolve_versions!(env::Pkg.Types.EnvCache, registries::Vector{Pkg.Registry.RegistryInstance}, pkgs::Vector{PackageSpec}, julia_version::VersionNumber, installed_only::Bool)\n     @ Pkg.Operations ~/.julia/juliaup/julia-1.13-nightly/share/julia/stdlib/v1.13/Pkg/src/Operations.jl:789\n   [8] up(ctx::Pkg.Types.Context, pkgs::Vector{PackageSpec}, level::UpgradeLevel; skip_writing_project::Bool, preserve::Nothing)\n     @ Pkg.Operations ~/.julia/juliaup/julia-1.13-nightly/share/julia/stdlib/v1.13/Pkg/src/Operations.jl:2472\n   [9] up\n     @ ~/.julia/juliaup/julia-1.13-nightly/share/julia/stdlib/v1.13/Pkg/src/Operations.jl:2446 [inlined]\n  [10] up(ctx::Pkg.Types.Context, pkgs::Vector{PackageSpec}; level::UpgradeLevel, mode::PackageMode, preserve::Nothing, update_registry::Bool, skip_writing_project::Bool, workspace::Bool, kwargs::@Kwargs{})\n     @ Pkg.API ~/.julia/juliaup/julia-1.13-nightly/share/julia/stdlib/v1.13/Pkg/src/API.jl:479\n  [11] up\n     @ ~/.julia/juliaup/julia-1.13-nightly/share/julia/stdlib/v1.13/Pkg/src/API.jl:446 [inlined]\n  [12] up\n     @ ~/.julia/juliaup/julia-1.13-nightly/share/julia/stdlib/v1.13/Pkg/src/API.jl:177 [inlined]\n  [13] instantiate(ctx::Pkg.Types.Context; manifest::Nothing, update_registry::Bool, verbose::Bool, platform::Base.BinaryPlatforms.Platform, allow_build::Bool, allow_autoprecomp::Bool, workspace::Bool, julia_version_strict::Bool, kwargs::@Kwargs{})\n     @ Pkg.API ~/.julia/juliaup/julia-1.13-nightly/share/julia/stdlib/v1.13/Pkg/src/API.jl:1296\n  [14] instantiate\n     @ ~/.julia/juliaup/julia-1.13-nightly/share/julia/stdlib/v1.13/Pkg/src/API.jl:1268 [inlined]\n  [15] instantiate(; kwargs::@Kwargs{})\n     @ Pkg.API ~/.julia/juliaup/julia-1.13-nightly/share/julia/stdlib/v1.13/Pkg/src/API.jl:1267\n  [16] top-level scope\n     @ none:2\n  [17] eval(m::Module, e::Any)\n     @ Core ./boot.jl:489\n  [18] exec_options(opts::Base.JLOptions)\n     @ Base ./client.jl:310\n  [19] _start()\n     @ Base ./client.jl:577\n",
-    "precompile_time": null,
-    "load_time": null,
-    "run_time": null,
-    "total_time": null
+    "status": "ok",
+    "error": null,
+    "precompile_time": 57.072183689,
+    "load_time": 0.3158881664276123,
+    "run_time": 0.9570889472961426,
+    "total_time": 1.2729771137237549
   },
   {
     "julia_version": "1.13-nightly",
@@ -1512,10 +654,10 @@
     "task": "Matrix-Multiplication-On-Gpu-Like-Arrays",
     "status": "ok",
     "error": null,
-    "precompile_time": 17.993776585,
-    "load_time": 0.7732348442077637,
-    "run_time": 1.3277900218963623,
-    "total_time": 2.101024866104126
+    "precompile_time": 16.274999037,
+    "load_time": 0.807420015335083,
+    "run_time": 1.3648459911346436,
+    "total_time": 2.1722660064697266
   },
   {
     "julia_version": "1.13-nightly",
@@ -1523,10 +665,10 @@
     "task": "Format-Text",
     "status": "ok",
     "error": null,
-    "precompile_time": 29.951094837,
-    "load_time": 0.1311500072479248,
-    "run_time": 0.003200054168701172,
-    "total_time": 0.13435006141662598
+    "precompile_time": 29.941845242,
+    "load_time": 0.19245100021362305,
+    "run_time": 0.006505012512207031,
+    "total_time": 0.19895601272583008
   },
   {
     "julia_version": "1.13-nightly",
@@ -1534,10 +676,10 @@
     "task": "Hash-Nothing",
     "status": "ok",
     "error": null,
-    "precompile_time": 14.934505161,
-    "load_time": 0.08853697776794434,
-    "run_time": 0.000286102294921875,
-    "total_time": 0.08882308006286621
+    "precompile_time": 13.594925046,
+    "load_time": 0.0744931697845459,
+    "run_time": 0.00029087066650390625,
+    "total_time": 0.0747840404510498
   },
   {
     "julia_version": "1.13-nightly",
@@ -1545,10 +687,10 @@
     "task": "Conjugate-Gradient-Solve",
     "status": "ok",
     "error": null,
-    "precompile_time": 5.183987044,
-    "load_time": 0.15677690505981445,
-    "run_time": 1.1866199970245361,
-    "total_time": 1.3433969020843506
+    "precompile_time": 4.993529461,
+    "load_time": 0.17065000534057617,
+    "run_time": 1.172003984451294,
+    "total_time": 1.3426539897918701
   },
   {
     "julia_version": "1.13-nightly",
@@ -1556,10 +698,10 @@
     "task": "Dot-Product",
     "status": "ok",
     "error": null,
-    "precompile_time": 39.366385503,
-    "load_time": 0.22265291213989258,
-    "run_time": 0.613105058670044,
-    "total_time": 0.8357579708099365
+    "precompile_time": 37.6880047,
+    "load_time": 0.20961594581604004,
+    "run_time": 0.6387839317321777,
+    "total_time": 0.8483998775482178
   },
   {
     "julia_version": "1.13-nightly",
@@ -1567,10 +709,10 @@
     "task": "Geodesic-On-Sphere",
     "status": "ok",
     "error": null,
-    "precompile_time": 22.09918107,
-    "load_time": 0.5877971649169922,
-    "run_time": 0.42580699920654297,
-    "total_time": 1.0136041641235352
+    "precompile_time": 21.876170395,
+    "load_time": 0.5842201709747314,
+    "run_time": 0.42220592498779297,
+    "total_time": 1.0064260959625244
   },
   {
     "julia_version": "1.13-nightly",
@@ -1578,10 +720,10 @@
     "task": "Addition-With-Uncertainties",
     "status": "ok",
     "error": null,
-    "precompile_time": 1.274536727,
-    "load_time": 0.007888078689575195,
-    "run_time": 0.05385899543762207,
-    "total_time": 0.061747074127197266
+    "precompile_time": 0.9840894,
+    "load_time": 0.009042024612426758,
+    "run_time": 0.05962181091308594,
+    "total_time": 0.0686638355255127
   },
   {
     "julia_version": "1.13-nightly",
@@ -1589,10 +731,10 @@
     "task": "Get-Properties-Of-A-Chemical-Element",
     "status": "ok",
     "error": null,
-    "precompile_time": 17.499046864,
-    "load_time": 0.12434196472167969,
-    "run_time": 2.4773359298706055,
-    "total_time": 2.601677894592285
+    "precompile_time": 16.814611335,
+    "load_time": 0.14365816116333008,
+    "run_time": 2.511338949203491,
+    "total_time": 2.6549971103668213
   },
   {
     "julia_version": "1.13-nightly",
@@ -1600,10 +742,10 @@
     "task": "Gradient-Of-Square-Norm",
     "status": "ok",
     "error": null,
-    "precompile_time": 74.625839414,
-    "load_time": 0.6015279293060303,
-    "run_time": 0.6461739540100098,
-    "total_time": 1.24770188331604
+    "precompile_time": 62.856289295,
+    "load_time": 0.29217100143432617,
+    "run_time": 0.6677589416503906,
+    "total_time": 0.9599299430847168
   },
   {
     "julia_version": "1.13-nightly",
@@ -1611,10 +753,10 @@
     "task": "Rosenbrock-Minimization-With-Bfgs",
     "status": "ok",
     "error": null,
-    "precompile_time": 8.393790851,
-    "load_time": 0.1883230209350586,
-    "run_time": 1.5269949436187744,
-    "total_time": 1.715317964553833
+    "precompile_time": 7.349642082,
+    "load_time": 0.2192060947418213,
+    "run_time": 1.5723319053649902,
+    "total_time": 1.7915380001068115
   },
   {
     "julia_version": "1.13-nightly",
@@ -1622,10 +764,10 @@
     "task": "Rosenbrock-Minimization-With-Bfgs-Using-Forwarddiff",
     "status": "ok",
     "error": null,
-    "precompile_time": 23.120643697,
-    "load_time": 0.553638219833374,
-    "run_time": 2.621755838394165,
-    "total_time": 3.175394058227539
+    "precompile_time": 19.653379082,
+    "load_time": 0.532041072845459,
+    "run_time": 2.5784928798675537,
+    "total_time": 3.1105339527130127
   },
   {
     "julia_version": "1.13-nightly",
@@ -1633,10 +775,10 @@
     "task": "Solve-The-Lorenz-Equation",
     "status": "ok",
     "error": null,
-    "precompile_time": 124.575765413,
-    "load_time": 1.6322600841522217,
-    "run_time": 0.14990782737731934,
-    "total_time": 1.782167911529541
+    "precompile_time": 177.53754671,
+    "load_time": 1.8224999904632568,
+    "run_time": 0.18401598930358887,
+    "total_time": 2.0065159797668457
   },
   {
     "julia_version": "1.13-nightly",
@@ -1644,10 +786,10 @@
     "task": "Commute-Two-Operators",
     "status": "ok",
     "error": null,
-    "precompile_time": 17.75706788,
-    "load_time": 0.21775412559509277,
-    "run_time": 0.010498046875,
-    "total_time": 0.22825217247009277
+    "precompile_time": 16.972165652,
+    "load_time": 0.209244966506958,
+    "run_time": 0.010251998901367188,
+    "total_time": 0.2194969654083252
   },
   {
     "julia_version": "1.13-nightly",
@@ -1655,10 +797,10 @@
     "task": "Gradient-Of-Square-Norm",
     "status": "ok",
     "error": null,
-    "precompile_time": 21.652355924,
-    "load_time": 1.8071110248565674,
-    "run_time": 0.5513989925384521,
-    "total_time": 2.3585100173950195
+    "precompile_time": 20.571495112,
+    "load_time": 1.7276890277862549,
+    "run_time": 0.5460829734802246,
+    "total_time": 2.2737720012664795
   },
   {
     "julia_version": "1.13-nightly",
@@ -1666,10 +808,10 @@
     "task": "Get-Info-On-Stdlib-In-Internal-Shareadd-Format",
     "status": "ok",
     "error": null,
-    "precompile_time": 9.824147034,
-    "load_time": 0.34459519386291504,
-    "run_time": 0.0057659149169921875,
-    "total_time": 0.3503611087799072
+    "precompile_time": 9.041234111,
+    "load_time": 0.3492560386657715,
+    "run_time": 0.00832986831665039,
+    "total_time": 0.3575859069824219
   },
   {
     "julia_version": "1.13-nightly",
@@ -1677,10 +819,10 @@
     "task": "Basic-Coloring",
     "status": "ok",
     "error": null,
-    "precompile_time": 6.589605807,
-    "load_time": 0.19985008239746094,
-    "run_time": 0.060777902603149414,
-    "total_time": 0.26062798500061035
+    "precompile_time": 5.857371212,
+    "load_time": 0.1996748447418213,
+    "run_time": 0.06538200378417969,
+    "total_time": 0.265056848526001
   },
   {
     "julia_version": "1.13-nightly",
@@ -1688,10 +830,10 @@
     "task": "Matrix-Multiplication",
     "status": "ok",
     "error": null,
-    "precompile_time": 9.027088055,
-    "load_time": 0.13433194160461426,
-    "run_time": 0.0581660270690918,
-    "total_time": 0.19249796867370605
+    "precompile_time": 8.481236072,
+    "load_time": 0.12490391731262207,
+    "run_time": 0.06300616264343262,
+    "total_time": 0.1879100799560547
   },
   {
     "julia_version": "1.13-nightly",
@@ -1699,10 +841,10 @@
     "task": "Loading-A-Typical-Hep-Ex--Root-File",
     "status": "ok",
     "error": null,
-    "precompile_time": 31.85132023,
-    "load_time": 0.6343638896942139,
-    "run_time": 2.9123971462249756,
-    "total_time": 3.5467610359191895
+    "precompile_time": 29.60367987,
+    "load_time": 0.62276291847229,
+    "run_time": 2.875494956970215,
+    "total_time": 3.498257875442505
   },
   {
     "julia_version": "1.13-nightly",
@@ -1710,10 +852,10 @@
     "task": "Gradient-Of-Square-Norm",
     "status": "ok",
     "error": null,
-    "precompile_time": 30.581232622,
-    "load_time": 0.4762001037597656,
-    "run_time": 0.33422088623046875,
-    "total_time": 0.8104209899902344
+    "precompile_time": 27.870053596,
+    "load_time": 0.5046210289001465,
+    "run_time": 0.3358170986175537,
+    "total_time": 0.8404381275177002
   },
   {
     "julia_version": "1.12",
@@ -1721,10 +863,10 @@
     "task": "Multistability-Of-Discrete-Time-Systems",
     "status": "ok",
     "error": null,
-    "precompile_time": 61.373972688,
-    "load_time": 1.236586093902588,
-    "run_time": 1.6263890266418457,
-    "total_time": 2.8629751205444336
+    "precompile_time": 62.90764088,
+    "load_time": 1.496941089630127,
+    "run_time": 1.8300728797912598,
+    "total_time": 3.3270139694213867
   },
   {
     "julia_version": "1.12",
@@ -1732,10 +874,10 @@
     "task": "Project-Path",
     "status": "ok",
     "error": null,
-    "precompile_time": 2.739976084,
-    "load_time": 0.006465911865234375,
-    "run_time": 0.00031113624572753906,
-    "total_time": 0.006777048110961914
+    "precompile_time": 2.964984569,
+    "load_time": 0.006452083587646484,
+    "run_time": 0.009113073348999023,
+    "total_time": 0.015565156936645508
   },
   {
     "julia_version": "1.12",
@@ -1743,10 +885,10 @@
     "task": "User-Cache",
     "status": "ok",
     "error": null,
-    "precompile_time": 2.777316834,
-    "load_time": 0.006326913833618164,
-    "run_time": 0.0002510547637939453,
-    "total_time": 0.006577968597412109
+    "precompile_time": 2.941570676,
+    "load_time": 0.006424903869628906,
+    "run_time": 0.0002601146697998047,
+    "total_time": 0.006685018539428711
   },
   {
     "julia_version": "1.12",
@@ -1754,10 +896,10 @@
     "task": "Basic-Benchmark",
     "status": "ok",
     "error": null,
-    "precompile_time": 14.134443722,
-    "load_time": 0.12164711952209473,
-    "run_time": 0.20506596565246582,
-    "total_time": 0.32671308517456055
+    "precompile_time": 13.245541881,
+    "load_time": 0.13253307342529297,
+    "run_time": 0.21019601821899414,
+    "total_time": 0.3427290916442871
   },
   {
     "julia_version": "1.12",
@@ -1765,10 +907,10 @@
     "task": "Plot-A-Sine-Wave",
     "status": "ok",
     "error": null,
-    "precompile_time": 176.585174741,
-    "load_time": 2.73482084274292,
-    "run_time": 0.7266349792480469,
-    "total_time": 3.461455821990967
+    "precompile_time": 178.822553935,
+    "load_time": 3.165558099746704,
+    "run_time": 0.807811975479126,
+    "total_time": 3.97337007522583
   },
   {
     "julia_version": "1.12",
@@ -1776,10 +918,10 @@
     "task": "Nonlinear-Timeseries-Analysis",
     "status": "ok",
     "error": null,
-    "precompile_time": 25.966326442,
-    "load_time": 0.7176070213317871,
-    "run_time": 1.3718159198760986,
-    "total_time": 2.0894229412078857
+    "precompile_time": 26.328895567,
+    "load_time": 0.9098761081695557,
+    "run_time": 1.6111729145050049,
+    "total_time": 2.5210490226745605
   },
   {
     "julia_version": "1.12",
@@ -1787,10 +929,10 @@
     "task": "Basic-Manipulations",
     "status": "ok",
     "error": null,
-    "precompile_time": 8.452832181,
-    "load_time": 0.1373739242553711,
-    "run_time": 0.631417989730835,
-    "total_time": 0.768791913986206
+    "precompile_time": 9.851796196,
+    "load_time": 0.14298582077026367,
+    "run_time": 0.704754114151001,
+    "total_time": 0.8477399349212646
   },
   {
     "julia_version": "1.12",
@@ -1798,10 +940,10 @@
     "task": "Dataframe-Construction",
     "status": "ok",
     "error": null,
-    "precompile_time": 39.726773006,
-    "load_time": 0.4402790069580078,
-    "run_time": 0.024312973022460938,
-    "total_time": 0.46459197998046875
+    "precompile_time": 40.118508167,
+    "load_time": 0.5190930366516113,
+    "run_time": 0.024708032608032227,
+    "total_time": 0.5438010692596436
   },
   {
     "julia_version": "1.12",
@@ -1809,10 +951,10 @@
     "task": "Jacobian-With-Finite-Differences",
     "status": "ok",
     "error": null,
-    "precompile_time": 2.290650915,
-    "load_time": 0.00804281234741211,
-    "run_time": 0.7020001411437988,
-    "total_time": 0.7100429534912109
+    "precompile_time": 2.394208232,
+    "load_time": 0.00781702995300293,
+    "run_time": 0.7402141094207764,
+    "total_time": 0.7480311393737793
   },
   {
     "julia_version": "1.12",
@@ -1820,10 +962,10 @@
     "task": "Normal-Distribution",
     "status": "ok",
     "error": null,
-    "precompile_time": 11.121337582,
-    "load_time": 0.27083587646484375,
-    "run_time": 0.21193695068359375,
-    "total_time": 0.4827728271484375
+    "precompile_time": 12.346165218,
+    "load_time": 0.32820701599121094,
+    "run_time": 0.27218008041381836,
+    "total_time": 0.6003870964050293
   },
   {
     "julia_version": "1.12",
@@ -1831,10 +973,10 @@
     "task": "Gradient-Of-Square-Norm",
     "status": "ok",
     "error": null,
-    "precompile_time": 70.684623798,
-    "load_time": 0.7682890892028809,
-    "run_time": 4.6100218296051025,
-    "total_time": 5.378310918807983
+    "precompile_time": 70.518128449,
+    "load_time": 0.9446568489074707,
+    "run_time": 5.876130104064941,
+    "total_time": 6.820786952972412
   },
   {
     "julia_version": "1.12",
@@ -1842,10 +984,10 @@
     "task": "Print_Explicit_Imports",
     "status": "ok",
     "error": null,
-    "precompile_time": 20.218409275,
-    "load_time": 0.3646669387817383,
-    "run_time": 0.4290289878845215,
-    "total_time": 0.7936959266662598
+    "precompile_time": 20.830939595,
+    "load_time": 0.42477989196777344,
+    "run_time": 0.50844407081604,
+    "total_time": 0.9332239627838135
   },
   {
     "julia_version": "1.12",
@@ -1853,10 +995,10 @@
     "task": "Gradient-Of-Square-Norm",
     "status": "ok",
     "error": null,
-    "precompile_time": 3.824567582,
-    "load_time": 0.003993988037109375,
-    "run_time": 0.29650402069091797,
-    "total_time": 0.30049800872802734
+    "precompile_time": 3.97658975,
+    "load_time": 0.003924131393432617,
+    "run_time": 0.3555169105529785,
+    "total_time": 0.35944104194641113
   },
   {
     "julia_version": "1.12",
@@ -1864,10 +1006,10 @@
     "task": "Basic-Model-Gradient",
     "status": "ok",
     "error": null,
-    "precompile_time": 44.306905536,
-    "load_time": 1.3393681049346924,
-    "run_time": 10.030241966247559,
-    "total_time": 11.369610071182251
+    "precompile_time": 40.371569784,
+    "load_time": 1.429213047027588,
+    "run_time": 10.550487995147705,
+    "total_time": 11.979701042175293
   },
   {
     "julia_version": "1.12",
@@ -1875,21 +1017,21 @@
     "task": "Gradient-Of-Square-Norm",
     "status": "ok",
     "error": null,
-    "precompile_time": 7.955401883,
-    "load_time": 0.06619715690612793,
-    "run_time": 0.5183649063110352,
-    "total_time": 0.5845620632171631
+    "precompile_time": 7.977249946,
+    "load_time": 0.0640568733215332,
+    "run_time": 0.5781049728393555,
+    "total_time": 0.6421618461608887
   },
   {
     "julia_version": "1.12",
     "package": "GMT",
     "task": "Create-A-Xy-Plot",
-    "status": "error",
-    "error": "task: ERROR: LoadError: IOError: unlink(\"gmt.history\"): no such file or directory (ENOENT)",
-    "precompile_time": 71.860472954,
-    "load_time": null,
-    "run_time": null,
-    "total_time": null
+    "status": "ok",
+    "error": null,
+    "precompile_time": 71.926093656,
+    "load_time": 1.0839171409606934,
+    "run_time": 0.009576797485351562,
+    "total_time": 1.093493938446045
   },
   {
     "julia_version": "1.12",
@@ -1897,10 +1039,10 @@
     "task": "Graph-Construction",
     "status": "ok",
     "error": null,
-    "precompile_time": 12.009226701,
-    "load_time": 0.363353967666626,
-    "run_time": 0.12209916114807129,
-    "total_time": 0.48545312881469727
+    "precompile_time": 12.215019375,
+    "load_time": 0.36415815353393555,
+    "run_time": 0.1885359287261963,
+    "total_time": 0.5526940822601318
   },
   {
     "julia_version": "1.12",
@@ -1908,10 +1050,10 @@
     "task": "Estimate-Hmm-With-Baum-Welch",
     "status": "ok",
     "error": null,
-    "precompile_time": 13.184077051,
-    "load_time": 0.3940269947052002,
-    "run_time": 1.943070888519287,
-    "total_time": 2.3370978832244873
+    "precompile_time": 14.453065292,
+    "load_time": 0.5062839984893799,
+    "run_time": 2.1377298831939697,
+    "total_time": 2.6440138816833496
   },
   {
     "julia_version": "1.12",
@@ -1919,10 +1061,10 @@
     "task": "Conjugate-Gradient-Solve",
     "status": "ok",
     "error": null,
-    "precompile_time": 3.899731931,
-    "load_time": 0.1585521697998047,
-    "run_time": 0.8732130527496338,
-    "total_time": 1.0317652225494385
+    "precompile_time": 3.988376559,
+    "load_time": 0.16103887557983398,
+    "run_time": 0.9943490028381348,
+    "total_time": 1.1553878784179688
   },
   {
     "julia_version": "1.12",
@@ -1930,10 +1072,10 @@
     "task": "Type-Stability-Analysis",
     "status": "ok",
     "error": null,
-    "precompile_time": 49.001554822,
-    "load_time": 0.5111520290374756,
-    "run_time": 0.5353610515594482,
-    "total_time": 1.0465130805969238
+    "precompile_time": 50.740714638,
+    "load_time": 0.33425116539001465,
+    "run_time": 0.6768767833709717,
+    "total_time": 1.0111279487609863
   },
   {
     "julia_version": "1.12",
@@ -1941,10 +1083,10 @@
     "task": "Matrix-Multiplication-On-Gpu-Like-Arrays",
     "status": "ok",
     "error": null,
-    "precompile_time": 17.065088499,
-    "load_time": 0.800678014755249,
-    "run_time": 1.4746129512786865,
-    "total_time": 2.2752909660339355
+    "precompile_time": 17.29433118,
+    "load_time": 0.8740379810333252,
+    "run_time": 1.8416500091552734,
+    "total_time": 2.7156879901885986
   },
   {
     "julia_version": "1.12",
@@ -1952,10 +1094,10 @@
     "task": "Format-Text",
     "status": "ok",
     "error": null,
-    "precompile_time": 25.002314637,
-    "load_time": 0.11381697654724121,
-    "run_time": 0.005342960357666016,
-    "total_time": 0.11915993690490723
+    "precompile_time": 27.999557842,
+    "load_time": 0.19729995727539062,
+    "run_time": 0.004279136657714844,
+    "total_time": 0.20157909393310547
   },
   {
     "julia_version": "1.12",
@@ -1963,10 +1105,10 @@
     "task": "Hash-Nothing",
     "status": "ok",
     "error": null,
-    "precompile_time": 13.793099156,
-    "load_time": 0.07362794876098633,
-    "run_time": 0.0002760887145996094,
-    "total_time": 0.07390403747558594
+    "precompile_time": 13.791091778,
+    "load_time": 0.07270407676696777,
+    "run_time": 0.00029087066650390625,
+    "total_time": 0.07299494743347168
   },
   {
     "julia_version": "1.12",
@@ -1974,10 +1116,10 @@
     "task": "Conjugate-Gradient-Solve",
     "status": "ok",
     "error": null,
-    "precompile_time": 5.237849691,
-    "load_time": 0.1476740837097168,
-    "run_time": 1.343959093093872,
-    "total_time": 1.4916331768035889
+    "precompile_time": 5.215852986,
+    "load_time": 0.14810395240783691,
+    "run_time": 1.451875925064087,
+    "total_time": 1.5999798774719238
   },
   {
     "julia_version": "1.12",
@@ -1985,10 +1127,10 @@
     "task": "Dot-Product",
     "status": "ok",
     "error": null,
-    "precompile_time": 27.870524406,
-    "load_time": 0.24509501457214355,
-    "run_time": 0.7521588802337646,
-    "total_time": 0.9972538948059082
+    "precompile_time": 29.208466245,
+    "load_time": 0.2614898681640625,
+    "run_time": 0.7898321151733398,
+    "total_time": 1.0513219833374023
   },
   {
     "julia_version": "1.12",
@@ -1996,10 +1138,10 @@
     "task": "Geodesic-On-Sphere",
     "status": "ok",
     "error": null,
-    "precompile_time": 22.34456202,
-    "load_time": 0.5773720741271973,
-    "run_time": 0.43551182746887207,
-    "total_time": 1.0128839015960693
+    "precompile_time": 24.571877521,
+    "load_time": 0.6451940536499023,
+    "run_time": 0.5308780670166016,
+    "total_time": 1.176072120666504
   },
   {
     "julia_version": "1.12",
@@ -2007,10 +1149,10 @@
     "task": "Addition-With-Uncertainties",
     "status": "ok",
     "error": null,
-    "precompile_time": 1.220392002,
-    "load_time": 0.011172056198120117,
-    "run_time": 0.07351493835449219,
-    "total_time": 0.0846869945526123
+    "precompile_time": 1.350307432,
+    "load_time": 0.008581876754760742,
+    "run_time": 0.06050300598144531,
+    "total_time": 0.06908488273620605
   },
   {
     "julia_version": "1.12",
@@ -2018,10 +1160,10 @@
     "task": "Get-Properties-Of-A-Chemical-Element",
     "status": "ok",
     "error": null,
-    "precompile_time": 18.496181261,
-    "load_time": 0.14469695091247559,
-    "run_time": 2.724910020828247,
-    "total_time": 2.8696069717407227
+    "precompile_time": 18.305207511,
+    "load_time": 0.1439368724822998,
+    "run_time": 2.970107078552246,
+    "total_time": 3.114043951034546
   },
   {
     "julia_version": "1.12",
@@ -2029,10 +1171,10 @@
     "task": "Gradient-Of-Square-Norm",
     "status": "ok",
     "error": null,
-    "precompile_time": 80.340221282,
-    "load_time": 0.635807991027832,
-    "run_time": 0.7815701961517334,
-    "total_time": 1.4173781871795654
+    "precompile_time": 68.632135375,
+    "load_time": 0.34593701362609863,
+    "run_time": 0.9524750709533691,
+    "total_time": 1.2984120845794678
   },
   {
     "julia_version": "1.12",
@@ -2040,10 +1182,10 @@
     "task": "Rosenbrock-Minimization-With-Bfgs",
     "status": "ok",
     "error": null,
-    "precompile_time": 8.855197271,
-    "load_time": 0.19693684577941895,
-    "run_time": 1.822458028793335,
-    "total_time": 2.019394874572754
+    "precompile_time": 9.837390171,
+    "load_time": 0.19838809967041016,
+    "run_time": 1.9193179607391357,
+    "total_time": 2.117706060409546
   },
   {
     "julia_version": "1.12",
@@ -2051,10 +1193,10 @@
     "task": "Rosenbrock-Minimization-With-Bfgs-Using-Forwarddiff",
     "status": "ok",
     "error": null,
-    "precompile_time": 26.917695501,
-    "load_time": 0.5667788982391357,
-    "run_time": 2.9781460762023926,
-    "total_time": 3.5449249744415283
+    "precompile_time": 26.489816314,
+    "load_time": 0.6410880088806152,
+    "run_time": 3.3652989864349365,
+    "total_time": 4.006386995315552
   },
   {
     "julia_version": "1.12",
@@ -2062,10 +1204,10 @@
     "task": "Solve-The-Lorenz-Equation",
     "status": "ok",
     "error": null,
-    "precompile_time": 118.115055876,
-    "load_time": 1.5296449661254883,
-    "run_time": 0.1401989459991455,
-    "total_time": 1.6698439121246338
+    "precompile_time": 174.735361815,
+    "load_time": 2.144745111465454,
+    "run_time": 0.1924440860748291,
+    "total_time": 2.337189197540283
   },
   {
     "julia_version": "1.12",
@@ -2073,10 +1215,10 @@
     "task": "Commute-Two-Operators",
     "status": "ok",
     "error": null,
-    "precompile_time": 15.41536664,
-    "load_time": 0.20636796951293945,
-    "run_time": 0.011561870574951172,
-    "total_time": 0.21792984008789062
+    "precompile_time": 15.127019879,
+    "load_time": 0.2031078338623047,
+    "run_time": 0.01169896125793457,
+    "total_time": 0.21480679512023926
   },
   {
     "julia_version": "1.12",
@@ -2084,10 +1226,10 @@
     "task": "Gradient-Of-Square-Norm",
     "status": "ok",
     "error": null,
-    "precompile_time": 21.816204033,
-    "load_time": 1.7731280326843262,
-    "run_time": 0.6243219375610352,
-    "total_time": 2.3974499702453613
+    "precompile_time": 21.878889947,
+    "load_time": 1.9632070064544678,
+    "run_time": 0.6524679660797119,
+    "total_time": 2.6156749725341797
   },
   {
     "julia_version": "1.12",
@@ -2095,10 +1237,10 @@
     "task": "Get-Info-On-Stdlib-In-Internal-Shareadd-Format",
     "status": "ok",
     "error": null,
-    "precompile_time": 4.654809005,
-    "load_time": 0.37049102783203125,
-    "run_time": 0.005851030349731445,
-    "total_time": 0.3763420581817627
+    "precompile_time": 5.074123723,
+    "load_time": 0.44701695442199707,
+    "run_time": 0.005956172943115234,
+    "total_time": 0.4529731273651123
   },
   {
     "julia_version": "1.12",
@@ -2106,10 +1248,10 @@
     "task": "Basic-Coloring",
     "status": "ok",
     "error": null,
-    "precompile_time": 4.863751304,
-    "load_time": 0.16729497909545898,
-    "run_time": 0.0726161003112793,
-    "total_time": 0.23991107940673828
+    "precompile_time": 4.901116784,
+    "load_time": 0.17053699493408203,
+    "run_time": 0.07632899284362793,
+    "total_time": 0.24686598777770996
   },
   {
     "julia_version": "1.12",
@@ -2117,10 +1259,10 @@
     "task": "Matrix-Multiplication",
     "status": "ok",
     "error": null,
-    "precompile_time": 6.207783833,
-    "load_time": 0.11862587928771973,
-    "run_time": 0.0648641586303711,
-    "total_time": 0.18349003791809082
+    "precompile_time": 6.3387685,
+    "load_time": 0.11777186393737793,
+    "run_time": 0.06579303741455078,
+    "total_time": 0.1835649013519287
   },
   {
     "julia_version": "1.12",
@@ -2128,10 +1270,10 @@
     "task": "Loading-A-Typical-Hep-Ex--Root-File",
     "status": "ok",
     "error": null,
-    "precompile_time": 28.616330171,
-    "load_time": 0.6434271335601807,
-    "run_time": 2.9064698219299316,
-    "total_time": 3.5498969554901123
+    "precompile_time": 28.146992801,
+    "load_time": 0.6866660118103027,
+    "run_time": 3.064929962158203,
+    "total_time": 3.751595973968506
   },
   {
     "julia_version": "1.12",
@@ -2139,10 +1281,10 @@
     "task": "Gradient-Of-Square-Norm",
     "status": "ok",
     "error": null,
-    "precompile_time": 30.200992564,
-    "load_time": 0.5093178749084473,
-    "run_time": 0.36603617668151855,
-    "total_time": 0.8753540515899658
+    "precompile_time": 29.74535678,
+    "load_time": 0.567241907119751,
+    "run_time": 0.3621530532836914,
+    "total_time": 0.9293949604034424
   },
   {
     "julia_version": "1.11",
@@ -2150,10 +1292,10 @@
     "task": "Multistability-Of-Discrete-Time-Systems",
     "status": "ok",
     "error": null,
-    "precompile_time": 45.660942827,
-    "load_time": 1.494351863861084,
-    "run_time": 2.035254955291748,
-    "total_time": 3.529606819152832
+    "precompile_time": 52.211549639,
+    "load_time": 1.6515169143676758,
+    "run_time": 2.164595127105713,
+    "total_time": 3.8161120414733887
   },
   {
     "julia_version": "1.11",
@@ -2161,10 +1303,10 @@
     "task": "Project-Path",
     "status": "ok",
     "error": null,
-    "precompile_time": 2.182372991,
-    "load_time": 0.01383209228515625,
-    "run_time": 0.0002760887145996094,
-    "total_time": 0.01410818099975586
+    "precompile_time": 2.297005472,
+    "load_time": 0.014549970626831055,
+    "run_time": 0.03806805610656738,
+    "total_time": 0.05261802673339844
   },
   {
     "julia_version": "1.11",
@@ -2172,10 +1314,10 @@
     "task": "User-Cache",
     "status": "ok",
     "error": null,
-    "precompile_time": 2.182824003,
-    "load_time": 0.013751983642578125,
-    "run_time": 0.0002410411834716797,
-    "total_time": 0.013993024826049805
+    "precompile_time": 2.359433756,
+    "load_time": 0.015009164810180664,
+    "run_time": 0.00025081634521484375,
+    "total_time": 0.015259981155395508
   },
   {
     "julia_version": "1.11",
@@ -2183,10 +1325,10 @@
     "task": "Basic-Benchmark",
     "status": "ok",
     "error": null,
-    "precompile_time": 12.24655812,
-    "load_time": 0.14031004905700684,
-    "run_time": 0.17694091796875,
-    "total_time": 0.31725096702575684
+    "precompile_time": 11.130811092,
+    "load_time": 0.14108896255493164,
+    "run_time": 0.18291807174682617,
+    "total_time": 0.3240070343017578
   },
   {
     "julia_version": "1.11",
@@ -2194,10 +1336,10 @@
     "task": "Plot-A-Sine-Wave",
     "status": "ok",
     "error": null,
-    "precompile_time": 152.94059177,
-    "load_time": 3.8330280780792236,
-    "run_time": 0.587108850479126,
-    "total_time": 4.42013692855835
+    "precompile_time": 158.00437327,
+    "load_time": 4.233637094497681,
+    "run_time": 0.5482649803161621,
+    "total_time": 4.781902074813843
   },
   {
     "julia_version": "1.11",
@@ -2205,10 +1347,10 @@
     "task": "Nonlinear-Timeseries-Analysis",
     "status": "ok",
     "error": null,
-    "precompile_time": 21.848240266,
-    "load_time": 0.7789289951324463,
-    "run_time": 1.3084650039672852,
-    "total_time": 2.0873939990997314
+    "precompile_time": 22.330916941,
+    "load_time": 0.8760449886322021,
+    "run_time": 1.448716163635254,
+    "total_time": 2.324761152267456
   },
   {
     "julia_version": "1.11",
@@ -2216,10 +1358,10 @@
     "task": "Basic-Manipulations",
     "status": "ok",
     "error": null,
-    "precompile_time": 3.55403576,
-    "load_time": 0.11422014236450195,
-    "run_time": 0.587493896484375,
-    "total_time": 0.701714038848877
+    "precompile_time": 3.637470918,
+    "load_time": 0.11244010925292969,
+    "run_time": 0.58172607421875,
+    "total_time": 0.6941661834716797
   },
   {
     "julia_version": "1.11",
@@ -2227,10 +1369,10 @@
     "task": "Dataframe-Construction",
     "status": "ok",
     "error": null,
-    "precompile_time": 38.015346964,
-    "load_time": 0.5898280143737793,
-    "run_time": 0.027650833129882812,
-    "total_time": 0.6174788475036621
+    "precompile_time": 38.072276342,
+    "load_time": 0.6268899440765381,
+    "run_time": 0.02763509750366211,
+    "total_time": 0.6545250415802002
   },
   {
     "julia_version": "1.11",
@@ -2238,10 +1380,10 @@
     "task": "Jacobian-With-Finite-Differences",
     "status": "ok",
     "error": null,
-    "precompile_time": 1.825743316,
-    "load_time": 0.010581016540527344,
-    "run_time": 0.6766119003295898,
-    "total_time": 0.6871929168701172
+    "precompile_time": 1.897486087,
+    "load_time": 0.010392904281616211,
+    "run_time": 0.6912441253662109,
+    "total_time": 0.7016370296478271
   },
   {
     "julia_version": "1.11",
@@ -2249,10 +1391,10 @@
     "task": "Normal-Distribution",
     "status": "ok",
     "error": null,
-    "precompile_time": 8.711813655,
-    "load_time": 0.30507993698120117,
-    "run_time": 0.27408695220947266,
-    "total_time": 0.5791668891906738
+    "precompile_time": 9.171128922,
+    "load_time": 0.3666098117828369,
+    "run_time": 0.2960522174835205,
+    "total_time": 0.6626620292663574
   },
   {
     "julia_version": "1.11",
@@ -2260,10 +1402,10 @@
     "task": "Gradient-Of-Square-Norm",
     "status": "ok",
     "error": null,
-    "precompile_time": 49.51177872,
-    "load_time": 0.7124969959259033,
-    "run_time": 2.0160958766937256,
-    "total_time": 2.728592872619629
+    "precompile_time": 54.102877051,
+    "load_time": 1.023076057434082,
+    "run_time": 2.644761085510254,
+    "total_time": 3.667837142944336
   },
   {
     "julia_version": "1.11",
@@ -2271,10 +1413,10 @@
     "task": "Print_Explicit_Imports",
     "status": "ok",
     "error": null,
-    "precompile_time": 14.979723718,
-    "load_time": 0.49285006523132324,
-    "run_time": 0.4456369876861572,
-    "total_time": 0.9384870529174805
+    "precompile_time": 15.137698383,
+    "load_time": 0.5236420631408691,
+    "run_time": 0.4510819911956787,
+    "total_time": 0.9747240543365479
   },
   {
     "julia_version": "1.11",
@@ -2282,10 +1424,10 @@
     "task": "Gradient-Of-Square-Norm",
     "status": "ok",
     "error": null,
-    "precompile_time": 3.18064024,
-    "load_time": 0.00613713264465332,
-    "run_time": 0.30339789390563965,
-    "total_time": 0.30953502655029297
+    "precompile_time": 3.253225497,
+    "load_time": 0.006343841552734375,
+    "run_time": 0.31837010383605957,
+    "total_time": 0.32471394538879395
   },
   {
     "julia_version": "1.11",
@@ -2293,10 +1435,10 @@
     "task": "Basic-Model-Gradient",
     "status": "ok",
     "error": null,
-    "precompile_time": 32.792080825,
-    "load_time": 1.4698681831359863,
-    "run_time": 6.977212905883789,
-    "total_time": 8.447081089019775
+    "precompile_time": 31.981604619,
+    "load_time": 1.6580901145935059,
+    "run_time": 7.198681831359863,
+    "total_time": 8.85677194595337
   },
   {
     "julia_version": "1.11",
@@ -2304,21 +1446,21 @@
     "task": "Gradient-Of-Square-Norm",
     "status": "ok",
     "error": null,
-    "precompile_time": 6.16683953,
-    "load_time": 0.12257099151611328,
-    "run_time": 0.46703600883483887,
-    "total_time": 0.5896070003509521
+    "precompile_time": 6.166276764,
+    "load_time": 0.1234891414642334,
+    "run_time": 0.49802184104919434,
+    "total_time": 0.6215109825134277
   },
   {
     "julia_version": "1.11",
     "package": "GMT",
     "task": "Create-A-Xy-Plot",
-    "status": "error",
-    "error": "task: ERROR: LoadError: IOError: unlink(\"gmt.history\"): no such file or directory (ENOENT)",
-    "precompile_time": 62.477309733,
-    "load_time": null,
-    "run_time": null,
-    "total_time": null
+    "status": "ok",
+    "error": null,
+    "precompile_time": 63.536738663,
+    "load_time": 1.1301178932189941,
+    "run_time": 0.1181941032409668,
+    "total_time": 1.248311996459961
   },
   {
     "julia_version": "1.11",
@@ -2326,10 +1468,10 @@
     "task": "Graph-Construction",
     "status": "ok",
     "error": null,
-    "precompile_time": 8.963909157,
-    "load_time": 0.2964959144592285,
-    "run_time": 0.12702608108520508,
-    "total_time": 0.4235219955444336
+    "precompile_time": 9.027210647,
+    "load_time": 0.3000161647796631,
+    "run_time": 0.12970185279846191,
+    "total_time": 0.429718017578125
   },
   {
     "julia_version": "1.11",
@@ -2337,10 +1479,10 @@
     "task": "Estimate-Hmm-With-Baum-Welch",
     "status": "ok",
     "error": null,
-    "precompile_time": 9.764959806,
-    "load_time": 0.3681809902191162,
-    "run_time": 2.3004581928253174,
-    "total_time": 2.6686391830444336
+    "precompile_time": 10.304831769,
+    "load_time": 0.42681193351745605,
+    "run_time": 2.496535062789917,
+    "total_time": 2.923346996307373
   },
   {
     "julia_version": "1.11",
@@ -2348,10 +1490,10 @@
     "task": "Conjugate-Gradient-Solve",
     "status": "ok",
     "error": null,
-    "precompile_time": 3.271357085,
-    "load_time": 0.1451559066772461,
-    "run_time": 1.445505142211914,
-    "total_time": 1.5906610488891602
+    "precompile_time": 3.365346194,
+    "load_time": 0.14349794387817383,
+    "run_time": 1.4600701332092285,
+    "total_time": 1.6035680770874023
   },
   {
     "julia_version": "1.11",
@@ -2359,10 +1501,10 @@
     "task": "Type-Stability-Analysis",
     "status": "ok",
     "error": null,
-    "precompile_time": 13.384665804,
-    "load_time": 0.450606107711792,
-    "run_time": 9.13193392753601,
-    "total_time": 9.582540035247803
+    "precompile_time": 13.380782856,
+    "load_time": 0.41410398483276367,
+    "run_time": 9.258011102676392,
+    "total_time": 9.672115087509155
   },
   {
     "julia_version": "1.11",
@@ -2370,10 +1512,10 @@
     "task": "Matrix-Multiplication-On-Gpu-Like-Arrays",
     "status": "ok",
     "error": null,
-    "precompile_time": 12.775140241,
-    "load_time": 0.6864709854125977,
-    "run_time": 0.80702805519104,
-    "total_time": 1.4934990406036377
+    "precompile_time": 12.676562142,
+    "load_time": 0.7377080917358398,
+    "run_time": 0.8715300559997559,
+    "total_time": 1.6092381477355957
   },
   {
     "julia_version": "1.11",
@@ -2381,10 +1523,10 @@
     "task": "Format-Text",
     "status": "ok",
     "error": null,
-    "precompile_time": 22.581504746,
-    "load_time": 0.18052911758422852,
-    "run_time": 0.013157844543457031,
-    "total_time": 0.19368696212768555
+    "precompile_time": 22.992675843,
+    "load_time": 0.23186802864074707,
+    "run_time": 0.009128808975219727,
+    "total_time": 0.2409968376159668
   },
   {
     "julia_version": "1.11",
@@ -2392,10 +1534,10 @@
     "task": "Hash-Nothing",
     "status": "ok",
     "error": null,
-    "precompile_time": 11.424259061,
-    "load_time": 0.10701584815979004,
-    "run_time": 0.00580596923828125,
-    "total_time": 0.11282181739807129
+    "precompile_time": 11.402994578,
+    "load_time": 0.09160304069519043,
+    "run_time": 0.005856990814208984,
+    "total_time": 0.09746003150939941
   },
   {
     "julia_version": "1.11",
@@ -2403,10 +1545,10 @@
     "task": "Conjugate-Gradient-Solve",
     "status": "ok",
     "error": null,
-    "precompile_time": 5.192673105,
-    "load_time": 0.1168971061706543,
-    "run_time": 2.093057870864868,
-    "total_time": 2.2099549770355225
+    "precompile_time": 5.332742576,
+    "load_time": 0.11682581901550293,
+    "run_time": 2.1250641345977783,
+    "total_time": 2.2418899536132812
   },
   {
     "julia_version": "1.11",
@@ -2414,10 +1556,10 @@
     "task": "Dot-Product",
     "status": "ok",
     "error": null,
-    "precompile_time": 19.748739944,
-    "load_time": 0.22172188758850098,
-    "run_time": 1.1795809268951416,
-    "total_time": 1.4013028144836426
+    "precompile_time": 20.16222796,
+    "load_time": 0.22818899154663086,
+    "run_time": 1.1564099788665771,
+    "total_time": 1.384598970413208
   },
   {
     "julia_version": "1.11",
@@ -2425,10 +1567,10 @@
     "task": "Geodesic-On-Sphere",
     "status": "ok",
     "error": null,
-    "precompile_time": 15.285129032,
-    "load_time": 0.5837080478668213,
-    "run_time": 0.5105969905853271,
-    "total_time": 1.0943050384521484
+    "precompile_time": 17.670965794,
+    "load_time": 0.5882229804992676,
+    "run_time": 0.48978400230407715,
+    "total_time": 1.0780069828033447
   },
   {
     "julia_version": "1.11",
@@ -2436,10 +1578,10 @@
     "task": "Addition-With-Uncertainties",
     "status": "ok",
     "error": null,
-    "precompile_time": 1.551025158,
-    "load_time": 0.009467840194702148,
-    "run_time": 0.05128312110900879,
-    "total_time": 0.06075096130371094
+    "precompile_time": 1.596912412,
+    "load_time": 0.009577035903930664,
+    "run_time": 0.05228018760681152,
+    "total_time": 0.06185722351074219
   },
   {
     "julia_version": "1.11",
@@ -2447,10 +1589,10 @@
     "task": "Get-Properties-Of-A-Chemical-Element",
     "status": "ok",
     "error": null,
-    "precompile_time": 16.32868284,
-    "load_time": 0.20194101333618164,
-    "run_time": 2.1921579837799072,
-    "total_time": 2.394098997116089
+    "precompile_time": 16.311272692,
+    "load_time": 0.21493101119995117,
+    "run_time": 2.257082939147949,
+    "total_time": 2.4720139503479004
   },
   {
     "julia_version": "1.11",
@@ -2458,10 +1600,10 @@
     "task": "Gradient-Of-Square-Norm",
     "status": "ok",
     "error": null,
-    "precompile_time": 56.219191683,
-    "load_time": 0.6752240657806396,
-    "run_time": 0.5339851379394531,
-    "total_time": 1.2092092037200928
+    "precompile_time": 49.376902787,
+    "load_time": 0.38817405700683594,
+    "run_time": 0.5875890254974365,
+    "total_time": 0.9757630825042725
   },
   {
     "julia_version": "1.11",
@@ -2469,10 +1611,10 @@
     "task": "Rosenbrock-Minimization-With-Bfgs",
     "status": "ok",
     "error": null,
-    "precompile_time": 6.042437902,
-    "load_time": 0.16651296615600586,
-    "run_time": 2.1291050910949707,
-    "total_time": 2.2956180572509766
+    "precompile_time": 6.398711931,
+    "load_time": 0.17370915412902832,
+    "run_time": 2.305940866470337,
+    "total_time": 2.4796500205993652
   },
   {
     "julia_version": "1.11",
@@ -2480,10 +1622,10 @@
     "task": "Rosenbrock-Minimization-With-Bfgs-Using-Forwarddiff",
     "status": "ok",
     "error": null,
-    "precompile_time": 18.742937904,
-    "load_time": 0.5999901294708252,
-    "run_time": 3.1475229263305664,
-    "total_time": 3.7475130558013916
+    "precompile_time": 18.742778751,
+    "load_time": 0.6535251140594482,
+    "run_time": 3.2936110496520996,
+    "total_time": 3.947136163711548
   },
   {
     "julia_version": "1.11",
@@ -2491,10 +1633,10 @@
     "task": "Solve-The-Lorenz-Equation",
     "status": "ok",
     "error": null,
-    "precompile_time": 107.397397258,
-    "load_time": 2.1861491203308105,
-    "run_time": 0.14081382751464844,
-    "total_time": 2.326962947845459
+    "precompile_time": 171.176794628,
+    "load_time": 2.8777639865875244,
+    "run_time": 0.15917301177978516,
+    "total_time": 3.0369369983673096
   },
   {
     "julia_version": "1.11",
@@ -2502,10 +1644,10 @@
     "task": "Commute-Two-Operators",
     "status": "ok",
     "error": null,
-    "precompile_time": 12.52821459,
-    "load_time": 0.2991929054260254,
-    "run_time": 0.007918119430541992,
-    "total_time": 0.3071110248565674
+    "precompile_time": 12.878317157,
+    "load_time": 0.2927742004394531,
+    "run_time": 0.007854938507080078,
+    "total_time": 0.3006291389465332
   },
   {
     "julia_version": "1.11",
@@ -2513,10 +1655,10 @@
     "task": "Gradient-Of-Square-Norm",
     "status": "ok",
     "error": null,
-    "precompile_time": 16.058292015,
-    "load_time": 1.679854154586792,
-    "run_time": 0.5555038452148438,
-    "total_time": 2.2353579998016357
+    "precompile_time": 16.458449543,
+    "load_time": 1.7402839660644531,
+    "run_time": 0.5580270290374756,
+    "total_time": 2.2983109951019287
   },
   {
     "julia_version": "1.11",
@@ -2524,10 +1666,10 @@
     "task": "Get-Info-On-Stdlib-In-Internal-Shareadd-Format",
     "status": "ok",
     "error": null,
-    "precompile_time": 4.890604738,
-    "load_time": 0.6861519813537598,
-    "run_time": 0.00748896598815918,
-    "total_time": 0.693640947341919
+    "precompile_time": 5.064832179,
+    "load_time": 0.6976971626281738,
+    "run_time": 0.007295846939086914,
+    "total_time": 0.7049930095672607
   },
   {
     "julia_version": "1.11",
@@ -2535,10 +1677,10 @@
     "task": "Basic-Coloring",
     "status": "ok",
     "error": null,
-    "precompile_time": 4.934413398,
-    "load_time": 0.17275691032409668,
-    "run_time": 0.09350299835205078,
-    "total_time": 0.26625990867614746
+    "precompile_time": 5.078984828,
+    "load_time": 0.16100716590881348,
+    "run_time": 0.09917283058166504,
+    "total_time": 0.2601799964904785
   },
   {
     "julia_version": "1.11",
@@ -2546,10 +1688,10 @@
     "task": "Matrix-Multiplication",
     "status": "ok",
     "error": null,
-    "precompile_time": 5.398781815,
-    "load_time": 0.1320798397064209,
-    "run_time": 0.08860015869140625,
-    "total_time": 0.22067999839782715
+    "precompile_time": 5.428234339,
+    "load_time": 0.13635683059692383,
+    "run_time": 0.0912771224975586,
+    "total_time": 0.22763395309448242
   },
   {
     "julia_version": "1.11",
@@ -2557,10 +1699,10 @@
     "task": "Loading-A-Typical-Hep-Ex--Root-File",
     "status": "ok",
     "error": null,
-    "precompile_time": 26.89848182,
-    "load_time": 0.7792229652404785,
-    "run_time": 1.15966796875,
-    "total_time": 1.9388909339904785
+    "precompile_time": 27.3597685,
+    "load_time": 0.8199200630187988,
+    "run_time": 1.222620964050293,
+    "total_time": 2.042541027069092
   },
   {
     "julia_version": "1.11",
@@ -2568,10 +1710,10 @@
     "task": "Gradient-Of-Square-Norm",
     "status": "ok",
     "error": null,
-    "precompile_time": 22.579548401,
-    "load_time": 0.511584997177124,
-    "run_time": 0.36294078826904297,
-    "total_time": 0.874525785446167
+    "precompile_time": 23.62919766,
+    "load_time": 0.5459439754486084,
+    "run_time": 0.3271369934082031,
+    "total_time": 0.8730809688568115
   },
   {
     "julia_version": "1.10",
@@ -2579,10 +1721,10 @@
     "task": "Multistability-Of-Discrete-Time-Systems",
     "status": "ok",
     "error": null,
-    "precompile_time": 45.034265641,
-    "load_time": 1.3829469680786133,
-    "run_time": 1.568795919418335,
-    "total_time": 2.9517428874969482
+    "precompile_time": 48.274804682,
+    "load_time": 1.503734827041626,
+    "run_time": 1.8210160732269287,
+    "total_time": 3.3247509002685547
   },
   {
     "julia_version": "1.10",
@@ -2590,10 +1732,10 @@
     "task": "Project-Path",
     "status": "ok",
     "error": null,
-    "precompile_time": 3.097246348,
-    "load_time": 0.013397932052612305,
-    "run_time": 0.0002560615539550781,
-    "total_time": 0.013653993606567383
+    "precompile_time": 3.541883036,
+    "load_time": 0.013857841491699219,
+    "run_time": 0.007451057434082031,
+    "total_time": 0.02130889892578125
   },
   {
     "julia_version": "1.10",
@@ -2601,10 +1743,10 @@
     "task": "User-Cache",
     "status": "ok",
     "error": null,
-    "precompile_time": 3.228288674,
-    "load_time": 0.014199018478393555,
-    "run_time": 0.0002269744873046875,
-    "total_time": 0.014425992965698242
+    "precompile_time": 3.463875669,
+    "load_time": 0.014035940170288086,
+    "run_time": 0.00023102760314941406,
+    "total_time": 0.0142669677734375
   },
   {
     "julia_version": "1.10",
@@ -2612,10 +1754,10 @@
     "task": "Basic-Benchmark",
     "status": "ok",
     "error": null,
-    "precompile_time": 11.695105114,
-    "load_time": 0.22387981414794922,
-    "run_time": 0.16422796249389648,
-    "total_time": 0.3881077766418457
+    "precompile_time": 17.02170969,
+    "load_time": 0.2550318241119385,
+    "run_time": 0.16414713859558105,
+    "total_time": 0.41917896270751953
   },
   {
     "julia_version": "1.10",
@@ -2623,10 +1765,10 @@
     "task": "Plot-A-Sine-Wave",
     "status": "ok",
     "error": null,
-    "precompile_time": 132.220278093,
-    "load_time": 3.1191139221191406,
-    "run_time": 0.5822370052337646,
-    "total_time": 3.7013509273529053
+    "precompile_time": 134.382613702,
+    "load_time": 3.2434639930725098,
+    "run_time": 0.6264150142669678,
+    "total_time": 3.8698790073394775
   },
   {
     "julia_version": "1.10",
@@ -2634,10 +1776,10 @@
     "task": "Nonlinear-Timeseries-Analysis",
     "status": "ok",
     "error": null,
-    "precompile_time": 19.958278149,
-    "load_time": 0.7815639972686768,
-    "run_time": 1.251098871231079,
-    "total_time": 2.032662868499756
+    "precompile_time": 20.591050956,
+    "load_time": 0.8555068969726562,
+    "run_time": 1.4149940013885498,
+    "total_time": 2.270500898361206
   },
   {
     "julia_version": "1.10",
@@ -2645,10 +1787,10 @@
     "task": "Basic-Manipulations",
     "status": "ok",
     "error": null,
-    "precompile_time": 4.389512099,
-    "load_time": 0.10199713706970215,
-    "run_time": 0.5672769546508789,
-    "total_time": 0.669274091720581
+    "precompile_time": 4.478313885,
+    "load_time": 0.10506796836853027,
+    "run_time": 0.5996780395507812,
+    "total_time": 0.7047460079193115
   },
   {
     "julia_version": "1.10",
@@ -2656,10 +1798,10 @@
     "task": "Dataframe-Construction",
     "status": "ok",
     "error": null,
-    "precompile_time": 32.57257114,
-    "load_time": 0.44185400009155273,
-    "run_time": 0.021347999572753906,
-    "total_time": 0.46320199966430664
+    "precompile_time": 32.634927213,
+    "load_time": 0.4366879463195801,
+    "run_time": 0.08542609214782715,
+    "total_time": 0.5221140384674072
   },
   {
     "julia_version": "1.10",
@@ -2667,10 +1809,10 @@
     "task": "Jacobian-With-Finite-Differences",
     "status": "ok",
     "error": null,
-    "precompile_time": 2.920015642,
-    "load_time": 0.014001846313476562,
-    "run_time": 0.5755050182342529,
-    "total_time": 0.5895068645477295
+    "precompile_time": 3.035200109,
+    "load_time": 0.01415395736694336,
+    "run_time": 0.5839791297912598,
+    "total_time": 0.5981330871582031
   },
   {
     "julia_version": "1.10",
@@ -2678,10 +1820,10 @@
     "task": "Normal-Distribution",
     "status": "ok",
     "error": null,
-    "precompile_time": 9.063752737,
-    "load_time": 0.29053616523742676,
-    "run_time": 0.21626591682434082,
-    "total_time": 0.5068020820617676
+    "precompile_time": 9.868485346,
+    "load_time": 0.3987751007080078,
+    "run_time": 0.18664288520812988,
+    "total_time": 0.5854179859161377
   },
   {
     "julia_version": "1.10",
@@ -2689,10 +1831,10 @@
     "task": "Gradient-Of-Square-Norm",
     "status": "ok",
     "error": null,
-    "precompile_time": 39.490003006,
-    "load_time": 0.3940410614013672,
-    "run_time": 1.2465081214904785,
-    "total_time": 1.6405491828918457
+    "precompile_time": 42.462061239,
+    "load_time": 0.40624308586120605,
+    "run_time": 1.755720853805542,
+    "total_time": 2.161963939666748
   },
   {
     "julia_version": "1.10",
@@ -2700,10 +1842,10 @@
     "task": "Print_Explicit_Imports",
     "status": "ok",
     "error": null,
-    "precompile_time": 12.240505642,
-    "load_time": 0.17447996139526367,
-    "run_time": 0.36663222312927246,
-    "total_time": 0.5411121845245361
+    "precompile_time": 12.618774975,
+    "load_time": 0.16910290718078613,
+    "run_time": 0.4053020477294922,
+    "total_time": 0.5744049549102783
   },
   {
     "julia_version": "1.10",
@@ -2711,10 +1853,10 @@
     "task": "Gradient-Of-Square-Norm",
     "status": "ok",
     "error": null,
-    "precompile_time": 4.122455571,
-    "load_time": 0.008265018463134766,
-    "run_time": 0.2876889705657959,
-    "total_time": 0.29595398902893066
+    "precompile_time": 4.247213415,
+    "load_time": 0.008349895477294922,
+    "run_time": 0.3176231384277344,
+    "total_time": 0.3259730339050293
   },
   {
     "julia_version": "1.10",
@@ -2722,10 +1864,10 @@
     "task": "Basic-Model-Gradient",
     "status": "ok",
     "error": null,
-    "precompile_time": 30.039102578,
-    "load_time": 1.0533537864685059,
-    "run_time": 5.5003931522369385,
-    "total_time": 6.553746938705444
+    "precompile_time": 28.966843944,
+    "load_time": 0.9235680103302002,
+    "run_time": 5.455826044082642,
+    "total_time": 6.379394054412842
   },
   {
     "julia_version": "1.10",
@@ -2733,21 +1875,21 @@
     "task": "Gradient-Of-Square-Norm",
     "status": "ok",
     "error": null,
-    "precompile_time": 6.742046895,
-    "load_time": 0.0672769546508789,
-    "run_time": 0.45987510681152344,
-    "total_time": 0.5271520614624023
+    "precompile_time": 6.958071818,
+    "load_time": 0.06826186180114746,
+    "run_time": 0.46509504318237305,
+    "total_time": 0.5333569049835205
   },
   {
     "julia_version": "1.10",
     "package": "GMT",
     "task": "Create-A-Xy-Plot",
-    "status": "error",
-    "error": "task: ERROR: LoadError: IOError: unlink(\"gmt.history\"): no such file or directory (ENOENT)",
-    "precompile_time": 50.793642794,
-    "load_time": null,
-    "run_time": null,
-    "total_time": null
+    "status": "ok",
+    "error": null,
+    "precompile_time": 51.442207574,
+    "load_time": 0.6755778789520264,
+    "run_time": 0.11094903945922852,
+    "total_time": 0.7865269184112549
   },
   {
     "julia_version": "1.10",
@@ -2755,10 +1897,10 @@
     "task": "Graph-Construction",
     "status": "ok",
     "error": null,
-    "precompile_time": 9.260772149,
-    "load_time": 0.2981269359588623,
-    "run_time": 0.12681198120117188,
-    "total_time": 0.4249389171600342
+    "precompile_time": 9.470711806,
+    "load_time": 0.2983682155609131,
+    "run_time": 0.1634659767150879,
+    "total_time": 0.461834192276001
   },
   {
     "julia_version": "1.10",
@@ -2766,10 +1908,10 @@
     "task": "Estimate-Hmm-With-Baum-Welch",
     "status": "ok",
     "error": null,
-    "precompile_time": 20.453437214,
-    "load_time": 0.3636140823364258,
-    "run_time": 1.8878741264343262,
-    "total_time": 2.251488208770752
+    "precompile_time": 11.155867618,
+    "load_time": 0.4310288429260254,
+    "run_time": 1.971217155456543,
+    "total_time": 2.4022459983825684
   },
   {
     "julia_version": "1.10",
@@ -2777,10 +1919,10 @@
     "task": "Conjugate-Gradient-Solve",
     "status": "ok",
     "error": null,
-    "precompile_time": 4.054275495,
-    "load_time": 0.1295640468597412,
-    "run_time": 1.0605909824371338,
-    "total_time": 1.190155029296875
+    "precompile_time": 4.283704948,
+    "load_time": 0.1280958652496338,
+    "run_time": 1.0933880805969238,
+    "total_time": 1.2214839458465576
   },
   {
     "julia_version": "1.10",
@@ -2788,10 +1930,10 @@
     "task": "Type-Stability-Analysis",
     "status": "ok",
     "error": null,
-    "precompile_time": 27.926062295,
-    "load_time": 0.17451095581054688,
-    "run_time": 0.18328309059143066,
-    "total_time": 0.35779404640197754
+    "precompile_time": 28.272298513,
+    "load_time": 0.17347478866577148,
+    "run_time": 0.19053006172180176,
+    "total_time": 0.36400485038757324
   },
   {
     "julia_version": "1.10",
@@ -2799,10 +1941,10 @@
     "task": "Matrix-Multiplication-On-Gpu-Like-Arrays",
     "status": "ok",
     "error": null,
-    "precompile_time": 12.157658095,
-    "load_time": 0.43987298011779785,
-    "run_time": 0.5649080276489258,
-    "total_time": 1.0047810077667236
+    "precompile_time": 12.208824729,
+    "load_time": 0.4735069274902344,
+    "run_time": 0.543720006942749,
+    "total_time": 1.0172269344329834
   },
   {
     "julia_version": "1.10",
@@ -2810,10 +1952,10 @@
     "task": "Format-Text",
     "status": "ok",
     "error": null,
-    "precompile_time": 20.095101308,
-    "load_time": 0.16845989227294922,
-    "run_time": 0.005557060241699219,
-    "total_time": 0.17401695251464844
+    "precompile_time": 20.726908232,
+    "load_time": 0.20949411392211914,
+    "run_time": 0.0035507678985595703,
+    "total_time": 0.2130448818206787
   },
   {
     "julia_version": "1.10",
@@ -2821,10 +1963,10 @@
     "task": "Hash-Nothing",
     "status": "ok",
     "error": null,
-    "precompile_time": 12.799598428,
-    "load_time": 0.08129405975341797,
-    "run_time": 0.004457950592041016,
-    "total_time": 0.08575201034545898
+    "precompile_time": 12.997692823,
+    "load_time": 0.0787508487701416,
+    "run_time": 0.004495143890380859,
+    "total_time": 0.08324599266052246
   },
   {
     "julia_version": "1.10",
@@ -2832,10 +1974,10 @@
     "task": "Conjugate-Gradient-Solve",
     "status": "ok",
     "error": null,
-    "precompile_time": 6.027199215,
-    "load_time": 0.1232290267944336,
-    "run_time": 1.5281329154968262,
-    "total_time": 1.6513619422912598
+    "precompile_time": 6.333778431,
+    "load_time": 0.11951303482055664,
+    "run_time": 1.4787399768829346,
+    "total_time": 1.5982530117034912
   },
   {
     "julia_version": "1.10",
@@ -2843,10 +1985,10 @@
     "task": "Dot-Product",
     "status": "ok",
     "error": null,
-    "precompile_time": 17.038008342,
-    "load_time": 0.20698308944702148,
-    "run_time": 0.9078190326690674,
-    "total_time": 1.1148021221160889
+    "precompile_time": 17.874945672,
+    "load_time": 0.20641493797302246,
+    "run_time": 0.9423079490661621,
+    "total_time": 1.1487228870391846
   },
   {
     "julia_version": "1.10",
@@ -2854,10 +1996,10 @@
     "task": "Geodesic-On-Sphere",
     "status": "ok",
     "error": null,
-    "precompile_time": 14.925614857,
-    "load_time": 0.5187230110168457,
-    "run_time": 0.5197532176971436,
-    "total_time": 1.0384762287139893
+    "precompile_time": 17.383804108,
+    "load_time": 0.557837963104248,
+    "run_time": 0.5330860614776611,
+    "total_time": 1.0909240245819092
   },
   {
     "julia_version": "1.10",
@@ -2865,10 +2007,10 @@
     "task": "Addition-With-Uncertainties",
     "status": "ok",
     "error": null,
-    "precompile_time": 2.580943842,
-    "load_time": 0.013017892837524414,
-    "run_time": 0.05202794075012207,
-    "total_time": 0.06504583358764648
+    "precompile_time": 2.79453236,
+    "load_time": 0.012989044189453125,
+    "run_time": 0.052047014236450195,
+    "total_time": 0.06503605842590332
   },
   {
     "julia_version": "1.10",
@@ -2876,10 +2018,10 @@
     "task": "Get-Properties-Of-A-Chemical-Element",
     "status": "ok",
     "error": null,
-    "precompile_time": 15.961560174,
-    "load_time": 0.21834301948547363,
-    "run_time": 1.779099941253662,
-    "total_time": 1.9974429607391357
+    "precompile_time": 16.328413015,
+    "load_time": 0.215911865234375,
+    "run_time": 1.8436510562896729,
+    "total_time": 2.059562921524048
   },
   {
     "julia_version": "1.10",
@@ -2887,10 +2029,10 @@
     "task": "Gradient-Of-Square-Norm",
     "status": "ok",
     "error": null,
-    "precompile_time": 45.577413402,
-    "load_time": 0.5976898670196533,
-    "run_time": 0.5238211154937744,
-    "total_time": 1.1215109825134277
+    "precompile_time": 37.387059978,
+    "load_time": 0.32350897789001465,
+    "run_time": 0.613976001739502,
+    "total_time": 0.9374849796295166
   },
   {
     "julia_version": "1.10",
@@ -2898,10 +2040,10 @@
     "task": "Rosenbrock-Minimization-With-Bfgs",
     "status": "ok",
     "error": null,
-    "precompile_time": 6.781655701,
-    "load_time": 0.17829608917236328,
-    "run_time": 1.6439449787139893,
-    "total_time": 1.8222410678863525
+    "precompile_time": 7.138748248,
+    "load_time": 0.18700289726257324,
+    "run_time": 1.826498031616211,
+    "total_time": 2.013500928878784
   },
   {
     "julia_version": "1.10",
@@ -2909,10 +2051,10 @@
     "task": "Rosenbrock-Minimization-With-Bfgs-Using-Forwarddiff",
     "status": "ok",
     "error": null,
-    "precompile_time": 19.043359578,
-    "load_time": 0.5601749420166016,
-    "run_time": 2.5592200756073,
-    "total_time": 3.1193950176239014
+    "precompile_time": 19.101892398,
+    "load_time": 0.6199519634246826,
+    "run_time": 2.7218940258026123,
+    "total_time": 3.341845989227295
   },
   {
     "julia_version": "1.10",
@@ -2920,10 +2062,10 @@
     "task": "Solve-The-Lorenz-Equation",
     "status": "ok",
     "error": null,
-    "precompile_time": 94.325147607,
-    "load_time": 1.6663291454315186,
-    "run_time": 0.2758188247680664,
-    "total_time": 1.942147970199585
+    "precompile_time": 152.564801096,
+    "load_time": 2.20868182182312,
+    "run_time": 0.36995720863342285,
+    "total_time": 2.578639030456543
   },
   {
     "julia_version": "1.10",
@@ -2931,10 +2073,10 @@
     "task": "Commute-Two-Operators",
     "status": "ok",
     "error": null,
-    "precompile_time": 10.761851485,
-    "load_time": 0.11847591400146484,
-    "run_time": 0.0290830135345459,
-    "total_time": 0.14755892753601074
+    "precompile_time": 10.708710734,
+    "load_time": 0.11940312385559082,
+    "run_time": 0.029809951782226562,
+    "total_time": 0.14921307563781738
   },
   {
     "julia_version": "1.10",
@@ -2942,10 +2084,10 @@
     "task": "Gradient-Of-Square-Norm",
     "status": "ok",
     "error": null,
-    "precompile_time": 16.397269889,
-    "load_time": 1.8246889114379883,
-    "run_time": 0.4725761413574219,
-    "total_time": 2.29726505279541
+    "precompile_time": 16.615720749,
+    "load_time": 1.878227949142456,
+    "run_time": 0.47532105445861816,
+    "total_time": 2.353549003601074
   },
   {
     "julia_version": "1.10",
@@ -2953,10 +2095,10 @@
     "task": "Get-Info-On-Stdlib-In-Internal-Shareadd-Format",
     "status": "ok",
     "error": null,
-    "precompile_time": 5.196531482,
-    "load_time": 0.09739804267883301,
-    "run_time": 0.0036649703979492188,
-    "total_time": 0.10106301307678223
+    "precompile_time": 5.52483122,
+    "load_time": 0.09894490242004395,
+    "run_time": 0.0036110877990722656,
+    "total_time": 0.10255599021911621
   },
   {
     "julia_version": "1.10",
@@ -2964,10 +2106,10 @@
     "task": "Basic-Coloring",
     "status": "ok",
     "error": null,
-    "precompile_time": 5.54012718,
-    "load_time": 0.1491861343383789,
-    "run_time": 0.09038591384887695,
-    "total_time": 0.23957204818725586
+    "precompile_time": 5.851812154,
+    "load_time": 0.14682888984680176,
+    "run_time": 0.08757400512695312,
+    "total_time": 0.23440289497375488
   },
   {
     "julia_version": "1.10",
@@ -2975,10 +2117,10 @@
     "task": "Matrix-Multiplication",
     "status": "ok",
     "error": null,
-    "precompile_time": 6.197179454,
-    "load_time": 0.14135289192199707,
-    "run_time": 0.0711219310760498,
-    "total_time": 0.21247482299804688
+    "precompile_time": 6.275298331,
+    "load_time": 0.13836121559143066,
+    "run_time": 0.06923389434814453,
+    "total_time": 0.2075951099395752
   },
   {
     "julia_version": "1.10",
@@ -2986,10 +2128,10 @@
     "task": "Loading-A-Typical-Hep-Ex--Root-File",
     "status": "ok",
     "error": null,
-    "precompile_time": 23.663213004,
-    "load_time": 0.5951118469238281,
-    "run_time": 1.1552700996398926,
-    "total_time": 1.7503819465637207
+    "precompile_time": 24.752640618,
+    "load_time": 0.6068289279937744,
+    "run_time": 1.2156851291656494,
+    "total_time": 1.8225140571594238
   },
   {
     "julia_version": "1.10",
@@ -2997,9 +2139,9 @@
     "task": "Gradient-Of-Square-Norm",
     "status": "ok",
     "error": null,
-    "precompile_time": 31.641863989,
-    "load_time": 0.4241220951080322,
-    "run_time": 0.36979103088378906,
-    "total_time": 0.7939131259918213
+    "precompile_time": 31.843144494,
+    "load_time": 0.4736168384552002,
+    "run_time": 0.341386079788208,
+    "total_time": 0.8150029182434082
   }
 ]
