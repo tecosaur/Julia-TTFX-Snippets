@@ -43,9 +43,11 @@ Tasks at least 2x slower across a step *and* 1.6x worse than that step's median,
 
 **GMT** is the largest single movement in the dataset: script execution goes 0.0099s → 3.62s (367x) from 1.13 to nightly, while its precompile and load are flat-to-improving, so nothing else about the package regressed.
 
-Take it at face value with care. The 1.12/1.13 figure looks anomalously *fast* rather than nightly merely being slow — GMT runs at 0.108s on 1.10, drops to ~0.0099s at 1.12 and holds, then jumps. A ~10ms `plot(rand(5,2))` through the GMT library is implausibly quick, so nightly may be losing a cached path rather than newly doing something slow. It is also reproducible but variable: the same task measured 7.42s as a single sample and 3.62s as the best of 3.
+**Cause found: invalidation of precompiled code, not slow compilation.** On nightly the call is 99.5% `recompile_time` — GMT's pkgimage `plot` path is discarded and re-inferred on first use — against exactly zero recompilation on 1.12 and 1.13. Fresh compilation accounts for only 51.5ms of it. Counting invalidations during `using GMT`, the classic method-invalidation log *shrinks* while pkgimage **edge-validation** events go 74 (1.13) → 5959 (nightly), an ~80x jump. `ComponentArrays` is flat across the same boundary (282 → 261), so this is not universal.
 
-This task produced no data at all before the `rm("gmt.history"; force=true)` fix earlier in this branch, so the jump is absent from every prior result set — there was nothing to compare against.
+Note this is the opposite mechanism to the ComponentArrays finding above, where edge validation contributed nothing and the classic path exploded — two independent invalidation regressions in the same nightly. Write-up: [`../../ISSUE-gmt-edge-invalidation.md`](../../ISSUE-gmt-edge-invalidation.md).
+
+Two caveats on the number itself. It is variable — the same task measured 7.42s as a single sample and 3.62s as the best of 3 — and the task produced no data at all before the `rm("gmt.history"; force=true)` fix earlier in this branch, so the jump is absent from every prior result set. The ~10ms on 1.12/1.13 is genuine, not work being skipped: `plot` returns `nothing` and writes no files on every version, including 1.10 where it takes 0.108s.
 
 **ComponentArrays** never posts a dramatic single step, but it is the only task flagged in precompilation at three consecutive steps, compounding 3.64s → 28.03s (7.7x) from 1.11 to nightly while the median task got slightly faster. Over the full range it is the worst cumulative precompile regression in the set (6.1x).
 
