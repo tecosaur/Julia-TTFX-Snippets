@@ -58,7 +58,9 @@ geomean(xs) = (ys = filter(x -> x > 0, xs); isempty(ys) ? NaN : exp(mean(log, ys
 function decimal_ticks(ymin, ymax)
     lo = floor(Int, log10(ymin))
     hi = ceil(Int, log10(ymax))
-    vals = [10.0^e for e in lo:hi]
+    # Only decades that actually fall within the axis limits: a tick outside them is still
+    # drawn by Plots, but outside the frame, where it collides with whatever is below.
+    vals = [10.0^e for e in lo:hi if ymin <= 10.0^e <= ymax]
     labels = map(vals) do v
         v >= 1 ? @sprintf("%d", v) : rstrip(rstrip(@sprintf("%.4f", v), '0'), '.')
     end
@@ -89,7 +91,19 @@ panels = map(enumerate(METRICS)) do (idx, m)
     )
 
     if haskey(ranges, m.field)
-        yticks!(plt, decimal_ticks(ranges[m.field]...))
+        dlo, dhi = ranges[m.field]
+        # Track the data closely, padded just enough that extreme markers aren't clipped
+        # by the frame. Rounding out to whole decades instead would waste a lot of height.
+        ylo, yhi = dlo * 0.8, dhi * 1.25
+        tickvals, ticklabels = decimal_ticks(ylo, yhi)
+        if length(tickvals) < 2
+            # Span too narrow to contain two decades -- widen to whole ones so the axis
+            # still carries labelled ticks, all of them inside the frame.
+            ylo, yhi = 10.0^floor(Int, log10(dlo)), 10.0^ceil(Int, log10(dhi))
+            tickvals, ticklabels = decimal_ticks(ylo, yhi)
+        end
+        ylims!(plt, (ylo, yhi))
+        yticks!(plt, (tickvals, ticklabels))
     end
 
     # One faded line per task, labelled with the task name

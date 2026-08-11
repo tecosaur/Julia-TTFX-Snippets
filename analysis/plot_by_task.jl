@@ -41,7 +41,12 @@ task_keys = sort([k for (k, by_ver) in tasks
 function decimal_ticks(ymin, ymax)
     lo = floor(Int, log10(ymin))
     hi = ceil(Int, log10(ymax))
-    vals = [10.0^e for e in lo:hi]
+    all_vals = [10.0^e for e in lo:hi]
+    # Rounding outward puts the end decades beyond [ymin, ymax], and this axis pins its
+    # limits to exactly that range -- ticks outside it are drawn below the frame. Keep only
+    # the decades that actually fall inside, unless that would leave too few to be useful.
+    inside = filter(v -> ymin <= v <= ymax, all_vals)
+    vals = length(inside) >= 2 ? inside : all_vals
     labels = map(vals) do v
         v >= 1 ? @sprintf("%d", v) : rstrip(rstrip(@sprintf("%.4f", v), '0'), '.')
     end
