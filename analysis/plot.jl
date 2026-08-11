@@ -6,10 +6,16 @@ using JSON, Plots, Statistics, Printf, Colors
 const RESULTS = length(ARGS) >= 1 ? ARGS[1] : joinpath(@__DIR__, "results.json")
 const OUTPUT  = length(ARGS) >= 2 ? ARGS[2] : joinpath(@__DIR__, "results.png")
 
+# Must match TASK_REPEATS in benchmark.jl: load and execution keep the fastest of this many
+# runs, while precompilation is measured once (repeating it means clearing the compiled cache
+# and paying for it again). Results recorded before that change are single samples for every
+# metric and will be labelled wrongly here.
+const TASK_REPEATS = 3
+
 const METRICS = [
-    (field = "precompile_time", title = "Precompilation"),
-    (field = "load_time",       title = "Package load"),
-    (field = "run_time",        title = "Script execution"),
+    (field = "precompile_time", title = "Precompilation",   sampling = "single sample"),
+    (field = "load_time",       title = "Package load",     sampling = "fastest of $TASK_REPEATS runs"),
+    (field = "run_time",        title = "Script execution", sampling = "fastest of $TASK_REPEATS runs"),
 ]
 
 records = JSON.parsefile(RESULTS)
@@ -81,6 +87,10 @@ end
 panels = map(enumerate(METRICS)) do (idx, m)
     plt = plot(;
         title       = m.title,
+        titlefontsize = 11,
+        # The title runs to two lines (metric + how it was sampled), so lift it clear of the
+        # axis frame rather than letting the second line sit on top of it.
+        top_margin  = 8Plots.mm,
         ylabel      = idx == 1 ? "seconds" : "",
         yscale      = :log10,
         xticks      = (1:length(JULIA_VERSIONS), JULIA_VERSIONS),
@@ -128,8 +138,9 @@ panels = map(enumerate(METRICS)) do (idx, m)
           color = :crimson, linewidth = 3, markershape = :diamond, markersize = 6,
           label = "")
 
-    # Per-panel count of contributing tasks
-    title!(plt, string(m.title, " (geomean of ", length(metric_keys), "/", length(tasks), ")"))
+    # Per-panel count of contributing tasks, plus how the metric was sampled
+    title!(plt, string(m.title, " (geomean of ", length(metric_keys), "/", length(tasks), ")",
+                       "\n", m.sampling))
 
     # Annotate each geomean marker with +/- % relative to 1.10
     baseline = gm[1]
