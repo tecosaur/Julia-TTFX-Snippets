@@ -100,6 +100,10 @@ panels = map(enumerate(METRICS)) do (idx, m)
         framestyle  = :box,
     )
 
+    # Fixed x-limits so the geomean labels' backing boxes can be sized in data units below.
+    xlims!(plt, (0.5, length(JULIA_VERSIONS) + 0.5))
+
+    ylo = yhi = 0.0
     if haskey(ranges, m.field)
         dlo, dhi = ranges[m.field]
         # Track the data closely, padded just enough that extreme markers aren't clipped
@@ -142,17 +146,38 @@ panels = map(enumerate(METRICS)) do (idx, m)
     title!(plt, string(m.title, " (geomean of ", length(metric_keys), "/", length(tasks), ")",
                        "\n", m.sampling))
 
-    # Annotate each geomean marker with +/- % relative to 1.10
+    # Annotate each geomean marker with +/- % relative to the first version, on a tight white
+    # box so the label stays readable where it crosses the task lines.
+    #
+    # The box is drawn in data units, so the text's point size has to be converted. Each
+    # panel's plot area is roughly PANEL_PX_W x PANEL_PX_H at the figure size set below;
+    # x is linear over the fixed limits, y is log so the height is a number of decades.
+    const_fs = 12
+    PANEL_PX_W, PANEL_PX_H = 400, 340
+    px_per_x = PANEL_PX_W / length(JULIA_VERSIONS)
+    decades = yhi > ylo > 0 ? log10(yhi / ylo) : 1.0
+
     baseline = gm[1]
     if isfinite(baseline) && baseline > 0
         for (i, v) in enumerate(gm)
             isfinite(v) && v > 0 || continue
-            if i > 1
-                pct = 100 * (v / baseline - 1)
-                label = @sprintf("%+.0f%%", pct)
-                colour = pct > 0 ? colorant"#c0392b" : colorant"#1e8449"
-                annotate!(plt, i, v * 1.15, text(@sprintf("%+.0f%%", pct), 12, colour, :center, :bottom))
-            end
+            i > 1 || continue
+            pct = 100 * (v / baseline - 1)
+            label = @sprintf("%+.0f%%", pct)
+            colour = pct > 0 ? colorant"#c0392b" : colorant"#1e8449"
+
+            # GR scales fonts with the figure, so a point is ~1.05px wide / ~1.3px tall of
+            # rendered glyph at this size -- measured from the output, not the nominal 12pt.
+            half_w = (1.05 * const_fs * length(label) + 8) / 2 / px_per_x
+            y0 = v * 1.15
+            pad_px = 2
+            ybot = y0 / 10^(pad_px * decades / PANEL_PX_H)
+            ytop = y0 * 10^((1.3 * const_fs + pad_px) * decades / PANEL_PX_H)
+            plot!(plt, Shape([(i - half_w, ybot), (i + half_w, ybot),
+                              (i + half_w, ytop), (i - half_w, ytop)]);
+                  fillcolor = :white, linecolor = :white, linealpha = 0, label = "")
+
+            annotate!(plt, i, y0, text(label, const_fs, colour, :center, :bottom))
         end
     end
 
