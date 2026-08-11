@@ -162,9 +162,12 @@ panels = map(enumerate(METRICS)) do (idx, m)
         for (i, v) in enumerate(gm)
             isfinite(v) && v > 0 || continue
             i > 1 || continue
-            pct = 100 * (v / baseline - 1)
-            label = @sprintf("%+.0f%%", pct)
-            colour = pct > 0 ? colorant"#c0392b" : colorant"#1e8449"
+            # Colour from the rounded value, not the raw one: a +0.4% change displays as
+            # "0%", and showing that in the regression colour is misleading.
+            pct = round(Int, 100 * (v / baseline - 1))
+            label = pct == 0 ? "0%" : @sprintf("%+d%%", pct)
+            colour = pct > 0 ? colorant"#c0392b" :
+                     pct < 0 ? colorant"#1e8449" : colorant"#000000"
 
             # GR scales fonts with the figure, so a point is ~1.05px wide / ~1.3px tall of
             # rendered glyph at this size -- measured from the output, not the nominal 12pt.
