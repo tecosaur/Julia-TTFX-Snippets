@@ -2,6 +2,14 @@
 DifferentiationInterface = "a0c0ee7d-e4b9-4e03-894e-1c5f64a51d63"
 Mooncake = "da2b9cff-9c12-43a0-ae48-6db2b0edb7d6"
 
+# TEMPORARY: released Mooncake fails to precompile on Julia 1.14 (nightly) because it uses
+# `Compiler.WorldView` et al, removed by JuliaLang/julia#59413, #60795 and #61714.
+# Points at the branch of chalk-lab/Mooncake.jl#1272; remove once that merges and tags.
+# Note: `[sources]` requires Pkg 1.11+, so Julia 1.10 silently resolves the registered
+# release instead. The fix is entirely version-gated, so 1.10 runs identical code either way.
+[sources]
+Mooncake = {url = "https://github.com/IanButterworth/Mooncake.jl", rev = "ib/julia-1.14-compiler-api"}
+
 [compat]
 DifferentiationInterface = ">=0.7.12"
 Mooncake = ">=0.4.176"
