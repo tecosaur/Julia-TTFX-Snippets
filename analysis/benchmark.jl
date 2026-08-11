@@ -2,7 +2,7 @@
 
 using Printf
 
-const JULIA_VERSIONS = ["pr61920", "nightly", "1.13-nightly", "1.12", "1.11", "1.10"]
+const JULIA_VERSIONS = ["nightly", "1.13-nightly", "1.12", "1.11", "1.10"]
 const VERSION_CHANNEL = Dict{String,String}()
 const VERSION_OPT = Dict{String,Int}()
 const TASKS_DIR = joinpath(@__DIR__, "..", "tasks")
