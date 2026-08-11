@@ -42,6 +42,19 @@ Tasks at least 2x slower across a step *and* 1.6x worse than that step's median,
 
 **ComponentArrays** never posts a dramatic single step, but it is the only task flagged in precompilation at three consecutive steps, compounding 3.64s → 28.03s (7.7x) from 1.11 to nightly while the median task got slightly faster. Over the full range it is the worst cumulative precompile regression in the set (6.1x).
 
+**Root cause found — and it is not ComponentArrays.** Per-package precompile timings put all of the growth in two dependencies, with ComponentArrays itself flat throughout:
+
+| Julia | Static | StaticArrayInterface | ComponentArrays | env total |
+|---|---|---|---|---|
+| 1.11 | 1.13s | 1.56s | 1.18s | 7.88s |
+| 1.12 | 14.29s | 2.25s | 1.28s | 21.51s |
+| 1.13-nightly | 27.7s | 6.2s | 1.10s | 39.8s |
+| nightly | 26.3s | 21.3s | 1.30s | 56.07s |
+
+Both packages wrap their imports in PrecompileTools' `@recompile_invalidations`, which force-recompiles every method instance invalidated inside the block. That single trivial block costs 0.05s on 1.11 and ~22s on 1.12+: the invalidated leaf `MethodInstance`s rise from 20 to 279, *and* the cost of recompiling one rises from ~2.5ms to ~80ms. Removing just the macro takes Static from 32.5s to 1.3s on nightly — back to roughly its 1.11 cost.
+
+Write-up for a Julia issue, with reproducers: [`../../ISSUE-recompile-invalidations.md`](../../ISSUE-recompile-invalidations.md). The practical fix is in the packages (drop the macro); the open question for Julia is the 32-45x increase in per-instance re-inference cost.
+
 **Mooncake**'s nightly outlier needs a caveat the others don't. It resolves from a git branch carrying a Julia 1.14 compatibility patch, and although the source is identical on 1.13 and nightly, the *code path is not* — the patch is version-gated, so nightly runs the new `Compiler.OverlayCodeCache` path where 1.13 runs the old `Compiler.WorldView` one. Some or all of the 2.29x could be the migration rather than Julia. Unmeasured; don't attribute it to Julia without testing the two cache implementations on nightly alone.
 
 ## Failures
