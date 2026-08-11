@@ -5,6 +5,10 @@ using Printf
 const JULIA_VERSIONS = ["nightly", "1.13-nightly", "1.12", "1.11", "1.10"]
 const VERSION_CHANNEL = Dict{String,String}()
 const VERSION_OPT = Dict{String,Int}()
+# The task script is run this many times and the fastest measurement of each phase is
+# kept, to suppress scheduling noise. Precompilation is measured only once, because
+# re-measuring it means clearing the compiled cache and paying for it all over again.
+const TASK_REPEATS = 3
 const TASKS_DIR = joinpath(@__DIR__, "..", "tasks")
 const RESULTS_FILE = joinpath(@__DIR__, "results.json")
 
@@ -117,22 +121,46 @@ end"""
                   precompile_time)
     end
 
-    # 4. Run the task script; capture output even on failure so partial timing can
-    #    be recovered.  Expected stdout: "$load_t, $run_t, $total_t seconds"
+    # 4. Run the task script `TASK_REPEATS` times in fresh processes, keeping the fastest
+    #    measurement of each phase.  Both metrics are cold-start by design, so the repeats
+    #    have to be separate processes -- a second `using` in the same process is already
+    #    loaded, and a second call already compiled.  Capture output even on failure so
+    #    partial timing can be recovered.
+    #    Expected stdout per run: "$load_t, $run_t, $total_t seconds"
     task_jl = joinpath(task.dir, "task.jl")
     opt_flag = opt === nothing ? `` : `-O$opt`
-    task_out, task_err, task_ok = capture_soft(addenv(
+    task_cmd = addenv(
         `julia +$ch $opt_flag --startup-file=no --project=$proj $task_jl`,
-        base_env...))
+        base_env...)
 
-    # All three times present
-    m3 = match(r"([\d.]+),\s*([\d.]+),\s*([\d.]+)\s+seconds", task_out)
-    if m3 !== nothing
-        load_t, run_t, total_t = parse.(Float64, m3.captures)
-        status  = task_ok ? "ok" : "partial"
-        err_msg = task_ok ? nothing : "task exited with non-zero status"
-        return (; status, error = err_msg,
-                  precompile_time, load_time = load_t, run_time = run_t, total_time = total_t)
+    load_ts, run_ts, total_ts = Float64[], Float64[], Float64[]
+    all_exited_ok = true
+    task_out = task_err = ""
+    for _ in 1:TASK_REPEATS
+        task_out, task_err, task_ok = capture_soft(task_cmd)
+        all_exited_ok &= task_ok
+        m = match(r"([\d.]+),\s*([\d.]+),\s*([\d.]+)\s+seconds", task_out)
+        if m !== nothing
+            lt, rt, tt = parse.(Float64, m.captures)
+            push!(load_ts, lt); push!(run_ts, rt); push!(total_ts, tt)
+        end
+    end
+
+    # Fastest of the repeats. Each phase is minimised independently, so `total_time` is the
+    # fastest total observed rather than the sum of the other two fields.
+    if !isempty(load_ts)
+        n_failed = TASK_REPEATS - length(load_ts)
+        status = (n_failed == 0 && all_exited_ok) ? "ok" : "partial"
+        err_msg = if status == "ok"
+            nothing
+        elseif n_failed > 0
+            "task produced no timing on $n_failed of $TASK_REPEATS runs"
+        else
+            "task exited with non-zero status"
+        end
+        return (; status, error = err_msg, precompile_time,
+                  load_time = minimum(load_ts), run_time = minimum(run_ts),
+                  total_time = minimum(total_ts))
     end
 
     # Load + run times only (script body printed before crashing)
