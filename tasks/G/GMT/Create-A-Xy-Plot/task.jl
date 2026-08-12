@@ -11,7 +11,7 @@ using GMT
 __t2 = time()
 
 plot(rand(5,2))
-rm("gmt.history")
+rm("gmt.history"; force=true)
 
 __t3 = time()
 
