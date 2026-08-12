@@ -90,14 +90,25 @@ panels = map(enumerate(METRICS)) do (idx, m)
         titlefontsize = 11,
         # The title runs to two lines (metric + how it was sampled), so lift it clear of the
         # axis frame rather than letting the second line sit on top of it.
-        top_margin  = 8Plots.mm,
+        top_margin  = 3Plots.mm,
+        bottom_margin = 0Plots.mm,
         ylabel      = idx == 1 ? "seconds" : "",
         yscale      = :log10,
         xticks      = (1:length(JULIA_VERSIONS), JULIA_VERSIONS),
         xrotation   = 20,
         legend      = false,
         grid        = true,
-        framestyle  = :box,
+        # Recessive grid and frame: they locate a value, they aren't the content.
+        gridalpha   = 0.45,
+        gridlinewidth = 0.6,
+        foreground_color_grid   = colorant"#d9d7d2",
+        foreground_color_border = colorant"#bdbcb7",
+        foreground_color_axis   = colorant"#bdbcb7",
+        tickfontsize  = 8,
+        tickfontcolor = colorant"#52514e",
+        guidefontsize = 9,
+        guidefontcolor = colorant"#52514e",
+        framestyle  = :axes,
     )
 
     # Fixed x-limits so the geomean labels' backing boxes can be sized in data units below.
@@ -143,8 +154,7 @@ panels = map(enumerate(METRICS)) do (idx, m)
           label = "")
 
     # Per-panel count of contributing tasks, plus how the metric was sampled
-    title!(plt, string(m.title, " (geomean of ", length(metric_keys), "/", length(tasks), ")",
-                       "\n", m.sampling))
+    title!(plt, string(m.title, "\nGeomean of ", length(metric_keys), "/", length(tasks), ", ", m.sampling))
 
     # Annotate each geomean marker with +/- % relative to the first version, on a tight white
     # box so the label stays readable where it crosses the task lines.
@@ -174,8 +184,12 @@ panels = map(enumerate(METRICS)) do (idx, m)
             half_w = (1.05 * const_fs * length(label) + 8) / 2 / px_per_x
             y0 = v * 1.15
             pad_px = 2
-            ybot = y0 / 10^(pad_px * decades / PANEL_PX_H)
-            ytop = y0 * 10^((1.3 * const_fs + pad_px) * decades / PANEL_PX_H)
+            box_h_px = 1.3 * const_fs + 2 * pad_px
+            # Nudge the box up a fifth of its own height so it sits on the text rather than
+            # slightly below it.
+            lift_px = 0.2 * box_h_px
+            ybot = y0 * 10^((lift_px - pad_px) * decades / PANEL_PX_H)
+            ytop = y0 * 10^((lift_px + 1.3 * const_fs + pad_px) * decades / PANEL_PX_H)
             plot!(plt, Shape([(i - half_w, ybot), (i + half_w, ybot),
                               (i + half_w, ytop), (i - half_w, ytop)]);
                   fillcolor = :white, linecolor = :white, linealpha = 0, label = "")
@@ -189,7 +203,10 @@ end
 
 # Build legend pane manually with scatter markers + text annotations so we have
 # full control over wrapping (Plots' built-in legend clips multi-column layouts).
-const LEGEND_COLS = 4
+# Three columns, not four: at four the longest labels ("Optimization / Rosenbrock-
+# Minimization-With-Bfgs-Using-Forwarddiff") overrun the column and get clipped at the
+# figure edge. Three columns give each label the width it actually needs.
+const LEGEND_COLS = 3
 task_keys = sort(collect(keys(tasks)))
 palette = distinguishable_colors(length(task_keys), [colorant"gray"]; dropseed = true)
 
@@ -207,24 +224,27 @@ legend_pane = plot(;
     framestyle = :none, grid = false, legend = false,
     xlims = (0, 1), ylims = (0, 1),
     showaxis = false, ticks = nothing,
-    left_margin = 5Plots.mm, right_margin = 5Plots.mm,
-    top_margin = 0Plots.mm, bottom_margin = 5Plots.mm)
+    left_margin = 9Plots.mm, right_margin = 5Plots.mm,
+    top_margin = 0Plots.mm, bottom_margin = 1Plots.mm)
 
 for (i, entry) in enumerate(legend_entries)
     col = (i - 1) % LEGEND_COLS
     row = (i - 1) ÷ LEGEND_COLS
-    col_x = (col + 0.02) / LEGEND_COLS              # marker x within pane
-    text_x = col_x + 0.012                           # label x (just right of marker)
-    y = 1 - (row + 0.5) / n_rows                     # top-down rows
+    col_x = (col + 0.015) / LEGEND_COLS             # marker x within pane
+    text_x = col_x + 0.011                          # label x (just right of marker)
+    # Inset the rows from the pane's top and bottom edges so the block doesn't sit flush
+    # against the panels above or the figure edge below.
+    y = 0.98 - (row + 0.5) * (0.96 / n_rows)
     scatter!(legend_pane, [col_x], [y];
              color = entry.color, markershape = entry.shape, markersize = entry.size,
              markerstrokewidth = 0, label = "")
-    annotate!(legend_pane, text_x, y, text(entry.label, 8, :left, :vcenter))
+    annotate!(legend_pane, text_x, y,
+              text(entry.label, 8, colorant"#2b2b29", :left, :vcenter))
 end
 
-# Approx: each row ~ 22 px; total figure body ~ 500 px above legend
-legend_px = 30 + 22 * n_rows
-plot_px   = 500
+# Approx: each row ~ 22 px, plus padding above and below the block
+legend_px = 8 + 19 * n_rows
+plot_px   = 395
 total_px  = plot_px + legend_px
 legend_frac = legend_px / total_px
 
@@ -235,10 +255,10 @@ layout = eval(Meta.parse("Plots.@layout [a b c; d{$(legend_frac)h}]"))
 final = plot(panels..., legend_pane;
              layout      = layout,
              size        = (1500, total_px),
-             plot_title  = "TTFX across Julia versions ($(length(tasks)) tasks from tecosaur/Julia-TTFX-Snippets)\ngeomean per panel uses only tasks with a value for that metric on every version",
+             plot_title  = "TTFX across Julia versions ($(length(tasks)) tasks from tecosaur/Julia-TTFX-Snippets)\nGeomean per panel uses only tasks with a value for that metric on every version",
              plot_titlefontsize = 11,
-             plot_titlevspan = 0.08,
-             left_margin = 10Plots.mm, right_margin = 5Plots.mm, bottom_margin = 5Plots.mm)
+             plot_titlevspan = 0.055,
+             left_margin = 8Plots.mm, right_margin = 6Plots.mm, bottom_margin = 2Plots.mm)
 
 savefig(final, OUTPUT)
 println("Wrote $OUTPUT")
