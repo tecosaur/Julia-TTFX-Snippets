@@ -1,6 +1,6 @@
 #!/usr/bin/env julia --startup-file=no
 
-using Printf
+using Printf, Dates
 
 const JULIA_VERSIONS = ["nightly", "1.13-nightly", "1.12", "1.11", "1.10"]
 const VERSION_CHANNEL = Dict{String,String}()
@@ -11,6 +11,9 @@ const VERSION_OPT = Dict{String,Int}()
 const TASK_REPEATS = 3
 const TASKS_DIR = joinpath(@__DIR__, "..", "tasks")
 const RESULTS_FILE = joinpath(@__DIR__, "results.json")
+# Provenance for the run: exact build of every Julia channel plus the machine it ran on.
+# Written before any measurement so an interrupted run is still identifiable.
+const META_FILE = joinpath(@__DIR__, "results-meta.json")
 
 struct TaskInfo
     dir::String
@@ -35,14 +38,27 @@ function clear_compiled!(depot::String)
     isdir(compiled) && rm(compiled; recursive = true)
 end
 
-function version_available(ver::String)::Bool
+"""
+    julia_build_info(ver) -> NamedTuple or nothing
+
+Identify the build behind a channel: the full version string, the commit it was built
+from, and its target triple. `nothing` means the channel is not installed, so this
+doubles as the availability check.
+"""
+function julia_build_info(ver::String)
     ch = get(VERSION_CHANNEL, ver, ver)
-    try
-        run(pipeline(`julia +$ch --startup-file=no --version`; stdout = devnull, stderr = devnull))
-        true
-    catch
-        false
-    end
+    code = """
+    let g = Base.GIT_VERSION_INFO
+        join(stdout, [string(VERSION), g.commit, g.commit_short, g.date_string,
+                      g.branch, Sys.MACHINE, string(Sys.WORD_SIZE)], '\\n')
+    end"""
+    out, _, ok = capture_soft(`julia +$ch --startup-file=no -e $code`)
+    ok || return nothing
+    f = split(out, '\n')
+    length(f) == 7 || return nothing
+    (; channel = ch, version = f[1], commit = f[2], commit_short = f[3],
+       commit_date = f[4], branch = f[5], machine = f[6],
+       word_size = parse(Int, f[7]))
 end
 
 # Run a subprocess capturing stdout and stderr; on failure include stderr in the error.
@@ -199,6 +215,82 @@ function json_escape(s::AbstractString)
     String(take!(io))
 end
 
+# Recursive JSON serialisation for the nested metadata (records use `record_to_json`).
+function to_json(v, indent::Int = 0)
+    pad = " "^indent
+    if v === nothing
+        "null"
+    elseif v isa AbstractString
+        json_escape(v)
+    elseif v isa Bool
+        string(v)
+    elseif v isa AbstractFloat
+        isfinite(v) ? string(v) : "null"
+    elseif v isa Number
+        string(v)
+    elseif v isa NamedTuple || v isa AbstractDict
+        ks = v isa NamedTuple ? collect(keys(v)) : sort!(collect(keys(v)); by = string)
+        isempty(ks) && return "{}"
+        items = ["$pad  $(json_escape(string(k))): $(to_json(v[k], indent + 2))" for k in ks]
+        "{\n" * join(items, ",\n") * "\n$pad}"
+    elseif v isa AbstractVector
+        isempty(v) && return "[]"
+        "[\n" * join(["$pad  " * to_json(x, indent + 2) for x in v], ",\n") * "\n$pad]"
+    else
+        json_escape(string(v))
+    end
+end
+
+# Best-effort shell-out; "" when the command is missing or fails (e.g. no git, non-Linux).
+function try_read(cmd::Cmd)
+    out, _, ok = capture_soft(cmd)
+    ok ? strip(out) : ""
+end
+
+# Everything about the machine that plausibly moves a timing.
+function system_info()
+    cpus = Sys.cpu_info()
+    # `Sys.cpu_info()` reports a per-core model on Linux and the chip on macOS; either way
+    # the first entry names the part. Speed is nominal, not the clock actually sustained.
+    model = isempty(cpus) ? "unknown" : strip(cpus[1].model)
+    speed = isempty(cpus) ? nothing : cpus[1].speed
+    (; hostname = gethostname(),
+       cpu = model,
+       cpu_threads = Sys.CPU_THREADS,
+       cpu_speed_mhz = speed,
+       cpu_target = get(ENV, "JULIA_CPU_TARGET", ""),
+       total_memory_gb = round(Sys.total_memory() / 2^30; digits = 1),
+       machine = Sys.MACHINE,
+       kernel = string(Sys.KERNEL),
+       uname = try_read(`uname -sr`),
+       # The driver's own build, distinct from the versions under test.
+       driver_julia = string(VERSION))
+end
+
+# Repo state, so a run can be tied back to the task definitions that produced it.
+function repo_info()
+    dir = @__DIR__
+    (; commit = try_read(`git -C $dir rev-parse HEAD`),
+       branch = try_read(`git -C $dir rev-parse --abbrev-ref HEAD`),
+       dirty  = !isempty(try_read(`git -C $dir status --porcelain`)))
+end
+
+# Env vars that change what is measured; recorded so a run's settings are self-describing.
+const RECORDED_ENV = ["JULIA_IMAGE_THREADS", "JULIA_NUM_THREADS", "JULIA_NUM_PRECOMPILE_TASKS",
+                      "JULIA_CPU_TARGET", "JULIA_PKG_PRECOMPILE_AUTO"]
+
+function run_metadata(depot::String, tasks::Vector{TaskInfo}, builds::AbstractDict)
+    (; timestamp = string(Dates.now(Dates.UTC)) * "Z",
+       system = system_info(),
+       repo = repo_info(),
+       settings = (; task_repeats = TASK_REPEATS,
+                     depot = depot,
+                     n_tasks = length(tasks),
+                     version_opt = Dict(k => v for (k, v) in VERSION_OPT),
+                     env = Dict(k => get(ENV, k, "") for k in RECORDED_ENV if haskey(ENV, k))),
+       julia_builds = Dict(v => builds[v] for v in keys(builds)))
+end
+
 # Minimal JSON serialisation for flat NamedTuple records — no external deps needed
 function record_to_json(r::NamedTuple)
     fields = map(zip(keys(r), values(r))) do (k, v)
@@ -230,6 +322,21 @@ function main()
     println("Results: $RESULTS_FILE")
     println("Tip: set TTFX_DEPOT_PATH=$depot to reuse downloaded packages on subsequent runs\n")
 
+    # Probe every channel up front so the run's provenance is on disk before the first
+    # measurement, and reuse the result as the availability check below.
+    builds = Dict{String,Any}(v => julia_build_info(v) for v in JULIA_VERSIONS)
+    meta = run_metadata(depot, tasks, builds)
+    write(META_FILE, to_json(meta) * "\n")
+
+    sys = meta.system
+    println("Machine: $(sys.hostname)  $(sys.cpu)  $(sys.cpu_threads) threads  $(sys.total_memory_gb) GiB  $(sys.uname)")
+    for ver in JULIA_VERSIONS
+        b = builds[ver]
+        println("  $(rpad(ver, 14)) ", b === nothing ? "(not installed)" :
+                "$(b.version)  $(b.commit_short)  $(b.commit_date)")
+    end
+    println("Metadata: $META_FILE\n")
+
     open(RESULTS_FILE, "w") do io
         println(io, "[")
         is_first = Ref(true)
@@ -243,7 +350,7 @@ function main()
 
         for ver in JULIA_VERSIONS
             println("=== Julia $ver ===")
-            if !version_available(ver)
+            if builds[ver] === nothing
                 println("  (not available, skipping)\n")
                 for task in tasks
                     write_record((; julia_version = ver, package = task.package,
