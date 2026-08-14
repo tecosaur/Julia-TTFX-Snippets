@@ -257,7 +257,8 @@ final = plot(panels..., legend_pane;
              size        = (1500, total_px),
              plot_title  = "TTFX across Julia versions ($(length(tasks)) tasks from tecosaur/Julia-TTFX-Snippets)\nGeomean per panel uses only tasks with a value for that metric on every version",
              plot_titlefontsize = 11,
-             plot_titlevspan = 0.055,
+             # Enough span for the two title lines plus a clear gap before the panel titles.
+             plot_titlevspan = 0.085,
              left_margin = 8Plots.mm, right_margin = 6Plots.mm, bottom_margin = 2Plots.mm)
 
 savefig(final, OUTPUT)
