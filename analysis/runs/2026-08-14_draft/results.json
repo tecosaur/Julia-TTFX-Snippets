@@ -434,10 +434,10 @@
     "task": "Multistability-Of-Discrete-Time-Systems",
     "status": "ok",
     "error": null,
-    "precompile_time": 50.506565026,
-    "load_time": 1.1707758903503418,
-    "run_time": 1.5559041500091553,
-    "total_time": 2.726680040359497
+    "precompile_time": 50.415511093,
+    "load_time": 1.1581330299377441,
+    "run_time": 1.5308079719543457,
+    "total_time": 2.68894100189209
   },
   {
     "julia_version": "1.13-nightly",
@@ -445,10 +445,10 @@
     "task": "Project-Path",
     "status": "ok",
     "error": null,
-    "precompile_time": 2.211876945,
-    "load_time": 0.007119894027709961,
-    "run_time": 0.00870203971862793,
-    "total_time": 0.01582193374633789
+    "precompile_time": 2.220173484,
+    "load_time": 0.007094860076904297,
+    "run_time": 0.008888959884643555,
+    "total_time": 0.01598381996154785
   },
   {
     "julia_version": "1.13-nightly",
@@ -456,10 +456,10 @@
     "task": "User-Cache",
     "status": "ok",
     "error": null,
-    "precompile_time": 2.246314562,
-    "load_time": 0.0071599483489990234,
-    "run_time": 0.0002689361572265625,
-    "total_time": 0.007436990737915039
+    "precompile_time": 2.153909429,
+    "load_time": 0.00712895393371582,
+    "run_time": 0.00026679039001464844,
+    "total_time": 0.0073969364166259766
   },
   {
     "julia_version": "1.13-nightly",
@@ -467,10 +467,10 @@
     "task": "Basic-Benchmark",
     "status": "ok",
     "error": null,
-    "precompile_time": 12.887540759,
-    "load_time": 0.10434794425964355,
-    "run_time": 0.19532299041748047,
-    "total_time": 0.299670934677124
+    "precompile_time": 12.725146734,
+    "load_time": 0.10578107833862305,
+    "run_time": 0.20361709594726562,
+    "total_time": 0.30947113037109375
   },
   {
     "julia_version": "1.13-nightly",
@@ -478,10 +478,10 @@
     "task": "Plot-A-Sine-Wave",
     "status": "ok",
     "error": null,
-    "precompile_time": 171.469164042,
-    "load_time": 2.622624158859253,
-    "run_time": 0.5758378505706787,
-    "total_time": 3.1984620094299316
+    "precompile_time": 171.325985252,
+    "load_time": 2.532360076904297,
+    "run_time": 0.5487639904022217,
+    "total_time": 3.0811240673065186
   },
   {
     "julia_version": "1.13-nightly",
@@ -489,10 +489,10 @@
     "task": "Nonlinear-Timeseries-Analysis",
     "status": "ok",
     "error": null,
-    "precompile_time": 22.269507242,
-    "load_time": 0.7272770404815674,
-    "run_time": 1.201042890548706,
-    "total_time": 1.9283199310302734
+    "precompile_time": 22.285783029,
+    "load_time": 0.7177550792694092,
+    "run_time": 1.1808631420135498,
+    "total_time": 1.898618221282959
   },
   {
     "julia_version": "1.13-nightly",
@@ -500,10 +500,10 @@
     "task": "Basic-Manipulations",
     "status": "ok",
     "error": null,
-    "precompile_time": 19.60388785,
-    "load_time": 0.10820913314819336,
-    "run_time": 0.5690031051635742,
-    "total_time": 0.6791410446166992
+    "precompile_time": 19.748866176,
+    "load_time": 0.10811901092529297,
+    "run_time": 0.5621299743652344,
+    "total_time": 0.6717820167541504
   },
   {
     "julia_version": "1.13-nightly",
@@ -511,10 +511,10 @@
     "task": "Dataframe-Construction",
     "status": "ok",
     "error": null,
-    "precompile_time": 44.09524886,
-    "load_time": 0.3832089900970459,
-    "run_time": 0.0264279842376709,
-    "total_time": 0.4096369743347168
+    "precompile_time": 44.098074843,
+    "load_time": 0.3735239505767822,
+    "run_time": 0.026016950607299805,
+    "total_time": 0.39980101585388184
   },
   {
     "julia_version": "1.13-nightly",
@@ -522,10 +522,10 @@
     "task": "Jacobian-With-Finite-Differences",
     "status": "ok",
     "error": null,
-    "precompile_time": 1.276834044,
-    "load_time": 0.00807499885559082,
-    "run_time": 0.638491153717041,
-    "total_time": 0.6465661525726318
+    "precompile_time": 1.270947682,
+    "load_time": 0.007972955703735352,
+    "run_time": 0.6331849098205566,
+    "total_time": 0.641157865524292
   },
   {
     "julia_version": "1.13-nightly",
@@ -533,10 +533,10 @@
     "task": "Normal-Distribution",
     "status": "ok",
     "error": null,
-    "precompile_time": 10.154507169,
-    "load_time": 0.3041508197784424,
-    "run_time": 0.1961510181427002,
-    "total_time": 0.5005578994750977
+    "precompile_time": 10.389656224,
+    "load_time": 0.2962360382080078,
+    "run_time": 0.19325685501098633,
+    "total_time": 0.48949289321899414
   },
   {
     "julia_version": "1.13-nightly",
@@ -544,10 +544,10 @@
     "task": "Gradient-Of-Square-Norm",
     "status": "ok",
     "error": null,
-    "precompile_time": 80.30637389,
-    "load_time": 0.8576300144195557,
-    "run_time": 2.4081361293792725,
-    "total_time": 3.265766143798828
+    "precompile_time": 80.727787684,
+    "load_time": 0.825355052947998,
+    "run_time": 2.3024120330810547,
+    "total_time": 3.1277670860290527
   },
   {
     "julia_version": "1.13-nightly",
@@ -555,10 +555,10 @@
     "task": "Print_Explicit_Imports",
     "status": "ok",
     "error": null,
-    "precompile_time": 27.825568651,
-    "load_time": 0.3144209384918213,
-    "run_time": 0.4016571044921875,
-    "total_time": 0.7160780429840088
+    "precompile_time": 27.300601325,
+    "load_time": 0.31183314323425293,
+    "run_time": 0.3891940116882324,
+    "total_time": 0.7010271549224854
   },
   {
     "julia_version": "1.13-nightly",
@@ -566,10 +566,10 @@
     "task": "Gradient-Of-Square-Norm",
     "status": "ok",
     "error": null,
-    "precompile_time": 4.263010396,
-    "load_time": 0.003993988037109375,
-    "run_time": 0.2682921886444092,
-    "total_time": 0.27233004570007324
+    "precompile_time": 4.260073463,
+    "load_time": 0.004007101058959961,
+    "run_time": 0.2660670280456543,
+    "total_time": 0.27007412910461426
   },
   {
     "julia_version": "1.13-nightly",
@@ -577,10 +577,10 @@
     "task": "Basic-Model-Gradient",
     "status": "ok",
     "error": null,
-    "precompile_time": 35.197271884,
-    "load_time": 1.173271894454956,
-    "run_time": 7.708266019821167,
-    "total_time": 8.881537914276123
+    "precompile_time": 34.105214705,
+    "load_time": 1.204106092453003,
+    "run_time": 7.957189083099365,
+    "total_time": 9.165388107299805
   },
   {
     "julia_version": "1.13-nightly",
@@ -588,10 +588,10 @@
     "task": "Gradient-Of-Square-Norm",
     "status": "ok",
     "error": null,
-    "precompile_time": 6.838330379,
-    "load_time": 0.06667900085449219,
-    "run_time": 0.4596850872039795,
-    "total_time": 0.5270109176635742
+    "precompile_time": 6.851961702,
+    "load_time": 0.0667579174041748,
+    "run_time": 0.45035386085510254,
+    "total_time": 0.5172698497772217
   },
   {
     "julia_version": "1.13-nightly",
@@ -599,10 +599,10 @@
     "task": "Create-A-Xy-Plot",
     "status": "ok",
     "error": null,
-    "precompile_time": 73.030277908,
-    "load_time": 0.9118790626525879,
-    "run_time": 0.009406089782714844,
-    "total_time": 0.9212851524353027
+    "precompile_time": 72.622237616,
+    "load_time": 0.92317795753479,
+    "run_time": 0.009536027908325195,
+    "total_time": 0.9327139854431152
   },
   {
     "julia_version": "1.13-nightly",
@@ -610,10 +610,10 @@
     "task": "Graph-Construction",
     "status": "ok",
     "error": null,
-    "precompile_time": 12.101514495,
-    "load_time": 0.3424539566040039,
-    "run_time": 0.12185907363891602,
-    "total_time": 0.4643130302429199
+    "precompile_time": 11.380278686,
+    "load_time": 0.33905696868896484,
+    "run_time": 0.12020683288574219,
+    "total_time": 0.45926380157470703
   },
   {
     "julia_version": "1.13-nightly",
@@ -621,10 +621,10 @@
     "task": "Estimate-Hmm-With-Baum-Welch",
     "status": "ok",
     "error": null,
-    "precompile_time": 11.199148268,
-    "load_time": 0.3644089698791504,
-    "run_time": 1.7041079998016357,
-    "total_time": 2.068516969680786
+    "precompile_time": 11.295832248,
+    "load_time": 0.3687479496002197,
+    "run_time": 1.7239539623260498,
+    "total_time": 2.0927019119262695
   },
   {
     "julia_version": "1.13-nightly",
@@ -632,10 +632,10 @@
     "task": "Conjugate-Gradient-Solve",
     "status": "ok",
     "error": null,
-    "precompile_time": 4.053567184,
-    "load_time": 0.1791248321533203,
-    "run_time": 0.6948130130767822,
-    "total_time": 0.8739378452301025
+    "precompile_time": 4.064751396,
+    "load_time": 0.17824602127075195,
+    "run_time": 0.6777980327606201,
+    "total_time": 0.8560440540313721
   },
   {
     "julia_version": "1.13-nightly",
@@ -643,10 +643,10 @@
     "task": "Type-Stability-Analysis",
     "status": "ok",
     "error": null,
-    "precompile_time": 56.265949809,
-    "load_time": 0.3005659580230713,
-    "run_time": 0.918720006942749,
-    "total_time": 1.2192859649658203
+    "precompile_time": 56.148872995,
+    "load_time": 0.30782604217529297,
+    "run_time": 0.9422550201416016,
+    "total_time": 1.2500810623168945
   },
   {
     "julia_version": "1.13-nightly",
@@ -654,10 +654,10 @@
     "task": "Matrix-Multiplication-On-Gpu-Like-Arrays",
     "status": "ok",
     "error": null,
-    "precompile_time": 15.871700603,
-    "load_time": 0.7528529167175293,
-    "run_time": 1.204862117767334,
-    "total_time": 1.9577150344848633
+    "precompile_time": 15.185664707,
+    "load_time": 0.756788969039917,
+    "run_time": 1.213454008102417,
+    "total_time": 1.970242977142334
   },
   {
     "julia_version": "1.13-nightly",
@@ -665,10 +665,10 @@
     "task": "Format-Text",
     "status": "ok",
     "error": null,
-    "precompile_time": 28.997189261,
-    "load_time": 0.1791858673095703,
-    "run_time": 0.006009101867675781,
-    "total_time": 0.1851949691772461
+    "precompile_time": 29.930080452,
+    "load_time": 0.1818690299987793,
+    "run_time": 0.006119966506958008,
+    "total_time": 0.1879889965057373
   },
   {
     "julia_version": "1.13-nightly",
@@ -676,10 +676,10 @@
     "task": "Hash-Nothing",
     "status": "ok",
     "error": null,
-    "precompile_time": 13.301773061,
-    "load_time": 0.07434415817260742,
-    "run_time": 0.00027489662170410156,
-    "total_time": 0.07462215423583984
+    "precompile_time": 13.220327269,
+    "load_time": 0.07409405708312988,
+    "run_time": 0.0002689361572265625,
+    "total_time": 0.07437014579772949
   },
   {
     "julia_version": "1.13-nightly",
@@ -687,10 +687,10 @@
     "task": "Conjugate-Gradient-Solve",
     "status": "ok",
     "error": null,
-    "precompile_time": 4.953086293,
-    "load_time": 0.15802693367004395,
-    "run_time": 1.0931520462036133,
-    "total_time": 1.2511789798736572
+    "precompile_time": 4.949301671,
+    "load_time": 0.15880703926086426,
+    "run_time": 1.1046638488769531,
+    "total_time": 1.2634708881378174
   },
   {
     "julia_version": "1.13-nightly",
@@ -698,10 +698,10 @@
     "task": "Dot-Product",
     "status": "ok",
     "error": null,
-    "precompile_time": 37.483634903,
-    "load_time": 0.2055809497833252,
-    "run_time": 0.603391170501709,
-    "total_time": 0.8089721202850342
+    "precompile_time": 36.78458373,
+    "load_time": 0.20821094512939453,
+    "run_time": 0.6168351173400879,
+    "total_time": 0.8254899978637695
   },
   {
     "julia_version": "1.13-nightly",
@@ -709,10 +709,10 @@
     "task": "Geodesic-On-Sphere",
     "status": "ok",
     "error": null,
-    "precompile_time": 21.870138965,
-    "load_time": 0.5558879375457764,
-    "run_time": 0.39702701568603516,
-    "total_time": 0.9529149532318115
+    "precompile_time": 20.909238517,
+    "load_time": 0.5587880611419678,
+    "run_time": 0.4080491065979004,
+    "total_time": 0.9673690795898438
   },
   {
     "julia_version": "1.13-nightly",
@@ -720,10 +720,10 @@
     "task": "Addition-With-Uncertainties",
     "status": "ok",
     "error": null,
-    "precompile_time": 0.95264423,
-    "load_time": 0.008766889572143555,
-    "run_time": 0.058155059814453125,
-    "total_time": 0.06692194938659668
+    "precompile_time": 0.943695729,
+    "load_time": 0.00870203971862793,
+    "run_time": 0.058477163314819336,
+    "total_time": 0.06717920303344727
   },
   {
     "julia_version": "1.13-nightly",
@@ -731,10 +731,10 @@
     "task": "Get-Properties-Of-A-Chemical-Element",
     "status": "ok",
     "error": null,
-    "precompile_time": 15.960551105,
-    "load_time": 0.13774394989013672,
-    "run_time": 2.381309986114502,
-    "total_time": 2.5190539360046387
+    "precompile_time": 16.135689522,
+    "load_time": 0.1362309455871582,
+    "run_time": 2.4193670749664307,
+    "total_time": 2.555598020553589
   },
   {
     "julia_version": "1.13-nightly",
@@ -742,10 +742,10 @@
     "task": "Gradient-Of-Square-Norm",
     "status": "ok",
     "error": null,
-    "precompile_time": 61.304104235,
-    "load_time": 0.28617191314697266,
-    "run_time": 0.6719720363616943,
-    "total_time": 0.958143949508667
+    "precompile_time": 62.852574695,
+    "load_time": 0.2863271236419678,
+    "run_time": 0.6508269309997559,
+    "total_time": 0.9424159526824951
   },
   {
     "julia_version": "1.13-nightly",
@@ -753,10 +753,10 @@
     "task": "Rosenbrock-Minimization-With-Bfgs",
     "status": "ok",
     "error": null,
-    "precompile_time": 7.229316503,
-    "load_time": 0.20108389854431152,
-    "run_time": 1.5002601146697998,
-    "total_time": 1.7013440132141113
+    "precompile_time": 7.190451931,
+    "load_time": 0.2059929370880127,
+    "run_time": 1.54624605178833,
+    "total_time": 1.763375997543335
   },
   {
     "julia_version": "1.13-nightly",
@@ -764,10 +764,10 @@
     "task": "Rosenbrock-Minimization-With-Bfgs-Using-Forwarddiff",
     "status": "ok",
     "error": null,
-    "precompile_time": 18.788418953,
-    "load_time": 0.5214359760284424,
-    "run_time": 2.5871059894561768,
-    "total_time": 3.108541965484619
+    "precompile_time": 18.81157385,
+    "load_time": 0.5084600448608398,
+    "run_time": 2.501549005508423,
+    "total_time": 3.0100090503692627
   },
   {
     "julia_version": "1.13-nightly",
@@ -775,10 +775,10 @@
     "task": "Solve-The-Lorenz-Equation",
     "status": "ok",
     "error": null,
-    "precompile_time": 174.746457519,
-    "load_time": 1.6740169525146484,
-    "run_time": 0.17868614196777344,
-    "total_time": 1.8527030944824219
+    "precompile_time": 173.28131122,
+    "load_time": 1.6876921653747559,
+    "run_time": 0.17969393730163574,
+    "total_time": 1.8673861026763916
   },
   {
     "julia_version": "1.13-nightly",
@@ -786,10 +786,10 @@
     "task": "Commute-Two-Operators",
     "status": "ok",
     "error": null,
-    "precompile_time": 16.892048527,
-    "load_time": 0.21046018600463867,
-    "run_time": 0.010396957397460938,
-    "total_time": 0.2208571434020996
+    "precompile_time": 16.990933747,
+    "load_time": 0.213090181350708,
+    "run_time": 0.01041102409362793,
+    "total_time": 0.2235851287841797
   },
   {
     "julia_version": "1.13-nightly",
@@ -797,10 +797,10 @@
     "task": "Gradient-Of-Square-Norm",
     "status": "ok",
     "error": null,
-    "precompile_time": 20.422879751,
-    "load_time": 1.7261919975280762,
-    "run_time": 0.5497748851776123,
-    "total_time": 2.2759668827056885
+    "precompile_time": 19.575929047,
+    "load_time": 1.7189509868621826,
+    "run_time": 0.5569899082183838,
+    "total_time": 2.2759408950805664
   },
   {
     "julia_version": "1.13-nightly",
@@ -808,10 +808,10 @@
     "task": "Get-Info-On-Stdlib-In-Internal-Shareadd-Format",
     "status": "ok",
     "error": null,
-    "precompile_time": 8.808589839,
-    "load_time": 0.3247089385986328,
-    "run_time": 0.008006095886230469,
-    "total_time": 0.3327150344848633
+    "precompile_time": 8.974883293,
+    "load_time": 0.33717894554138184,
+    "run_time": 0.00834512710571289,
+    "total_time": 0.3455240726470947
   },
   {
     "julia_version": "1.13-nightly",
@@ -819,10 +819,10 @@
     "task": "Basic-Coloring",
     "status": "ok",
     "error": null,
-    "precompile_time": 5.766345268,
-    "load_time": 0.1867811679840088,
-    "run_time": 0.06176590919494629,
-    "total_time": 0.24854707717895508
+    "precompile_time": 5.928956488,
+    "load_time": 0.18770694732666016,
+    "run_time": 0.06224799156188965,
+    "total_time": 0.2499549388885498
   },
   {
     "julia_version": "1.13-nightly",
@@ -830,10 +830,10 @@
     "task": "Matrix-Multiplication",
     "status": "ok",
     "error": null,
-    "precompile_time": 8.503539332,
-    "load_time": 0.11826395988464355,
-    "run_time": 0.05927705764770508,
-    "total_time": 0.1777031421661377
+    "precompile_time": 7.744495333,
+    "load_time": 0.11678099632263184,
+    "run_time": 0.05954694747924805,
+    "total_time": 0.17632794380187988
   },
   {
     "julia_version": "1.13-nightly",
@@ -841,10 +841,10 @@
     "task": "Loading-A-Typical-Hep-Ex--Root-File",
     "status": "ok",
     "error": null,
-    "precompile_time": 29.587720637,
-    "load_time": 0.5820040702819824,
-    "run_time": 2.723181962966919,
-    "total_time": 3.3054699897766113
+    "precompile_time": 29.45590157,
+    "load_time": 0.5964369773864746,
+    "run_time": 2.752990961074829,
+    "total_time": 3.3494279384613037
   },
   {
     "julia_version": "1.13-nightly",
@@ -852,10 +852,10 @@
     "task": "Gradient-Of-Square-Norm",
     "status": "ok",
     "error": null,
-    "precompile_time": 27.534430432,
-    "load_time": 0.4835078716278076,
-    "run_time": 0.30594611167907715,
-    "total_time": 0.7894539833068848
+    "precompile_time": 26.580163677,
+    "load_time": 0.47753190994262695,
+    "run_time": 0.30695319175720215,
+    "total_time": 0.7844851016998291
   },
   {
     "julia_version": "1.12",
