@@ -8,8 +8,12 @@ const JULIA_VERSIONS = ["nightly+pr62934", "1.13+pr62934", "1.12", "1.11", "1.10
 const VERSION_CHANNEL = Dict("nightly+pr62934" => "nightly-pr62934",
                              "1.13+pr62934"    => "1.13-pr62934")
 const VERSION_OPT = Dict{String,Int}()
-# The task script is run this many times and the fastest measurement of each phase is
-# kept, to suppress scheduling noise. Precompilation is measured only once, because
+# The task script is run this many times in fresh processes, with the compiled cache and
+# JIT object cache cleared once per task beforehand. Each repeat's load and run
+# times are recorded individually (`*_times`, in run order): the first repeat is the true
+# cold TTFX, while later repeats can hit on-disk caches populated by the first (master's
+# JIT object cache), making them TTSX. The legacy `load_time`/`run_time`/`total_time`
+# fields keep the fastest-of-repeats value. Precompilation is measured only once, because
 # re-measuring it means clearing the compiled cache and paying for it all over again.
 const TASK_REPEATS = 3
 const TASKS_DIR = joinpath(@__DIR__, "..", "tasks")
@@ -39,6 +43,12 @@ end
 function clear_compiled!(depot::String)
     compiled = joinpath(depot, "compiled")
     isdir(compiled) && rm(compiled; recursive = true)
+    # Also drop the JIT object cache (depot/cache/vX.Y/objcache-lmdb1 on master), so no
+    # snippet or Julia version benefits from JIT work another one did. It is cleared only
+    # here, before a task's precompile, so within a task the first repeat still populates
+    # it and later repeats measure TTSX.
+    objcache = joinpath(depot, "cache")
+    isdir(objcache) && rm(objcache; recursive = true)
 end
 
 """
@@ -165,8 +175,8 @@ end"""
         end
     end
 
-    # Fastest of the repeats. Each phase is minimised independently, so `total_time` is the
-    # fastest total observed rather than the sum of the other two fields.
+    # Legacy summary fields keep the fastest of the repeats, each phase minimised
+    # independently; the per-repeat arrays carry the TTFX/TTSX distinction.
     if !isempty(load_ts)
         n_failed = TASK_REPEATS - length(load_ts)
         status = (n_failed == 0 && all_exited_ok) ? "ok" : "partial"
@@ -179,7 +189,8 @@ end"""
         end
         return (; status, error = err_msg, precompile_time,
                   load_time = minimum(load_ts), run_time = minimum(run_ts),
-                  total_time = minimum(total_ts))
+                  total_time = minimum(total_ts),
+                  load_times = load_ts, run_times = run_ts, total_times = total_ts)
     end
 
     # Load + run times only (script body printed before crashing)
@@ -187,7 +198,8 @@ end"""
     if m2 !== nothing
         load_t, run_t = parse.(Float64, m2.captures)
         return (; status = "partial", error = "task failed after run",
-                  precompile_time, load_time = load_t, run_time = run_t)
+                  precompile_time, load_time = load_t, run_time = run_t,
+                  load_times = [load_t], run_times = [run_t])
     end
 
     # No parseable timing — report first stderr line for context
@@ -298,6 +310,7 @@ end
 function record_to_json(r::NamedTuple)
     fields = map(zip(keys(r), values(r))) do (k, v)
         vstr = v === nothing         ? "null" :
+               v isa AbstractVector  ? "[" * join((x isa AbstractFloat && !isfinite(x) ? "null" : string(x) for x in v), ", ") * "]" :
                v isa AbstractString  ? json_escape(v) :
                v isa Bool            ? string(v) :
                v isa AbstractFloat   ? (isfinite(v) ? string(v) : "null") :
@@ -311,7 +324,8 @@ end
 # Normalise record so JSON rows share a consistent schema.
 function normalise(rec::NamedTuple)
     schema = (:julia_version, :package, :task, :status, :error,
-              :precompile_time, :load_time, :run_time, :total_time)
+              :precompile_time, :load_time, :run_time, :total_time,
+              :load_times, :run_times, :total_times)
     NamedTuple{schema}(map(k -> get(rec, k, nothing), schema))
 end
 
