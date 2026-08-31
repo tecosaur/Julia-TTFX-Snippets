@@ -2,8 +2,11 @@
 
 using Printf, Dates
 
-const JULIA_VERSIONS = ["nightly", "1.13-nightly", "1.12", "1.11", "1.10"]
-const VERSION_CHANNEL = Dict{String,String}()
+const JULIA_VERSIONS = ["nightly+pr62934", "1.13+pr62934", "1.12", "1.11", "1.10"]
+# Both dev arms carry the JuliaLang/julia#62934 fix: local builds of master and of the
+# release-1.13 backports branch with the PR applied, exposed through `juliaup link`.
+const VERSION_CHANNEL = Dict("nightly+pr62934" => "nightly-pr62934",
+                             "1.13+pr62934"    => "1.13-pr62934")
 const VERSION_OPT = Dict{String,Int}()
 # The task script is run this many times and the fastest measurement of each phase is
 # kept, to suppress scheduling noise. Precompilation is measured only once, because
