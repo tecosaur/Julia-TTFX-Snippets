@@ -2,11 +2,10 @@
 
 using Printf, Dates
 
-const JULIA_VERSIONS = ["nightly+pr62934", "1.13+pr62934", "1.12", "1.11", "1.10"]
-# Both dev arms carry the JuliaLang/julia#62934 fix: local builds of master and of the
-# release-1.13 backports branch with the PR applied, exposed through `juliaup link`.
-const VERSION_CHANNEL = Dict("nightly+pr62934" => "nightly-pr62934",
-                             "1.13+pr62934"    => "1.13-pr62934")
+const JULIA_VERSIONS = ["nightly", "1.13", "1.12", "1.11", "1.10"]
+# The 1.13 arm is the release-1.13 backports build (JuliaLang/julia#62959), which is what
+# 1.13 will ship as, rather than the 1.13-nightly channel.
+const VERSION_CHANNEL = Dict("1.13" => "pr62959")
 const VERSION_OPT = Dict{String,Int}()
 # The task script is run this many times in fresh processes, with the compiled cache and
 # JIT object cache cleared once per task beforehand. Each repeat's load and run
