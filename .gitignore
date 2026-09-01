@@ -1,1 +1,3 @@
 .DS_Store
+tasks/**/Manifest.toml
+tasks/**/Manifest-v*.toml
