@@ -74,6 +74,26 @@
       "branch": "master",
       "machine": "arm64-apple-darwin25.6.0",
       "word_size": 64
+    },
+    "pr62966": {
+      "channel": "pr62966",
+      "version": "1.14.0-DEV.3088",
+      "commit": "2035b9224c034e3bd3572a949fb3491ba7552258",
+      "commit_short": "2035b9224c0",
+      "commit_date": "2026-09-01 23:52 UTC",
+      "branch": "IanButterworth:ib/possibly-ambiguous-edges",
+      "machine": "arm64-apple-darwin25.6.0",
+      "word_size": 64
+    }
+  },
+  "added_arms": {
+    "pr62966": {
+      "timestamp": "2026-09-02T00:29:50.509Z",
+      "repo": {
+        "commit": "",
+        "branch": "",
+        "dirty": false
+      }
     }
   }
 }
