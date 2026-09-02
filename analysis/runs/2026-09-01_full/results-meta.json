@@ -67,10 +67,10 @@
     },
     "nightly": {
       "channel": "nightly",
-      "version": "1.14.0-DEV.3081",
-      "commit": "21a70e450d7ea6fd58537c4311fa10da38255db8",
-      "commit_short": "21a70e450d7",
-      "commit_date": "2026-09-01 06:42 UTC",
+      "version": "1.14.0-DEV.3095",
+      "commit": "23d880d3bae5d6867d08a3c73c44dd7cb3a34aa8",
+      "commit_short": "23d880d3bae",
+      "commit_date": "2026-09-02 13:20 UTC",
       "branch": "master",
       "machine": "arm64-apple-darwin25.6.0",
       "word_size": 64
@@ -84,6 +84,16 @@
       "branch": "IanButterworth:ib/possibly-ambiguous-edges",
       "machine": "arm64-apple-darwin25.6.0",
       "word_size": 64
+    },
+    "pr62966+62983": {
+      "channel": "stack62983",
+      "version": "1.14.0-DEV.3103",
+      "commit": "6010c6312bbbf9847466505d3ac972e7f3ef7ece",
+      "commit_short": "6010c6312b",
+      "commit_date": "2026-09-02 20:00 UTC",
+      "branch": "ib/stack-62966-62983",
+      "machine": "arm64-apple-darwin25.6.0",
+      "word_size": 64
     }
   },
   "added_arms": {
@@ -94,6 +104,24 @@
         "branch": "",
         "dirty": false
       }
+    },
+    "nightly": {
+      "timestamp": "2026-09-02T20:21:41.749Z",
+      "repo": {
+        "commit": "",
+        "branch": "",
+        "dirty": false
+      },
+      "mode": "replace"
+    },
+    "pr62966+62983": {
+      "timestamp": "2026-09-02T20:08:36.228Z",
+      "repo": {
+        "commit": "",
+        "branch": "",
+        "dirty": false
+      },
+      "mode": "after"
     }
   }
 }

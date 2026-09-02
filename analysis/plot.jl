@@ -5,6 +5,8 @@ using JSON, Plots, Statistics, Printf, Colors
 
 const RESULTS = length(ARGS) >= 1 ? ARGS[1] : joinpath(@__DIR__, "results.json")
 const OUTPUT  = length(ARGS) >= 2 ? ARGS[2] : joinpath(@__DIR__, "results.png")
+# Provenance written by benchmark.jl next to the results; used to label each arm's build.
+const META    = joinpath(dirname(RESULTS), "results-meta.json")
 
 # Must match TASK_REPEATS in benchmark.jl: load and execution keep the fastest of this many
 # runs, while precompilation is measured once (repeating it means clearing the compiled cache
@@ -220,6 +222,16 @@ legend_entries = vcat(
 n_entries = length(legend_entries)
 n_rows = cld(n_entries, LEGEND_COLS)
 
+# The exact build behind each arm, as a small table under the legend using the legend's
+# columns: arm, version, commit. Arms fill each column top to bottom, in plot order.
+builds = isfile(META) ? get(JSON.parsefile(META), "julia_builds", Dict()) : Dict()
+build_rows = [(arm = v, version = string(get(b, "version", "?")), commit = string(get(b, "commit_short", "?")))
+              for v in JULIA_VERSIONS for b in (get(builds, v, nothing),) if b isa AbstractDict]
+n_build_rows = cld(length(build_rows), LEGEND_COLS)
+# Half a row of air between the legend and the build table
+n_total_rows = n_rows + (n_build_rows > 0 ? n_build_rows + 0.5 : 0)
+row_y(row) = 0.98 - (row + 0.5) * (0.96 / n_total_rows)
+
 legend_pane = plot(;
     framestyle = :none, grid = false, legend = false,
     xlims = (0, 1), ylims = (0, 1),
@@ -234,7 +246,7 @@ for (i, entry) in enumerate(legend_entries)
     text_x = col_x + 0.011                          # label x (just right of marker)
     # Inset the rows from the pane's top and bottom edges so the block doesn't sit flush
     # against the panels above or the figure edge below.
-    y = 0.98 - (row + 0.5) * (0.96 / n_rows)
+    y = row_y(row)
     scatter!(legend_pane, [col_x], [y];
              color = entry.color, markershape = entry.shape, markersize = entry.size,
              markerstrokewidth = 0, label = "")
@@ -242,8 +254,18 @@ for (i, entry) in enumerate(legend_entries)
               text(entry.label, 8, colorant"#2b2b29", :left, :vcenter))
 end
 
+for (i, b) in enumerate(build_rows)
+    col = (i - 1) ÷ n_build_rows
+    row = n_rows + 0.5 + (i - 1) % n_build_rows
+    x0 = (col + 0.015) / LEGEND_COLS
+    y = row_y(row)
+    annotate!(legend_pane, x0,         y, text(b.arm,     7, colorant"#2b2b29", :left, :vcenter))
+    annotate!(legend_pane, x0 + 0.075, y, text(b.version, 7, colorant"#6b6a66", :left, :vcenter))
+    annotate!(legend_pane, x0 + 0.150, y, text(b.commit,  7, colorant"#6b6a66", :left, :vcenter))
+end
+
 # Approx: each row ~ 22 px, plus padding above and below the block
-legend_px = 8 + 19 * n_rows
+legend_px = 8 + round(Int, 19 * n_total_rows)
 plot_px   = 395
 total_px  = plot_px + legend_px
 legend_frac = legend_px / total_px
