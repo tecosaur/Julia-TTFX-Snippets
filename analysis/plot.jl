@@ -8,23 +8,39 @@ using JSON, Plots, Statistics, Printf, Colors
 const RESULTS = length(ARGS) >= 1 ? ARGS[1] : joinpath(@__DIR__, "results.json")
 const OUTPUT  = length(ARGS) >= 2 ? ARGS[2] : joinpath(@__DIR__, "results.png")
 const ONLY    = length(ARGS) >= 3 ? split(ARGS[3], ",") : nothing
-# Provenance written by benchmark.jl next to the results; used to label each arm's build.
+# Provenance written by benchmark.jl next to the results: each arm's build, and the run's
+# repeat counts.
 const META    = joinpath(dirname(RESULTS), "results-meta.json")
-
-# Must match TASK_REPEATS in benchmark.jl: load and execution keep the fastest of this many
-# runs, while precompilation is measured once (repeating it means clearing the compiled cache
-# and paying for it again). Results recorded before that change are single samples for every
-# metric and will be labelled wrongly here.
-const TASK_REPEATS = 3
-
-const METRICS = [
-    (field = "precompile_time", title = "Precompilation",   sampling = "single sample"),
-    (field = "load_time",       title = "Package load",     sampling = "fastest of $TASK_REPEATS runs"),
-    (field = "run_time",        title = "Script execution", sampling = "fastest of $TASK_REPEATS runs"),
-]
+# Which of the repeats the load and run panels show: "fastest" (the legacy summary fields)
+# or "first" (the cold run, i.e. TTFX; later repeats can hit master's JIT object cache).
+const SAMPLE  = get(ENV, "TTFX_PLOT_SAMPLE", "fastest")
 
 records = JSON.parsefile(RESULTS)
 ONLY === nothing || filter!(r -> r["julia_version"] in ONLY, records)
+meta = isfile(META) ? JSON.parsefile(META) : Dict()
+settings = get(meta, "settings", Dict())
+
+# Runs from before the repeat counts were recorded were 3 task repeats and a single
+# precompile sample.
+const TASK_REPEATS = get(settings, "task_repeats", 3)
+const PRECOMPILE_REPEATS = get(settings, "precompile_repeats", 1)
+const REPEAT_LABEL = SAMPLE == "first" ? "first run" : "fastest of $TASK_REPEATS runs"
+
+const METRICS = [
+    (field = "precompile_time", first = nothing,      title = "Precompilation",
+     sampling = PRECOMPILE_REPEATS == 1 ? "single sample" : "fastest of $PRECOMPILE_REPEATS samples"),
+    (field = "load_time",       first = "load_times", title = "Package load (excl. startup)",   sampling = REPEAT_LABEL),
+    (field = "run_time",        first = "run_times",  title = "Script execution (excl. load)", sampling = REPEAT_LABEL),
+]
+
+# The value a record contributes to a metric: the summary field, or the first repeat.
+function metric_value(r, m)
+    if SAMPLE == "first" && m.first !== nothing
+        ts = get(r, m.first, nothing)
+        ts isa AbstractVector && !isempty(ts) && return ts[1]
+    end
+    get(r, m.field, nothing)
+end
 
 # Order versions: numeric releases ascending, then dev-nightlies (e.g. "1.13-nightly"),
 # then "nightly", then any "pr*" builds last.
@@ -46,7 +62,7 @@ for r in records
     by_ver = get!(tasks, key) do; Dict{String, Dict{String, Float64}}() end
     by_metric = get!(by_ver, ver) do; Dict{String, Float64}() end
     for m in METRICS
-        v = get(r, m.field, nothing)
+        v = metric_value(r, m)
         v isa Number && v > 0 && (by_metric[m.field] = float(v))
     end
 end
@@ -228,7 +244,7 @@ n_rows = cld(n_entries, LEGEND_COLS)
 
 # The exact build behind each arm, as a small table under the legend using the legend's
 # columns: arm, version, commit. Arms fill each column top to bottom, in plot order.
-builds = isfile(META) ? get(JSON.parsefile(META), "julia_builds", Dict()) : Dict()
+builds = get(meta, "julia_builds", Dict())
 build_rows = [(arm = v, version = string(get(b, "version", "?")), commit = string(get(b, "commit_short", "?")))
               for v in JULIA_VERSIONS for b in (get(builds, v, nothing),) if b isa AbstractDict]
 n_build_rows = cld(length(build_rows), LEGEND_COLS)

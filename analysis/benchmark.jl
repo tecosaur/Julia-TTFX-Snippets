@@ -3,18 +3,25 @@
 using Printf, Dates
 
 const JULIA_VERSIONS = ["nightly", "1.13", "1.12", "1.11", "1.10"]
-# The 1.13 arm is the release-1.13 backports build (JuliaLang/julia#62959), which is what
-# 1.13 will ship as, rather than the 1.13-nightly channel.
-const VERSION_CHANNEL = Dict("1.13" => "pr62959")
+# Label => juliaup channel, for arms that run something other than the channel of their
+# name (a PR build standing in for a release, say). Empty: every label is its own channel.
+const VERSION_CHANNEL = Dict{String, String}()
 const VERSION_OPT = Dict{String,Int}()
 # The task script is run this many times in fresh processes, with the compiled cache and
 # JIT object cache cleared once per task beforehand. Each repeat's load and run
 # times are recorded individually (`*_times`, in run order): the first repeat is the true
 # cold TTFX, while later repeats can hit on-disk caches populated by the first (master's
 # JIT object cache), making them TTSX. The legacy `load_time`/`run_time`/`total_time`
-# fields keep the fastest-of-repeats value. Precompilation is measured only once, because
-# re-measuring it means clearing the compiled cache and paying for it all over again.
+# fields keep the fastest-of-repeats value.
 const TASK_REPEATS = 3
+# Precompilation is measured this many times per task and version, clearing the compiled
+# cache and the JIT object cache before each; `precompile_time` keeps the fastest and
+# `precompile_times` every sample. A single reading of a minutes-long parallel job has
+# produced phantom outliers before; a second one shows them for what they are.
+const PRECOMPILE_REPEATS = parse(Int, get(ENV, "TTFX_PRECOMPILE_REPEATS", "2"))
+# Wall-clock limit per subprocess. A hung process then fails its task instead of stalling
+# the run; the driver is sent SIGINT first so Pkg can stop its workers, then SIGTERM.
+const PROCESS_TIMEOUT_S = parse(Float64, get(ENV, "TTFX_PROCESS_TIMEOUT", "1800"))
 const TASKS_DIR = joinpath(@__DIR__, "..", "tasks")
 const RESULTS_FILE = joinpath(@__DIR__, "results.json")
 # Provenance for the run: exact build of every Julia channel plus the machine it ran on.
@@ -62,41 +69,56 @@ function julia_build_info(ver::String)
     code = """
     let g = Base.GIT_VERSION_INFO
         join(stdout, [string(VERSION), g.commit, g.commit_short, g.date_string,
-                      g.branch, Sys.MACHINE, string(Sys.WORD_SIZE)], '\\n')
+                      g.branch, Sys.MACHINE, string(Sys.WORD_SIZE), string(Sys.CPU_THREADS)], '\\n')
     end"""
     out, _, ok = capture_soft(`julia +$ch --startup-file=no -e $code`)
     ok || return nothing
     f = split(out, '\n')
-    length(f) == 7 || return nothing
+    length(f) == 8 || return nothing
     (; channel = ch, version = f[1], commit = f[2], commit_short = f[3],
        commit_date = f[4], branch = f[5], machine = f[6],
-       word_size = parse(Int, f[7]))
+       word_size = parse(Int, f[7]),
+       # What this build sees, and so how many precompile workers it uses by default
+       cpu_threads = parse(Int, f[8]))
 end
 
-# Run a subprocess capturing stdout and stderr; on failure include stderr in the error.
+# Run a subprocess capturing stdout and stderr under PROCESS_TIMEOUT_S.
+# Returns (stdout, stderr, succeeded, timed_out).
+function run_timed(cmd::Cmd)
+    err = IOBuffer()
+    proc = open(pipeline(cmd; stderr = err), "r")
+    timed_out = Ref(false)
+    interrupt = Timer(PROCESS_TIMEOUT_S) do _
+        timed_out[] = true
+        process_running(proc) && kill(proc, Base.SIGINT)
+    end
+    terminate = Timer(PROCESS_TIMEOUT_S + 30) do _
+        process_running(proc) && kill(proc)
+    end
+    out = try
+        read(proc, String)
+    finally
+        close(interrupt); close(terminate)
+    end
+    wait(proc)
+    out, String(take!(err)), success(proc) && !timed_out[], timed_out[]
+end
+
+# Like run_timed, but throws on failure with stderr in the message.
 function capture(cmd::Cmd)
-    out = IOBuffer()
-    err = IOBuffer()
-    try
-        run(pipeline(cmd; stdout = out, stderr = err))
-    catch
+    out, err, ok, timed_out = run_timed(cmd)
+    if !ok
+        why = timed_out ? "process timed out after $(PROCESS_TIMEOUT_S)s" : "process failed"
         # Omit the full Cmd (which includes env vars) from the message; only keep stderr.
-        throw(ErrorException("process failed\n--- stderr ---\n$(String(take!(err)))"))
+        throw(ErrorException("$why\n--- stderr ---\n$err"))
     end
-    String(take!(out)), String(take!(err))
+    out, err
 end
 
-# Like capture, but never throws; returns (stdout, stderr, succeeded::Bool).
+# Never throws; returns (stdout, stderr, succeeded::Bool).
 function capture_soft(cmd::Cmd)
-    out = IOBuffer()
-    err = IOBuffer()
-    succeeded = true
-    try
-        run(pipeline(cmd; stdout = out, stderr = err))
-    catch
-        succeeded = false
-    end
-    String(take!(out)), String(take!(err)), succeeded
+    out, err, ok, _ = run_timed(cmd)
+    out, err, ok
 end
 
 function run_task(ver::String, depot::String, task::TaskInfo)
@@ -125,10 +147,7 @@ end"""
         return (; status = "error", error = "instantiate: $(sprint(showerror, e))")
     end
 
-    # 2. Clear compiled cache so precompilation is measured from scratch
-    clear_compiled!(depot)
-
-    # 3. Precompile and measure elapsed time.
+    # 2/3. Precompile from a cleared cache and measure elapsed time, PRECOMPILE_REPEATS times.
     #    Use a marker so any stray stdout from Pkg can't contaminate the parse.
     opt = get(VERSION_OPT, ver, nothing)
     precomp_code = if opt === nothing
@@ -136,18 +155,23 @@ end"""
     else
         "t = @elapsed Base.Precompilation.precompilepkgs(configs=`` => Base.CacheFlags(opt_level=$opt)); print(\"__TTFX_T__:\", t)"
     end
-    precompile_time = nothing
-    try
-        precomp_out, _ = capture(addenv(
-            `julia +$ch --startup-file=no --project=$proj -e $precomp_code`,
-            precomp_env...))
-        pm = match(r"__TTFX_T__:([\d.eE+-]+)", precomp_out)
-        pm === nothing && error("could not parse precompile time from: $(repr(precomp_out))")
-        precompile_time = parse(Float64, pm.captures[1])
-    catch e
-        return (; status = "error", error = "precompile: $(sprint(showerror, e))",
-                  precompile_time)
+    precompile_ts = Float64[]
+    for _ in 1:PRECOMPILE_REPEATS
+        clear_compiled!(depot)
+        try
+            precomp_out, _ = capture(addenv(
+                `julia +$ch --startup-file=no --project=$proj -e $precomp_code`,
+                precomp_env...))
+            pm = match(r"__TTFX_T__:([\d.eE+-]+)", precomp_out)
+            pm === nothing && error("could not parse precompile time from: $(repr(precomp_out))")
+            push!(precompile_ts, parse(Float64, pm.captures[1]))
+        catch e
+            return (; status = "error", error = "precompile: $(sprint(showerror, e))",
+                      precompile_time = isempty(precompile_ts) ? nothing : minimum(precompile_ts),
+                      precompile_times = precompile_ts)
+        end
     end
+    precompile_time = minimum(precompile_ts)
 
     # 4. Run the task script `TASK_REPEATS` times in fresh processes, keeping the fastest
     #    measurement of each phase.  Both metrics are cold-start by design, so the repeats
@@ -186,7 +210,7 @@ end"""
         else
             "task exited with non-zero status"
         end
-        return (; status, error = err_msg, precompile_time,
+        return (; status, error = err_msg, precompile_time, precompile_times = precompile_ts,
                   load_time = minimum(load_ts), run_time = minimum(run_ts),
                   total_time = minimum(total_ts),
                   load_times = load_ts, run_times = run_ts, total_times = total_ts)
@@ -197,14 +221,16 @@ end"""
     if m2 !== nothing
         load_t, run_t = parse.(Float64, m2.captures)
         return (; status = "partial", error = "task failed after run",
-                  precompile_time, load_time = load_t, run_time = run_t,
+                  precompile_time, precompile_times = precompile_ts,
+                  load_time = load_t, run_time = run_t,
                   load_times = [load_t], run_times = [run_t])
     end
 
     # No parseable timing — report first stderr line for context
     err_lines = split(strip(task_err), '\n')
     first_err = isempty(err_lines) ? "no output" : err_lines[1]
-    return (; status = "error", error = "task: $first_err", precompile_time)
+    return (; status = "error", error = "task: $first_err", precompile_time,
+              precompile_times = precompile_ts)
 end
 
 # JSON string escaper: handles ", \, control chars, and non-BMP via surrogate pairs.
@@ -261,6 +287,16 @@ function try_read(cmd::Cmd)
     ok ? strip(out) : ""
 end
 
+# The machine's logical CPU count, independent of what any Julia detects: Julia before
+# JuliaLang/julia#62891 sees only 5 of this Mac's 15 cores. Each arm runs with its own
+# defaults (that is what a user of that version gets), and `julia_build_info` records what
+# each one saw, so precompile parallelism can be read alongside the times.
+function cpu_count()
+    n = Sys.isapple() ? tryparse(Int, try_read(`sysctl -n hw.logicalcpu`)) :
+        Sys.islinux() ? tryparse(Int, try_read(`nproc`)) : nothing
+    something(n, Sys.CPU_THREADS)
+end
+
 # Everything about the machine that plausibly moves a timing.
 function system_info()
     cpus = Sys.cpu_info()
@@ -270,13 +306,16 @@ function system_info()
     speed = isempty(cpus) ? nothing : cpus[1].speed
     (; hostname = gethostname(),
        cpu = model,
-       cpu_threads = Sys.CPU_THREADS,
+       # The hardware count, not what the driver's own Julia detects (see cpu_count).
+       cpu_threads = cpu_count(),
        cpu_speed_mhz = speed,
        cpu_target = get(ENV, "JULIA_CPU_TARGET", ""),
        total_memory_gb = round(Sys.total_memory() / 2^30; digits = 1),
        machine = Sys.MACHINE,
        kernel = string(Sys.KERNEL),
        uname = try_read(`uname -sr`),
+       # Load averages when the run started: anything else busy here voids the timings.
+       load_avg = try_read(`uptime`),
        # The driver's own build, distinct from the versions under test.
        driver_julia = string(VERSION))
 end
@@ -298,6 +337,9 @@ function run_metadata(depot::String, tasks::Vector{TaskInfo}, builds::AbstractDi
        system = system_info(),
        repo = repo_info(),
        settings = (; task_repeats = TASK_REPEATS,
+                     precompile_repeats = PRECOMPILE_REPEATS,
+                     process_timeout_s = PROCESS_TIMEOUT_S,
+                     interleaved = true,
                      depot = depot,
                      n_tasks = length(tasks),
                      version_opt = Dict(k => v for (k, v) in VERSION_OPT),
@@ -324,7 +366,7 @@ end
 function normalise(rec::NamedTuple)
     schema = (:julia_version, :package, :task, :status, :error,
               :precompile_time, :load_time, :run_time, :total_time,
-              :load_times, :run_times, :total_times)
+              :precompile_times, :load_times, :run_times, :total_times)
     NamedTuple{schema}(map(k -> get(rec, k, nothing), schema))
 end
 
@@ -349,8 +391,10 @@ function main()
     for ver in JULIA_VERSIONS
         b = builds[ver]
         println("  $(rpad(ver, 14)) ", b === nothing ? "(not installed)" :
-                "$(b.version)  $(b.commit_short)  $(b.commit_date)")
+                "$(b.version)  $(b.commit_short)  $(b.commit_date)  sees $(b.cpu_threads) CPU threads")
     end
+    println("Precompile repeats: $PRECOMPILE_REPEATS  task repeats: $TASK_REPEATS  timeout: $(PROCESS_TIMEOUT_S)s")
+    println("Load at start: $(sys.load_avg)")
     println("Metadata: $META_FILE\n")
 
     open(RESULTS_FILE, "w") do io
@@ -364,21 +408,20 @@ function main()
             is_first[] = false
         end
 
-        for ver in JULIA_VERSIONS
-            println("=== Julia $ver ===")
-            if builds[ver] === nothing
-                println("  (not available, skipping)\n")
-                for task in tasks
+        # Arms are interleaved per task rather than run one after another, so that drift
+        # over the hours of a run (thermal state, registry updates, background load) lands
+        # on every version alike, and the order rotates so no version always goes first.
+        for (ti, task) in enumerate(tasks)
+            label = task.package * "/" * task.task
+            println("=== $label ===")
+            for ver in circshift(JULIA_VERSIONS, -(ti - 1))
+                if builds[ver] === nothing
                     write_record((; julia_version = ver, package = task.package,
                                     task = task.task, status = "skipped",
                                     error = "julia +$ver not available"))
+                    continue
                 end
-                continue
-            end
-
-            for task in tasks
-                label = task.package * "/" * task.task
-                print("  $(rpad(label, 52))")
+                print("  $(rpad(ver, 14))")
                 flush(stdout)
 
                 result = try
@@ -407,7 +450,6 @@ function main()
                     println("ERROR: ", result.error)
                 end
             end
-            println()
         end
 
         println(io, "\n]")
