@@ -1,0 +1,39 @@
+{
+  "timestamp": "2026-08-15T00:46:47.368Z",
+  "system": {
+    "hostname": "ian-desktop",
+    "cpu": "AMD Ryzen 9 5950X 16-Core Processor",
+    "cpu_threads": 32,
+    "cpu_speed_mhz": 3400,
+    "cpu_target": "",
+    "total_memory_gb": 62.7,
+    "machine": "x86_64-linux-gnu",
+    "kernel": "Linux",
+    "uname": "Linux 6.8.0-124-generic",
+    "driver_julia": "1.12.6"
+  },
+  "repo": {
+    "commit": "fc5d89135c0ffba91e2d093dbfc1eb0655b3424b",
+    "branch": "ib/benchmark",
+    "dirty": true
+  },
+  "settings": {
+    "task_repeats": 3,
+    "depot": "/tmp/julia-ttfx-depot",
+    "n_tasks": 39,
+    "version_opt": {},
+    "env": {}
+  },
+  "julia_builds": {
+    "pr62725": {
+      "channel": "pr62725",
+      "version": "1.14.0-DEV.2954",
+      "commit": "f7346e614506042e9b47858ab4e7bfad40ff65a7",
+      "commit_short": "f7346e61450",
+      "commit_date": "2026-08-14 17:35 UTC",
+      "branch": "tb/bolt",
+      "machine": "x86_64-linux-gnu",
+      "word_size": 64
+    }
+  }
+}
