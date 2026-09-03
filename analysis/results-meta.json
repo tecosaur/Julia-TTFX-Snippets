@@ -56,21 +56,21 @@
       "word_size": 64
     },
     "1.13": {
-      "channel": "pr62959",
-      "version": "1.13.0-rc3.55",
-      "commit": "87fb992dde47ad3fd112f610791d1d13eca7c073",
-      "commit_short": "87fb992dde4",
-      "commit_date": "2026-09-01 20:33 UTC",
-      "branch": "backports-release-1.13",
+      "channel": "1.13-nightly",
+      "version": "1.13.0-rc4",
+      "commit": "8f33e09afea0fcd605e86bb784b24b56a812942a",
+      "commit_short": "8f33e09afea",
+      "commit_date": "2026-09-02 06:10 UTC",
+      "branch": "v1.13.0-rc4",
       "machine": "arm64-apple-darwin25.6.0",
       "word_size": 64
     },
     "nightly": {
       "channel": "nightly",
-      "version": "1.14.0-DEV.3095",
-      "commit": "23d880d3bae5d6867d08a3c73c44dd7cb3a34aa8",
-      "commit_short": "23d880d3bae",
-      "commit_date": "2026-09-02 13:20 UTC",
+      "version": "1.14.0-DEV.3106",
+      "commit": "9d314127b97e6dee14735fa8d6db2d524718b6d8",
+      "commit_short": "9d314127b97",
+      "commit_date": "2026-09-03 06:12 UTC",
       "branch": "master",
       "machine": "arm64-apple-darwin25.6.0",
       "word_size": 64
@@ -94,6 +94,16 @@
       "branch": "ib/stack-62966-62983",
       "machine": "arm64-apple-darwin25.6.0",
       "word_size": 64
+    },
+    "pr62983": {
+      "channel": "pr62983",
+      "version": "1.14.0-DEV.3108",
+      "commit": "3330ad22941a13ac1055d3ee6dcf41422b947cdc",
+      "commit_short": "3330ad22941",
+      "commit_date": "2026-09-03 06:19 UTC",
+      "branch": "IanButterworth:ib/artifact-downloads",
+      "machine": "arm64-apple-darwin25.6.0",
+      "word_size": 64
     }
   },
   "added_arms": {
@@ -106,7 +116,7 @@
       }
     },
     "nightly": {
-      "timestamp": "2026-09-02T20:21:41.749Z",
+      "timestamp": "2026-09-03T14:49:06.018Z",
       "repo": {
         "commit": "",
         "branch": "",
@@ -116,6 +126,24 @@
     },
     "pr62966+62983": {
       "timestamp": "2026-09-02T20:08:36.228Z",
+      "repo": {
+        "commit": "",
+        "branch": "",
+        "dirty": false
+      },
+      "mode": "after"
+    },
+    "1.13": {
+      "timestamp": "2026-09-03T14:49:06.018Z",
+      "repo": {
+        "commit": "",
+        "branch": "",
+        "dirty": false
+      },
+      "mode": "replace"
+    },
+    "pr62983": {
+      "timestamp": "2026-09-03T14:49:06.018Z",
       "repo": {
         "commit": "",
         "branch": "",

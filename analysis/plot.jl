@@ -1,10 +1,13 @@
 #!/usr/bin/env julia --startup-file=no
-# Usage: julia --project=analysis analysis/plot.jl [results.json] [output.png|svg|pdf]
+# Usage: julia --project=analysis analysis/plot.jl [results.json] [output.png|svg|pdf] [arm,arm,...]
+# The optional third argument plots only those arms (labels as in results.json), so an
+# archive can keep extra arms while the headline plot shows a chosen set.
 
 using JSON, Plots, Statistics, Printf, Colors
 
 const RESULTS = length(ARGS) >= 1 ? ARGS[1] : joinpath(@__DIR__, "results.json")
 const OUTPUT  = length(ARGS) >= 2 ? ARGS[2] : joinpath(@__DIR__, "results.png")
+const ONLY    = length(ARGS) >= 3 ? split(ARGS[3], ",") : nothing
 # Provenance written by benchmark.jl next to the results; used to label each arm's build.
 const META    = joinpath(dirname(RESULTS), "results-meta.json")
 
@@ -21,6 +24,7 @@ const METRICS = [
 ]
 
 records = JSON.parsefile(RESULTS)
+ONLY === nothing || filter!(r -> r["julia_version"] in ONLY, records)
 
 # Order versions: numeric releases ascending, then dev-nightlies (e.g. "1.13-nightly"),
 # then "nightly", then any "pr*" builds last.
