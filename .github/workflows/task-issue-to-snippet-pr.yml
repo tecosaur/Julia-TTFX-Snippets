@@ -370,7 +370,8 @@ jobs:
               body:
                 "⚠️ `create-snippet.jl` failed. Logs (look for an error at the end):\n\n```bash\n" +
                 logs +
-                "\n```\n\nIf you can resolve the error, edit this issue with the corrected code and it will be re-run."
+                "\n```\n\nIf you can resolve the error, edit this issue with the corrected code and it will be re-run. " +
+                "Failed issues are closed after 3 days of inactivity."
             });
             await github.rest.issues.addLabels({
               owner: context.repo.owner,
@@ -380,7 +381,7 @@ jobs:
             });
 
       - name: Close issue
-        if: always()
+        if: always() && steps.gensnippet.outcome != 'failure'
         uses: actions/github-script@v7
         with:
           script: |
