@@ -4,13 +4,12 @@ on:
   issues:
     types: [labeled, edited]
 
-permissions:
-  contents: write
-  issues: write
-  pull-requests: write
+permissions: {}
 
 jobs:
-  newtask-to-pr:
+  # Runs the submitted code (sandboxed), so it can only write issue comments,
+  # for the live progress report. Everything it produces is checked by `publish`.
+  build:
     # Issue forms apply their labels as a `labeled` event, so this covers new
     # submissions and manual labelling; body edits re-run failed submissions.
     if: >-
@@ -20,12 +19,21 @@ jobs:
        contains(github.event.issue.labels.*.name, 'failed'))
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    permissions:
+      contents: read
+      issues: write
+    outputs:
+      outcome: ${{ steps.gensnippet.outcome }}
+      task_dir: ${{ steps.gensnippet.outputs.task_dir }}
+      time_install: ${{ steps.gensnippet.outputs.task_time_install }}
+      time_using: ${{ steps.gensnippet.outputs.task_time_using }}
+      time_script: ${{ steps.gensnippet.outputs.task_time_script }}
+      time_total: ${{ steps.gensnippet.outputs.task_time_total }}
 
     steps:
       - name: Label issue as running
         uses: actions/github-script@v9
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             await github.rest.issues.addLabels({
               owner: context.repo.owner,
@@ -43,38 +51,25 @@ jobs:
             }
 
       - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
 
       - name: Parse issue form fields
         id: parser
         uses: actions/github-script@v9
         with:
           script: |
-            // Outputs are keyed by template label, e.g. "Dependencies (optional)" → dependencies
-            const sections = {};
-            let key = null, infence = false;
-            for (const line of context.payload.issue.body.replace(/\r\n/g, '\n').split('\n')) {
-              if (line.startsWith('```')) infence = !infence;
-              if (!infence && line.startsWith('### ')) {
-                key = line.slice(4).replace(/\(optional\)/i, '').trim().toLowerCase().replace(/\s+/g, '_');
-                sections[key] = [];
-              } else if (key) {
-                sections[key].push(line);
-              }
-            }
-            for (const [key, lines] of Object.entries(sections)) {
-              // Trimming whole values (not paragraphs) keeps code indentation, as code is fenced
-              const value = lines.join('\n').trim();
-              core.setOutput(key, value === '_No response_' ? '' : value);
+            const { parseIssueForm } = require('./.github/scripts/ttfx.js');
+            for (const [key, value] of Object.entries(parseIssueForm(context.payload.issue.body))) {
+              core.setOutput(key, value);
             }
 
-      - name: Cache Julia installs
+      - name: Restore Julia installs
         id: cache-juliaup
-        uses: actions/cache@v6
+        uses: actions/cache/restore@v6
         with:
           path: ~/.local/share/julia-multi
           key: ${{ runner.os }}-julias
-          restore-keys: |
-            ${{ runner.os }}-julia-multi
 
       - name: Install julias
         uses: actions/github-script@v9
@@ -227,6 +222,20 @@ jobs:
               process.exit(1);
             });
 
+      # Saved before any submitted code runs, so it can't be tampered with
+      - name: Save Julia installs
+        if: steps.cache-juliaup.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v6
+        with:
+          path: ~/.local/share/julia-multi
+          key: ${{ runner.os }}-julias
+
+      - name: Set up sandbox
+        run: |
+          # Ubuntu stops unprivileged user namespaces mounting anything, which bubblewrap needs
+          sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+          sudo apt-get install -y -qq bubblewrap
+
       - name: Run create-snippet.jl
         id: gensnippet
         continue-on-error: true
@@ -251,72 +260,153 @@ jobs:
             --snippet "$SNIPPET_TASK_CODE" \
             2>&1 | tee create-snippet-logs.txt
 
-      - name: Remove logs on success
-        if: steps.gensnippet.outcome == 'success'
-        run: rm -f create-snippet-logs.txt
+      - name: Stage results
+        if: always()
+        env:
+          OUTCOME: ${{ steps.gensnippet.outcome }}
+          TASK_DIR: ${{ steps.gensnippet.outputs.task_dir }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/result/task"
+          if [ -f create-snippet-logs.txt ]; then cp create-snippet-logs.txt "$RUNNER_TEMP/result/"; fi
+          if [ "$OUTCOME" = success ]; then cp "$TASK_DIR/task.jl" "$TASK_DIR/Project.toml" "$RUNNER_TEMP/result/task/"; fi
+
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: result
+          path: ${{ runner.temp }}/result
+          retention-days: 1
+
+  # Never runs submitted code, and is the only job that can change the repository.
+  publish:
+    needs: build
+    if: always() && needs.build.result != 'skipped'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Download build results
+        id: download
+        continue-on-error: true
+        uses: actions/download-artifact@v8
+        with:
+          name: result
+          path: ${{ runner.temp }}/result
+
+      - name: Check build results
+        id: task
+        if: needs.build.outputs.outcome == 'success' && steps.download.outcome == 'success'
+        continue-on-error: true
+        uses: actions/github-script@v9
+        env:
+          TASK_DIR: ${{ needs.build.outputs.task_dir }}
+          TIME_INSTALL: ${{ needs.build.outputs.time_install }}
+          TIME_USING: ${{ needs.build.outputs.time_using }}
+          TIME_SCRIPT: ${{ needs.build.outputs.time_script }}
+          TIME_TOTAL: ${{ needs.build.outputs.time_total }}
+        with:
+          script: |
+            const ttfx = require('./.github/scripts/ttfx.js');
+            const form = ttfx.parseIssueForm(context.payload.issue.body);
+            let task;
+            try {
+              task = ttfx.prepareTask({
+                stagedDir: `${process.env.RUNNER_TEMP}/result/task`,
+                workspace: process.env.GITHUB_WORKSPACE,
+                taskDir: process.env.TASK_DIR,
+                pkg: form.primary_package,
+                submitter: context.payload.issue.user.login,
+                timings: {
+                  install: process.env.TIME_INSTALL, using: process.env.TIME_USING,
+                  script: process.env.TIME_SCRIPT, total: process.env.TIME_TOTAL,
+                },
+              });
+            } catch (err) {
+              if (!(err instanceof ttfx.InvalidResult)) throw err;
+              core.setOutput('rejection', err.message);
+              core.setFailed(err.message);
+              return;
+            }
+            const repo = await ttfx.registryRepo(form.primary_package).catch(err => {
+              core.warning(`Couldn't look up the repository of ${form.primary_package}: ${err.message}`);
+              return null;
+            });
+            for (const [key, value] of Object.entries({
+              package: form.primary_package, name: form.task_name,
+              nature: task.nature, authorship: task.authorship, pkg_owner: repo?.owner ?? '',
+              time_install: task.timings.install, time_using: task.timings.using,
+              time_script: task.timings.script, time_total: task.timings.total,
+            })) {
+              core.setOutput(key, value);
+            }
 
       - name: Create Pull Request
         id: create_pr
-        if: steps.gensnippet.outcome == 'success'
+        if: steps.task.outcome == 'success'
         uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           author: ${{ github.event.issue.user.login }} <${{ github.event.issue.user.login }}@users.noreply.github.com>
           committer: GitHub Actions <actions@github.com>
           commit-message: |
-            ${{ steps.gensnippet.outputs.task_nature }}: ${{ steps.parser.outputs.primary_package }}, ${{ steps.parser.outputs.task_name }}
+            ${{ steps.task.outputs.nature }}: ${{ steps.task.outputs.package }}, ${{ steps.task.outputs.name }}
           branch: ttfx-snippet-${{ github.event.issue.number }}
-          title: "${{ steps.gensnippet.outputs.task_nature }}: ${{ steps.parser.outputs.primary_package }}, ${{ steps.parser.outputs.task_name }}"
+          title: "${{ steps.task.outputs.nature }}: ${{ steps.task.outputs.package }}, ${{ steps.task.outputs.name }}"
           body: |
             ### Task summary
-            **Package:** ${{ steps.parser.outputs.primary_package }} (by ${{ steps.gensnippet.outputs.pkg_repo_owner }})
-            **Task:** ${{ steps.parser.outputs.task_name }}
+            **Package:** ${{ steps.task.outputs.package }} (by ${{ steps.task.outputs.pkg_owner }})
+            **Task:** ${{ steps.task.outputs.name }}
             **Submitted by:** @${{ github.event.issue.user.login }}
 
             ### Task timings
-            - Installation time: `${{ steps.gensnippet.outputs.task_time_install }}`s
-            - Package loading: `${{ steps.gensnippet.outputs.task_time_using }}`s
-            - Task script: `${{ steps.gensnippet.outputs.task_time_script }}`s
-            - Total time: `${{ steps.gensnippet.outputs.task_time_total }}`s
+            - Installation time: `${{ steps.task.outputs.time_install }}`s
+            - Package loading: `${{ steps.task.outputs.time_using }}`s
+            - Task script: `${{ steps.task.outputs.time_script }}`s
+            - Total time: `${{ steps.task.outputs.time_total }}`s
 
             ###### Closes #${{ github.event.issue.number }}
           labels: 🤖 automated-ttfx-snippet
           base: main
 
       - name: Auto-merge trusted submissions
-        if: steps.gensnippet.outcome == 'success'
+        if: steps.task.outcome == 'success'
         uses: actions/github-script@v9
+        env:
+          AUTHORSHIP: ${{ steps.task.outputs.authorship }}
+          PKG_OWNER: ${{ steps.task.outputs.pkg_owner }}
+          PR_NUMBER: ${{ steps.create_pr.outputs.pull-request-number }}
         with:
           script: |
-            const owner = '${{ steps.gensnippet.outputs.pkg_repo_owner }}';
-            const authorship = '${{ steps.gensnippet.outputs.task_authorship }}';
-            const user = context.payload.issue.user.login;
-            // 404 for non-members, private members, and non-org accounts
-            async function isPublicMember(org) {
-              try {
-                await github.rest.orgs.checkPublicMembershipForUser({ org, username: user });
-                return true;
-              } catch (e) {
-                if (e.status === 404) return false;
-                throw e;
-              }
-            }
-            let reason;
-            if (authorship === 'self') {
-              reason = "the author of the task";
-            } else if (owner && user === owner) {
-              reason = "the owner of the target package";
-            } else if (owner && await isPublicMember(owner)) {
-              reason = `a public member of ${owner}, which owns the target package`;
-            } else if (await isPublicMember('JuliaLang')) {
-              reason = "a public member of the JuliaLang organisation";
-            } else {
-              console.log(`${user} is not a task author, package maintainer, or JuliaLang member; skipping automerge.`);
+            const { automergeReason } = require('./.github/scripts/ttfx.js');
+            const submitter = context.payload.issue.user.login;
+            const reason = await automergeReason({
+              authorship: process.env.AUTHORSHIP,
+              submitter,
+              pkgOwner: process.env.PKG_OWNER,
+              // 404 for non-members, private members, and non-org accounts
+              isPublicMember: async org => {
+                try {
+                  await github.rest.orgs.checkPublicMembershipForUser({ org, username: submitter });
+                  return true;
+                } catch (e) {
+                  if (e.status === 404) return false;
+                  throw e;
+                }
+              },
+            });
+            if (!reason) {
+              console.log(`${submitter} is not a task author, package maintainer, or JuliaLang member; skipping automerge.`);
               return;
             }
-            console.log(`Issue author ${user} is ${reason}; auto-merging.`);
+            console.log(`Issue author ${submitter} is ${reason}; auto-merging.`);
 
-            const prNumber = parseInt('${{ steps.create_pr.outputs.pull-request-number }}', 10);
+            const prNumber = parseInt(process.env.PR_NUMBER, 10);
             await github.rest.issues.addLabels({
               owner: context.repo.owner,
               repo:  context.repo.repo,
@@ -330,7 +420,7 @@ jobs:
               repo:  context.repo.repo,
               pull_number: prNumber
             });
-            const msg = `\n\n⚙️ **Auto-merge**: The submitter, @${user}, is ${reason}.`;
+            const msg = `\n\n⚙️ **Auto-merge**: The submitter, @${submitter}, is ${reason}.`;
             await github.rest.pulls.update({
               owner: context.repo.owner,
               repo:  context.repo.repo,
@@ -357,7 +447,6 @@ jobs:
         if: always()
         uses: actions/github-script@v9
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             try {
               await github.rest.issues.removeLabel({
@@ -371,20 +460,25 @@ jobs:
             }
 
       - name: Handle failure
-        if: steps.gensnippet.outcome == 'failure'
+        if: needs.build.outputs.outcome == 'failure' || steps.task.outcome == 'failure'
         uses: actions/github-script@v9
+        env:
+          REJECTION: ${{ steps.task.outputs.rejection }}
         with:
           script: |
             const fs = require('fs');
-            const logs = fs.readFileSync('create-snippet-logs.txt', 'utf8');
+            const { fencedLog } = require('./.github/scripts/ttfx.js');
+            const logfile = `${process.env.RUNNER_TEMP}/result/create-snippet-logs.txt`;
+            const details = process.env.REJECTION
+              ? "⚠️ The task ran, but its results were rejected:\n\n" + fencedLog(process.env.REJECTION)
+              : "⚠️ `create-snippet.jl` failed. Logs (look for an error at the end):\n\n" +
+                fencedLog(fs.existsSync(logfile) ? fs.readFileSync(logfile, 'utf8') : '(no logs were produced)');
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.payload.issue.number,
-              body:
-                "⚠️ `create-snippet.jl` failed. Logs (look for an error at the end):\n\n```bash\n" +
-                logs +
-                "\n```\n\nIf you can resolve the error, edit this issue with the corrected code and it will be re-run. " +
+              body: details +
+                "\n\nIf you can resolve the error, edit this issue with the corrected code and it will be re-run. " +
                 "Failed issues are closed after 3 days of inactivity."
             });
             await github.rest.issues.addLabels({
@@ -395,7 +489,7 @@ jobs:
             });
 
       - name: Close issue
-        if: always() && steps.gensnippet.outcome != 'failure'
+        if: always() && needs.build.outputs.outcome != 'failure' && steps.task.outcome != 'failure'
         uses: actions/github-script@v9
         with:
           script: |
