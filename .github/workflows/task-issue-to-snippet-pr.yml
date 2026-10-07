@@ -46,9 +46,26 @@ jobs:
 
       - name: Parse issue form fields
         id: parser
-        uses: stefanbuck/github-issue-parser@v3
+        uses: actions/github-script@v9
         with:
-          template-path: .github/ISSUE_TEMPLATE/create-task.yml
+          script: |
+            // Outputs are keyed by template label, e.g. "Dependencies (optional)" → dependencies
+            const sections = {};
+            let key = null, infence = false;
+            for (const line of context.payload.issue.body.replace(/\r\n/g, '\n').split('\n')) {
+              if (line.startsWith('```')) infence = !infence;
+              if (!infence && line.startsWith('### ')) {
+                key = line.slice(4).replace(/\(optional\)/i, '').trim().toLowerCase().replace(/\s+/g, '_');
+                sections[key] = [];
+              } else if (key) {
+                sections[key].push(line);
+              }
+            }
+            for (const [key, lines] of Object.entries(sections)) {
+              // Trimming whole values (not paragraphs) keeps code indentation, as code is fenced
+              const value = lines.join('\n').trim();
+              core.setOutput(key, value === '_No response_' ? '' : value);
+            }
 
       - name: Cache Julia installs
         id: cache-juliaup
@@ -217,12 +234,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_ISSUE_NUMBER: ${{ github.event.issue.number }}
-          SNIPPET_NAME: ${{ steps.parser.outputs.issueparser_task_name }}
-          SNIPPET_PACKAGE: ${{ steps.parser.outputs.issueparser_primary_package }}
-          SNIPPET_DEPS: ${{ steps.parser.outputs.issueparser_dependencies }}
+          SNIPPET_NAME: ${{ steps.parser.outputs.task_name }}
+          SNIPPET_PACKAGE: ${{ steps.parser.outputs.primary_package }}
+          SNIPPET_DEPS: ${{ steps.parser.outputs.dependencies }}
           SNIPPET_AUTHOR: ${{ github.event.issue.user.login }}
-          SNIPPET_ATTRIBUTION: ${{ steps.parser.outputs.issueparser_attribution }}
-          SNIPPET_TASK_CODE: ${{ steps.parser.outputs.issueparser_task_code }}
+          SNIPPET_ATTRIBUTION: ${{ steps.parser.outputs.attribution }}
+          SNIPPET_TASK_CODE: ${{ steps.parser.outputs.task_code }}
         run: |
           set -euo pipefail
           julia create-snippet.jl \
@@ -247,13 +264,13 @@ jobs:
           author: ${{ github.event.issue.user.login }} <${{ github.event.issue.user.login }}@users.noreply.github.com>
           committer: GitHub Actions <actions@github.com>
           commit-message: |
-            ${{ steps.gensnippet.outputs.task_nature }}: ${{ steps.parser.outputs.issueparser_primary_package }}, ${{ steps.parser.outputs.issueparser_task_name }}
+            ${{ steps.gensnippet.outputs.task_nature }}: ${{ steps.parser.outputs.primary_package }}, ${{ steps.parser.outputs.task_name }}
           branch: ttfx-snippet-${{ github.event.issue.number }}
-          title: "${{ steps.gensnippet.outputs.task_nature }}: ${{ steps.parser.outputs.issueparser_primary_package }}, ${{ steps.parser.outputs.issueparser_task_name }}"
+          title: "${{ steps.gensnippet.outputs.task_nature }}: ${{ steps.parser.outputs.primary_package }}, ${{ steps.parser.outputs.task_name }}"
           body: |
             ### Task summary
-            **Package:** ${{ steps.parser.outputs.issueparser_primary_package }} (by ${{ steps.gensnippet.outputs.pkg_repo_owner }})
-            **Task:** ${{ steps.parser.outputs.issueparser_task_name }}
+            **Package:** ${{ steps.parser.outputs.primary_package }} (by ${{ steps.gensnippet.outputs.pkg_repo_owner }})
+            **Task:** ${{ steps.parser.outputs.task_name }}
             **Submitted by:** @${{ github.event.issue.user.login }}
 
             ### Task timings
