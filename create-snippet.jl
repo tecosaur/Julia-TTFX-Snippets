@@ -248,7 +248,13 @@ const time_to_install = time() - time_preinstall
 for reg in Pkg.Registry.reachable_registries()
     for (uuid, regpkg) in reg
         if regpkg.name == task.package
-            repourl = chopsuffix(Pkg.Registry.registry_info(regpkg).repo, ".git")
+            # Private Pkg API: Julia 1.13 added the registry argument
+            pkginfo = if applicable(Pkg.Registry.registry_info, reg, regpkg)
+                Pkg.Registry.registry_info(reg, regpkg)
+            else
+                Pkg.Registry.registry_info(regpkg)
+            end
+            repourl = chopsuffix(pkginfo.repo, ".git")
             ghrepo = match(r"https://github.com/(?<owner>[^/]+)/(?<repo>[^/]+)", repourl)
             if !isnothing(ghrepo)
                 println(gh_output, "pkg_repo_owner=", ghrepo["owner"])
