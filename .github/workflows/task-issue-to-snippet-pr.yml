@@ -156,13 +156,14 @@ jobs:
           script: |
             const ttfx = require('./.github/scripts/ttfx.js');
             const form = ttfx.parseIssueForm(context.payload.issue.body);
+            const pkg = form.primary_package.split('@')[0].trim(); // Drop any `@minversion`
             let task;
             try {
               task = ttfx.prepareTask({
                 stagedDir: `${process.env.RUNNER_TEMP}/result/task`,
                 workspace: process.env.GITHUB_WORKSPACE,
                 taskDir: process.env.TASK_DIR,
-                pkg: form.primary_package,
+                pkg,
                 submitter: context.payload.issue.user.login,
                 timings: {
                   install: process.env.TIME_INSTALL, using: process.env.TIME_USING,
@@ -175,12 +176,12 @@ jobs:
               core.setFailed(err.message);
               return;
             }
-            const repo = await ttfx.registryRepo(form.primary_package).catch(err => {
-              core.warning(`Couldn't look up the repository of ${form.primary_package}: ${err.message}`);
+            const repo = await ttfx.registryRepo(pkg).catch(err => {
+              core.warning(`Couldn't look up the repository of ${pkg}: ${err.message}`);
               return null;
             });
             for (const [key, value] of Object.entries({
-              package: form.primary_package, name: form.task_name,
+              package: pkg, name: form.task_name,
               nature: task.nature, authorship: task.authorship, pkg_owner: repo?.owner ?? '',
               time_install: task.timings.install, time_using: task.timings.using,
               time_script: task.timings.script, time_total: task.timings.total,

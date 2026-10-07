@@ -43,11 +43,24 @@ task = let
                 println("Argument error: missing/empty $arg")
             end
         end
-        println("\n  Usage: create-snippet.jl --name <task name> --package <pkg> [--deps <dep1,dep2>] --author <name> [--attribution <text>] --snippet <code>")
+        println("\n  Usage: create-snippet.jl --name <task name> --package <pkg[@minversion]> [--deps <dep1,dep2@minversion>] --author <name> [--attribution <text>] --snippet <code>")
         exit(1)
     end
-    (name = task_name, package = primary_pkg, deps = deps,
-     author = author, attribution = attrib, snippet = snippet)
+    # `Pkg@version` sets a minimum version for that package
+    minversions = Dict{String, VersionNumber}()
+    function pkgname(spec::AbstractString)
+        '@' in spec || return String(strip(spec))
+        name, version = String.(strip.(split(spec, '@', limit = 2)))
+        minversion = tryparse(VersionNumber, version)
+        if isnothing(minversion) || name == "Base"
+            println("Argument error: invalid package \"$spec\", expected a package name with an optional minimum version, like \"DataFrames\" or \"DataFrames@1.6\"")
+            exit(1)
+        end
+        minversions[name] = minversion
+        name
+    end
+    (name = task_name, package = pkgname(primary_pkg), deps = map(pkgname, deps),
+     minversions = minversions, author = author, attribution = attrib, snippet = snippet)
 end
 
 
@@ -245,6 +258,10 @@ append!(allpkgs, task.deps)
 
 const time_to_install = time() - time_preinstall
 
+for (name, minversion) in task.minversions
+    Pkg.compat(name, ">=$minversion")
+end
+
 
 # Registry queries (private Pkg API)
 
@@ -262,7 +279,7 @@ function registry_pkginfos(name::AbstractString)
     pkginfos
 end
 
-function registry_min_julia(pkginfo::Pkg.Registry.PkgInfo)
+function registry_min_julia(pkginfo::Pkg.Registry.PkgInfo; since::VersionNumber = v"0")
     # Julia 1.13 replaced `compat_info`
     release_compat = if isdefined(Pkg.Registry, :query_compat_for_version)
         ver -> Pkg.Registry.query_compat_for_version(pkginfo, ver)
@@ -278,7 +295,8 @@ function registry_min_julia(pkginfo::Pkg.Registry.PkgInfo)
         bound = first(spec.ranges).lower
         VersionNumber(ntuple(i -> i <= bound.n ? Int(bound.t[i]) : 0, 2)...)
     end
-    releases = Iterators.filter(ver -> !Pkg.Registry.isyanked(pkginfo, ver), keys(pkginfo.version_info))
+    releases = Iterators.filter(ver -> ver >= since && !Pkg.Registry.isyanked(pkginfo, ver),
+                                keys(pkginfo.version_info))
     minimum(Iterators.filter(!isnothing, Iterators.map(julia_lower, releases)))
 end
 
@@ -391,8 +409,8 @@ sandboxed_task(julia::Cmd) =
               readable = [taskdir, dirname(dirname(first(julia.exec)))])
 
 const registry_julia_bound = try
-    pkgbounds = [minimum(registry_min_julia, pkginfos) for pkginfos in map(registry_pkginfos, allpkgs)
-                 if !isempty(pkginfos)]
+    pkgbounds = [minimum(info -> registry_min_julia(info, since = get(task.minversions, name, v"0")), pkginfos)
+                 for (name, pkginfos) in zip(allpkgs, map(registry_pkginfos, allpkgs)) if !isempty(pkginfos)]
     maximum(pkgbounds, init = v"1.0")
 catch err
     @warn "Couldn't read Julia compat bounds from the registry, testing from Julia 1.0" exception = (err, catch_backtrace())

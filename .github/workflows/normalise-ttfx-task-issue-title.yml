@@ -21,7 +21,7 @@ jobs:
             const body = context.payload.issue.body;
             const pkgMatch  = body.match(/###\s*Primary package\s*\n+(.+)/i);
             const taskMatch = body.match(/###\s*Task name\s*\n+(.+)/i);
-            const pkg  = pkgMatch?.[1].trim();
+            const pkg  = pkgMatch?.[1].split('@')[0].trim();
             const task = taskMatch?.[1].trim();
             if (pkg && task) {
               await github.rest.issues.update({

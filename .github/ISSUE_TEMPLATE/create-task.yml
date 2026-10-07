@@ -8,8 +8,8 @@ body:
     id: primary_package
     attributes:
       label: "Primary package"
-      description: "Name of the main Julia package you’re measuring"
-      placeholder: "e.g. DataFrames"
+      description: "Name of the main Julia package you’re measuring, optionally with a minimum version (skipping older Julia versions it doesn't support)"
+      placeholder: "e.g. DataFrames or DataFrames@1.6"
     validations:
       required: true
 
@@ -26,8 +26,8 @@ body:
     id: dependencies
     attributes:
       label: "Dependencies (optional)"
-      description: "Other packages or dependencies required (comma-separated)"
-      placeholder: "e.g. CSV, Tables"
+      description: "Other packages or dependencies required (comma-separated), each optionally with a minimum version"
+      placeholder: "e.g. CSV@0.10, Tables"
     validations:
       required: false
 
