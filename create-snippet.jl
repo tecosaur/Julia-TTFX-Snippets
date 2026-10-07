@@ -359,32 +359,58 @@ const taskhash = readchomp(`git hash-object $taskfile`)
 checkstage!(:taskscript, :taskrun)
 @info "Performing trial run of task"
 
-# Resolves to the real binary (not a symlink or launcher), so it also runs in the sandbox
-function juliacmd(version::VersionNumber = VERSION)
-    jlbin = Sys.which(string("julia-", version.major, ".", version.minor))
-    isnothing(jlbin) || return Cmd([realpath(jlbin), "--startup-file=no"])
-    for jlupdir in ("~/.julia/juliaup", "~/.juliaup")
-        jlupdir = expanduser(jlupdir)
-        if isdir(jlupdir)
-            jlupbin = joinpath(jlupdir, "bin", "juliaup")
-            isfile(jlupbin) && success(`$jlupbin add $(version.major).$(version.minor)`) || continue
-            jlbin = joinpath(expanduser(jlupdir), "bin", "julia")
-            if isfile(jlbin)
-                bindir = readchomp(`$jlbin +$(version.major).$(version.minor) --startup-file=no -e 'print(Sys.BINDIR)'`)
-                return Cmd([joinpath(bindir, "julia"), "--startup-file=no"])
-            end
-        end
+# Returns the real binary (not the juliaup launcher), so it also runs in the sandbox
+function juliacmd(version::VersionNumber)
+    channel = "$(version.major).$(version.minor)"
+    juliaup, launcher = Sys.which("juliaup"), Sys.which("julia")
+    isnothing(juliaup) && error("Cannot install Julia $channel: juliaup is not installed")
+    log = IOBuffer()
+    success(pipeline(`$juliaup add $channel`, stdout = log, stderr = log)) ||
+        error("Installing Julia $channel with juliaup failed:\n", String(take!(log)))
+    bindir = readchomp(`$launcher +$channel --startup-file=no -e 'print(Sys.BINDIR)'`)
+    Cmd([joinpath(bindir, "julia"), "--startup-file=no"])
+end
+
+# Installs run in the background, so downloads overlap with testing other versions
+const julia_installs = Dict{VersionNumber, Task}()
+
+prefetch_julia(version::VersionNumber) =
+    get!(() -> @async(juliacmd(version)), julia_installs, VersionNumber(version.major, version.minor))
+
+function installed_julia(version::VersionNumber)
+    install = prefetch_julia(version)
+    try
+        fetch(install)
+    catch
+        cierror(sprint(showerror, install.exception))
     end
-    cierror("Julia binary for $version not found")
 end
 
 sandboxed_task(julia::Cmd) =
     sandboxed(`$julia --project=$taskdir $taskfile`,
               readable = [taskdir, dirname(dirname(first(julia.exec)))])
 
-run(`julia --startup-file=no --project=$taskdir -e 'using Pkg; Pkg.instantiate()'`)
+const registry_julia_bound = try
+    pkgbounds = [minimum(registry_min_julia, pkginfos) for pkginfos in map(registry_pkginfos, allpkgs)
+                 if !isempty(pkginfos)]
+    maximum(pkgbounds, init = v"1.0")
+catch err
+    @warn "Couldn't read Julia compat bounds from the registry, testing from Julia 1.0" exception = (err, catch_backtrace())
+    v"1.0"
+end
 
-const taskoutput = last(collect(eachline(sandboxed_task(juliacmd()))))
+const first_minorver = registry_julia_bound.major == 1 ? min(registry_julia_bound.minor, VERSION.minor) : 0
+
+# Overlap the first install with instantiating, but finish it before timing the task.
+# Install failures are reported when the version is used.
+let first_install = prefetch_julia(VersionNumber(1, first_minorver))
+    run(`julia --startup-file=no --project=$taskdir -e 'using Pkg; Pkg.instantiate()'`)
+    while !istaskdone(first_install)
+        sleep(0.1)
+    end
+end
+
+const taskoutput = last(collect(eachline(sandboxed_task(installed_julia(VERSION)))))
 
 readchomp(`git hash-object $taskfile`) == taskhash ||
     cierror("Task script was modified during run")
@@ -407,17 +433,6 @@ checkstage!(:taskrun, :taskjulia)
 
 const trialrun_timeout = 60 * 5 # seconds
 
-const registry_julia_bound = try
-    pkgbounds = [minimum(registry_min_julia, pkginfos) for pkginfos in map(registry_pkginfos, allpkgs)
-                 if !isempty(pkginfos)]
-    maximum(pkgbounds, init = v"1.0")
-catch err
-    @warn "Couldn't read Julia compat bounds from the registry, testing from Julia 1.0" exception = (err, catch_backtrace())
-    v"1.0"
-end
-
-const first_minorver = registry_julia_bound.major == 1 ? min(registry_julia_bound.minor, VERSION.minor) : 0
-
 if first_minorver > 0
     push!(issue_checkboxes_julia_versions,
           (; ver = if first_minorver == 1 "1.0" else "1.0–1.$(first_minorver - 1)" end,
@@ -431,7 +446,8 @@ for minorver in first_minorver:VERSION.minor
     push!(issue_checkboxes_julia_versions, (; ver = "1.$minorver", status = :testing, extra = ""))
     update_issue_comment()
     @info "Trying Julia 1.$minorver"
-    julia = juliacmd(VersionNumber(1, minorver))
+    julia = installed_julia(VersionNumber(1, minorver))
+    minorver < VERSION.minor && prefetch_julia(VersionNumber(1, minorver + 1))
     rm(joinpath(taskdir, "Manifest.toml"), force=true)
     resolved = success(pipeline(`$julia --project=$taskdir -e 'using Pkg; Pkg.resolve()'`; stdout, stderr))
     instantiated = resolved && success(pipeline(`$julia --project=$taskdir -e 'using Pkg; Pkg.instantiate()'`; stdout, stderr))

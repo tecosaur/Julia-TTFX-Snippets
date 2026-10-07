@@ -64,171 +64,11 @@ jobs:
               core.setOutput(key, value);
             }
 
-      - name: Restore Julia installs
-        id: cache-juliaup
-        uses: actions/cache/restore@v6
+      # Further versions are installed as needed by create-snippet.jl
+      - name: Install Julia
+        uses: julia-actions/install-juliaup@v3
         with:
-          path: ~/.local/share/julia-multi
-          key: ${{ runner.os }}-julias
-
-      - name: Install julias
-        uses: actions/github-script@v9
-        with:
-          script: |
-            const fs     = require('fs');
-            const os     = require('os');
-            const path   = require('path');
-            const crypto = require('crypto');
-            // built-ins: core, exec, io
-
-            // simple retry helper
-            async function retry(fn, retries = 5, delay = 1000) {
-              for (let i = 0; i < retries; i++) {
-                try { return await fn(); }
-                catch (e) {
-                  core.info(`Retry #${i+1} failed: ${e.message}`);
-                  if (i === retries - 1) throw e;
-                  await new Promise(r => setTimeout(r, delay));
-                }
-              }
-            }
-
-            // compare x.y.z semvers
-            function cmpVer(a, b) {
-              const pa = a.split('.').map(n => +n), pb = b.split('.').map(n => +n);
-              for (let i = 0; i < 3; i++) {
-                if (pa[i] !== pb[i]) return pa[i] - pb[i];
-              }
-              return 0;
-            }
-
-            (async () => {
-              const home    = os.homedir();
-              const baseDir = path.join(home, '.local/share/julia-multi');
-              const binDir  = path.join(home, '.local/bin');
-              await io.mkdirP(baseDir);
-              await io.mkdirP(binDir);
-
-              // 1) fetch or reuse versions.json if <24 h old
-              const metaPath = path.join(baseDir, 'versions.json');
-              let needFetch = true;
-              if (fs.existsSync(metaPath)) {
-                const stats = fs.statSync(metaPath);
-                const ageMs  = Date.now() - stats.mtimeMs;
-                if (ageMs < 24 * 60 * 60 * 1000) {
-                  needFetch = false;
-                  core.info('✓ Using cached versions.json');
-                }
-              }
-              if (needFetch) {
-                core.info('↻ Downloading fresh versions.json');
-                await retry(() =>
-                  exec.exec('curl', [
-                    '-sSL',
-                    'https://julialang-s3.julialang.org/bin/versions.json',
-                    '-o', metaPath
-                  ])
-                );
-              }
-
-              // 2) parse metadata and list all versions
-              const info = JSON.parse(fs.readFileSync(metaPath, 'utf8'));
-              const all  = Object.keys(info);
-
-              // 3) compute unique sorted minors
-              const minors = [...new Set(
-                all
-                  .filter(v => v.startsWith('1.'))
-                  .filter(v => !v.includes('-'))
-                  .map(v => v.split('.').slice(0,2).join('.'))
-              )].sort(cmpVer);
-
-              // 4) platform/arch maps
-              const platMap = { linux:'linux', darwin:'mac', win32:'winnt' };
-              const archMap = { x64:'x86_64', ia32:'i686', arm64:'aarch64' };
-              const plat    = platMap[os.platform()];
-              const arch    = archMap[os.arch()] || os.arch();
-
-              // 5) loop minors: install latest patch, prune old, symlink
-              for (const m of minors) {
-                // pick latest patch
-                const version = all
-                  .filter(v => v.startsWith(m + '.'))
-                  .reduce((best, v) => cmpVer(v, best) > 0 ? v : best, m + '.0');
-
-                core.info(`→ Julia ${version}`);
-                const entry = info[version];
-                const file  = entry.files.find(f =>
-                  f.os === plat && f.arch === arch && f.extension === 'tar.gz'
-                );
-                if (!file) throw new Error(`no tar.gz for ${version} on ${plat}/${arch}`);
-
-                // derive folder name
-                const fname      = path.basename(file.url);
-                const folderName = fname.replace(/\.tar\.gz$/, '');
-                const installDir = path.join(baseDir, folderName);
-
-                // install if missing
-                if (!fs.existsSync(installDir)) {
-                  const dlPath = path.join(baseDir, fname);
-                  await retry(() => exec.exec('curl', ['-sSL', file.url, '-o', dlPath]));
-                  const sum = crypto.createHash('sha256')
-                                    .update(fs.readFileSync(dlPath))
-                                    .digest('hex');
-                  if (sum !== file.sha256) throw new Error(`checksum mismatch for ${version}`);
-                  await io.mkdirP(installDir);
-                  await exec.exec('tar', ['xf', dlPath, '--strip-components=1', '-C', installDir]);
-                } else {
-                  core.info(`  ↳ cached at ${installDir}`);
-                }
-
-                // prune older patch dirs for this minor
-                const siblings = fs.readdirSync(baseDir).filter(name =>
-                  fs.lstatSync(path.join(baseDir, name)).isDirectory() &&
-                  name.startsWith(folderName.split('.').slice(0,2).join('.')) &&
-                  name !== folderName
-                );
-                for (const old of siblings) {
-                  await io.rmRF(path.join(baseDir, old));
-                  core.info(`  ↳ removed old version: ${old}`);
-                }
-
-                // update symlink for this minor
-                const linkName = `julia-${m}`;
-                const linkPath = path.join(binDir, linkName);
-                const target   = path.join(installDir, 'bin', 'julia');
-                if (fs.existsSync(linkPath)) fs.unlinkSync(linkPath);
-                fs.symlinkSync(target, linkPath);
-                core.info(`  ↳ symlinked ${linkName} → ${target}`);
-              }
-
-              // 6) default "julia" → highest-minor
-              const lastMinor = minors[minors.length - 1];
-              const lastVersion = all
-                .filter(v => v.startsWith(lastMinor + '.'))
-                .reduce((best, v) => cmpVer(v, best) > 0 ? v : best, lastMinor + '.0');
-              const lastEntry = info[lastVersion];
-              const lastFile  = lastEntry.files.find(f =>
-                f.os === plat && f.arch === arch && f.extension === 'tar.gz'
-              );
-              const lastFolder = path.basename(lastFile.url).replace(/\.tar\.gz$/, '');
-              const lastDir    = path.join(baseDir, lastFolder);
-              const defaultLink= path.join(binDir, 'julia');
-              if (fs.existsSync(defaultLink)) fs.unlinkSync(defaultLink);
-              fs.symlinkSync(path.join(lastDir, 'bin', 'julia'), defaultLink);
-              core.info(`↳ default symlinked "julia" → ${lastVersion}`);
-            })().catch(err => {
-              core.error(err);
-              process.exit(1);
-            });
-
-      # Saved before any submitted code runs, so it can't be tampered with
-      - name: Save Julia installs
-        if: steps.cache-juliaup.outputs.cache-hit != 'true'
-        uses: actions/cache/save@v6
-        with:
-          path: ~/.local/share/julia-multi
-          key: ${{ runner.os }}-julias
+          channel: release
 
       - name: Set up sandbox
         run: |
@@ -240,6 +80,8 @@ jobs:
         id: gensnippet
         continue-on-error: true
         env:
+          # Julia 1.0–1.7 can't read compressed registries, failing to resolve anything
+          JULIA_PKG_UNPACK_REGISTRY: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_ISSUE_NUMBER: ${{ github.event.issue.number }}
