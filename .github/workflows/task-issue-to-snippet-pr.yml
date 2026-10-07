@@ -266,41 +266,38 @@ jobs:
           labels: 🤖 automated-ttfx-snippet
           base: main
 
-      - name: Label automerge when author is package owner
+      - name: Auto-merge trusted submissions
         if: steps.gensnippet.outcome == 'success'
         uses: actions/github-script@v7
         with:
           script: |
             const owner = '${{ steps.gensnippet.outputs.pkg_repo_owner }}';
-            const repo  = '${{ steps.gensnippet.outputs.pkg_repo_name }}';
-            const authorship  = '${{ steps.gensnippet.outputs.task_authorship }}';
-            if ((!owner || !repo) && authorship !== 'self') {
-              console.log("No upstream repo detected; skipping automerge.");
-              return;
-            }
-
+            const authorship = '${{ steps.gensnippet.outputs.task_authorship }}';
             const user = context.payload.issue.user.login;
-
-            if (authorship === 'self') {
-              console.log(`Issue author ${user} is the author of the task; auto-merging.`);
-            } else if (user === owner) {
-              console.log(`Issue author ${user} is the repo owner; auto-merging.`);
-            } else {
-              const { data: repoMeta } = await github.rest.repos.get({ owner, repo });
-              if (repoMeta.owner.type === 'Organization') {
-                const { data: orgs } = await github.rest.orgs.listForUser({ username: user });
-                const isMember = orgs.some(o => o.login === owner);
-                if (isMember) {
-                  console.log(`${user} is a public member of org ${owner}; auto-merging.`);
-                } else {
-                  console.log(`${user} is not a public member of ${owner}; skipping.`);
-                  return;
-                }
-              } else {
-                console.log(`${owner} is a user, not an org; skipping org-member check.`);
-                return;
+            // 404 for non-members, private members, and non-org accounts
+            async function isPublicMember(org) {
+              try {
+                await github.rest.orgs.checkPublicMembershipForUser({ org, username: user });
+                return true;
+              } catch (e) {
+                if (e.status === 404) return false;
+                throw e;
               }
             }
+            let reason;
+            if (authorship === 'self') {
+              reason = "the author of the task";
+            } else if (owner && user === owner) {
+              reason = "the owner of the target package";
+            } else if (owner && await isPublicMember(owner)) {
+              reason = `a public member of ${owner}, which owns the target package`;
+            } else if (await isPublicMember('JuliaLang')) {
+              reason = "a public member of the JuliaLang organisation";
+            } else {
+              console.log(`${user} is not a task author, package maintainer, or JuliaLang member; skipping automerge.`);
+              return;
+            }
+            console.log(`Issue author ${user} is ${reason}; auto-merging.`);
 
             const prNumber = parseInt('${{ steps.create_pr.outputs.pull-request-number }}', 10);
             await github.rest.issues.addLabels({
@@ -316,7 +313,7 @@ jobs:
               repo:  context.repo.repo,
               pull_number: prNumber
             });
-            const msg = "\n\n⚙️ **Auto-merge**: This PR has been identified as originating from a maintainer of the target package.";
+            const msg = `\n\n⚙️ **Auto-merge**: The submitter, @${user}, is ${reason}.`;
             await github.rest.pulls.update({
               owner: context.repo.owner,
               repo:  context.repo.repo,
