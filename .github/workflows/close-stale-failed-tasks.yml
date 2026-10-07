@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Close failed task issues inactive for 3 days
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const staleMs = 3 * 24 * 60 * 60 * 1000;
