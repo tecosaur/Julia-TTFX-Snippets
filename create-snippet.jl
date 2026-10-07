@@ -127,6 +127,8 @@ function issue_comment()
                             "🚨 failed"
                         elseif status == :timeout
                             "⏰ timed out"
+                        elseif status == :skipped
+                            "⏭️ skipped (below the registered Julia compat)"
                         else
                             ""
                         end, extra)
@@ -243,24 +245,51 @@ append!(allpkgs, task.deps)
 const time_to_install = time() - time_preinstall
 
 
+# Registry queries (private Pkg API)
+
+function registry_pkginfos(name::AbstractString)
+    pkginfos = Pkg.Registry.PkgInfo[]
+    for reg in Pkg.Registry.reachable_registries(), (_, regpkg) in reg
+        regpkg.name == name || continue
+        # Julia 1.13 added the registry argument
+        push!(pkginfos, if applicable(Pkg.Registry.registry_info, reg, regpkg)
+                  Pkg.Registry.registry_info(reg, regpkg)
+              else
+                  Pkg.Registry.registry_info(regpkg)
+              end)
+    end
+    pkginfos
+end
+
+function registry_min_julia(pkginfo::Pkg.Registry.PkgInfo)
+    # Julia 1.13 replaced `compat_info`
+    release_compat = if isdefined(Pkg.Registry, :query_compat_for_version)
+        ver -> Pkg.Registry.query_compat_for_version(pkginfo, ver)
+    else
+        let allcompat = Pkg.Registry.compat_info(pkginfo)
+            ver -> allcompat[ver]
+        end
+    end
+    function julia_lower(ver::VersionNumber)
+        spec = get(release_compat(ver), Pkg.Registry.JULIA_UUID, nothing)
+        isnothing(spec) && return v"0.0"
+        isempty(spec.ranges) && return nothing
+        bound = first(spec.ranges).lower
+        VersionNumber(ntuple(i -> i <= bound.n ? Int(bound.t[i]) : 0, 2)...)
+    end
+    releases = Iterators.filter(ver -> !Pkg.Registry.isyanked(pkginfo, ver), keys(pkginfo.version_info))
+    minimum(Iterators.filter(!isnothing, Iterators.map(julia_lower, releases)))
+end
+
+
 # Package authorship
 
-for reg in Pkg.Registry.reachable_registries()
-    for (uuid, regpkg) in reg
-        if regpkg.name == task.package
-            # Private Pkg API: Julia 1.13 added the registry argument
-            pkginfo = if applicable(Pkg.Registry.registry_info, reg, regpkg)
-                Pkg.Registry.registry_info(reg, regpkg)
-            else
-                Pkg.Registry.registry_info(regpkg)
-            end
-            repourl = chopsuffix(pkginfo.repo, ".git")
-            ghrepo = match(r"https://github.com/(?<owner>[^/]+)/(?<repo>[^/]+)", repourl)
-            if !isnothing(ghrepo)
-                println(gh_output, "pkg_repo_owner=", ghrepo["owner"])
-                println(gh_output, "pkg_repo_name=", ghrepo["repo"])
-            end
-        end
+for pkginfo in registry_pkginfos(task.package)
+    repourl = chopsuffix(pkginfo.repo, ".git")
+    ghrepo = match(r"https://github.com/(?<owner>[^/]+)/(?<repo>[^/]+)", repourl)
+    if !isnothing(ghrepo)
+        println(gh_output, "pkg_repo_owner=", ghrepo["owner"])
+        println(gh_output, "pkg_repo_name=", ghrepo["repo"])
     end
 end
 
@@ -389,8 +418,25 @@ checkstage!(:taskrun, :taskjulia)
 
 const trialrun_timeout = 60 * 5 # seconds
 
+const registry_julia_bound = try
+    pkgbounds = [minimum(registry_min_julia, pkginfos) for pkginfos in map(registry_pkginfos, allpkgs)
+                 if !isempty(pkginfos)]
+    maximum(pkgbounds, init = v"1.0")
+catch err
+    @warn "Couldn't read Julia compat bounds from the registry, testing from Julia 1.0" exception = (err, catch_backtrace())
+    v"1.0"
+end
+
+const first_minorver = registry_julia_bound.major == 1 ? min(registry_julia_bound.minor, VERSION.minor) : 0
+
+if first_minorver > 0
+    push!(issue_checkboxes_julia_versions,
+          (; ver = if first_minorver == 1 "1.0" else "1.0–1.$(first_minorver - 1)" end,
+           status = :skipped, extra = ""))
+end
+
 minjulia::VersionNumber = VERSION
-for minorver in 0:VERSION.minor
+for minorver in first_minorver:VERSION.minor
     # We could do a binary search, but it's probably quicker to fail to resolve on old versions
     # than succeed and install all the packages etc. on newer versions.
     push!(issue_checkboxes_julia_versions, (; ver = "1.$minorver", status = :testing, extra = ""))
