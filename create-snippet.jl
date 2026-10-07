@@ -3,6 +3,9 @@
 using Pkg
 using Dates
 
+include("sandbox.jl")
+using .Sandbox
+
 task = let
     task_name = ""
     primary_pkg = ""
@@ -220,16 +223,14 @@ if isfile(taskfile)
         cierror("Task already exists: $taskdir")
     else
         @info "Task already exists, replacing"
-        println(gh_output, "task_authorship=", ifelse(taskauthor == task.author, "self", "other"))
-        println(gh_output, "task_nature=", "Task update")
         rm(taskdir, recursive=true, force=true)
         mkdir(taskdir)
     end
 else
-    println(gh_output, "task_authorship=", "none")
-    println(gh_output, "task_nature=", "New task")
     mkpath(taskdir)
 end
+
+println(gh_output, "task_dir=", relpath(taskdir, @__DIR__))
 
 Pkg.activate(taskdir)
 
@@ -282,18 +283,6 @@ function registry_min_julia(pkginfo::Pkg.Registry.PkgInfo)
 end
 
 
-# Package authorship
-
-for pkginfo in registry_pkginfos(task.package)
-    repourl = chopsuffix(pkginfo.repo, ".git")
-    ghrepo = match(r"https://github.com/(?<owner>[^/]+)/(?<repo>[^/]+)", repourl)
-    if !isnothing(ghrepo)
-        println(gh_output, "pkg_repo_owner=", ghrepo["owner"])
-        println(gh_output, "pkg_repo_name=", ghrepo["repo"])
-    end
-end
-
-
 # Task script creation
 
 checkstage!(:taskenv, :taskscript)
@@ -367,35 +356,35 @@ const taskhash = readchomp(`git hash-object $taskfile`)
 
 # Validation
 
-function unshared(cmd::Cmd)
-    @static if occursin("Ubuntu", read(`lsb_release -si`, String))
-        `unshare --user --net --ipc --pid --kill-child $cmd`
-    else
-        `unshare --map-current-user --mount --net --ipc --pid --kill-child $cmd`
-    end
-end
-
 checkstage!(:taskscript, :taskrun)
 @info "Performing trial run of task"
 
+# Resolves to the real binary (not a symlink or launcher), so it also runs in the sandbox
 function juliacmd(version::VersionNumber = VERSION)
     jlbin = Sys.which(string("julia-", version.major, ".", version.minor))
-    isnothing(jlbin) ||return Cmd([jlbin, "--startup-file=no"])
+    isnothing(jlbin) || return Cmd([realpath(jlbin), "--startup-file=no"])
     for jlupdir in ("~/.julia/juliaup", "~/.juliaup")
         jlupdir = expanduser(jlupdir)
         if isdir(jlupdir)
             jlupbin = joinpath(jlupdir, "bin", "juliaup")
             isfile(jlupbin) && success(`$jlupbin add $(version.major).$(version.minor)`) || continue
             jlbin = joinpath(expanduser(jlupdir), "bin", "julia")
-            isfile(jlbin) && return Cmd([jlbin, "+$(version.major).$(version.minor)", "--startup-file=no"])
+            if isfile(jlbin)
+                bindir = readchomp(`$jlbin +$(version.major).$(version.minor) --startup-file=no -e 'print(Sys.BINDIR)'`)
+                return Cmd([joinpath(bindir, "julia"), "--startup-file=no"])
+            end
         end
     end
     cierror("Julia binary for $version not found")
 end
 
+sandboxed_task(julia::Cmd) =
+    sandboxed(`$julia --project=$taskdir $taskfile`,
+              readable = [taskdir, dirname(dirname(first(julia.exec)))])
+
 run(`julia --startup-file=no --project=$taskdir -e 'using Pkg; Pkg.instantiate()'`)
 
-const taskoutput = last(collect(eachline(unshared(`julia --startup-file=no --project=$taskdir $taskfile`))))
+const taskoutput = last(collect(eachline(sandboxed_task(juliacmd()))))
 
 readchomp(`git hash-object $taskfile`) == taskhash ||
     cierror("Task script was modified during run")
@@ -450,7 +439,7 @@ for minorver in first_minorver:VERSION.minor
         issue_checkboxes_julia_versions[end] = (; ver = issue_checkboxes_julia_versions[end].ver, status = :noinit, extra = "")
         continue
     end
-    trialrun = run(`$(unshared(julia)) --project=$taskdir $taskfile`, wait = false)
+    trialrun = run(sandboxed_task(julia), wait = false)
     for _ in 1:trialrun_timeout
         process_running(trialrun) || break
         sleep(1)

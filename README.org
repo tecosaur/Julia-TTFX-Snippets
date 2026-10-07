@@ -10,8 +10,8 @@ Manual PRs are also accepted, but I think you'll find the issue-based approach
 pretty smooth 😎.
 
 Tasks should be a tiny representative workload that doesn't require network
-access or modify the system state beyond creating files in temp and cache
-directories.
+access or modify the system state beyond creating files in the working, temp,
+and cache directories (submitted tasks are run in a sandbox that enforces this).
 
 * Using this collection
 
