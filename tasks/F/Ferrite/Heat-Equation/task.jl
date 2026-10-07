@@ -16,17 +16,17 @@ function solve_heat()
     qr = QuadratureRule{RefQuadrilateral}(2)
     cellvalues = CellValues(qr, ip)
 
-dh = DofHandler(grid)
+    dh = DofHandler(grid)
     add!(dh, :u, ip)
     close!(dh)
 
-ch = ConstraintHandler(dh)
+    ch = ConstraintHandler(dh)
     ∂Ω = union(getfacetset(grid, "left"), getfacetset(grid, "right"),
                getfacetset(grid, "top"), getfacetset(grid, "bottom"))
     add!(ch, Dirichlet(:u, ∂Ω, (x, t) -> 0.0))
     close!(ch)
 
-K = allocate_matrix(dh)
+    K = allocate_matrix(dh)
     f = zeros(ndofs(dh))
     n = getnbasefunctions(cellvalues)
     Ke = zeros(n, n)
@@ -53,7 +53,7 @@ K = allocate_matrix(dh)
     apply!(K, f, ch)
     u = K \ f
 
-VTKGridFile(joinpath(mktempdir(), "heat"), dh) do vtk
+    VTKGridFile(joinpath(mktempdir(), "heat"), dh) do vtk
         write_solution(vtk, dh, u)
     end
     return u
