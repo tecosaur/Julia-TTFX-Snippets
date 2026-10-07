@@ -1,0 +1,6 @@
+[deps]
+Ferrite = "c061ca5d-56c9-439f-9c0e-210fe06d3992"
+
+[compat]
+Ferrite = ">=1.0.0"
+julia = "1.9.0"
