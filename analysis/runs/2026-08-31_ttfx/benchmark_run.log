@@ -1,0 +1,1047 @@
+Found 39 tasks across 5 Julia versions
+Depot:   /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot
+Results: /Users/ian/Documents/GitHub/Julia-TTFX-Snippets/analysis/results.json
+Tip: set TTFX_DEPOT_PATH=/private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot to reuse downloaded packages on subsequent runs
+
+Machine: Mac.localdomain  Apple M5 Pro  5 threads  24.0 GiB  Darwin 25.6.0
+  nightly+pr62934 1.14.0-DEV.3079  d37af83d43  2026-08-31 13:34 UTC
+  1.13+pr62934   1.13.0-rc3.32  1483760d1e*  2026-08-30 21:16 UTC
+  1.12           1.12.7  6d172b025e4  2026-08-15 08:05 UTC
+  1.11           1.11.9  53a02c0720c  2026-02-06 00:27 UTC
+  1.10           1.10.12  d93beab124c  2026-08-15 10:29 UTC
+Metadata: /Users/ian/Documents/GitHub/Julia-TTFX-Snippets/analysis/results-meta.json
+
+=== Julia nightly+pr62934 ===
+  Attractors/Multistability-Of-Discrete-Time-Systems  precompile= 55.54s  load= 1.78s  run= 0.28s
+  BaseDirs/Project-Path                               precompile=  1.93s  load= 0.01s  run= 0.00s
+  BaseDirs/User-Cache                                 precompile=  1.60s  load= 0.01s  run= 0.00s
+  BenchmarkTools/Basic-Benchmark                      precompile=  7.66s  load= 0.07s  run= 0.05s
+  CairoMakie/Plot-A-Sine-Wave                         ERROR: precompile: process failed
+--- stderr ---
+Precompiling project...
+   0.2 s  ✓ Reexport
+   0.2 s  ✓ TensorCore
+   0.2 s  ✓ MappedArrays
+   0.2 s  ✓ ConstructionBase
+   0.1 s  ✓ DataValueInterfaces
+   0.2 s  ✓ StatsAPI
+   0.2 s  ✓ Observables
+   0.2 s  ✓ RoundingEmulator
+   0.2 s  ✓ PolygonOps
+   0.2 s  ✓ CEnum
+   0.6 s  ✓ IrrationalConstants
+   0.2 s  ✓ IterTools
+   0.5 s  ✓ Format
+   0.2 s  ✓ IntervalSets
+   0.2 s  ✓ Contour
+   0.2 s  ✓ LaTeXStrings
+   0.2 s  ✓ Inflate
+   0.2 s  ✓ TranscodingStreams
+   0.2 s  ✓ Statistics
+   0.9 s  ✓ MacroTools
+   0.2 s  ✓ StaticArraysCore
+   0.2 s  ✓ StableRNGs
+   0.1 s  ✓ PtrArrays
+   0.2 s  ✓ Adapt
+   0.2 s  ✓ DataAPI
+   0.2 s  ✓ LazyModules
+   0.1 s  ✓ CompositionsBase
+   0.2 s  ✓ InverseFunctions
+   0.2 s  ✓ AbstractFFTs
+   0.1 s  ✓ EnumX
+   0.2 s  ✓ AbstractTrees
+   0.1 s  ✓ IntegerMathUtils
+   0.1 s  ✓ IndirectArrays
+   0.6 s  ✓ AdaptivePredicates
+   0.2 s  ✓ TriplotBase
+   0.1 s  ✓ RangeArrays
+   0.2 s  ✓ OrderedCollections
+   0.1 s  ✓ IteratorInterfaceExtensions
+   0.5 s  ✓ FillArrays
+   0.2 s  ✓ DocStringExtensions
+   0.2 s  ✓ NaNMath
+   0.4 s  ✓ OffsetArrays
+   0.3 s  ✓ Requires
+   0.2 s  ✓ Scratch
+   0.3 s  ✓ WoodburyMatrices
+   0.2 s  ✓ Compat
+   0.3 s  ✓ StructUtils
+   0.4 s  ✓ PDMats
+   0.8 s  ✓ ProgressMeter
+   0.3 s  ✓ Preferences
+   0.3 s  ✓ ConstructionBase → ConstructionBaseLinearAlgebraExt
+   0.6 s  ✓ UnicodeFun
+   0.5 s  ✓ PkgVersion
+   1.5 s  ✓ BaseDirs
+   0.4 s  ✓ IntervalSets → IntervalSetsRandomExt
+   0.1 s  ✓ ConstructionBase → ConstructionBaseIntervalSetsExt
+   0.3 s  ✓ IntervalSets → IntervalSetsStatisticsExt
+   0.4 s  ✓ Statistics → SparseArraysExt
+   0.5 s  ✓ CodecZstd
+   0.6 s  ✓ SignedDistanceFields
+   0.4 s  ✓ SimpleTraits
+   0.5 s  ✓ AliasTables
+   0.5 s  ✓ Missings
+   0.7 s  ✓ Adapt → AdaptSparseArraysExt
+   1.1 s  ✓ FixedPointNumbers
+   0.4 s  ✓ InverseFunctions → InverseFunctionsDatesExt
+   0.5 s  ✓ CompositionsBase → CompositionsBaseInverseFunctionsExt
+   0.6 s  ✓ Primes
+   0.6 s  ✓ TableTraits
+   0.6 s  ✓ FillArrays → FillArraysStatisticsExt
+   0.7 s  ✓ FillArrays → FillArraysSparseArraysExt
+   1.0 s  ✓ DataStructures
+   0.2 s  ✓ OffsetArrays → OffsetArraysAdaptExt
+   0.2 s  ✓ StackViews
+   0.4 s  ✓ PaddedViews
+   0.2 s  ✓ Ratios
+   0.7 s  ✓ LogExpFunctions
+   0.4 s  ✓ RelocatableFolders
+   0.3 s  ✓ Compat → CompatLinearAlgebraExt
+   0.6 s  ✓ AxisAlgorithms
+   0.7 s  ✓ PrecompileTools
+   0.5 s  ✓ JLLWrappers
+   0.8 s  ✓ FillArrays → FillArraysPDMatsExt
+   1.1 s  ✓ StructUtils → StructUtilsStaticArraysCoreExt
+   0.5 s  ✓ ComputePipeline
+   0.9 s  ✓ ColorTypes
+   2.3 s  ✓ FileIO
+   0.4 s  ✓ SortingAlgorithms
+   0.8 s  ✓ Tables
+   0.4 s  ✓ QuadGK
+   1.5 s  ✓ Accessors
+   0.5 s  ✓ Ratios → RatiosFixedPointNumbersExt
+   0.4 s  ✓ LogExpFunctions → LogExpFunctionsInverseFunctionsExt
+   0.9 s  ✓ MosaicViews
+   0.4 s  ✓ Gamma
+   0.4 s  ✓ FilePathsBase
+   0.3 s  ✓ CommonSolve
+   0.4 s  ✓ MuladdMacro
+   1.1 s  ✓ ChainRulesCore
+   0.8 s  ✓ AxisArrays
+   3.8 s  ✓ SIMD
+   0.3 s  ✓ EarCut_jll
+   0.4 s  ✓ Libffi_jll
+   0.3 s  ✓ isoband_jll
+   0.3 s  ✓ Bzip2_jll
+   8.7 s  ✓ Unitful
+   0.3 s  ✓ Rmath_jll
+   0.3 s  ✓ OpenBLASConsistentFPCSR_jll
+   0.3 s  ✓ XZ_jll
+   0.2 s  ✓ Xorg_xtrans_jll
+   0.3 s  ✓ OpenSpecFun_jll
+   0.3 s  ✓ Opus_jll
+   0.3 s  ✓ x265_jll
+   0.3 s  ✓ libpng_jll
+   0.3 s  ✓ CRlibm_jll
+   0.2 s  ✓ Libmount_jll
+   0.3 s  ✓ Imath_jll
+   3.3 s  ✓ StaticArrays
+   0.3 s  ✓ libfdk_aac_jll
+   0.2 s  ✓ Libuuid_jll
+   0.3 s  ✓ FriBidi_jll
+   0.3 s  ✓ LERC_jll
+   0.2 s  ✓ Xorg_libXau_jll
+   0.3 s  ✓ Ogg_jll
+   0.3 s  ✓ LAME_jll
+   0.3 s  ✓ CoreMath_jll
+   0.3 s  ✓ Graphite2_jll
+   0.3 s  ✓ x264_jll
+   0.2 s  ✓ Xorg_libpciaccess_jll
+   0.3 s  ✓ LLVMOpenMP_jll
+   0.3 s  ✓ Libiconv_jll
+   0.2 s  ✓ Xorg_libXdmcp_jll
+   0.3 s  ✓ libaom_jll
+   0.3 s  ✓ Giflib_jll
+   3.7 s  ✓ Parsers
+   0.3 s  ✓ Expat_jll
+   0.3 s  ✓ JpegTurbo_jll
+   0.3 s  ✓ ColorTypes → StyledStringsExt
+   0.6 s  ✓ StructArrays
+   0.5 s  ✓ StructUtils → StructUtilsTablesExt
+   0.4 s  ✓ Accessors → LinearAlgebraExt
+   0.4 s  ✓ Accessors → IntervalSetsExt
+   1.3 s  ✓ ColorVectorSpace
+   5.7 s  ✓ Automa
+   0.7 s  ✓ HypergeometricFunctions
+   0.5 s  ✓ FilePaths
+   2.1 s  ✓ Colors
+   2.2 s  ✓ StatsBase
+   0.5 s  ✓ AbstractFFTs → AbstractFFTsChainRulesCoreExt
+   0.7 s  ✓ ChainRulesCore → ChainRulesCoreSparseArraysExt
+   0.6 s  ✓ LogExpFunctions → LogExpFunctionsChainRulesCoreExt
+   0.4 s  ✓ Isoband
+   1.7 s  ✓ Roots
+   1.2 s  ✓ FFTA
+   0.7 s  ✓ FreeType2_jll
+   0.7 s  ✓ Unitful → ConstructionBaseUnitfulExt
+   0.5 s  ✓ Unitful → InverseFunctionsUnitfulExt
+   0.6 s  ✓ Unitful → PrintfExt
+   0.3 s  ✓ Accessors → UnitfulExt
+   0.4 s  ✓ Unitful → NaNMathExt
+   0.5 s  ✓ Rmath
+   0.5 s  ✓ CRlibm
+   0.8 s  ✓ OpenEXR_jll
+   0.9 s  ✓ StaticArrays → StaticArraysStatisticsExt
+   0.5 s  ✓ ConstructionBase → ConstructionBaseStaticArraysExt
+   0.4 s  ✓ Adapt → AdaptStaticArraysExt
+   0.8 s  ✓ StaticArrays → StaticArraysChainRulesCoreExt
+   0.3 s  ✓ FillArrays → FillArraysStaticArraysExt
+   0.3 s  ✓ Accessors → StaticArraysExt
+   0.4 s  ✓ CoreMath
+   1.3 s  ✓ SpecialFunctions
+   0.2 s  ✓ libdrm_jll
+   0.6 s  ✓ libvorbis_jll
+   0.2 s  ✓ Xorg_libxcb_jll
+   0.5 s  ✓ Pixman_jll
+   0.6 s  ✓ GettextRuntime_jll
+   0.8 s  ✓ libsixel_jll
+   1.2 s  ✓ Libtiff_jll
+   1.1 s  ✓ QOI
+   0.2 s  ✓ StructArrays → StructArraysLinearAlgebraExt
+   0.2 s  ✓ StructArrays → StructArraysAdaptExt
+   0.7 s  ✓ StructArrays → StructArraysSparseArraysExt
+   0.3 s  ✓ StructArrays → StructArraysStaticArraysExt
+   0.2 s  ✓ FilePathsBase → FilePathsBaseMmapExt
+   0.2 s  ✓ Accessors → StructArraysExt
+   0.4 s  ✓ Graphics
+   0.5 s  ✓ Animations
+   0.6 s  ✓ PDMats → StatsBaseExt
+   3.1 s  ✓ JSON
+   0.4 s  ✓ Roots → RootsChainRulesCoreExt
+   0.3 s  ✓ Roots → RootsUnitfulExt
+   1.8 s  ✓ ColorSchemes
+   0.8 s  ✓ FreeType
+   1.0 s  ✓ Fontconfig_jll
+   5.3 s  ✓ GeometryBasics
+   0.9 s  ✓ OpenEXR
+   0.4 s  ✓ ColorVectorSpace → SpecialFunctionsExt
+   1.0 s  ✓ SpecialFunctions → SpecialFunctionsChainRulesCoreExt
+   0.2 s  ✓ Xorg_libX11_jll
+   0.9 s  ✓ StatsFuns
+   2.2 s  ✓ IntervalArithmetic
+   2.5 s  ✓ Interpolations
+   0.9 s  ✓ Glib_jll
+   0.7 s  ✓ ColorBrewer
+   0.6 s  ✓ GeometryBasics → IntervalSetsExt
+   0.4 s  ✓ Packing
+   0.8 s  ✓ ShaderAbstractions
+   0.2 s  ✓ Xorg_libXfixes_jll
+   0.2 s  ✓ Xorg_libXrender_jll
+   1.3 s  ✓ FreeTypeAbstraction
+   0.2 s  ✓ Xorg_libXext_jll
+   0.3 s  ✓ StatsFuns → StatsFunsInverseFunctionsExt
+   0.7 s  ✓ StatsFuns → StatsFunsChainRulesCoreExt
+   0.3 s  ✓ IntervalArithmetic → IntervalArithmeticIrrationalConstantsExt
+   0.6 s  ✓ IntervalArithmetic → IntervalArithmeticSparseArraysExt
+   0.2 s  ✓ IntervalArithmetic → IntervalArithmeticIntervalSetsExt
+   0.3 s  ✓ IntervalArithmetic → IntervalArithmeticLinearAlgebraExt
+   2.8 s  ✓ GridLayoutBase
+   0.2 s  ✓ libva_jll
+   0.2 s  ✓ Libglvnd_jll
+   0.7 s  ✓ Interpolations → InterpolationsUnitfulExt
+   1.0 s  ✓ Cairo_jll
+   9.9 s  ✓ ImageCore
+   5.4 s  ✓ PlotUtils
+   1.1 s  ✓ libwebp_jll
+   1.7 s  ✓ ExactPredicates
+   1.2 s  ✓ HarfBuzz_jll
+   1.0 s  ✓ ImageBase
+   4.0 s  ✓ MathTeXEngine
+   1.2 s  ✓ Sixel
+   0.8 s  ✓ JpegTurbo
+   1.7 s  ✓ PNGFiles
+   1.0 s  ✓ WebP
+   4.4 s  ✓ Distributions
+   0.8 s  ✓ libass_jll
+   0.8 s  ✓ Pango_jll
+   0.9 s  ✓ Distributions → DistributionsChainRulesCoreExt
+  15.8 s  ✓ TiffImages
+   2.2 s  ✓ DelaunayTriangulation
+   1.6 s  ✓ ImageAxes
+   1.2 s  ✓ Cairo
+   0.8 s  ✓ ImageMetadata
+   0.9 s  ✓ Netpbm
+   2.9 s  ✓ FFMPEG_jll
+   0.7 s  ✓ ImageIO
+   3.4 s  ✓ KernelDensity
+ERROR: LoadError: ArgumentError: precision must be non-negative
+Stacktrace:
+    [1] writefixed(x::Float64, precision::Int64, plus::Bool, space::Bool, hash::Bool, decchar::UInt8, trimtrailingzeros::Bool)
+      @ Base.Ryu ryu/Ryu.jl:90
+ ┌  [2] writefixed(x::Float64, precision::Int64, plus::Bool, space::Bool, hash::Bool, decchar::UInt8)
+ │    @ Base.Ryu ryu/Ryu.jl:89 [inlined]
+ ╰───── repeated 5 times
+    [7] _format_plain_label(x::Float64, precision::Int64; minus_sign::Bool)
+      @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/tick_format.jl:50 [inlined]
+    [8] (::Makie.var"#123#124"{Bool, Int64})(x::Float64)
+      @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/tick_format.jl:57 [inlined]
+    [9] iterate(::Base.Generator{Vector{Float64}, Makie.var"#123#124"{Bool, Int64}})
+      @ Base generator.jl:49 [inlined]
+   [10] collect(itr::Base.Generator{Vector{Float64}, Makie.var"#123#124"{Bool, Int64}})
+      @ Base array.jl:839
+   [11] format_ticks_plain(xs::Vector{Float64}; minus_sign::Bool)
+      @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/tick_format.jl:57 [inlined]
+   [12] format_ticks_plain(xs::Vector{Float64})
+      @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/tick_format.jl:55 [inlined]
+   [13] format_ticks_auto(xs::Vector{Float64})
+      @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/tick_format.jl:101
+   [14] get_ticklabels(::Makie.Automatic, values::Vector{Float64})
+      @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/makielayout/lineaxis.jl:817
+   [15] get_ticks(ticks::Makie.Automatic, scale::Function, formatter::Makie.Automatic, vmin::Float64, vmax::Float64)
+      @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/makielayout/lineaxis.jl:594
+   [16] get_ticks(::Nothing, ticks::Makie.Automatic, scale::Function, formatter::Makie.Automatic, vmin::Float64, vmax::Float64)
+      @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/dim-converts/dim-converts.jl:77
+   [17] (::Makie.var"#LineAxis##22#LineAxis##23"{Observables.Observable{Any}})(::Tuple{Float32, Tuple{Float32, Float32}, Bool}, ::Nothing, limits::Tuple{Float64, Float64}, ticks::Makie.Automatic, tickformat::Makie.Automatic, scale::Function)
+      @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/makielayout/lineaxis.jl:444
+ ┌ [18] (::Observables.MapCallback)(value::Any)
+ │    @ Observables /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Observables/YdEbO/src/Observables.jl:436
+ ├ [19] notify(observable::Observables.Observable)
+ │    @ Observables /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Observables/YdEbO/src/Observables.jl:206 [inlined]
+ ├ [20] setindex!(observable::Observables.Observable, val::Any)
+ │    @ Observables /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Observables/YdEbO/src/Observables.jl:123
+ ╰───── repeated 2 times
+   [24] (::Observables.SetindexCallback)(x::Any)
+      @ Observables /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Observables/YdEbO/src/Observables.jl:148
+   [25] notify(observable::Observables.Observable)
+      @ Observables /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Observables/YdEbO/src/Observables.jl:206 [inlined]
+   [26] setindex!(observable::Observables.Observable, val::Any)
+      @ Observables /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Observables/YdEbO/src/Observables.jl:123
+   [27] (::Observables.MapCallback)(value::Any)
+      @ Observables /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Observables/YdEbO/src/Observables.jl:436
+   [28] notify(observable::Observables.Observable)
+      @ Observables /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Observables/YdEbO/src/Observables.jl:206 [inlined]
+   [29] setindex!(observable::Observables.Observable, val::Any)
+      @ Observables /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Observables/YdEbO/src/Observables.jl:123
+   [30] adjustlimits!(la::Makie.Axis)
+      @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/makielayout/blocks/axis.jl:971
+   [31] (::Makie.var"#1918#1919"{Makie.Axis})(pxa::GeometryBasics.HyperRectangle{2, Int64}, lims::GeometryBasics.HyperRectangle{2, Float64})
+      @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/makielayout/blocks/axis.jl:570
+   [32] (::Observables.OnAny)(value::Any)
+      @ Observables /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Observables/YdEbO/src/Observables.jl:420
+   [33] notify(observable::Observables.Observable)
+      @ Observables /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Observables/YdEbO/src/Observables.jl:206 [inlined]
+   [34] setindex!(observable::Observables.Observable, val::Any)
+      @ Observables /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Observables/YdEbO/src/Observables.jl:123
+   [35] reset_limits!(ax::Makie.Axis; xauto::Bool, yauto::Bool, zauto::Bool)
+      @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/makielayout/blocks/axis.jl:715
+   [36] reset_limits!(ax::Makie.Axis)
+      @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/makielayout/blocks/axis.jl:632 [inlined]
+   [37] tightlimits!(la::Makie.Axis)
+      @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/makielayout/helpers.jl:104
+   [38] plot!(ax::Makie.Axis, plot::Makie.Heatmap{Tuple{Makie.EndPoints{Float32}, Makie.EndPoints{Float32}, Matrix{Float32}}})
+      @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/figureplotting.jl:580
+   [39] plot!(fa::Makie.FigureAxis, plot::Makie.Heatmap{Tuple{Makie.EndPoints{Float32}, Makie.EndPoints{Float32}, Matrix{Float32}}})
+      @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/figureplotting.jl:569
+   [40] _create_plot(F::Function, attributes::Dict{Symbol, Any}, args::Matrix{Float64})
+      @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/figureplotting.jl:460
+   [41] heatmap(args::Matrix{Float64}; kw::@Kwargs{colormap::Tuple{Symbol, Float64}})
+      @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/recipes.jl:546 [inlined]
+   [42] top-level scope
+      @ /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/precompile/shared-precompile.jl:5
+   [43] macro expansion
+      @ /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/precompiles.jl:6 [inlined]
+   [44] include(mapexpr::Function, mod::Module, _path::RelocatableFolders.Path)
+      @ Base Base.jl:335
+   [45] top-level scope
+      @ /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/precompiles.jl:23
+   [46] macro expansion
+      @ /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/PrecompileTools/QUxvR/src/workloads.jl:70 [inlined]
+   [47] macro expansion
+      @ /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/precompiles.jl:29 [inlined]
+   [48] include(mapexpr::Function, mod::Module, _path::String)
+      @ Base Base.jl:335
+   [49] top-level scope
+      @ /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/Makie.jl:459
+   [50] include(mod::Module, _path::String)
+      @ Base Base.jl:334
+   [51] top-level scope
+      @ stdin:5
+in expression starting at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/precompile/shared-precompile.jl:25
+in expression starting at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/precompiles.jl:22
+in expression starting at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/Makie.jl:1
+in expression starting at stdin:5
+              ✗ Makie
+ERROR: LoadError: Precompiled image Base.PkgId(Base.UUID("ee78f7c6-11fb-53f2-987a-cfe4a2b5a57a"), "Makie") not available with flags CacheFlags(; use_pkgimages=true, debug_level=1, check_bounds=0, inline=true, opt_level=2)
+Stacktrace:
+ [1] error(s::String)
+   @ Base error.jl:56
+ [2] require(into::Module, mod::Symbol)
+   @ Base loading.jl:2661 [inlined]
+ [3] top-level scope
+   @ /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/CairoMakie/sIxUP/src/CairoMakie.jl:3
+ [4] include(mod::Module, _path::String)
+   @ Base Base.jl:334
+ [5] top-level scope
+   @ stdin:5
+in expression starting at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/CairoMakie/sIxUP/src/CairoMakie.jl:1
+in expression starting at stdin:5
+              ✗ CairoMakie
+  246 dependencies successfully precompiled in 63 seconds. 39 already precompiled.
+  2 dependencies had output during precompilation:
+┌ Makie
+│  ERROR: LoadError: ArgumentError: precision must be non-negative
+│  Stacktrace:
+│      [1] writefixed(x::Float64, precision::Int64, plus::Bool, space::Bool, hash::Bool, decchar::UInt8, trimtrailingzeros::Bool)
+│        @ Base.Ryu ryu/Ryu.jl:90
+│   ┌  [2] writefixed(x::Float64, precision::Int64, plus::Bool, space::Bool, hash::Bool, decchar::UInt8)
+│   │    @ Base.Ryu ryu/Ryu.jl:89 [inlined]
+│   ╰───── repeated 5 times
+│      [7] _format_plain_label(x::Float64, precision::Int64; minus_sign::Bool)
+│        @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/tick_format.jl:50 [inlined]
+│      [8] (::Makie.var"#123#124"{Bool, Int64})(x::Float64)
+│        @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/tick_format.jl:57 [inlined]
+│      [9] iterate(::Base.Generator{Vector{Float64}, Makie.var"#123#124"{Bool, Int64}})
+│        @ Base generator.jl:49 [inlined]
+│     [10] collect(itr::Base.Generator{Vector{Float64}, Makie.var"#123#124"{Bool, Int64}})
+│        @ Base array.jl:839
+│     [11] format_ticks_plain(xs::Vector{Float64}; minus_sign::Bool)
+│        @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/tick_format.jl:57 [inlined]
+│     [12] format_ticks_plain(xs::Vector{Float64})
+│        @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/tick_format.jl:55 [inlined]
+│     [13] format_ticks_auto(xs::Vector{Float64})
+│        @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/tick_format.jl:101
+│     [14] get_ticklabels(::Makie.Automatic, values::Vector{Float64})
+│        @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/makielayout/lineaxis.jl:817
+│     [15] get_ticks(ticks::Makie.Automatic, scale::Function, formatter::Makie.Automatic, vmin::Float64, vmax::Float64)
+│        @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/makielayout/lineaxis.jl:594
+│     [16] get_ticks(::Nothing, ticks::Makie.Automatic, scale::Function, formatter::Makie.Automatic, vmin::Float64, vmax::Float64)
+│        @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/dim-converts/dim-converts.jl:77
+│     [17] (::Makie.var"#LineAxis##22#LineAxis##23"{Observables.Observable{Any}})(::Tuple{Float32, Tuple{Float32, Float32}, Bool}, ::Nothing, limits::Tuple{Float64, Float64}, ticks::Makie.Automatic, tickformat::Makie.Automatic, scale::Function)
+│        @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/makielayout/lineaxis.jl:444
+│   ┌ [18] (::Observables.MapCallback)(value::Any)
+│   │    @ Observables /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Observables/YdEbO/src/Observables.jl:436
+│   ├ [19] notify(observable::Observables.Observable)
+│   │    @ Observables /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Observables/YdEbO/src/Observables.jl:206 [inlined]
+│   ├ [20] setindex!(observable::Observables.Observable, val::Any)
+│   │    @ Observables /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Observables/YdEbO/src/Observables.jl:123
+│   ╰───── repeated 2 times
+│     [24] (::Observables.SetindexCallback)(x::Any)
+│        @ Observables /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Observables/YdEbO/src/Observables.jl:148
+│     [25] notify(observable::Observables.Observable)
+│        @ Observables /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Observables/YdEbO/src/Observables.jl:206 [inlined]
+│     [26] setindex!(observable::Observables.Observable, val::Any)
+│        @ Observables /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Observables/YdEbO/src/Observables.jl:123
+│     [27] (::Observables.MapCallback)(value::Any)
+│        @ Observables /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Observables/YdEbO/src/Observables.jl:436
+│     [28] notify(observable::Observables.Observable)
+│        @ Observables /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Observables/YdEbO/src/Observables.jl:206 [inlined]
+│     [29] setindex!(observable::Observables.Observable, val::Any)
+│        @ Observables /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Observables/YdEbO/src/Observables.jl:123
+│     [30] adjustlimits!(la::Makie.Axis)
+│        @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/makielayout/blocks/axis.jl:971
+│     [31] (::Makie.var"#1918#1919"{Makie.Axis})(pxa::GeometryBasics.HyperRectangle{2, Int64}, lims::GeometryBasics.HyperRectangle{2, Float64})
+│        @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/makielayout/blocks/axis.jl:570
+│     [32] (::Observables.OnAny)(value::Any)
+│        @ Observables /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Observables/YdEbO/src/Observables.jl:420
+│     [33] notify(observable::Observables.Observable)
+│        @ Observables /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Observables/YdEbO/src/Observables.jl:206 [inlined]
+│     [34] setindex!(observable::Observables.Observable, val::Any)
+│        @ Observables /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Observables/YdEbO/src/Observables.jl:123
+│     [35] reset_limits!(ax::Makie.Axis; xauto::Bool, yauto::Bool, zauto::Bool)
+│        @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/makielayout/blocks/axis.jl:715
+│     [36] reset_limits!(ax::Makie.Axis)
+│        @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/makielayout/blocks/axis.jl:632 [inlined]
+│     [37] tightlimits!(la::Makie.Axis)
+│        @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/makielayout/helpers.jl:104
+│     [38] plot!(ax::Makie.Axis, plot::Makie.Heatmap{Tuple{Makie.EndPoints{Float32}, Makie.EndPoints{Float32}, Matrix{Float32}}})
+│        @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/figureplotting.jl:580
+│     [39] plot!(fa::Makie.FigureAxis, plot::Makie.Heatmap{Tuple{Makie.EndPoints{Float32}, Makie.EndPoints{Float32}, Matrix{Float32}}})
+│        @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/figureplotting.jl:569
+│     [40] _create_plot(F::Function, attributes::Dict{Symbol, Any}, args::Matrix{Float64})
+│        @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/figureplotting.jl:460
+│     [41] heatmap(args::Matrix{Float64}; kw::@Kwargs{colormap::Tuple{Symbol, Float64}})
+│        @ Makie /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/recipes.jl:546 [inlined]
+│     [42] top-level scope
+│        @ /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/precompile/shared-precompile.jl:5
+│     [43] macro expansion
+│        @ /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/precompiles.jl:6 [inlined]
+│     [44] include(mapexpr::Function, mod::Module, _path::RelocatableFolders.Path)
+│        @ Base Base.jl:335
+│     [45] top-level scope
+│        @ /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/precompiles.jl:23
+│     [46] macro expansion
+│        @ /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/PrecompileTools/QUxvR/src/workloads.jl:70 [inlined]
+│     [47] macro expansion
+│        @ /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/precompiles.jl:29 [inlined]
+│     [48] include(mapexpr::Function, mod::Module, _path::String)
+│        @ Base Base.jl:335
+│     [49] top-level scope
+│        @ /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/Makie.jl:459
+│     [50] include(mod::Module, _path::String)
+│        @ Base Base.jl:334
+│     [51] top-level scope
+│        @ stdin:5
+│  in expression starting at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/precompile/shared-precompile.jl:25
+│  in expression starting at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/precompiles.jl:22
+│  in expression starting at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Makie/XzVRj/src/Makie.jl:1
+│  in expression starting at stdin:5
+└  
+┌ CairoMakie
+│  ERROR: LoadError: Precompiled image Base.PkgId(Base.UUID("ee78f7c6-11fb-53f2-987a-cfe4a2b5a57a"), "Makie") not available with flags CacheFlags(; use_pkgimages=true, debug_level=1, check_bounds=0, inline=true, opt_level=2)
+│  Stacktrace:
+│   [1] error(s::String)
+│     @ Base error.jl:56
+│   [2] require(into::Module, mod::Symbol)
+│     @ Base loading.jl:2661 [inlined]
+│   [3] top-level scope
+│     @ /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/CairoMakie/sIxUP/src/CairoMakie.jl:3
+│   [4] include(mod::Module, _path::String)
+│     @ Base Base.jl:334
+│   [5] top-level scope
+│     @ stdin:5
+│  in expression starting at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/CairoMakie/sIxUP/src/CairoMakie.jl:1
+│  in expression starting at stdin:5
+└  
+ERROR: The following 2 packages failed to precompile:
+
+Makie 
+Failed to precompile Makie [ee78f7c6-11fb-53f2-987a-cfe4a2b5a57a] to "/private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/compiled/v1.14/Makie/jl_b9DfvB" (ProcessExited(1)).
+
+CairoMakie 
+Failed to precompile CairoMakie [13f3f980-e62b-5c42-98c6-ff1f3baf88f0] to "/private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/compiled/v1.14/CairoMakie/jl_FGePhp" (ProcessExited(1)).
+
+
+  ComplexityMeasures/Nonlinear-Timeseries-Analysis    precompile= 17.94s  load= 0.94s  run= 0.31s
+  ComponentArrays/Basic-Manipulations                 precompile=  8.21s  load= 0.10s  run= 0.09s
+  DataFrames/Dataframe-Construction                   precompile= 24.28s  load= 0.36s  run= 0.00s
+  DifferentiationInterface/Jacobian-With-Finite-Differencesprecompile=  2.64s  load= 0.02s  run= 0.12s
+  Distributions/Normal-Distribution                   precompile= 10.19s  load= 0.36s  run= 0.02s
+  Enzyme/Gradient-Of-Square-Norm                      ERROR: precompile: process failed
+--- stderr ---
+Precompiling project...
+   0.2 s  ✓ Reexport
+   0.2 s  ✓ CEnum
+   0.2 s  ✓ ExprTools
+   0.2 s  ✓ StructIO
+   0.2 s  ✓ Scratch
+   0.3 s  ✓ EnzymeCore
+   0.3 s  ✓ Preferences
+   0.4 s  ✓ JLLWrappers
+   0.4 s  ✓ PrecompileTools
+   1.0 s  ✓ ObjectFile
+   0.4 s  ✓ LibTracyClient_jll
+   0.5 s  ✓ Enzyme_jll
+   0.5 s  ✓ LLVMExtra_jll
+   0.8 s  ✓ Tracy
+   3.5 s  ✓ LLVM
+Fault at memory address: 0x10000000a
+
+[44821] signal 10 (1): Bus error
+in expression starting at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/precompile.jl:7
+__libcpp_atomic_refcount_increment<long> at /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_count.h:56:10 [inlined]
+__add_shared at /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_count.h:89:57 [inlined]
+__add_shared at /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_count.h:118:73 [inlined]
+shared_ptr at /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h:478:17 [inlined]
+shared_ptr at /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h:476:114 [inlined]
+withContextDo<(lambda at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/usr/include/llvm/ExecutionEngine/Orc/ThreadSafeModule.h:114:32)> at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/usr/include/llvm/ExecutionEngine/Orc/ThreadSafeModule.h:50:21 [inlined]
+withModuleDo<(lambda at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/aotcompile.cpp:1017:33)> at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/usr/include/llvm/ExecutionEngine/Orc/ThreadSafeModule.h:114:18 [inlined]
+jl_emit_native_impl at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/aotcompile.cpp:1017:20
+unknown function (ip: 0x111ffcd97) at (unknown file)
+compile_method_instance at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/jlgen.jl:840:0 (pc: 443)
+irgen at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/irgen.jl:4:0 (pc: 1)
+#emit_llvm#124 at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/driver.jl:209:0 (pc: 34)
+emit_llvm at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/driver.jl:191:0 (pc: 1)
+#compile_unhooked#121 at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/driver.jl:95:0 (pc: 11)
+compile_unhooked at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/driver.jl:80:0 [inlined]
+#compile#119 at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/driver.jl:67:0 [inlined]
+compile at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/driver.jl:55:0 [inlined]
+#184 at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/precompile.jl:39:0 [inlined]
+#JuliaContext#118 at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/driver.jl:34:0 (pc: 25)
+unknown function (ip: 0x111fa04db) at (unknown file)
+JuliaContext at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/driver.jl:25:0 (pc: 1)
+unknown function (ip: 0x111d5808b) at (unknown file)
+macro expansion at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/precompile.jl:38:0 [inlined]
+macro expansion at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/PrecompileTools/QUxvR/src/workloads.jl:70:0 [inlined]
+macro expansion at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/precompile.jl:29:0 [inlined]
+macro expansion at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/PrecompileTools/QUxvR/src/workloads.jl:118:0 [inlined]
+top-level scope at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/precompile.jl:115:0 (pc: 88)
+ijl_eval_thunk at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:764:18
+jl_toplevel_eval_flex at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:716:26
+jl_eval_toplevel_stmts at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:601:15
+jl_toplevel_eval_flex at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:688:27
+ijl_toplevel_eval at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:786:12 [inlined]
+ijl_toplevel_eval_in at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:831:13
+eval at ./boot.jl:618:0 (pc: 1)
+include_string at ./loading.jl:3258:0 (pc: 140)
+_include at ./loading.jl:3320:0 (pc: 123)
+include at ./Base.jl:335:0 (pc: 1)
+IncludeInto at ./Base.jl:336:0 (pc: 2)
+jfptr_IncludeInto_1 at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/usr/lib/julia/sys.dylib (unknown line)
+jl_apply at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/julia.h:2533:12 [inlined]
+do_call at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/interpreter.c:123:26
+eval_stmt_value at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/interpreter.c:194:23 [inlined]
+eval_body at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/interpreter.c:829:21
+jl_interpret_toplevel_thunk at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/interpreter.c:1052:21
+ijl_eval_thunk at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:772:18
+jl_toplevel_eval_flex at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:716:26
+jl_eval_toplevel_stmts at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:601:15
+jl_eval_module_expr at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:266:5 [inlined]
+jl_toplevel_eval_flex at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:669:27
+jl_eval_toplevel_stmts at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:601:15
+jl_toplevel_eval_flex at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:688:27
+ijl_toplevel_eval at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:786:12 [inlined]
+ijl_toplevel_eval_in at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:831:13
+eval at ./boot.jl:618:0 (pc: 1)
+include_string at ./loading.jl:3258:0 (pc: 140)
+_include at ./loading.jl:3320:0 (pc: 123)
+include at ./Base.jl:334:0 (pc: 1)
+include_package_for_output at ./loading.jl:3431:0 (pc: 416)
+jfptr_include_package_for_output_1 at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/usr/lib/julia/sys.dylib (unknown line)
+jl_apply at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/julia.h:2533:12 [inlined]
+do_call at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/interpreter.c:123:26
+eval_stmt_value at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/interpreter.c:194:23 [inlined]
+eval_body at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/interpreter.c:829:21
+jl_interpret_toplevel_thunk at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/interpreter.c:1052:21
+ijl_eval_thunk at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:772:18
+jl_toplevel_eval_flex at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:716:26
+jl_eval_toplevel_stmts at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:601:15
+jl_toplevel_eval_flex at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:688:27
+ijl_toplevel_eval at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:786:12 [inlined]
+ijl_toplevel_eval_in at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:831:13
+eval at ./boot.jl:618:0 (pc: 1)
+include_string at ./loading.jl:3258:0 (pc: 140)
+include_string at ./loading.jl:3268:0 [inlined]
+__script_entry_include_string at ./client.jl:104:0 [inlined]
+exec_options at ./client.jl:382:0 (pc: 900)
+_start at ./client.jl:695:0 (pc: 217)
+jfptr__start_0 at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/usr/lib/julia/sys.dylib (unknown line)
+jl_apply at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/julia.h:2533:12 [inlined]
+true_main at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/jlapi.c:989:29
+jl_repl_entrypoint at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/jlapi.c:1156:15
+Allocations: 102763019 (Pool: 102760750; Big: 2269); GC: 38
+              ✗ GPUCompiler
+ERROR: LoadError: Precompiled image Base.PkgId(Base.UUID("61eb1bfa-7361-4325-ad38-22787b887f55"), "GPUCompiler") not available with flags CacheFlags(; use_pkgimages=true, debug_level=1, check_bounds=0, inline=true, opt_level=2)
+Stacktrace:
+ [1] error(s::String)
+   @ Base error.jl:56
+ [2] require(into::Module, mod::Symbol)
+   @ Base loading.jl:2661 [inlined]
+ [3] top-level scope
+   @ /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Enzyme/OvStQ/src/typetree.jl:6
+ [4] include(mapexpr::Function, mod::Module, _path::String)
+   @ Base Base.jl:335
+ [5] top-level scope
+   @ /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Enzyme/OvStQ/src/Enzyme.jl:148
+ [6] include(mod::Module, _path::String)
+   @ Base Base.jl:334
+ [7] top-level scope
+   @ stdin:5
+in expression starting at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Enzyme/OvStQ/src/typetree.jl:6
+in expression starting at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Enzyme/OvStQ/src/Enzyme.jl:1
+in expression starting at stdin:5
+              ✗ Enzyme
+  15 dependencies successfully precompiled in 21 seconds. 34 already precompiled.
+  2 dependencies had output during precompilation:
+┌ Enzyme
+│  ERROR: LoadError: Precompiled image Base.PkgId(Base.UUID("61eb1bfa-7361-4325-ad38-22787b887f55"), "GPUCompiler") not available with flags CacheFlags(; use_pkgimages=true, debug_level=1, check_bounds=0, inline=true, opt_level=2)
+│  Stacktrace:
+│   [1] error(s::String)
+│     @ Base error.jl:56
+│   [2] require(into::Module, mod::Symbol)
+│     @ Base loading.jl:2661 [inlined]
+│   [3] top-level scope
+│     @ /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Enzyme/OvStQ/src/typetree.jl:6
+│   [4] include(mapexpr::Function, mod::Module, _path::String)
+│     @ Base Base.jl:335
+│   [5] top-level scope
+│     @ /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Enzyme/OvStQ/src/Enzyme.jl:148
+│   [6] include(mod::Module, _path::String)
+│     @ Base Base.jl:334
+│   [7] top-level scope
+│     @ stdin:5
+│  in expression starting at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Enzyme/OvStQ/src/typetree.jl:6
+│  in expression starting at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Enzyme/OvStQ/src/Enzyme.jl:1
+│  in expression starting at stdin:5
+└  
+┌ GPUCompiler
+│  Fault at memory address: 0x10000000a
+│  
+│  [44821] signal 10 (1): Bus error
+│  in expression starting at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/precompile.jl:7
+│  __libcpp_atomic_refcount_increment<long> at /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_count.h:56:10 [inlined]
+│  __add_shared at /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_count.h:89:57 [inlined]
+│  __add_shared at /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_count.h:118:73 [inlined]
+│  shared_ptr at /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h:478:17 [inlined]
+│  shared_ptr at /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h:476:114 [inlined]
+│  withContextDo<(lambda at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/usr/include/llvm/ExecutionEngine/Orc/ThreadSafeModule.h:114:32)> at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/usr/include/llvm/ExecutionEngine/Orc/ThreadSafeModule.h:50:21 [inlined]
+│  withModuleDo<(lambda at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/aotcompile.cpp:1017:33)> at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/usr/include/llvm/ExecutionEngine/Orc/ThreadSafeModule.h:114:18 [inlined]
+│  jl_emit_native_impl at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/aotcompile.cpp:1017:20
+│  unknown function (ip: 0x111ffcd97) at (unknown file)
+│  compile_method_instance at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/jlgen.jl:840:0 (pc: 443)
+│  irgen at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/irgen.jl:4:0 (pc: 1)
+│  #emit_llvm#124 at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/driver.jl:209:0 (pc: 34)
+│  emit_llvm at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/driver.jl:191:0 (pc: 1)
+│  #compile_unhooked#121 at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/driver.jl:95:0 (pc: 11)
+│  compile_unhooked at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/driver.jl:80:0 [inlined]
+│  #compile#119 at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/driver.jl:67:0 [inlined]
+│  compile at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/driver.jl:55:0 [inlined]
+│  #184 at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/precompile.jl:39:0 [inlined]
+│  #JuliaContext#118 at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/driver.jl:34:0 (pc: 25)
+│  unknown function (ip: 0x111fa04db) at (unknown file)
+│  JuliaContext at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/driver.jl:25:0 (pc: 1)
+│  unknown function (ip: 0x111d5808b) at (unknown file)
+│  macro expansion at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/precompile.jl:38:0 [inlined]
+│  macro expansion at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/PrecompileTools/QUxvR/src/workloads.jl:70:0 [inlined]
+│  macro expansion at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/precompile.jl:29:0 [inlined]
+│  macro expansion at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/PrecompileTools/QUxvR/src/workloads.jl:118:0 [inlined]
+│  top-level scope at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/precompile.jl:115:0 (pc: 88)
+│  ijl_eval_thunk at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:764:18
+│  jl_toplevel_eval_flex at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:716:26
+│  jl_eval_toplevel_stmts at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:601:15
+│  jl_toplevel_eval_flex at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:688:27
+│  ijl_toplevel_eval at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:786:12 [inlined]
+│  ijl_toplevel_eval_in at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:831:13
+│  eval at ./boot.jl:618:0 (pc: 1)
+│  include_string at ./loading.jl:3258:0 (pc: 140)
+│  _include at ./loading.jl:3320:0 (pc: 123)
+│  include at ./Base.jl:335:0 (pc: 1)
+│  IncludeInto at ./Base.jl:336:0 (pc: 2)
+│  jfptr_IncludeInto_1 at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/usr/lib/julia/sys.dylib (unknown line)
+│  jl_apply at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/julia.h:2533:12 [inlined]
+│  do_call at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/interpreter.c:123:26
+│  eval_stmt_value at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/interpreter.c:194:23 [inlined]
+│  eval_body at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/interpreter.c:829:21
+│  jl_interpret_toplevel_thunk at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/interpreter.c:1052:21
+│  ijl_eval_thunk at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:772:18
+│  jl_toplevel_eval_flex at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:716:26
+│  jl_eval_toplevel_stmts at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:601:15
+│  jl_eval_module_expr at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:266:5 [inlined]
+│  jl_toplevel_eval_flex at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:669:27
+│  jl_eval_toplevel_stmts at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:601:15
+│  jl_toplevel_eval_flex at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:688:27
+│  ijl_toplevel_eval at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:786:12 [inlined]
+│  ijl_toplevel_eval_in at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:831:13
+│  eval at ./boot.jl:618:0 (pc: 1)
+│  include_string at ./loading.jl:3258:0 (pc: 140)
+│  _include at ./loading.jl:3320:0 (pc: 123)
+│  include at ./Base.jl:334:0 (pc: 1)
+│  include_package_for_output at ./loading.jl:3431:0 (pc: 416)
+│  jfptr_include_package_for_output_1 at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/usr/lib/julia/sys.dylib (unknown line)
+│  jl_apply at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/julia.h:2533:12 [inlined]
+│  do_call at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/interpreter.c:123:26
+│  eval_stmt_value at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/interpreter.c:194:23 [inlined]
+│  eval_body at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/interpreter.c:829:21
+│  jl_interpret_toplevel_thunk at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/interpreter.c:1052:21
+│  ijl_eval_thunk at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:772:18
+│  jl_toplevel_eval_flex at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:716:26
+│  jl_eval_toplevel_stmts at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:601:15
+│  jl_toplevel_eval_flex at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:688:27
+│  ijl_toplevel_eval at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:786:12 [inlined]
+│  ijl_toplevel_eval_in at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/toplevel.c:831:13
+│  eval at ./boot.jl:618:0 (pc: 1)
+│  include_string at ./loading.jl:3258:0 (pc: 140)
+│  include_string at ./loading.jl:3268:0 [inlined]
+│  __script_entry_include_string at ./client.jl:104:0 [inlined]
+│  exec_options at ./client.jl:382:0 (pc: 900)
+│  _start at ./client.jl:695:0 (pc: 217)
+│  jfptr__start_0 at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/usr/lib/julia/sys.dylib (unknown line)
+│  jl_apply at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/julia.h:2533:12 [inlined]
+│  true_main at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/jlapi.c:989:29
+│  jl_repl_entrypoint at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/wtpr/src/jlapi.c:1156:15
+│  Allocations: 102763019 (Pool: 102760750; Big: 2269); GC: 38
+└  
+ERROR: The following 2 packages failed to precompile:
+
+Enzyme 
+Failed to precompile Enzyme [7da242da-08ed-463a-9acd-ee780be4f1d9] to "/private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/compiled/v1.14/Enzyme/jl_wL2dqA" (ProcessExited(1)).
+
+GPUCompiler 
+Failed to precompile GPUCompiler [61eb1bfa-7361-4325-ad38-22787b887f55] to "/private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/compiled/v1.14/GPUCompiler/jl_H3xhhg" (ProcessSignaled(10)).
+
+
+  ExplicitImports/Print_Explicit_Imports              precompile=  8.99s  load= 0.26s  run= 0.13s
+  FiniteDiff/Gradient-Of-Square-Norm                  precompile=  2.33s  load= 0.00s  run= 0.06s
+  Flux/Basic-Model-Gradient                           precompile= 32.79s  load= 1.37s  run= 1.98s
+  ForwardDiff/Gradient-Of-Square-Norm                 precompile=  5.39s  load= 0.06s  run= 0.10s
+  GMT/Create-A-Xy-Plot                                precompile= 42.57s  load= 0.99s  run= 0.00s
+  Graphs/Graph-Construction                           precompile=  7.10s  load= 0.31s  run= 0.01s
+  HiddenMarkovModels/Estimate-Hmm-With-Baum-Welch     precompile= 11.88s  load= 0.46s  run= 0.35s
+  IterativeSolvers/Conjugate-Gradient-Solve           precompile=  2.98s  load= 0.18s  run= 0.11s
+  JET/Type-Stability-Analysis                         ERROR: task: ┌ Warning: Full JET functionality is not available on Julia 1.14.0-DEV.3079.
+  JLArrays/Matrix-Multiplication-On-Gpu-Like-Arrays   precompile= 11.37s  load= 0.73s  run= 0.13s
+  JuliaFormatter/Format-Text                          precompile= 13.71s  load= 0.13s  run= 0.00s
+  KangarooTwelve/Hash-Nothing                         precompile=  7.73s  load= 0.05s  run= 0.00s
+  Krylov/Conjugate-Gradient-Solve                     precompile=  3.25s  load= 0.17s  run= 0.18s
+  LoopVectorization/Dot-Product                       precompile= 18.21s  load= 0.14s  run= 0.07s
+  Manifolds/Geodesic-On-Sphere                        precompile= 15.72s  load= 0.53s  run= 0.07s
+  Measurements/Addition-With-Uncertainties            precompile=  1.44s  load= 0.01s  run= 0.01s
+  Mendeleev/Get-Properties-Of-A-Chemical-Element      precompile=  8.91s  load= 0.07s  run= 0.56s
+  Mooncake/Gradient-Of-Square-Norm                    ERROR: precompile: process failed
+--- stderr ---
+Precompiling project...
+   0.2 s  ✓ MistyClosures
+   0.2 s  ✓ ExprTools
+   0.2 s  ✓ Compat
+   0.3 s  ✓ Preferences
+   0.3 s  ✓ Compat → CompatLinearAlgebraExt
+   0.7 s  ✓ MacroTools
+   0.5 s  ✓ PrecompileTools
+   0.6 s  ✓ ChainRulesCore
+   0.6 s  ✓ DispatchDoctor
+   0.5 s  ✓ ADTypes
+   0.5 s  ✓ ADTypes → ADTypesChainRulesCoreExt
+   0.6 s  ✓ DispatchDoctor → DispatchDoctorChainRulesCoreExt
+   0.7 s  ✓ DifferentiationInterface
+   0.3 s  ✓ DifferentiationInterface → DifferentiationInterfaceChainRulesCoreExt
+ERROR: LoadError: UndefVarError: `padding` not defined in `Base`
+Suggestion: check for spelling errors or missing imports.
+Stacktrace:
+ [1] getproperty(x::Module, f::Symbol)
+   @ Base Base_compiler.jl:51
+ [2] top-level scope
+   @ /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Mooncake/0FBMn/src/rules/misc.jl:41
+ [3] macro expansion
+   @ /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Mooncake/0FBMn/src/tools_for_rules.jl:335 [inlined]
+ [4] include(mapexpr::Function, mod::Module, _path::String)
+   @ Base Base.jl:335
+ [5] top-level scope
+   @ /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Mooncake/0FBMn/src/Mooncake.jl:211
+ [6] include(mod::Module, _path::String)
+   @ Base Base.jl:334
+ [7] top-level scope
+   @ stdin:5
+in expression starting at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Mooncake/0FBMn/src/rules/misc.jl:41
+in expression starting at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Mooncake/0FBMn/src/Mooncake.jl:1
+in expression starting at stdin:5
+              ✗ Mooncake
+ERROR: LoadError: Precompiled image Base.PkgId(Base.UUID("da2b9cff-9c12-43a0-ae48-6db2b0edb7d6"), "Mooncake") not available with flags CacheFlags(; use_pkgimages=true, debug_level=1, check_bounds=0, inline=true, opt_level=2)
+Stacktrace:
+ [1] error(s::String)
+   @ Base error.jl:56
+ [2] require(into::Module, mod::Symbol)
+   @ Base loading.jl:2661 [inlined]
+ [3] top-level scope
+   @ /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/DifferentiationInterface/seMaz/ext/DifferentiationInterfaceMooncakeExt/DifferentiationInterfaceMooncakeExt.jl:5
+ [4] include(mod::Module, _path::String)
+   @ Base Base.jl:334
+ [5] top-level scope
+   @ stdin:5
+in expression starting at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/DifferentiationInterface/seMaz/ext/DifferentiationInterfaceMooncakeExt/DifferentiationInterfaceMooncakeExt.jl:1
+in expression starting at stdin:5
+              ✗ DifferentiationInterface → DifferentiationInterfaceMooncakeExt
+  14 dependencies successfully precompiled in 28 seconds. 13 already precompiled.
+  2 dependencies had output during precompilation:
+┌ DifferentiationInterface → DifferentiationInterfaceMooncakeExt
+│  ERROR: LoadError: Precompiled image Base.PkgId(Base.UUID("da2b9cff-9c12-43a0-ae48-6db2b0edb7d6"), "Mooncake") not available with flags CacheFlags(; use_pkgimages=true, debug_level=1, check_bounds=0, inline=true, opt_level=2)
+│  Stacktrace:
+│   [1] error(s::String)
+│     @ Base error.jl:56
+│   [2] require(into::Module, mod::Symbol)
+│     @ Base loading.jl:2661 [inlined]
+│   [3] top-level scope
+│     @ /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/DifferentiationInterface/seMaz/ext/DifferentiationInterfaceMooncakeExt/DifferentiationInterfaceMooncakeExt.jl:5
+│   [4] include(mod::Module, _path::String)
+│     @ Base Base.jl:334
+│   [5] top-level scope
+│     @ stdin:5
+│  in expression starting at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/DifferentiationInterface/seMaz/ext/DifferentiationInterfaceMooncakeExt/DifferentiationInterfaceMooncakeExt.jl:1
+│  in expression starting at stdin:5
+└  
+┌ Mooncake
+│  ERROR: LoadError: UndefVarError: `padding` not defined in `Base`
+│  Suggestion: check for spelling errors or missing imports.
+│  Stacktrace:
+│   [1] getproperty(x::Module, f::Symbol)
+│     @ Base Base_compiler.jl:51
+│   [2] top-level scope
+│     @ /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Mooncake/0FBMn/src/rules/misc.jl:41
+│   [3] macro expansion
+│     @ /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Mooncake/0FBMn/src/tools_for_rules.jl:335 [inlined]
+│   [4] include(mapexpr::Function, mod::Module, _path::String)
+│     @ Base Base.jl:335
+│   [5] top-level scope
+│     @ /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Mooncake/0FBMn/src/Mooncake.jl:211
+│   [6] include(mod::Module, _path::String)
+│     @ Base Base.jl:334
+│   [7] top-level scope
+│     @ stdin:5
+│  in expression starting at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Mooncake/0FBMn/src/rules/misc.jl:41
+│  in expression starting at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Mooncake/0FBMn/src/Mooncake.jl:1
+│  in expression starting at stdin:5
+└  
+ERROR: The following 2 packages failed to precompile:
+
+DifferentiationInterface → DifferentiationInterfaceMooncakeExt 
+Failed to precompile DifferentiationInterfaceMooncakeExt [f60e7217-b702-5749-adb7-f3f2c76df63d] to "/private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/compiled/v1.14/DifferentiationInterfaceMooncakeExt/jl_v5MXNR" (ProcessExited(1)).
+
+Mooncake 
+Failed to precompile Mooncake [da2b9cff-9c12-43a0-ae48-6db2b0edb7d6] to "/private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/compiled/v1.14/Mooncake/jl_gyoT3b" (ProcessExited(1)).
+
+
+  Optim/Rosenbrock-Minimization-With-Bfgs             precompile=  7.77s  load= 0.24s  run= 0.25s
+  Optimization/Rosenbrock-Minimization-With-Bfgs-Using-Forwarddiffprecompile= 20.72s  load= 0.59s  run= 0.56s
+  OrdinaryDiffEq/Solve-The-Lorenz-Equation            precompile=115.19s  load= 1.82s  run= 0.04s
+  QuantumAlgebra/Commute-Two-Operators                precompile= 10.58s  load= 0.17s  run= 0.00s
+  ReverseDiff/Gradient-Of-Square-Norm                 precompile= 14.02s  load= 1.61s  run= 0.07s
+  ShareAdd/Get-Info-On-Stdlib-In-Internal-Shareadd-Formatprecompile=  3.50s  load= 0.29s  run= 0.00s
+  SparseMatrixColorings/Basic-Coloring                precompile=  4.36s  load= 0.18s  run= 0.01s
+  StaticArrays/Matrix-Multiplication                  precompile=  3.91s  load= 0.08s  run= 0.01s
+  UnROOT/Loading-A-Typical-Hep-Ex--Root-File          precompile= 23.11s  load= 0.60s  run= 0.33s
+  Zygote/Gradient-Of-Square-Norm                      precompile= 20.62s  load= 0.48s  run= 0.04s
+
+=== Julia 1.13+pr62934 ===
+  Attractors/Multistability-Of-Discrete-Time-Systems  precompile= 52.03s  load= 1.21s  run= 0.74s
+  BaseDirs/Project-Path                               precompile=  1.12s  load= 0.03s  run= 0.00s
+  BaseDirs/User-Cache                                 precompile=  1.09s  load= 0.03s  run= 0.00s
+  BenchmarkTools/Basic-Benchmark                      precompile=  7.91s  load= 0.06s  run= 0.12s
+  CairoMakie/Plot-A-Sine-Wave                         precompile=119.82s  load= 2.30s  run= 0.30s
+  ComplexityMeasures/Nonlinear-Timeseries-Analysis    precompile= 17.87s  load= 0.56s  run= 0.55s
+  ComponentArrays/Basic-Manipulations                 precompile=  7.94s  load= 0.08s  run= 0.30s
+  DataFrames/Dataframe-Construction                   precompile= 27.18s  load= 0.23s  run= 0.02s
+  DifferentiationInterface/Jacobian-With-Finite-Differencesprecompile=  2.00s  load= 0.02s  run= 0.32s
+  Distributions/Normal-Distribution                   precompile=  9.64s  load= 0.26s  run= 0.11s
+  Enzyme/Gradient-Of-Square-Norm                      precompile= 48.93s  load= 0.54s  run= 1.19s
+  ExplicitImports/Print_Explicit_Imports              precompile=  9.60s  load= 0.19s  run= 0.24s
+  FiniteDiff/Gradient-Of-Square-Norm                  precompile=  1.67s  load= 0.00s  run= 0.15s
+  Flux/Basic-Model-Gradient                           precompile= 31.65s  load= 1.06s  run= 4.29s
+  ForwardDiff/Gradient-Of-Square-Norm                 precompile=  4.84s  load= 0.06s  run= 0.25s
+  GMT/Create-A-Xy-Plot                                precompile= 48.68s  load= 0.91s  run= 0.01s
+  Graphs/Graph-Construction                           precompile=  7.15s  load= 0.24s  run= 0.07s
+  HiddenMarkovModels/Estimate-Hmm-With-Baum-Welch     precompile= 11.95s  load= 0.33s  run= 0.88s
+  IterativeSolvers/Conjugate-Gradient-Solve           precompile=  2.43s  load= 0.12s  run= 0.32s
+  JET/Type-Stability-Analysis                         precompile= 30.06s  load= 0.20s  run= 0.50s
+  JLArrays/Matrix-Multiplication-On-Gpu-Like-Arrays   precompile= 10.71s  load= 0.55s  run= 0.23s
+  JuliaFormatter/Format-Text                          precompile= 14.79s  load= 0.10s  run= 0.00s
+  KangarooTwelve/Hash-Nothing                         precompile=  7.63s  load= 0.04s  run= 0.00s
+  Krylov/Conjugate-Gradient-Solve                     precompile=  2.64s  load= 0.11s  run= 0.54s
+  LoopVectorization/Dot-Product                       precompile= 19.39s  load= 0.11s  run= 0.33s
+  Manifolds/Geodesic-On-Sphere                        precompile= 15.22s  load= 0.42s  run= 0.19s
+  Measurements/Addition-With-Uncertainties            precompile=  0.86s  load= 0.01s  run= 0.03s
+  Mendeleev/Get-Properties-Of-A-Chemical-Element      precompile=  9.55s  load= 0.07s  run= 1.25s
+  Mooncake/Gradient-Of-Square-Norm                    precompile= 38.43s  load= 0.16s  run= 0.38s
+  Optim/Rosenbrock-Minimization-With-Bfgs             precompile=  6.85s  load= 0.17s  run= 0.78s
+  Optimization/Rosenbrock-Minimization-With-Bfgs-Using-Forwarddiffprecompile= 19.61s  load= 0.48s  run= 1.27s
+  OrdinaryDiffEq/Solve-The-Lorenz-Equation            precompile=126.50s  load= 1.18s  run= 0.09s
+  QuantumAlgebra/Commute-Two-Operators                precompile=  9.82s  load= 0.12s  run= 0.01s
+  ReverseDiff/Gradient-Of-Square-Norm                 precompile= 12.35s  load= 1.14s  run= 0.27s
+  ShareAdd/Get-Info-On-Stdlib-In-Internal-Shareadd-Formatprecompile=  2.99s  load= 0.19s  run= 0.01s
+  SparseMatrixColorings/Basic-Coloring                precompile=  3.97s  load= 0.13s  run= 0.03s
+  StaticArrays/Matrix-Multiplication                  precompile=  3.35s  load= 0.07s  run= 0.04s
+  UnROOT/Loading-A-Typical-Hep-Ex--Root-File          precompile= 24.08s  load= 0.44s  run= 0.89s
+  Zygote/Gradient-Of-Square-Norm                      precompile= 19.82s  load= 0.36s  run= 0.18s
+
+=== Julia 1.12 ===
+  Attractors/Multistability-Of-Discrete-Time-Systems  precompile= 59.29s  load= 1.39s  run= 0.91s
+  BaseDirs/Project-Path                               precompile=  1.72s  load= 0.02s  run= 0.00s
+  BaseDirs/User-Cache                                 precompile=  1.69s  load= 0.02s  run= 0.00s
+  BenchmarkTools/Basic-Benchmark                      precompile=  9.33s  load= 0.07s  run= 0.11s
+  CairoMakie/Plot-A-Sine-Wave                         precompile=133.80s  load= 2.56s  run= 0.48s
+  ComplexityMeasures/Nonlinear-Timeseries-Analysis    precompile= 20.72s  load= 0.66s  run= 0.69s
+  ComponentArrays/Basic-Manipulations                 precompile=  9.70s  load= 0.10s  run= 0.29s
+  DataFrames/Dataframe-Construction                   precompile= 29.56s  load= 0.29s  run= 0.01s
+  DifferentiationInterface/Jacobian-With-Finite-Differencesprecompile=  2.44s  load= 0.01s  run= 0.35s
+  Distributions/Normal-Distribution                   precompile= 10.30s  load= 0.28s  run= 0.13s
+  Enzyme/Gradient-Of-Square-Norm                      precompile= 54.57s  load= 0.58s  run= 2.63s
+  ExplicitImports/Print_Explicit_Imports              precompile= 13.41s  load= 0.25s  run= 0.28s
+  FiniteDiff/Gradient-Of-Square-Norm                  precompile=  2.48s  load= 0.00s  run= 0.16s
+  Flux/Basic-Model-Gradient                           precompile= 36.20s  load= 1.12s  run= 4.68s
+  ForwardDiff/Gradient-Of-Square-Norm                 precompile=  5.50s  load= 0.05s  run= 0.25s
+  GMT/Create-A-Xy-Plot                                precompile= 53.39s  load= 1.09s  run= 0.01s
+  Graphs/Graph-Construction                           precompile=  8.39s  load= 0.26s  run= 0.09s
+  HiddenMarkovModels/Estimate-Hmm-With-Baum-Welch     precompile= 12.91s  load= 0.41s  run= 0.88s
+  IterativeSolvers/Conjugate-Gradient-Solve           precompile=  2.86s  load= 0.12s  run= 0.34s
+  JET/Type-Stability-Analysis                         precompile= 41.22s  load= 0.25s  run= 0.27s
+  JLArrays/Matrix-Multiplication-On-Gpu-Like-Arrays   precompile= 13.02s  load= 0.61s  run= 0.82s
+  JuliaFormatter/Format-Text                          precompile= 19.05s  load= 0.11s  run= 0.00s
+  KangarooTwelve/Hash-Nothing                         precompile=  8.87s  load= 0.04s  run= 0.00s
+  Krylov/Conjugate-Gradient-Solve                     precompile=  2.88s  load= 0.11s  run= 0.56s
+  LoopVectorization/Dot-Product                       precompile= 23.67s  load= 0.13s  run= 0.37s
+  Manifolds/Geodesic-On-Sphere                        precompile= 17.89s  load= 0.47s  run= 0.24s
+  Measurements/Addition-With-Uncertainties            precompile=  1.02s  load= 0.01s  run= 0.03s
+  Mendeleev/Get-Properties-Of-A-Chemical-Element      precompile= 11.00s  load= 0.07s  run= 1.33s
+  Mooncake/Gradient-Of-Square-Norm                    precompile= 54.01s  load= 0.19s  run= 0.45s
+  Optim/Rosenbrock-Minimization-With-Bfgs             precompile=  8.39s  load= 0.18s  run= 0.79s
+  Optimization/Rosenbrock-Minimization-With-Bfgs-Using-Forwarddiffprecompile= 22.86s  load= 0.55s  run= 1.36s
+  OrdinaryDiffEq/Solve-The-Lorenz-Equation            precompile=146.76s  load= 1.40s  run= 0.10s
+  QuantumAlgebra/Commute-Two-Operators                precompile= 11.99s  load= 0.12s  run= 0.01s
+  ReverseDiff/Gradient-Of-Square-Norm                 precompile= 14.28s  load= 1.19s  run= 0.29s
+  ShareAdd/Get-Info-On-Stdlib-In-Internal-Shareadd-Formatprecompile=  3.41s  load= 0.26s  run= 0.00s
+  SparseMatrixColorings/Basic-Coloring                precompile=  4.32s  load= 0.13s  run= 0.04s
+  StaticArrays/Matrix-Multiplication                  precompile=  4.11s  load= 0.07s  run= 0.03s
+  UnROOT/Loading-A-Typical-Hep-Ex--Root-File          precompile= 26.80s  load= 0.50s  run= 0.89s
+  Zygote/Gradient-Of-Square-Norm                      precompile= 23.19s  load= 0.42s  run= 0.17s
+
+=== Julia 1.11 ===
+  Attractors/Multistability-Of-Discrete-Time-Systems  precompile= 54.41s  load= 1.50s  run= 0.98s
+  BaseDirs/Project-Path                               precompile=  1.46s  load= 0.02s  run= 0.02s
+  BaseDirs/User-Cache                                 precompile=  1.50s  load= 0.02s  run= 0.00s
+  BenchmarkTools/Basic-Benchmark                      precompile=  8.77s  load= 0.08s  run= 0.10s
+  CairoMakie/Plot-A-Sine-Wave                         precompile=131.09s  load= 3.20s  run= 0.27s
+  ComplexityMeasures/Nonlinear-Timeseries-Analysis    precompile= 19.41s  load= 0.64s  run= 0.62s
+  ComponentArrays/Basic-Manipulations                 precompile=  4.80s  load= 0.08s  run= 0.25s
+  DataFrames/Dataframe-Construction                   precompile= 31.99s  load= 0.36s  run= 0.01s
+  DifferentiationInterface/Jacobian-With-Finite-Differencesprecompile=  2.38s  load= 0.02s  run= 0.31s
+  Distributions/Normal-Distribution                   precompile= 10.16s  load= 0.27s  run= 0.14s
+  Enzyme/Gradient-Of-Square-Norm                      precompile= 45.14s  load= 0.63s  run= 1.17s
+  ExplicitImports/Print_Explicit_Imports              precompile= 10.79s  load= 0.31s  run= 0.24s
+  FiniteDiff/Gradient-Of-Square-Norm                  precompile=  2.29s  load= 0.00s  run= 0.14s
+  Flux/Basic-Model-Gradient                           precompile= 32.83s  load= 1.17s  run= 3.22s
+  ForwardDiff/Gradient-Of-Square-Norm                 precompile=  5.11s  load= 0.08s  run= 0.22s
+  GMT/Create-A-Xy-Plot                                precompile= 52.55s  load= 1.05s  run= 0.05s
+  Graphs/Graph-Construction                           precompile=  7.48s  load= 0.20s  run= 0.06s
+  HiddenMarkovModels/Estimate-Hmm-With-Baum-Welch     precompile= 12.20s  load= 0.36s  run= 0.90s
+  IterativeSolvers/Conjugate-Gradient-Solve           precompile=  2.70s  load= 0.09s  run= 0.45s
+  JET/Type-Stability-Analysis                         precompile=  9.26s  load= 0.29s  run= 4.49s
+  JLArrays/Matrix-Multiplication-On-Gpu-Like-Arrays   precompile= 11.27s  load= 0.48s  run= 0.39s
+  JuliaFormatter/Format-Text                          precompile= 17.28s  load= 0.13s  run= 0.01s
+  KangarooTwelve/Hash-Nothing                         precompile=  7.99s  load= 0.05s  run= 0.00s
+  Krylov/Conjugate-Gradient-Solve                     precompile=  3.17s  load= 0.08s  run= 0.77s
+  LoopVectorization/Dot-Product                       precompile= 17.43s  load= 0.13s  run= 0.51s
+  Manifolds/Geodesic-On-Sphere                        precompile= 15.55s  load= 0.42s  run= 0.23s
+  Measurements/Addition-With-Uncertainties            precompile=  1.25s  load= 0.01s  run= 0.02s
+  Mendeleev/Get-Properties-Of-A-Chemical-Element      precompile= 10.55s  load= 0.10s  run= 1.04s
+  Mooncake/Gradient-Of-Square-Norm                    precompile= 38.24s  load= 0.22s  run= 0.27s
+  Optim/Rosenbrock-Minimization-With-Bfgs             precompile=  7.36s  load= 0.14s  run= 0.89s
+  Optimization/Rosenbrock-Minimization-With-Bfgs-Using-Forwarddiffprecompile= 20.42s  load= 0.55s  run= 1.30s
+  OrdinaryDiffEq/Solve-The-Lorenz-Equation            precompile=148.58s  load= 1.94s  run= 0.09s
+  QuantumAlgebra/Commute-Two-Operators                precompile= 10.76s  load= 0.18s  run= 0.00s
+  ReverseDiff/Gradient-Of-Square-Norm                 precompile= 12.63s  load= 1.00s  run= 0.26s
+  ShareAdd/Get-Info-On-Stdlib-In-Internal-Shareadd-Formatprecompile=  3.70s  load= 0.41s  run= 0.00s
+  SparseMatrixColorings/Basic-Coloring                precompile=  4.61s  load= 0.11s  run= 0.04s
+  StaticArrays/Matrix-Multiplication                  precompile=  3.89s  load= 0.07s  run= 0.04s
+  UnROOT/Loading-A-Typical-Hep-Ex--Root-File          precompile= 28.06s  load= 0.56s  run= 0.62s
+  Zygote/Gradient-Of-Square-Norm                      precompile= 21.28s  load= 0.37s  run= 0.15s
+
+=== Julia 1.10 ===
+  Attractors/Multistability-Of-Discrete-Time-Systems  precompile= 54.13s  load= 1.44s  run= 0.85s
+  BaseDirs/Project-Path                               precompile=  2.00s  load= 0.02s  run= 0.00s
+  BaseDirs/User-Cache                                 precompile=  2.00s  load= 0.02s  run= 0.00s
+  BenchmarkTools/Basic-Benchmark                      precompile= 11.03s  load= 0.16s  run= 0.09s
+  CairoMakie/Plot-A-Sine-Wave                         precompile=114.67s  load= 2.58s  run= 0.33s
+  ComplexityMeasures/Nonlinear-Timeseries-Analysis    precompile= 18.36s  load= 0.63s  run= 0.59s
+  ComponentArrays/Basic-Manipulations                 precompile=  5.35s  load= 0.07s  run= 0.23s
+  DataFrames/Dataframe-Construction                   precompile= 25.76s  load= 0.31s  run= 0.01s
+  DifferentiationInterface/Jacobian-With-Finite-Differencesprecompile=  2.92s  load= 0.01s  run= 0.22s
+  Distributions/Normal-Distribution                   precompile= 10.94s  load= 0.29s  run= 0.08s
+  Enzyme/Gradient-Of-Square-Norm                      precompile= 39.97s  load= 0.25s  run= 0.74s
+  ExplicitImports/Print_Explicit_Imports              precompile=  8.69s  load= 0.09s  run= 0.21s
+  FiniteDiff/Gradient-Of-Square-Norm                  precompile=  2.81s  load= 0.01s  run= 0.13s
+  Flux/Basic-Model-Gradient                           precompile= 30.83s  load= 0.74s  run= 2.51s
+  ForwardDiff/Gradient-Of-Square-Norm                 precompile=  5.80s  load= 0.05s  run= 0.22s
+  GMT/Create-A-Xy-Plot                                precompile= 42.51s  load= 0.69s  run= 0.05s
+  Graphs/Graph-Construction                           precompile=  7.32s  load= 0.20s  run= 0.08s
+  HiddenMarkovModels/Estimate-Hmm-With-Baum-Welch     precompile= 12.49s  load= 0.35s  run= 0.63s
+  IterativeSolvers/Conjugate-Gradient-Solve           precompile=  3.14s  load= 0.09s  run= 0.34s
+  JET/Type-Stability-Analysis                         precompile= 24.83s  load= 0.10s  run= 0.08s
+  JLArrays/Matrix-Multiplication-On-Gpu-Like-Arrays   precompile= 10.80s  load= 0.31s  run= 0.25s
+  JuliaFormatter/Format-Text                          precompile= 15.26s  load= 0.12s  run= 0.00s
+  KangarooTwelve/Hash-Nothing                         precompile=  8.37s  load= 0.04s  run= 0.00s
+  Krylov/Conjugate-Gradient-Solve                     precompile=  3.45s  load= 0.08s  run= 0.55s
+  LoopVectorization/Dot-Product                       precompile= 15.35s  load= 0.14s  run= 0.40s
+  Manifolds/Geodesic-On-Sphere                        precompile= 14.85s  load= 0.40s  run= 0.18s
+  Measurements/Addition-With-Uncertainties            precompile=  1.87s  load= 0.01s  run= 0.02s
+  Mendeleev/Get-Properties-Of-A-Chemical-Element      precompile=  9.88s  load= 0.11s  run= 0.83s
+  Mooncake/Gradient-Of-Square-Norm                    precompile= 28.91s  load= 0.18s  run= 0.28s
+  Optim/Rosenbrock-Minimization-With-Bfgs             precompile=  7.30s  load= 0.14s  run= 0.61s
+  Optimization/Rosenbrock-Minimization-With-Bfgs-Using-Forwarddiffprecompile= 20.76s  load= 0.52s  run= 0.97s
+  OrdinaryDiffEq/Solve-The-Lorenz-Equation            precompile=124.36s  load= 1.81s  run= 0.11s
+  QuantumAlgebra/Commute-Two-Operators                precompile=  9.02s  load= 0.07s  run= 0.01s
+  ReverseDiff/Gradient-Of-Square-Norm                 precompile= 12.70s  load= 1.15s  run= 0.21s
+  ShareAdd/Get-Info-On-Stdlib-In-Internal-Shareadd-Formatprecompile=  3.89s  load= 0.05s  run= 0.00s
+  SparseMatrixColorings/Basic-Coloring                precompile=  4.73s  load= 0.10s  run= 0.04s
+  StaticArrays/Matrix-Multiplication                  precompile=  4.26s  load= 0.08s  run= 0.03s
+  UnROOT/Loading-A-Typical-Hep-Ex--Root-File          precompile= 25.53s  load= 0.45s  run= 0.57s
+  Zygote/Gradient-Of-Square-Norm                      precompile= 20.02s  load= 0.34s  run= 0.14s
+
+Done. Results written to /Users/ian/Documents/GitHub/Julia-TTFX-Snippets/analysis/results.json

@@ -1,0 +1,51 @@
+Found 39 tasks across 1 Julia versions
+Depot:   /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot
+Results: /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/pr62959-head/results.json
+Tip: set TTFX_DEPOT_PATH=/private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot to reuse downloaded packages on subsequent runs
+
+Machine: MacBook-Pro.lan  Apple M5 Pro  5 threads  24.0 GiB  Darwin 25.6.0
+  1.13           1.13.0-rc3.55  87fb992dde  2026-09-01 20:33 UTC
+Metadata: /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/pr62959-head/results-meta.json
+
+=== Julia 1.13 ===
+  Attractors/Multistability-Of-Discrete-Time-Systems  precompile= 48.72s  load= 1.29s  run= 0.75s
+  BaseDirs/Project-Path                               precompile=  0.91s  load= 0.03s  run= 0.00s
+  BaseDirs/User-Cache                                 precompile=  0.92s  load= 0.03s  run= 0.00s
+  BenchmarkTools/Basic-Benchmark                      precompile=  8.82s  load= 0.08s  run= 0.13s
+  CairoMakie/Plot-A-Sine-Wave                         precompile= 97.84s  load= 2.43s  run= 0.31s
+  ComplexityMeasures/Nonlinear-Timeseries-Analysis    precompile= 17.05s  load= 0.60s  run= 0.55s
+  ComponentArrays/Basic-Manipulations                 precompile=  6.77s  load= 0.09s  run= 0.31s
+  DataFrames/Dataframe-Construction                   precompile= 22.43s  load= 0.28s  run= 0.01s
+  DifferentiationInterface/Jacobian-With-Finite-Differencesprecompile=  2.05s  load= 0.02s  run= 0.35s
+  Distributions/Normal-Distribution                   precompile=  9.62s  load= 0.28s  run= 0.11s
+  Enzyme/Gradient-Of-Square-Norm                      precompile= 36.69s  load= 0.57s  run= 1.22s
+  ExplicitImports/Print_Explicit_Imports              precompile=  7.54s  load= 0.25s  run= 0.31s
+  FiniteDiff/Gradient-Of-Square-Norm                  precompile=  1.89s  load= 0.00s  run= 0.16s
+  Flux/Basic-Model-Gradient                           precompile= 30.03s  load= 1.09s  run= 4.18s
+  ForwardDiff/Gradient-Of-Square-Norm                 precompile=  4.85s  load= 0.07s  run= 0.25s
+  GMT/Create-A-Xy-Plot                                precompile= 39.43s  load= 0.97s  run= 0.01s
+  Graphs/Graph-Construction                           precompile=  6.54s  load= 0.26s  run= 0.07s
+  HiddenMarkovModels/Estimate-Hmm-With-Baum-Welch     precompile= 11.65s  load= 0.37s  run= 0.87s
+  IterativeSolvers/Conjugate-Gradient-Solve           precompile=  2.39s  load= 0.14s  run= 0.33s
+  JET/Type-Stability-Analysis                         precompile= 21.73s  load= 0.25s  run= 0.50s
+  JLArrays/Matrix-Multiplication-On-Gpu-Like-Arrays   precompile= 10.51s  load= 0.59s  run= 0.23s
+  JuliaFormatter/Format-Text                          precompile= 12.61s  load= 0.12s  run= 0.00s
+  KangarooTwelve/Hash-Nothing                         precompile=  6.28s  load= 0.04s  run= 0.00s
+  Krylov/Conjugate-Gradient-Solve                     precompile=  2.70s  load= 0.12s  run= 0.58s
+  LoopVectorization/Dot-Product                       precompile= 16.10s  load= 0.12s  run= 0.33s
+  Manifolds/Geodesic-On-Sphere                        precompile= 14.97s  load= 0.45s  run= 0.19s
+  Measurements/Addition-With-Uncertainties            precompile=  0.84s  load= 0.01s  run= 0.04s
+  Mendeleev/Get-Properties-Of-A-Chemical-Element      precompile=  8.43s  load= 0.08s  run= 1.21s
+  Mooncake/Gradient-Of-Square-Norm                    precompile= 29.30s  load= 0.18s  run= 0.38s
+  Optim/Rosenbrock-Minimization-With-Bfgs             precompile=  6.85s  load= 0.19s  run= 0.76s
+  Optimization/Rosenbrock-Minimization-With-Bfgs-Using-Forwarddiffprecompile= 19.12s  load= 0.52s  run= 1.31s
+  OrdinaryDiffEq/Solve-The-Lorenz-Equation            precompile=106.28s  load= 1.26s  run= 0.10s
+  QuantumAlgebra/Commute-Two-Operators                precompile=  8.60s  load= 0.14s  run= 0.01s
+  ReverseDiff/Gradient-Of-Square-Norm                 precompile= 14.21s  load= 1.17s  run= 0.28s
+  ShareAdd/Get-Info-On-Stdlib-In-Internal-Shareadd-Formatprecompile=  2.72s  load= 0.24s  run= 0.01s
+  SparseMatrixColorings/Basic-Coloring                precompile=  3.59s  load= 0.14s  run= 0.03s
+  StaticArrays/Matrix-Multiplication                  precompile=  3.25s  load= 0.08s  run= 0.04s
+  UnROOT/Loading-A-Typical-Hep-Ex--Root-File          precompile= 20.97s  load= 0.48s  run= 0.92s
+  Zygote/Gradient-Of-Square-Norm                      precompile= 19.15s  load= 0.40s  run= 0.18s
+
+Done. Results written to /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/pr62959-head/results.json

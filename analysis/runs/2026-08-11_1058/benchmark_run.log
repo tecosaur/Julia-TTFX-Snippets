@@ -1,0 +1,467 @@
+Found 39 tasks across 5 Julia versions
+Depot:   /tmp/julia-ttfx-ssvIIz
+Results: /home/ian/Documents/GitHub/Julia-TTFX-Snippets/analysis/results.json
+Tip: set TTFX_DEPOT_PATH=/tmp/julia-ttfx-ssvIIz to reuse downloaded packages on subsequent runs
+
+=== Julia nightly ===
+  Attractors/Multistability-Of-Discrete-Time-Systems  precompile= 63.18s  load= 1.95s  run= 0.59s
+  BaseDirs/Project-Path                               precompile=  2.28s  load= 0.01s  run= 0.00s
+  BaseDirs/User-Cache                                 precompile=  1.82s  load= 0.01s  run= 0.00s
+  BenchmarkTools/Basic-Benchmark                      precompile= 11.71s  load= 0.11s  run= 0.09s
+  CairoMakie/Plot-A-Sine-Wave                         precompile=169.44s  load= 3.69s  run= 0.84s
+  ComplexityMeasures/Nonlinear-Timeseries-Analysis    precompile= 18.66s  load= 1.30s  run= 0.74s
+  ComponentArrays/Basic-Manipulations                 precompile= 28.03s  load= 0.15s  run= 0.22s
+  DataFrames/Dataframe-Construction                   precompile= 35.32s  load= 0.57s  run= 0.01s
+  DifferentiationInterface/Jacobian-With-Finite-Differencesprecompile=  1.41s  load= 0.01s  run= 0.29s
+  Distributions/Normal-Distribution                   precompile=  8.58s  load= 0.50s  run= 0.05s
+  Enzyme/Gradient-Of-Square-Norm                      ERROR: precompile: process failed
+--- stderr ---
+Precompiling project...
+   0.2 s  ✓ Reexport
+   0.3 s  ✓ StructIO
+   0.3 s  ✓ CEnum
+   0.3 s  ✓ ExprTools
+   0.4 s  ✓ Scratch
+   0.4 s  ✓ EnzymeCore
+   1.2 s  ✓ Preferences
+   1.0 s  ✓ ObjectFile
+   0.3 s  ✓ PrecompileTools
+   0.3 s  ✓ JLLWrappers
+   0.4 s  ✓ LibTracyClient_jll
+   0.8 s  ✓ Enzyme_jll
+   0.8 s  ✓ LLVMExtra_jll
+   0.8 s  ✓ Tracy
+   5.0 s  ✓ LLVM
+Fault at memory address: 0x10000000a
+
+[2715627] signal 11 (1): Segmentation fault
+in expression starting at /tmp/julia-ttfx-ssvIIz/packages/GPUCompiler/BSi1T/src/precompile.jl:7
+__atomic_add at /usr/local/x86_64-linux-gnu/include/c++/9.1.0/ext/atomicity.h:53:54 [inlined]
+__atomic_add_dispatch at /usr/local/x86_64-linux-gnu/include/c++/9.1.0/ext/atomicity.h:96:19 [inlined]
+_M_add_ref_copy at /usr/local/x86_64-linux-gnu/include/c++/9.1.0/bits/shared_ptr_base.h:139:41 [inlined]
+__shared_count at /usr/local/x86_64-linux-gnu/include/c++/9.1.0/bits/shared_ptr_base.h:737:4 [inlined]
+__shared_ptr at /usr/local/x86_64-linux-gnu/include/c++/9.1.0/bits/shared_ptr_base.h:1167:7 [inlined]
+shared_ptr at /usr/local/x86_64-linux-gnu/include/c++/9.1.0/bits/shared_ptr.h:129:7 [inlined]
+withContextDo<llvm::orc::ThreadSafeModule::withModuleDo(Func&&) [with Func = jl_emit_native_impl(jl_array_t*, jl_array_t*, LLVMOrcThreadSafeModuleRef, const jl_cgparams_t*, int)::<lambda(llvm::Module&)>]::<lambda(llvm::LLVMContext*)> > at /cache/build/builder-amdci5-2/julialang/julia-ci/usr/include/llvm/ExecutionEngine/Orc/ThreadSafeModule.h:50:14 [inlined]
+withModuleDo<jl_emit_native_impl(jl_array_t*, jl_array_t*, LLVMOrcThreadSafeModuleRef, const jl_cgparams_t*, int)::<lambda(llvm::Module&)> > at /cache/build/builder-amdci5-2/julialang/julia-ci/usr/include/llvm/ExecutionEngine/Orc/ThreadSafeModule.h:117:6 [inlined]
+jl_emit_native_impl at /cache/build/builder-amdci5-2/julialang/julia-ci/src/aotcompile.cpp:1017:32
+compile_method_instance at /tmp/julia-ttfx-ssvIIz/packages/GPUCompiler/BSi1T/src/jlgen.jl:840:0 (pc: 422)
+irgen at /tmp/julia-ttfx-ssvIIz/packages/GPUCompiler/BSi1T/src/irgen.jl:4:0 (pc: 1)
+#emit_llvm#124 at /tmp/julia-ttfx-ssvIIz/packages/GPUCompiler/BSi1T/src/driver.jl:209:0 (pc: 23)
+emit_llvm at /tmp/julia-ttfx-ssvIIz/packages/GPUCompiler/BSi1T/src/driver.jl:191:0 (pc: 1)
+#compile_unhooked#121 at /tmp/julia-ttfx-ssvIIz/packages/GPUCompiler/BSi1T/src/driver.jl:95:0 (pc: 11)
+compile_unhooked at /tmp/julia-ttfx-ssvIIz/packages/GPUCompiler/BSi1T/src/driver.jl:80:0 [inlined]
+#compile#119 at /tmp/julia-ttfx-ssvIIz/packages/GPUCompiler/BSi1T/src/driver.jl:67:0 [inlined]
+compile at /tmp/julia-ttfx-ssvIIz/packages/GPUCompiler/BSi1T/src/driver.jl:55:0 [inlined]
+#184 at /tmp/julia-ttfx-ssvIIz/packages/GPUCompiler/BSi1T/src/precompile.jl:39:0 [inlined]
+#JuliaContext#118 at /tmp/julia-ttfx-ssvIIz/packages/GPUCompiler/BSi1T/src/driver.jl:34:0 (pc: 50)
+unknown function (ip: 0x7479d34cf851) at (unknown file)
+JuliaContext at /tmp/julia-ttfx-ssvIIz/packages/GPUCompiler/BSi1T/src/driver.jl:25:0 (pc: 1)
+unknown function (ip: 0x747a1a75b0d2) at (unknown file)
+macro expansion at /tmp/julia-ttfx-ssvIIz/packages/GPUCompiler/BSi1T/src/precompile.jl:38:0 [inlined]
+macro expansion at /tmp/julia-ttfx-ssvIIz/packages/PrecompileTools/QUxvR/src/workloads.jl:70:0 [inlined]
+macro expansion at /tmp/julia-ttfx-ssvIIz/packages/GPUCompiler/BSi1T/src/precompile.jl:29:0 [inlined]
+macro expansion at /tmp/julia-ttfx-ssvIIz/packages/PrecompileTools/QUxvR/src/workloads.jl:118:0 [inlined]
+top-level scope at /tmp/julia-ttfx-ssvIIz/packages/GPUCompiler/BSi1T/src/precompile.jl:115:0 (pc: 88)
+jl_invoke_oneshot at /cache/build/builder-amdci5-2/julialang/julia-ci/src/gf.c:4625:23
+ijl_eval_thunk at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:759:18
+jl_toplevel_eval_flex at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:711:26
+jl_eval_toplevel_stmts at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:601:15
+jl_toplevel_eval_flex at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:683:27
+ijl_toplevel_eval at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:781:12
+ijl_toplevel_eval_in at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:826:13
+eval at ./boot.jl:618:0 (pc: 1)
+include_string at ./loading.jl:3263:0 (pc: 208)
+_include at ./loading.jl:3325:0 (pc: 123)
+include at ./Base.jl:335:0 (pc: 1)
+IncludeInto at ./Base.jl:336:0 (pc: 2)
+jfptr_IncludeInto_1.1 at /home/ian/.julia/juliaup/julia-nightly/lib/julia/sys.so (unknown line)
+jl_apply at /cache/build/builder-amdci5-2/julialang/julia-ci/src/julia.h:2516:12 [inlined]
+do_call at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:123:26
+eval_value at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:259:16
+eval_stmt_value at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:194:23 [inlined]
+eval_body at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:746:17
+jl_interpret_toplevel_thunk at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:962:21
+ijl_eval_thunk at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:767:18
+jl_toplevel_eval_flex at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:711:26
+jl_eval_toplevel_stmts at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:601:15
+jl_eval_module_expr at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:266:5 [inlined]
+jl_toplevel_eval_flex at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:664:27
+jl_eval_toplevel_stmts at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:601:15
+jl_toplevel_eval_flex at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:683:27
+ijl_toplevel_eval at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:781:12
+ijl_toplevel_eval_in at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:826:13
+eval at ./boot.jl:618:0 (pc: 1)
+include_string at ./loading.jl:3263:0 (pc: 208)
+_include at ./loading.jl:3325:0 (pc: 123)
+include at ./Base.jl:334:0 (pc: 1)
+include_package_for_output at ./loading.jl:3436:0 (pc: 849)
+jfptr_include_package_for_output_1.1 at /home/ian/.julia/juliaup/julia-nightly/lib/julia/sys.so (unknown line)
+jl_apply at /cache/build/builder-amdci5-2/julialang/julia-ci/src/julia.h:2516:12 [inlined]
+do_call at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:123:26
+eval_value at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:259:16
+eval_stmt_value at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:194:23 [inlined]
+eval_body at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:746:17
+jl_interpret_toplevel_thunk at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:962:21
+ijl_eval_thunk at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:767:18
+jl_toplevel_eval_flex at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:711:26
+jl_eval_toplevel_stmts at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:601:15
+jl_toplevel_eval_flex at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:683:27
+ijl_toplevel_eval at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:781:12
+ijl_toplevel_eval_in at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:826:13
+eval at ./boot.jl:618:0 (pc: 1)
+include_string at ./loading.jl:3263:0 (pc: 208)
+include_string at ./loading.jl:3273:0 [inlined]
+__script_entry_include_string at ./client.jl:104:0 [inlined]
+exec_options at ./client.jl:382:0 (pc: 893)
+_start at ./client.jl:695:0 (pc: 325)
+jfptr__start_0.1 at /home/ian/.julia/juliaup/julia-nightly/lib/julia/sys.so (unknown line)
+jl_apply at /cache/build/builder-amdci5-2/julialang/julia-ci/src/julia.h:2516:12 [inlined]
+true_main at /cache/build/builder-amdci5-2/julialang/julia-ci/src/jlapi.c:989:29
+jl_repl_entrypoint at /cache/build/builder-amdci5-2/julialang/julia-ci/src/jlapi.c:1156:15
+main at /cache/build/builder-amdci5-2/julialang/julia-ci/cli/loader_exe.c:117:15
+unknown function (ip: 0x747a3642a1c9) at /lib/x86_64-linux-gnu/libc.so.6
+__libc_start_main at /lib/x86_64-linux-gnu/libc.so.6 (unknown line)
+unknown function (ip: 0x4010b8) at /workspace/srcdir/glibc-2.17/csu/../sysdeps/x86_64/start.S
+Allocations: 103215764 (Pool: 103213495; Big: 2269); GC: 30
+              ✗ GPUCompiler
+ERROR: LoadError: Precompiled image Base.PkgId(Base.UUID("61eb1bfa-7361-4325-ad38-22787b887f55"), "GPUCompiler") not available with flags CacheFlags(; use_pkgimages=true, debug_level=1, check_bounds=0, inline=true, opt_level=2)
+Stacktrace:
+ [1] error(s::String)
+   @ Base error.jl:56
+ [2] require(into::Module, mod::Symbol)
+   @ Base loading.jl:2661 [inlined]
+ [3] top-level scope
+   @ /tmp/julia-ttfx-ssvIIz/packages/Enzyme/OvStQ/src/typetree.jl:6
+ [4] include(mapexpr::Function, mod::Module, _path::String)
+   @ Base Base.jl:335
+ [5] top-level scope
+   @ /tmp/julia-ttfx-ssvIIz/packages/Enzyme/OvStQ/src/Enzyme.jl:148
+ [6] include(mod::Module, _path::String)
+   @ Base Base.jl:334
+ [7] top-level scope
+   @ stdin:5
+in expression starting at /tmp/julia-ttfx-ssvIIz/packages/Enzyme/OvStQ/src/typetree.jl:6
+in expression starting at /tmp/julia-ttfx-ssvIIz/packages/Enzyme/OvStQ/src/Enzyme.jl:1
+in expression starting at stdin:5
+              ✗ Enzyme
+  15 dependencies successfully precompiled in 39 seconds. 34 already precompiled.
+  2 dependencies had output during precompilation:
+┌ GPUCompiler
+│  Fault at memory address: 0x10000000a
+│  
+│  [2715627] signal 11 (1): Segmentation fault
+│  in expression starting at /tmp/julia-ttfx-ssvIIz/packages/GPUCompiler/BSi1T/src/precompile.jl:7
+│  __atomic_add at /usr/local/x86_64-linux-gnu/include/c++/9.1.0/ext/atomicity.h:53:54 [inlined]
+│  __atomic_add_dispatch at /usr/local/x86_64-linux-gnu/include/c++/9.1.0/ext/atomicity.h:96:19 [inlined]
+│  _M_add_ref_copy at /usr/local/x86_64-linux-gnu/include/c++/9.1.0/bits/shared_ptr_base.h:139:41 [inlined]
+│  __shared_count at /usr/local/x86_64-linux-gnu/include/c++/9.1.0/bits/shared_ptr_base.h:737:4 [inlined]
+│  __shared_ptr at /usr/local/x86_64-linux-gnu/include/c++/9.1.0/bits/shared_ptr_base.h:1167:7 [inlined]
+│  shared_ptr at /usr/local/x86_64-linux-gnu/include/c++/9.1.0/bits/shared_ptr.h:129:7 [inlined]
+│  withContextDo<llvm::orc::ThreadSafeModule::withModuleDo(Func&&) [with Func = jl_emit_native_impl(jl_array_t*, jl_array_t*, LLVMOrcThreadSafeModuleRef, const jl_cgparams_t*, int)::<lambda(llvm::Module&)>]::<lambda(llvm::LLVMContext*)> > at /cache/build/builder-amdci5-2/julialang/julia-ci/usr/include/llvm/ExecutionEngine/Orc/ThreadSafeModule.h:50:14 [inlined]
+│  withModuleDo<jl_emit_native_impl(jl_array_t*, jl_array_t*, LLVMOrcThreadSafeModuleRef, const jl_cgparams_t*, int)::<lambda(llvm::Module&)> > at /cache/build/builder-amdci5-2/julialang/julia-ci/usr/include/llvm/ExecutionEngine/Orc/ThreadSafeModule.h:117:6 [inlined]
+│  jl_emit_native_impl at /cache/build/builder-amdci5-2/julialang/julia-ci/src/aotcompile.cpp:1017:32
+│  compile_method_instance at /tmp/julia-ttfx-ssvIIz/packages/GPUCompiler/BSi1T/src/jlgen.jl:840:0 (pc: 422)
+│  irgen at /tmp/julia-ttfx-ssvIIz/packages/GPUCompiler/BSi1T/src/irgen.jl:4:0 (pc: 1)
+│  #emit_llvm#124 at /tmp/julia-ttfx-ssvIIz/packages/GPUCompiler/BSi1T/src/driver.jl:209:0 (pc: 23)
+│  emit_llvm at /tmp/julia-ttfx-ssvIIz/packages/GPUCompiler/BSi1T/src/driver.jl:191:0 (pc: 1)
+│  #compile_unhooked#121 at /tmp/julia-ttfx-ssvIIz/packages/GPUCompiler/BSi1T/src/driver.jl:95:0 (pc: 11)
+│  compile_unhooked at /tmp/julia-ttfx-ssvIIz/packages/GPUCompiler/BSi1T/src/driver.jl:80:0 [inlined]
+│  #compile#119 at /tmp/julia-ttfx-ssvIIz/packages/GPUCompiler/BSi1T/src/driver.jl:67:0 [inlined]
+│  compile at /tmp/julia-ttfx-ssvIIz/packages/GPUCompiler/BSi1T/src/driver.jl:55:0 [inlined]
+│  #184 at /tmp/julia-ttfx-ssvIIz/packages/GPUCompiler/BSi1T/src/precompile.jl:39:0 [inlined]
+│  #JuliaContext#118 at /tmp/julia-ttfx-ssvIIz/packages/GPUCompiler/BSi1T/src/driver.jl:34:0 (pc: 50)
+│  unknown function (ip: 0x7479d34cf851) at (unknown file)
+│  JuliaContext at /tmp/julia-ttfx-ssvIIz/packages/GPUCompiler/BSi1T/src/driver.jl:25:0 (pc: 1)
+│  unknown function (ip: 0x747a1a75b0d2) at (unknown file)
+│  macro expansion at /tmp/julia-ttfx-ssvIIz/packages/GPUCompiler/BSi1T/src/precompile.jl:38:0 [inlined]
+│  macro expansion at /tmp/julia-ttfx-ssvIIz/packages/PrecompileTools/QUxvR/src/workloads.jl:70:0 [inlined]
+│  macro expansion at /tmp/julia-ttfx-ssvIIz/packages/GPUCompiler/BSi1T/src/precompile.jl:29:0 [inlined]
+│  macro expansion at /tmp/julia-ttfx-ssvIIz/packages/PrecompileTools/QUxvR/src/workloads.jl:118:0 [inlined]
+│  top-level scope at /tmp/julia-ttfx-ssvIIz/packages/GPUCompiler/BSi1T/src/precompile.jl:115:0 (pc: 88)
+│  jl_invoke_oneshot at /cache/build/builder-amdci5-2/julialang/julia-ci/src/gf.c:4625:23
+│  ijl_eval_thunk at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:759:18
+│  jl_toplevel_eval_flex at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:711:26
+│  jl_eval_toplevel_stmts at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:601:15
+│  jl_toplevel_eval_flex at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:683:27
+│  ijl_toplevel_eval at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:781:12
+│  ijl_toplevel_eval_in at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:826:13
+│  eval at ./boot.jl:618:0 (pc: 1)
+│  include_string at ./loading.jl:3263:0 (pc: 208)
+│  _include at ./loading.jl:3325:0 (pc: 123)
+│  include at ./Base.jl:335:0 (pc: 1)
+│  IncludeInto at ./Base.jl:336:0 (pc: 2)
+│  jfptr_IncludeInto_1.1 at /home/ian/.julia/juliaup/julia-nightly/lib/julia/sys.so (unknown line)
+│  jl_apply at /cache/build/builder-amdci5-2/julialang/julia-ci/src/julia.h:2516:12 [inlined]
+│  do_call at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:123:26
+│  eval_value at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:259:16
+│  eval_stmt_value at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:194:23 [inlined]
+│  eval_body at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:746:17
+│  jl_interpret_toplevel_thunk at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:962:21
+│  ijl_eval_thunk at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:767:18
+│  jl_toplevel_eval_flex at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:711:26
+│  jl_eval_toplevel_stmts at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:601:15
+│  jl_eval_module_expr at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:266:5 [inlined]
+│  jl_toplevel_eval_flex at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:664:27
+│  jl_eval_toplevel_stmts at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:601:15
+│  jl_toplevel_eval_flex at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:683:27
+│  ijl_toplevel_eval at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:781:12
+│  ijl_toplevel_eval_in at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:826:13
+│  eval at ./boot.jl:618:0 (pc: 1)
+│  include_string at ./loading.jl:3263:0 (pc: 208)
+│  _include at ./loading.jl:3325:0 (pc: 123)
+│  include at ./Base.jl:334:0 (pc: 1)
+│  include_package_for_output at ./loading.jl:3436:0 (pc: 849)
+│  jfptr_include_package_for_output_1.1 at /home/ian/.julia/juliaup/julia-nightly/lib/julia/sys.so (unknown line)
+│  jl_apply at /cache/build/builder-amdci5-2/julialang/julia-ci/src/julia.h:2516:12 [inlined]
+│  do_call at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:123:26
+│  eval_value at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:259:16
+│  eval_stmt_value at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:194:23 [inlined]
+│  eval_body at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:746:17
+│  jl_interpret_toplevel_thunk at /cache/build/builder-amdci5-2/julialang/julia-ci/src/interpreter.c:962:21
+│  ijl_eval_thunk at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:767:18
+│  jl_toplevel_eval_flex at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:711:26
+│  jl_eval_toplevel_stmts at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:601:15
+│  jl_toplevel_eval_flex at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:683:27
+│  ijl_toplevel_eval at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:781:12
+│  ijl_toplevel_eval_in at /cache/build/builder-amdci5-2/julialang/julia-ci/src/toplevel.c:826:13
+│  eval at ./boot.jl:618:0 (pc: 1)
+│  include_string at ./loading.jl:3263:0 (pc: 208)
+│  include_string at ./loading.jl:3273:0 [inlined]
+│  __script_entry_include_string at ./client.jl:104:0 [inlined]
+│  exec_options at ./client.jl:382:0 (pc: 893)
+│  _start at ./client.jl:695:0 (pc: 325)
+│  jfptr__start_0.1 at /home/ian/.julia/juliaup/julia-nightly/lib/julia/sys.so (unknown line)
+│  jl_apply at /cache/build/builder-amdci5-2/julialang/julia-ci/src/julia.h:2516:12 [inlined]
+│  true_main at /cache/build/builder-amdci5-2/julialang/julia-ci/src/jlapi.c:989:29
+│  jl_repl_entrypoint at /cache/build/builder-amdci5-2/julialang/julia-ci/src/jlapi.c:1156:15
+│  main at /cache/build/builder-amdci5-2/julialang/julia-ci/cli/loader_exe.c:117:15
+│  unknown function (ip: 0x747a3642a1c9) at /lib/x86_64-linux-gnu/libc.so.6
+│  __libc_start_main at /lib/x86_64-linux-gnu/libc.so.6 (unknown line)
+│  unknown function (ip: 0x4010b8) at /workspace/srcdir/glibc-2.17/csu/../sysdeps/x86_64/start.S
+│  Allocations: 103215764 (Pool: 103213495; Big: 2269); GC: 30
+└  
+┌ Enzyme
+│  ERROR: LoadError: Precompiled image Base.PkgId(Base.UUID("61eb1bfa-7361-4325-ad38-22787b887f55"), "GPUCompiler") not available with flags CacheFlags(; use_pkgimages=true, debug_level=1, check_bounds=0, inline=true, opt_level=2)
+│  Stacktrace:
+│   [1] error(s::String)
+│     @ Base error.jl:56
+│   [2] require(into::Module, mod::Symbol)
+│     @ Base loading.jl:2661 [inlined]
+│   [3] top-level scope
+│     @ /tmp/julia-ttfx-ssvIIz/packages/Enzyme/OvStQ/src/typetree.jl:6
+│   [4] include(mapexpr::Function, mod::Module, _path::String)
+│     @ Base Base.jl:335
+│   [5] top-level scope
+│     @ /tmp/julia-ttfx-ssvIIz/packages/Enzyme/OvStQ/src/Enzyme.jl:148
+│   [6] include(mod::Module, _path::String)
+│     @ Base Base.jl:334
+│   [7] top-level scope
+│     @ stdin:5
+│  in expression starting at /tmp/julia-ttfx-ssvIIz/packages/Enzyme/OvStQ/src/typetree.jl:6
+│  in expression starting at /tmp/julia-ttfx-ssvIIz/packages/Enzyme/OvStQ/src/Enzyme.jl:1
+│  in expression starting at stdin:5
+└  
+ERROR: The following 2 packages failed to precompile:
+
+GPUCompiler 
+Failed to precompile GPUCompiler [61eb1bfa-7361-4325-ad38-22787b887f55] to "/tmp/julia-ttfx-ssvIIz/compiled/v1.14/GPUCompiler/jl_nofd64" (ProcessSignaled(11)).
+
+Enzyme 
+Failed to precompile Enzyme [7da242da-08ed-463a-9acd-ee780be4f1d9] to "/tmp/julia-ttfx-ssvIIz/compiled/v1.14/Enzyme/jl_6i7Ybk" (ProcessExited(1)).
+
+
+  ExplicitImports/Print_Explicit_Imports              precompile= 18.79s  load= 0.41s  run= 0.25s
+  FiniteDiff/Gradient-Of-Square-Norm                  precompile=  2.30s  load= 0.00s  run= 0.13s
+  Flux/Basic-Model-Gradient                           precompile= 40.47s  load= 1.80s  run= 3.83s
+  ForwardDiff/Gradient-Of-Square-Norm                 precompile=  5.97s  load= 0.08s  run= 0.22s
+  GMT/Create-A-Xy-Plot                                precompile= 63.19s  load= 1.18s  run= 3.62s
+  Graphs/Graph-Construction                           precompile=  8.52s  load= 0.49s  run= 0.03s
+  HiddenMarkovModels/Estimate-Hmm-With-Baum-Welch     precompile= 10.19s  load= 0.63s  run= 0.74s
+  IterativeSolvers/Conjugate-Gradient-Solve           precompile=  3.90s  load= 0.27s  run= 0.24s
+  JET/Type-Stability-Analysis                         ERROR: task: ┌ Warning: Full JET functionality is not available on Julia 1.14.0-DEV.2898.
+  JLArrays/Matrix-Multiplication-On-Gpu-Like-Arrays   precompile= 12.83s  load= 1.03s  run= 1.01s
+  JuliaFormatter/Format-Text                          precompile= 24.56s  load= 0.21s  run= 0.01s
+  KangarooTwelve/Hash-Nothing                         precompile= 12.11s  load= 0.08s  run= 0.00s
+  Krylov/Conjugate-Gradient-Solve                     precompile=  4.99s  load= 0.24s  run= 0.31s
+  LoopVectorization/Dot-Product                       precompile= 43.98s  load= 0.26s  run= 0.19s
+  Manifolds/Geodesic-On-Sphere                        precompile= 18.71s  load= 0.80s  run= 0.15s
+  Measurements/Addition-With-Uncertainties            precompile=  1.17s  load= 0.01s  run= 0.03s
+  Mendeleev/Get-Properties-Of-A-Chemical-Element      precompile= 13.60s  load= 0.13s  run= 1.27s
+  Mooncake/Gradient-Of-Square-Norm                    precompile=145.01s  load= 0.78s  run= 0.45s
+  Optim/Rosenbrock-Minimization-With-Bfgs             precompile=  5.22s  load= 0.33s  run= 0.53s
+  Optimization/Rosenbrock-Minimization-With-Bfgs-Using-Forwarddiffprecompile= 21.14s  load= 0.77s  run= 1.22s
+  OrdinaryDiffEq/Solve-The-Lorenz-Equation            precompile=175.46s  load= 2.61s  run= 0.11s
+  QuantumAlgebra/Commute-Two-Operators                precompile= 14.00s  load= 0.32s  run= 0.00s
+  ReverseDiff/Gradient-Of-Square-Norm                 precompile= 18.92s  load= 2.65s  run= 0.16s
+  ShareAdd/Get-Info-On-Stdlib-In-Internal-Shareadd-Formatprecompile=  6.34s  load= 0.48s  run= 0.00s
+  SparseMatrixColorings/Basic-Coloring                precompile=  5.06s  load= 0.27s  run= 0.02s
+  StaticArrays/Matrix-Multiplication                  precompile=  5.23s  load= 0.13s  run= 0.02s
+  UnROOT/Loading-A-Typical-Hep-Ex--Root-File          precompile= 24.23s  load= 0.92s  run= 0.63s
+  Zygote/Gradient-Of-Square-Norm                      precompile= 29.60s  load= 0.70s  run= 0.26s
+
+=== Julia 1.13-nightly ===
+  Attractors/Multistability-Of-Discrete-Time-Systems  precompile= 51.08s  load= 1.23s  run= 1.61s
+  BaseDirs/Project-Path                               precompile=  2.24s  load= 0.01s  run= 0.01s
+  BaseDirs/User-Cache                                 precompile=  2.21s  load= 0.01s  run= 0.00s
+  BenchmarkTools/Basic-Benchmark                      precompile= 12.73s  load= 0.11s  run= 0.21s
+  CairoMakie/Plot-A-Sine-Wave                         precompile=175.76s  load= 2.85s  run= 0.60s
+  ComplexityMeasures/Nonlinear-Timeseries-Analysis    precompile= 23.33s  load= 0.76s  run= 1.28s
+  ComponentArrays/Basic-Manipulations                 precompile= 19.39s  load= 0.11s  run= 0.61s
+  DataFrames/Dataframe-Construction                   precompile= 45.07s  load= 0.40s  run= 0.07s
+  DifferentiationInterface/Jacobian-With-Finite-Differencesprecompile=  1.28s  load= 0.01s  run= 0.63s
+  Distributions/Normal-Distribution                   precompile= 10.48s  load= 0.32s  run= 0.20s
+  Enzyme/Gradient-Of-Square-Norm                      precompile= 82.40s  load= 0.87s  run= 2.42s
+  ExplicitImports/Print_Explicit_Imports              precompile= 27.83s  load= 0.32s  run= 0.40s
+  FiniteDiff/Gradient-Of-Square-Norm                  precompile=  4.31s  load= 0.00s  run= 0.29s
+  Flux/Basic-Model-Gradient                           precompile= 36.35s  load= 1.27s  run= 8.19s
+  ForwardDiff/Gradient-Of-Square-Norm                 precompile=  6.92s  load= 0.07s  run= 0.46s
+  GMT/Create-A-Xy-Plot                                precompile= 74.62s  load= 1.01s  run= 0.01s
+  Graphs/Graph-Construction                           precompile= 12.15s  load= 0.35s  run= 0.12s
+  HiddenMarkovModels/Estimate-Hmm-With-Baum-Welch     precompile= 11.56s  load= 0.38s  run= 1.72s
+  IterativeSolvers/Conjugate-Gradient-Solve           precompile=  4.09s  load= 0.19s  run= 0.71s
+  JET/Type-Stability-Analysis                         precompile= 57.11s  load= 0.31s  run= 0.95s
+  JLArrays/Matrix-Multiplication-On-Gpu-Like-Arrays   precompile= 16.17s  load= 0.77s  run= 1.28s
+  JuliaFormatter/Format-Text                          precompile= 28.78s  load= 0.18s  run= 0.01s
+  KangarooTwelve/Hash-Nothing                         precompile= 13.48s  load= 0.07s  run= 0.00s
+  Krylov/Conjugate-Gradient-Solve                     precompile=  4.97s  load= 0.17s  run= 1.11s
+  LoopVectorization/Dot-Product                       precompile= 37.82s  load= 0.21s  run= 0.64s
+  Manifolds/Geodesic-On-Sphere                        precompile= 22.28s  load= 0.58s  run= 0.42s
+  Measurements/Addition-With-Uncertainties            precompile=  0.99s  load= 0.01s  run= 0.06s
+  Mendeleev/Get-Properties-Of-A-Chemical-Element      precompile= 16.70s  load= 0.14s  run= 2.58s
+  Mooncake/Gradient-Of-Square-Norm                    precompile= 63.39s  load= 0.28s  run= 0.66s
+  Optim/Rosenbrock-Minimization-With-Bfgs             precompile=  7.21s  load= 0.22s  run= 1.57s
+  Optimization/Rosenbrock-Minimization-With-Bfgs-Using-Forwarddiffprecompile= 19.55s  load= 0.55s  run= 2.71s
+  OrdinaryDiffEq/Solve-The-Lorenz-Equation            precompile=178.65s  load= 1.73s  run= 0.17s
+  QuantumAlgebra/Commute-Two-Operators                precompile= 16.93s  load= 0.21s  run= 0.01s
+  ReverseDiff/Gradient-Of-Square-Norm                 precompile= 20.31s  load= 1.81s  run= 0.57s
+  ShareAdd/Get-Info-On-Stdlib-In-Internal-Shareadd-Formatprecompile=  8.96s  load= 0.34s  run= 0.01s
+  SparseMatrixColorings/Basic-Coloring                precompile=  5.81s  load= 0.20s  run= 0.07s
+  StaticArrays/Matrix-Multiplication                  precompile=  8.44s  load= 0.12s  run= 0.06s
+  UnROOT/Loading-A-Typical-Hep-Ex--Root-File          precompile= 29.84s  load= 0.62s  run= 2.86s
+  Zygote/Gradient-Of-Square-Norm                      precompile= 28.25s  load= 0.51s  run= 0.33s
+
+=== Julia 1.12 ===
+  Attractors/Multistability-Of-Discrete-Time-Systems  precompile= 62.70s  load= 1.45s  run= 1.76s
+  BaseDirs/Project-Path                               precompile=  2.95s  load= 0.01s  run= 0.01s
+  BaseDirs/User-Cache                                 precompile=  2.92s  load= 0.01s  run= 0.00s
+  BenchmarkTools/Basic-Benchmark                      precompile= 13.17s  load= 0.12s  run= 0.21s
+  CairoMakie/Plot-A-Sine-Wave                         precompile=179.20s  load= 3.22s  run= 0.80s
+  ComplexityMeasures/Nonlinear-Timeseries-Analysis    precompile= 25.91s  load= 0.90s  run= 1.60s
+  ComponentArrays/Basic-Manipulations                 precompile=  9.77s  load= 0.14s  run= 0.71s
+  DataFrames/Dataframe-Construction                   precompile= 39.90s  load= 0.52s  run= 0.02s
+  DifferentiationInterface/Jacobian-With-Finite-Differencesprecompile=  2.39s  load= 0.01s  run= 0.74s
+  Distributions/Normal-Distribution                   precompile= 12.34s  load= 0.32s  run= 0.26s
+  Enzyme/Gradient-Of-Square-Norm                      precompile= 69.93s  load= 0.94s  run= 5.86s
+  ExplicitImports/Print_Explicit_Imports              precompile= 20.70s  load= 0.43s  run= 0.54s
+  FiniteDiff/Gradient-Of-Square-Norm                  precompile=  3.99s  load= 0.00s  run= 0.35s
+  Flux/Basic-Model-Gradient                           precompile= 40.28s  load= 1.42s  run=10.62s
+  ForwardDiff/Gradient-Of-Square-Norm                 precompile=  8.06s  load= 0.06s  run= 0.56s
+  GMT/Create-A-Xy-Plot                                precompile= 72.39s  load= 1.07s  run= 0.01s
+  Graphs/Graph-Construction                           precompile= 11.97s  load= 0.36s  run= 0.18s
+  HiddenMarkovModels/Estimate-Hmm-With-Baum-Welch     precompile= 14.45s  load= 0.52s  run= 2.19s
+  IterativeSolvers/Conjugate-Gradient-Solve           precompile=  3.91s  load= 0.16s  run= 0.99s
+  JET/Type-Stability-Analysis                         precompile= 50.77s  load= 0.31s  run= 0.65s
+  JLArrays/Matrix-Multiplication-On-Gpu-Like-Arrays   precompile= 17.04s  load= 0.88s  run= 1.78s
+  JuliaFormatter/Format-Text                          precompile= 27.76s  load= 0.20s  run= 0.00s
+  KangarooTwelve/Hash-Nothing                         precompile= 13.57s  load= 0.07s  run= 0.00s
+  Krylov/Conjugate-Gradient-Solve                     precompile=  5.38s  load= 0.15s  run= 1.45s
+  LoopVectorization/Dot-Product                       precompile= 28.97s  load= 0.25s  run= 0.82s
+  Manifolds/Geodesic-On-Sphere                        precompile= 24.63s  load= 0.66s  run= 0.54s
+  Measurements/Addition-With-Uncertainties            precompile=  1.38s  load= 0.01s  run= 0.06s
+  Mendeleev/Get-Properties-Of-A-Chemical-Element      precompile= 18.45s  load= 0.14s  run= 2.96s
+  Mooncake/Gradient-Of-Square-Norm                    precompile= 68.68s  load= 0.34s  run= 0.94s
+  Optim/Rosenbrock-Minimization-With-Bfgs             precompile=  9.78s  load= 0.20s  run= 1.93s
+  Optimization/Rosenbrock-Minimization-With-Bfgs-Using-Forwarddiffprecompile= 26.03s  load= 0.65s  run= 3.30s
+  OrdinaryDiffEq/Solve-The-Lorenz-Equation            precompile=172.77s  load= 2.20s  run= 0.19s
+  QuantumAlgebra/Commute-Two-Operators                precompile= 15.62s  load= 0.20s  run= 0.01s
+  ReverseDiff/Gradient-Of-Square-Norm                 precompile= 21.69s  load= 1.94s  run= 0.64s
+  ShareAdd/Get-Info-On-Stdlib-In-Internal-Shareadd-Formatprecompile=  4.95s  load= 0.45s  run= 0.01s
+  SparseMatrixColorings/Basic-Coloring                precompile=  4.83s  load= 0.17s  run= 0.07s
+  StaticArrays/Matrix-Multiplication                  precompile=  6.33s  load= 0.12s  run= 0.06s
+  UnROOT/Loading-A-Typical-Hep-Ex--Root-File          precompile= 28.84s  load= 0.69s  run= 3.05s
+  Zygote/Gradient-Of-Square-Norm                      precompile= 29.81s  load= 0.56s  run= 0.35s
+
+=== Julia 1.11 ===
+  Attractors/Multistability-Of-Discrete-Time-Systems  precompile= 52.54s  load= 1.61s  run= 2.10s
+  BaseDirs/Project-Path                               precompile=  2.35s  load= 0.01s  run= 0.04s
+  BaseDirs/User-Cache                                 precompile=  2.32s  load= 0.01s  run= 0.00s
+  BenchmarkTools/Basic-Benchmark                      precompile= 11.00s  load= 0.14s  run= 0.18s
+  CairoMakie/Plot-A-Sine-Wave                         precompile=157.00s  load= 4.26s  run= 0.56s
+  ComplexityMeasures/Nonlinear-Timeseries-Analysis    precompile= 22.29s  load= 0.86s  run= 1.42s
+  ComponentArrays/Basic-Manipulations                 precompile=  3.64s  load= 0.11s  run= 0.59s
+  DataFrames/Dataframe-Construction                   precompile= 38.47s  load= 0.60s  run= 0.03s
+  DifferentiationInterface/Jacobian-With-Finite-Differencesprecompile=  1.94s  load= 0.01s  run= 0.67s
+  Distributions/Normal-Distribution                   precompile=  9.12s  load= 0.36s  run= 0.28s
+  Enzyme/Gradient-Of-Square-Norm                      precompile= 54.01s  load= 1.01s  run= 2.77s
+  ExplicitImports/Print_Explicit_Imports              precompile= 15.00s  load= 0.52s  run= 0.44s
+  FiniteDiff/Gradient-Of-Square-Norm                  precompile=  3.21s  load= 0.01s  run= 0.31s
+  Flux/Basic-Model-Gradient                           precompile= 31.71s  load= 1.59s  run= 6.84s
+  ForwardDiff/Gradient-Of-Square-Norm                 precompile=  6.18s  load= 0.12s  run= 0.50s
+  GMT/Create-A-Xy-Plot                                precompile= 63.32s  load= 1.15s  run= 0.12s
+  Graphs/Graph-Construction                           precompile=  8.96s  load= 0.29s  run= 0.12s
+  HiddenMarkovModels/Estimate-Hmm-With-Baum-Welch     precompile= 10.29s  load= 0.41s  run= 2.43s
+  IterativeSolvers/Conjugate-Gradient-Solve           precompile=  3.36s  load= 0.15s  run= 1.45s
+  JET/Type-Stability-Analysis                         precompile= 13.39s  load= 0.42s  run= 9.41s
+  JLArrays/Matrix-Multiplication-On-Gpu-Like-Arrays   precompile= 12.71s  load= 0.70s  run= 0.83s
+  JuliaFormatter/Format-Text                          precompile= 22.77s  load= 0.22s  run= 0.01s
+  KangarooTwelve/Hash-Nothing                         precompile= 11.09s  load= 0.09s  run= 0.01s
+  Krylov/Conjugate-Gradient-Solve                     precompile=  5.10s  load= 0.12s  run= 2.11s
+  LoopVectorization/Dot-Product                       precompile= 20.03s  load= 0.22s  run= 1.11s
+  Manifolds/Geodesic-On-Sphere                        precompile= 17.88s  load= 0.60s  run= 0.51s
+  Measurements/Addition-With-Uncertainties            precompile=  1.60s  load= 0.01s  run= 0.05s
+  Mendeleev/Get-Properties-Of-A-Chemical-Element      precompile= 16.80s  load= 0.20s  run= 2.14s
+  Mooncake/Gradient-Of-Square-Norm                    precompile= 49.17s  load= 0.38s  run= 0.58s
+  Optim/Rosenbrock-Minimization-With-Bfgs             precompile=  6.46s  load= 0.17s  run= 2.21s
+  Optimization/Rosenbrock-Minimization-With-Bfgs-Using-Forwarddiffprecompile= 18.86s  load= 0.66s  run= 3.35s
+  OrdinaryDiffEq/Solve-The-Lorenz-Equation            precompile=171.51s  load= 2.83s  run= 0.16s
+  QuantumAlgebra/Commute-Two-Operators                precompile= 12.65s  load= 0.29s  run= 0.01s
+  ReverseDiff/Gradient-Of-Square-Norm                 precompile= 16.28s  load= 1.67s  run= 0.53s
+  ShareAdd/Get-Info-On-Stdlib-In-Internal-Shareadd-Formatprecompile=  5.05s  load= 0.68s  run= 0.01s
+  SparseMatrixColorings/Basic-Coloring                precompile=  5.05s  load= 0.16s  run= 0.09s
+  StaticArrays/Matrix-Multiplication                  precompile=  5.39s  load= 0.13s  run= 0.09s
+  UnROOT/Loading-A-Typical-Hep-Ex--Root-File          precompile= 29.10s  load= 0.80s  run= 1.24s
+  Zygote/Gradient-Of-Square-Norm                      precompile= 23.61s  load= 0.52s  run= 0.32s
+
+=== Julia 1.10 ===
+  Attractors/Multistability-Of-Discrete-Time-Systems  precompile= 48.69s  load= 1.46s  run= 1.89s
+  BaseDirs/Project-Path                               precompile=  3.51s  load= 0.01s  run= 0.01s
+  BaseDirs/User-Cache                                 precompile=  3.51s  load= 0.01s  run= 0.00s
+  BenchmarkTools/Basic-Benchmark                      precompile= 16.87s  load= 0.25s  run= 0.16s
+  CairoMakie/Plot-A-Sine-Wave                         precompile=136.06s  load= 3.11s  run= 0.60s
+  ComplexityMeasures/Nonlinear-Timeseries-Analysis    precompile= 20.43s  load= 0.83s  run= 1.36s
+  ComponentArrays/Basic-Manipulations                 precompile=  4.58s  load= 0.10s  run= 0.60s
+  DataFrames/Dataframe-Construction                   precompile= 33.02s  load= 0.42s  run= 0.08s
+  DifferentiationInterface/Jacobian-With-Finite-Differencesprecompile=  3.08s  load= 0.01s  run= 0.58s
+  Distributions/Normal-Distribution                   precompile=  9.85s  load= 0.39s  run= 0.18s
+  Enzyme/Gradient-Of-Square-Norm                      precompile= 42.27s  load= 0.39s  run= 1.73s
+  ExplicitImports/Print_Explicit_Imports              precompile= 12.56s  load= 0.17s  run= 0.39s
+  FiniteDiff/Gradient-Of-Square-Norm                  precompile=  4.14s  load= 0.01s  run= 0.28s
+  Flux/Basic-Model-Gradient                           precompile= 28.43s  load= 0.91s  run= 5.37s
+  ForwardDiff/Gradient-Of-Square-Norm                 precompile=  6.94s  load= 0.07s  run= 0.46s
+  GMT/Create-A-Xy-Plot                                precompile= 51.33s  load= 0.64s  run= 0.11s
+  Graphs/Graph-Construction                           precompile=  9.57s  load= 0.30s  run= 0.15s
+  HiddenMarkovModels/Estimate-Hmm-With-Baum-Welch     precompile= 11.10s  load= 0.43s  run= 1.98s
+  IterativeSolvers/Conjugate-Gradient-Solve           precompile=  4.22s  load= 0.13s  run= 1.08s
+  JET/Type-Stability-Analysis                         precompile= 28.19s  load= 0.18s  run= 0.19s
+  JLArrays/Matrix-Multiplication-On-Gpu-Like-Arrays   precompile= 12.23s  load= 0.46s  run= 0.53s
+  JuliaFormatter/Format-Text                          precompile= 20.80s  load= 0.21s  run= 0.00s
+  KangarooTwelve/Hash-Nothing                         precompile= 13.02s  load= 0.08s  run= 0.00s
+  Krylov/Conjugate-Gradient-Solve                     precompile=  6.08s  load= 0.12s  run= 1.48s
+  LoopVectorization/Dot-Product                       precompile= 17.66s  load= 0.21s  run= 0.90s
+  Manifolds/Geodesic-On-Sphere                        precompile= 17.40s  load= 0.54s  run= 0.51s
+  Measurements/Addition-With-Uncertainties            precompile=  2.78s  load= 0.01s  run= 0.05s
+  Mendeleev/Get-Properties-Of-A-Chemical-Element      precompile= 16.57s  load= 0.21s  run= 1.81s
+  Mooncake/Gradient-Of-Square-Norm                    precompile= 37.37s  load= 0.32s  run= 0.60s
+  Optim/Rosenbrock-Minimization-With-Bfgs             precompile=  7.17s  load= 0.18s  run= 1.74s
+  Optimization/Rosenbrock-Minimization-With-Bfgs-Using-Forwarddiffprecompile= 19.00s  load= 0.59s  run= 2.58s
+  OrdinaryDiffEq/Solve-The-Lorenz-Equation            precompile=152.14s  load= 2.16s  run= 0.36s
+  QuantumAlgebra/Commute-Two-Operators                precompile= 10.69s  load= 0.12s  run= 0.03s
+  ReverseDiff/Gradient-Of-Square-Norm                 precompile= 16.71s  load= 1.78s  run= 0.45s
+  ShareAdd/Get-Info-On-Stdlib-In-Internal-Shareadd-Formatprecompile=  5.51s  load= 0.10s  run= 0.00s
+  SparseMatrixColorings/Basic-Coloring                precompile=  5.80s  load= 0.15s  run= 0.09s
+  StaticArrays/Matrix-Multiplication                  precompile=  6.39s  load= 0.14s  run= 0.07s
+  UnROOT/Loading-A-Typical-Hep-Ex--Root-File          precompile= 24.48s  load= 0.60s  run= 1.20s
+  Zygote/Gradient-Of-Square-Norm                      precompile= 22.27s  load= 0.47s  run= 0.33s
+
+Done. Results written to /home/ian/Documents/GitHub/Julia-TTFX-Snippets/analysis/results.json

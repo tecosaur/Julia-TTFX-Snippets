@@ -1,0 +1,88 @@
+{
+  "timestamp": "2026-09-08T14:07:02.206Z",
+  "system": {
+    "hostname": "ian-desktop",
+    "cpu": "AMD Ryzen 9 5950X 16-Core Processor",
+    "cpu_threads": 32,
+    "cpu_speed_mhz": 3583,
+    "cpu_target": "",
+    "total_memory_gb": 62.7,
+    "machine": "x86_64-linux-gnu",
+    "kernel": "Linux",
+    "uname": "Linux 6.8.0-138-generic",
+    "load_avg": "10:07:02 up 1 day, 20:29,  3 users,  load average: 0.03, 0.06, 0.02",
+    "driver_julia": "1.12.7"
+  },
+  "repo": {
+    "commit": "3f3b639d39020e3329eaf49838feea64249be75a",
+    "branch": "ib/benchmark",
+    "dirty": true
+  },
+  "settings": {
+    "task_repeats": 3,
+    "precompile_repeats": 2,
+    "process_timeout_s": 1800.0,
+    "interleaved": true,
+    "depot": "/tmp/julia-ttfx-depot",
+    "n_tasks": 39,
+    "version_opt": {},
+    "env": {}
+  },
+  "julia_builds": {
+    "1.10": {
+      "channel": "1.10",
+      "version": "1.10.12",
+      "commit": "d93beab124c850d5f600f290069853e81413f7ca",
+      "commit_short": "d93beab124c",
+      "commit_date": "2026-08-15 10:29 UTC",
+      "branch": "v1.10.12",
+      "machine": "x86_64-linux-gnu",
+      "word_size": 64,
+      "cpu_threads": 32
+    },
+    "1.11": {
+      "channel": "1.11",
+      "version": "1.11.9",
+      "commit": "53a02c0720cdc5d7fc0f35447886dd14bb2491a6",
+      "commit_short": "53a02c0720c",
+      "commit_date": "2026-02-06 00:27 UTC",
+      "branch": "v1.11.9",
+      "machine": "x86_64-linux-gnu",
+      "word_size": 64,
+      "cpu_threads": 32
+    },
+    "1.12": {
+      "channel": "1.12",
+      "version": "1.12.7",
+      "commit": "6d172b025e4befc4d274d9fbc9339917a8a86b65",
+      "commit_short": "6d172b025e4",
+      "commit_date": "2026-08-15 08:05 UTC",
+      "branch": "v1.12.7",
+      "machine": "x86_64-linux-gnu",
+      "word_size": 64,
+      "cpu_threads": 32
+    },
+    "1.13": {
+      "channel": "1.13-nightly",
+      "version": "1.13.0-rc4.7",
+      "commit": "2a576e3cc7ced16f2dbd4e46c1dc8239f3fab6de",
+      "commit_short": "2a576e3cc7c",
+      "commit_date": "2026-09-07 17:12 UTC",
+      "branch": "release-1.13",
+      "machine": "x86_64-linux-gnu",
+      "word_size": 64,
+      "cpu_threads": 32
+    },
+    "nightly": {
+      "channel": "nightly",
+      "version": "1.14.0-DEV.3141",
+      "commit": "fbd24f51d0cc4b6ff48fffbe08062875fe634297",
+      "commit_short": "fbd24f51d0c",
+      "commit_date": "2026-09-08 09:36 UTC",
+      "branch": "master",
+      "machine": "x86_64-linux-gnu",
+      "word_size": 64,
+      "cpu_threads": 32
+    }
+  }
+}
