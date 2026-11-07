@@ -485,7 +485,6 @@ for minorver in first_minorver:VERSION.minor
         global minjulia = VersionNumber(1, minorver)
         issue_checkboxes_julia_versions[end] = (; ver = issue_checkboxes_julia_versions[end].ver, status = :success, extra = "")
         update_issue_comment()
-        Pkg.compat("julia", "$minjulia")
         break
     else
         issue_checkboxes_julia_versions[end] = (; ver = issue_checkboxes_julia_versions[end].ver, status = :failed, extra = "(exit code: $(trialrun.exitcode))")
@@ -494,6 +493,7 @@ end
 
 const mdeps = Pkg.Types.read_manifest(joinpath(taskdir, "Manifest.toml")).deps
 rm(joinpath(taskdir, "Manifest.toml"), force=true)
+Pkg.compat("julia", "$minjulia")
 
 for (uuid, pkg) in mdeps
     if pkg.name == task.package || pkg.name ∈ task.deps
