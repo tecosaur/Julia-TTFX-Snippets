@@ -1,0 +1,155 @@
+{
+  "timestamp": "2026-09-01T21:16:50.233Z",
+  "system": {
+    "hostname": "MacBook-Pro.lan",
+    "cpu": "Apple M5 Pro",
+    "cpu_threads": 5,
+    "cpu_speed_mhz": 2400,
+    "cpu_target": "",
+    "total_memory_gb": 24.0,
+    "machine": "arm64-apple-darwin25.5.0",
+    "kernel": "Darwin",
+    "uname": "Darwin 25.6.0",
+    "driver_julia": "1.12.7"
+  },
+  "repo": {
+    "commit": "faac01b02a07697db035fb1b46339137f5a98788",
+    "branch": "ib/benchmark",
+    "dirty": false
+  },
+  "settings": {
+    "task_repeats": 3,
+    "depot": "/private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot",
+    "n_tasks": 39,
+    "version_opt": {},
+    "env": {}
+  },
+  "julia_builds": {
+    "1.10": {
+      "channel": "1.10",
+      "version": "1.10.12",
+      "commit": "d93beab124c850d5f600f290069853e81413f7ca",
+      "commit_short": "d93beab124c",
+      "commit_date": "2026-08-15 10:29 UTC",
+      "branch": "v1.10.12",
+      "machine": "arm64-apple-darwin25.5.0",
+      "word_size": 64
+    },
+    "1.11": {
+      "channel": "1.11",
+      "version": "1.11.9",
+      "commit": "53a02c0720cdc5d7fc0f35447886dd14bb2491a6",
+      "commit_short": "53a02c0720c",
+      "commit_date": "2026-02-06 00:27 UTC",
+      "branch": "v1.11.9",
+      "machine": "arm64-apple-darwin24.0.0",
+      "word_size": 64
+    },
+    "1.12": {
+      "channel": "1.12",
+      "version": "1.12.7",
+      "commit": "6d172b025e4befc4d274d9fbc9339917a8a86b65",
+      "commit_short": "6d172b025e4",
+      "commit_date": "2026-08-15 08:05 UTC",
+      "branch": "v1.12.7",
+      "machine": "arm64-apple-darwin25.5.0",
+      "word_size": 64
+    },
+    "1.13": {
+      "channel": "1.13-nightly",
+      "version": "1.13.0-rc4",
+      "commit": "8f33e09afea0fcd605e86bb784b24b56a812942a",
+      "commit_short": "8f33e09afea",
+      "commit_date": "2026-09-02 06:10 UTC",
+      "branch": "v1.13.0-rc4",
+      "machine": "arm64-apple-darwin25.6.0",
+      "word_size": 64
+    },
+    "nightly": {
+      "channel": "nightly",
+      "version": "1.14.0-DEV.3106",
+      "commit": "9d314127b97e6dee14735fa8d6db2d524718b6d8",
+      "commit_short": "9d314127b97",
+      "commit_date": "2026-09-03 06:12 UTC",
+      "branch": "master",
+      "machine": "arm64-apple-darwin25.6.0",
+      "word_size": 64
+    },
+    "pr62966": {
+      "channel": "pr62966",
+      "version": "1.14.0-DEV.3088",
+      "commit": "2035b9224c034e3bd3572a949fb3491ba7552258",
+      "commit_short": "2035b9224c0",
+      "commit_date": "2026-09-01 23:52 UTC",
+      "branch": "IanButterworth:ib/possibly-ambiguous-edges",
+      "machine": "arm64-apple-darwin25.6.0",
+      "word_size": 64
+    },
+    "pr62966+62983": {
+      "channel": "stack62983",
+      "version": "1.14.0-DEV.3103",
+      "commit": "6010c6312bbbf9847466505d3ac972e7f3ef7ece",
+      "commit_short": "6010c6312b",
+      "commit_date": "2026-09-02 20:00 UTC",
+      "branch": "ib/stack-62966-62983",
+      "machine": "arm64-apple-darwin25.6.0",
+      "word_size": 64
+    },
+    "pr62983": {
+      "channel": "pr62983",
+      "version": "1.14.0-DEV.3108",
+      "commit": "3330ad22941a13ac1055d3ee6dcf41422b947cdc",
+      "commit_short": "3330ad22941",
+      "commit_date": "2026-09-03 06:19 UTC",
+      "branch": "IanButterworth:ib/artifact-downloads",
+      "machine": "arm64-apple-darwin25.6.0",
+      "word_size": 64
+    }
+  },
+  "added_arms": {
+    "pr62966": {
+      "timestamp": "2026-09-02T00:29:50.509Z",
+      "repo": {
+        "commit": "",
+        "branch": "",
+        "dirty": false
+      }
+    },
+    "nightly": {
+      "timestamp": "2026-09-03T14:49:06.018Z",
+      "repo": {
+        "commit": "",
+        "branch": "",
+        "dirty": false
+      },
+      "mode": "replace"
+    },
+    "pr62966+62983": {
+      "timestamp": "2026-09-02T20:08:36.228Z",
+      "repo": {
+        "commit": "",
+        "branch": "",
+        "dirty": false
+      },
+      "mode": "after"
+    },
+    "1.13": {
+      "timestamp": "2026-09-03T14:49:06.018Z",
+      "repo": {
+        "commit": "",
+        "branch": "",
+        "dirty": false
+      },
+      "mode": "replace"
+    },
+    "pr62983": {
+      "timestamp": "2026-09-03T14:49:06.018Z",
+      "repo": {
+        "commit": "",
+        "branch": "",
+        "dirty": false
+      },
+      "mode": "after"
+    }
+  }
+}

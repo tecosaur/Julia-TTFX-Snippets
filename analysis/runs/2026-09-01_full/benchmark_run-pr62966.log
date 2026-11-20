@@ -1,0 +1,294 @@
+Found 39 tasks across 1 Julia versions
+Depot:   /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot
+Results: /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/pr62966/results.json
+Tip: set TTFX_DEPOT_PATH=/private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot to reuse downloaded packages on subsequent runs
+
+Machine: MacBook-Pro.lan  Apple M5 Pro  5 threads  24.0 GiB  Darwin 25.6.0
+  pr62966        1.14.0-DEV.3088  2035b9224c0  2026-09-01 23:52 UTC
+Metadata: /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/pr62966/results-meta.json
+
+=== Julia pr62966 ===
+  Attractors/Multistability-Of-Discrete-Time-Systems  precompile= 50.33s  load= 1.69s  run= 0.29s
+  BaseDirs/Project-Path                               precompile=  1.62s  load= 0.01s  run= 0.00s
+  BaseDirs/User-Cache                                 precompile=  1.60s  load= 0.01s  run= 0.00s
+  BenchmarkTools/Basic-Benchmark                      precompile=  7.36s  load= 0.07s  run= 0.05s
+  CairoMakie/Plot-A-Sine-Wave                         precompile=100.82s  load= 2.66s  run= 0.13s
+  ComplexityMeasures/Nonlinear-Timeseries-Analysis    precompile= 17.84s  load= 0.91s  run= 0.31s
+  ComponentArrays/Basic-Manipulations                 precompile=  8.65s  load= 0.10s  run= 0.09s
+  DataFrames/Dataframe-Construction                   precompile= 22.67s  load= 0.35s  run= 0.00s
+  DifferentiationInterface/Jacobian-With-Finite-Differencesprecompile=  2.72s  load= 0.02s  run= 0.12s
+  Distributions/Normal-Distribution                   precompile= 10.23s  load= 0.35s  run= 0.02s
+  Enzyme/Gradient-Of-Square-Norm                      ERROR: precompile: process failed
+--- stderr ---
+[32m[1mPrecompiling[22m[39m project...
+   0.2 s[32m  ✓ [39m[90mReexport[39m
+   0.2 s[32m  ✓ [39m[90mStructIO[39m
+   0.2 s[32m  ✓ [39m[90mCEnum[39m
+   0.2 s[32m  ✓ [39m[90mExprTools[39m
+   0.2 s[32m  ✓ [39m[90mScratch[39m
+   0.3 s[32m  ✓ [39m[90mEnzymeCore[39m
+   0.3 s[32m  ✓ [39m[90mPreferences[39m
+   0.4 s[32m  ✓ [39m[90mJLLWrappers[39m
+   0.4 s[32m  ✓ [39m[90mPrecompileTools[39m
+   0.4 s[32m  ✓ [39m[90mLibTracyClient_jll[39m
+   0.4 s[32m  ✓ [39m[90mEnzyme_jll[39m
+   0.4 s[32m  ✓ [39m[90mLLVMExtra_jll[39m
+   1.1 s[32m  ✓ [39m[90mObjectFile[39m
+   0.8 s[32m  ✓ [39m[90mTracy[39m
+   3.6 s[32m  ✓ [39m[90mLLVM[39m
+Fault at memory address: 0x10000000a
+
+[99057] signal 10 (1): Bus error
+in expression starting at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/precompile.jl:7
+__libcpp_atomic_refcount_increment<long> at /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_count.h:56:10 [inlined]
+__add_shared at /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_count.h:89:57 [inlined]
+__add_shared at /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_count.h:118:73 [inlined]
+shared_ptr at /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h:478:17 [inlined]
+shared_ptr at /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h:476:114 [inlined]
+withContextDo<(lambda at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/usr/include/llvm/ExecutionEngine/Orc/ThreadSafeModule.h:114:32)> at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/usr/include/llvm/ExecutionEngine/Orc/ThreadSafeModule.h:50:21 [inlined]
+withModuleDo<(lambda at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/aotcompile.cpp:1049:33)> at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/usr/include/llvm/ExecutionEngine/Orc/ThreadSafeModule.h:114:18 [inlined]
+jl_emit_native_impl at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/aotcompile.cpp:1049:20
+unknown function (ip: 0x113594da7) at (unknown file)
+compile_method_instance at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/jlgen.jl:840:0 (pc: 443)
+irgen at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/irgen.jl:4:0 (pc: 1)
+#emit_llvm#124 at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/driver.jl:209:0 (pc: 34)
+emit_llvm at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/driver.jl:191:0 (pc: 1)
+#compile_unhooked#121 at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/driver.jl:95:0 (pc: 11)
+compile_unhooked at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/driver.jl:80:0 [inlined]
+#compile#119 at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/driver.jl:67:0 [inlined]
+compile at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/driver.jl:55:0 [inlined]
+#184 at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/precompile.jl:39:0 [inlined]
+#JuliaContext#118 at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/driver.jl:34:0 (pc: 25)
+unknown function (ip: 0x1135384db) at (unknown file)
+JuliaContext at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/driver.jl:25:0 (pc: 1)
+unknown function (ip: 0x1132f008b) at (unknown file)
+macro expansion at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/precompile.jl:38:0 [inlined]
+macro expansion at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/PrecompileTools/QUxvR/src/workloads.jl:70:0 [inlined]
+macro expansion at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/precompile.jl:29:0 [inlined]
+macro expansion at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/PrecompileTools/QUxvR/src/workloads.jl:118:0 [inlined]
+top-level scope at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/precompile.jl:115:0 (pc: 88)
+ijl_eval_thunk at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:764:18
+jl_toplevel_eval_flex at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:716:26
+jl_eval_toplevel_stmts at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:601:15
+jl_toplevel_eval_flex at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:688:27
+ijl_toplevel_eval at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:786:12 [inlined]
+ijl_toplevel_eval_in at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:831:13
+eval at ./boot.jl:618:0 (pc: 1)
+include_string at ./loading.jl:3270:0 (pc: 140)
+_include at ./loading.jl:3332:0 (pc: 123)
+include at ./Base.jl:335:0 (pc: 1)
+IncludeInto at ./Base.jl:336:0 (pc: 2)
+jfptr_IncludeInto_1.1 at /Users/ian/.julia/juliaup/julia-pr62966/lib/julia/sys.dylib (unknown line)
+jl_apply at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/julia.h:2533:12 [inlined]
+do_call at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/interpreter.c:123:26
+eval_stmt_value at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/interpreter.c:194:23 [inlined]
+eval_body at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/interpreter.c:829:21
+jl_interpret_toplevel_thunk at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/interpreter.c:1052:21
+ijl_eval_thunk at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:772:18
+jl_toplevel_eval_flex at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:716:26
+jl_eval_toplevel_stmts at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:601:15
+jl_eval_module_expr at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:266:5 [inlined]
+jl_toplevel_eval_flex at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:669:27
+jl_eval_toplevel_stmts at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:601:15
+jl_toplevel_eval_flex at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:688:27
+ijl_toplevel_eval at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:786:12 [inlined]
+ijl_toplevel_eval_in at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:831:13
+eval at ./boot.jl:618:0 (pc: 1)
+include_string at ./loading.jl:3270:0 (pc: 140)
+_include at ./loading.jl:3332:0 (pc: 123)
+include at ./Base.jl:334:0 (pc: 1)
+include_package_for_output at ./loading.jl:3447:0 (pc: 489)
+jfptr_include_package_for_output_3.1 at /Users/ian/.julia/juliaup/julia-pr62966/lib/julia/sys.dylib (unknown line)
+jl_apply at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/julia.h:2533:12 [inlined]
+do_call at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/interpreter.c:123:26
+eval_stmt_value at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/interpreter.c:194:23 [inlined]
+eval_body at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/interpreter.c:829:21
+jl_interpret_toplevel_thunk at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/interpreter.c:1052:21
+ijl_eval_thunk at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:772:18
+jl_toplevel_eval_flex at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:716:26
+jl_eval_toplevel_stmts at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:601:15
+jl_toplevel_eval_flex at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:688:27
+ijl_toplevel_eval at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:786:12 [inlined]
+ijl_toplevel_eval_in at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:831:13
+eval at ./boot.jl:618:0 (pc: 1)
+include_string at ./loading.jl:3270:0 (pc: 140)
+include_string at ./loading.jl:3280:0 [inlined]
+__script_entry_include_string at ./client.jl:104:0 [inlined]
+exec_options at ./client.jl:382:0 (pc: 900)
+_start at ./client.jl:695:0 (pc: 217)
+jfptr__start_0.1 at /Users/ian/.julia/juliaup/julia-pr62966/lib/julia/sys.dylib (unknown line)
+jl_apply at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/julia.h:2533:12 [inlined]
+true_main at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/jlapi.c:989:29
+jl_repl_entrypoint at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/jlapi.c:1156:15
+Allocations: 104848095 (Pool: 104845812; Big: 2283); GC: 37
+            [91m  ✗ [39m[90mGPUCompiler[39m
+[91m[1mERROR: [22m[39mLoadError: Precompiled image Base.PkgId(Base.UUID("61eb1bfa-7361-4325-ad38-22787b887f55"), "GPUCompiler") not available with flags CacheFlags(; use_pkgimages=true, debug_level=1, check_bounds=0, inline=true, opt_level=2)
+Stacktrace:
+ [1] [0m[1merror[22m[0m[1m([22m[90ms[39m::[0mString[0m[1m)[22m
+ [90m  @[39m [90mBase[39m [90m[4merror.jl:56[24m[39m
+ [2] [0m[1mrequire[22m[0m[1m([22m[90minto[39m::[0mModule, [90mmod[39m::[0mSymbol[0m[1m)[22m
+ [90m  @[39m [90mBase[39m [90m[4mloading.jl:2673[24m[39m[90m [inlined][39m
+ [3] top-level scope
+ [90m  @[39m [90m/private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Enzyme/OvStQ/src/[39m[90m[4mtypetree.jl:6[24m[39m
+ [4] [0m[1minclude[22m[0m[1m([22m[90mmapexpr[39m::[0mFunction, [90mmod[39m::[0mModule, [90m_path[39m::[0mString[0m[1m)[22m
+ [90m  @[39m [90mBase[39m [90m[4mBase.jl:335[24m[39m
+ [5] top-level scope
+ [90m  @[39m [90m/private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Enzyme/OvStQ/src/[39m[90m[4mEnzyme.jl:148[24m[39m
+ [6] [0m[1minclude[22m[0m[1m([22m[90mmod[39m::[0mModule, [90m_path[39m::[0mString[0m[1m)[22m
+ [90m  @[39m [90mBase[39m [90m[4mBase.jl:334[24m[39m
+ [7] top-level scope
+ [90m  @[39m [90m[4mstdin:5[24m[39m
+in expression starting at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Enzyme/OvStQ/src/typetree.jl:6
+in expression starting at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Enzyme/OvStQ/src/Enzyme.jl:1
+in expression starting at stdin:5
+            [91m  ✗ [39mEnzyme
+  15 dependencies successfully precompiled in 19 seconds. 34 already precompiled.
+  [33m2[39m dependencies had output during precompilation:[33m
+┌ [39mEnzyme[33m
+│  [39m[91m[1mERROR: [22m[39mLoadError: Precompiled image Base.PkgId(Base.UUID("61eb1bfa-7361-4325-ad38-22787b887f55"), "GPUCompiler") not available with flags CacheFlags(; use_pkgimages=true, debug_level=1, check_bounds=0, inline=true, opt_level=2)[33m
+│  [39mStacktrace:[33m
+│  [39m [1] [0m[1merror[22m[0m[1m([22m[90ms[39m::[0mString[0m[1m)[22m[33m
+│  [39m [90m  @[39m [90mBase[39m [90m[4merror.jl:56[24m[39m[33m
+│  [39m [2] [0m[1mrequire[22m[0m[1m([22m[90minto[39m::[0mModule, [90mmod[39m::[0mSymbol[0m[1m)[22m[33m
+│  [39m [90m  @[39m [90mBase[39m [90m[4mloading.jl:2673[24m[39m[90m [inlined][39m[33m
+│  [39m [3] top-level scope[33m
+│  [39m [90m  @[39m [90m/private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Enzyme/OvStQ/src/[39m[90m[4mtypetree.jl:6[24m[39m[33m
+│  [39m [4] [0m[1minclude[22m[0m[1m([22m[90mmapexpr[39m::[0mFunction, [90mmod[39m::[0mModule, [90m_path[39m::[0mString[0m[1m)[22m[33m
+│  [39m [90m  @[39m [90mBase[39m [90m[4mBase.jl:335[24m[39m[33m
+│  [39m [5] top-level scope[33m
+│  [39m [90m  @[39m [90m/private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Enzyme/OvStQ/src/[39m[90m[4mEnzyme.jl:148[24m[39m[33m
+│  [39m [6] [0m[1minclude[22m[0m[1m([22m[90mmod[39m::[0mModule, [90m_path[39m::[0mString[0m[1m)[22m[33m
+│  [39m [90m  @[39m [90mBase[39m [90m[4mBase.jl:334[24m[39m[33m
+│  [39m [7] top-level scope[33m
+│  [39m [90m  @[39m [90m[4mstdin:5[24m[39m[33m
+│  [39min expression starting at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Enzyme/OvStQ/src/typetree.jl:6[33m
+│  [39min expression starting at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/Enzyme/OvStQ/src/Enzyme.jl:1[33m
+│  [39min expression starting at stdin:5[33m
+└  [39m[33m
+┌ [39mGPUCompiler[33m
+│  [39mFault at memory address: 0x10000000a[33m
+│  [39m[33m
+│  [39m[99057] signal 10 (1): Bus error[33m
+│  [39min expression starting at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/precompile.jl:7[33m
+│  [39m__libcpp_atomic_refcount_increment<long> at /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_count.h:56:10 [inlined][33m
+│  [39m__add_shared at /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_count.h:89:57 [inlined][33m
+│  [39m__add_shared at /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_count.h:118:73 [inlined][33m
+│  [39mshared_ptr at /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h:478:17 [inlined][33m
+│  [39mshared_ptr at /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h:476:114 [inlined][33m
+│  [39mwithContextDo<(lambda at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/usr/include/llvm/ExecutionEngine/Orc/ThreadSafeModule.h:114:32)> at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/usr/include/llvm/ExecutionEngine/Orc/ThreadSafeModule.h:50:21 [inlined][33m
+│  [39mwithModuleDo<(lambda at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/aotcompile.cpp:1049:33)> at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/usr/include/llvm/ExecutionEngine/Orc/ThreadSafeModule.h:114:18 [inlined][33m
+│  [39mjl_emit_native_impl at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/aotcompile.cpp:1049:20[33m
+│  [39munknown function (ip: 0x113594da7) at (unknown file)[33m
+│  [39mcompile_method_instance at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/jlgen.jl:840:0 (pc: 443)[33m
+│  [39mirgen at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/irgen.jl:4:0 (pc: 1)[33m
+│  [39m#emit_llvm#124 at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/driver.jl:209:0 (pc: 34)[33m
+│  [39memit_llvm at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/driver.jl:191:0 (pc: 1)[33m
+│  [39m#compile_unhooked#121 at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/driver.jl:95:0 (pc: 11)[33m
+│  [39mcompile_unhooked at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/driver.jl:80:0 [inlined][33m
+│  [39m#compile#119 at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/driver.jl:67:0 [inlined][33m
+│  [39mcompile at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/driver.jl:55:0 [inlined][33m
+│  [39m#184 at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/precompile.jl:39:0 [inlined][33m
+│  [39m#JuliaContext#118 at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/driver.jl:34:0 (pc: 25)[33m
+│  [39munknown function (ip: 0x1135384db) at (unknown file)[33m
+│  [39mJuliaContext at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/driver.jl:25:0 (pc: 1)[33m
+│  [39munknown function (ip: 0x1132f008b) at (unknown file)[33m
+│  [39mmacro expansion at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/precompile.jl:38:0 [inlined][33m
+│  [39mmacro expansion at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/PrecompileTools/QUxvR/src/workloads.jl:70:0 [inlined][33m
+│  [39mmacro expansion at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/precompile.jl:29:0 [inlined][33m
+│  [39mmacro expansion at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/PrecompileTools/QUxvR/src/workloads.jl:118:0 [inlined][33m
+│  [39mtop-level scope at /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/packages/GPUCompiler/BSi1T/src/precompile.jl:115:0 (pc: 88)[33m
+│  [39mijl_eval_thunk at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:764:18[33m
+│  [39mjl_toplevel_eval_flex at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:716:26[33m
+│  [39mjl_eval_toplevel_stmts at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:601:15[33m
+│  [39mjl_toplevel_eval_flex at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:688:27[33m
+│  [39mijl_toplevel_eval at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:786:12 [inlined][33m
+│  [39mijl_toplevel_eval_in at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:831:13[33m
+│  [39meval at ./boot.jl:618:0 (pc: 1)[33m
+│  [39minclude_string at ./loading.jl:3270:0 (pc: 140)[33m
+│  [39m_include at ./loading.jl:3332:0 (pc: 123)[33m
+│  [39minclude at ./Base.jl:335:0 (pc: 1)[33m
+│  [39mIncludeInto at ./Base.jl:336:0 (pc: 2)[33m
+│  [39mjfptr_IncludeInto_1.1 at /Users/ian/.julia/juliaup/julia-pr62966/lib/julia/sys.dylib (unknown line)[33m
+│  [39mjl_apply at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/julia.h:2533:12 [inlined][33m
+│  [39mdo_call at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/interpreter.c:123:26[33m
+│  [39meval_stmt_value at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/interpreter.c:194:23 [inlined][33m
+│  [39meval_body at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/interpreter.c:829:21[33m
+│  [39mjl_interpret_toplevel_thunk at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/interpreter.c:1052:21[33m
+│  [39mijl_eval_thunk at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:772:18[33m
+│  [39mjl_toplevel_eval_flex at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:716:26[33m
+│  [39mjl_eval_toplevel_stmts at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:601:15[33m
+│  [39mjl_eval_module_expr at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:266:5 [inlined][33m
+│  [39mjl_toplevel_eval_flex at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:669:27[33m
+│  [39mjl_eval_toplevel_stmts at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:601:15[33m
+│  [39mjl_toplevel_eval_flex at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:688:27[33m
+│  [39mijl_toplevel_eval at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:786:12 [inlined][33m
+│  [39mijl_toplevel_eval_in at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:831:13[33m
+│  [39meval at ./boot.jl:618:0 (pc: 1)[33m
+│  [39minclude_string at ./loading.jl:3270:0 (pc: 140)[33m
+│  [39m_include at ./loading.jl:3332:0 (pc: 123)[33m
+│  [39minclude at ./Base.jl:334:0 (pc: 1)[33m
+│  [39minclude_package_for_output at ./loading.jl:3447:0 (pc: 489)[33m
+│  [39mjfptr_include_package_for_output_3.1 at /Users/ian/.julia/juliaup/julia-pr62966/lib/julia/sys.dylib (unknown line)[33m
+│  [39mjl_apply at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/julia.h:2533:12 [inlined][33m
+│  [39mdo_call at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/interpreter.c:123:26[33m
+│  [39meval_stmt_value at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/interpreter.c:194:23 [inlined][33m
+│  [39meval_body at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/interpreter.c:829:21[33m
+│  [39mjl_interpret_toplevel_thunk at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/interpreter.c:1052:21[33m
+│  [39mijl_eval_thunk at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:772:18[33m
+│  [39mjl_toplevel_eval_flex at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:716:26[33m
+│  [39mjl_eval_toplevel_stmts at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:601:15[33m
+│  [39mjl_toplevel_eval_flex at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:688:27[33m
+│  [39mijl_toplevel_eval at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:786:12 [inlined][33m
+│  [39mijl_toplevel_eval_in at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/toplevel.c:831:13[33m
+│  [39meval at ./boot.jl:618:0 (pc: 1)[33m
+│  [39minclude_string at ./loading.jl:3270:0 (pc: 140)[33m
+│  [39minclude_string at ./loading.jl:3280:0 [inlined][33m
+│  [39m__script_entry_include_string at ./client.jl:104:0 [inlined][33m
+│  [39mexec_options at ./client.jl:382:0 (pc: 900)[33m
+│  [39m_start at ./client.jl:695:0 (pc: 217)[33m
+│  [39mjfptr__start_0.1 at /Users/ian/.julia/juliaup/julia-pr62966/lib/julia/sys.dylib (unknown line)[33m
+│  [39mjl_apply at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/julia.h:2533:12 [inlined][33m
+│  [39mtrue_main at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/jlapi.c:989:29[33m
+│  [39mjl_repl_entrypoint at /Users/julia/.julia/scratchspaces/a66863c6-20e8-4ff4-8a62-49f30b1f605e/agent-cache/builder-honeycrisp-R17H3W25T9.1/019ebd61-5b1f-428e-b08c-1b5a2111e001/untrusted/build/builder-honeycrisp-R17H3W25T9-1/julialang/julia-pr/src/jlapi.c:1156:15[33m
+│  [39mAllocations: 104848095 (Pool: 104845812; Big: 2283); GC: 37[33m
+└  [39m
+[91m[1mERROR: [22m[39mThe following 2 packages failed to precompile:
+
+Enzyme 
+Failed to precompile Enzyme [7da242da-08ed-463a-9acd-ee780be4f1d9] to "/private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/compiled/v1.14/Enzyme/jl_khaIt2" (ProcessExited(1)).
+
+GPUCompiler 
+Failed to precompile GPUCompiler [61eb1bfa-7361-4325-ad38-22787b887f55] to "/private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot/compiled/v1.14/GPUCompiler/jl_W9hkB9" (ProcessSignaled(10)).
+
+
+  ExplicitImports/Print_Explicit_Imports              precompile=  8.04s  load= 0.24s  run= 0.13s
+  FiniteDiff/Gradient-Of-Square-Norm                  precompile=  2.27s  load= 0.00s  run= 0.06s
+  Flux/Basic-Model-Gradient                           precompile= 31.68s  load= 1.29s  run= 1.71s
+  ForwardDiff/Gradient-Of-Square-Norm                 precompile=  5.60s  load= 0.06s  run= 0.10s
+  GMT/Create-A-Xy-Plot                                precompile= 40.53s  load= 1.05s  run= 0.00s
+  Graphs/Graph-Construction                           precompile=  7.09s  load= 0.30s  run= 0.01s
+  HiddenMarkovModels/Estimate-Hmm-With-Baum-Welch     precompile= 12.31s  load= 0.44s  run= 0.35s
+  IterativeSolvers/Conjugate-Gradient-Solve           precompile=  3.02s  load= 0.17s  run= 0.11s
+  JET/Type-Stability-Analysis                         ERROR: task: [33m[1m┌ [22m[39m[33m[1mWarning: [22m[39mFull JET functionality is not available on Julia 1.14.0-DEV.3088.
+  JLArrays/Matrix-Multiplication-On-Gpu-Like-Arrays   precompile= 11.04s  load= 0.71s  run= 0.13s
+  JuliaFormatter/Format-Text                          precompile= 12.22s  load= 0.12s  run= 0.00s
+  KangarooTwelve/Hash-Nothing                         precompile=  7.52s  load= 0.04s  run= 0.00s
+  Krylov/Conjugate-Gradient-Solve                     precompile=  3.22s  load= 0.15s  run= 0.14s
+  LoopVectorization/Dot-Product                       precompile= 17.82s  load= 0.14s  run= 0.08s
+  Manifolds/Geodesic-On-Sphere                        precompile= 16.20s  load= 0.52s  run= 0.08s
+  Measurements/Addition-With-Uncertainties            precompile=  1.55s  load= 0.01s  run= 0.01s
+  Mendeleev/Get-Properties-Of-A-Chemical-Element      precompile=  8.82s  load= 0.07s  run= 0.57s
+  Mooncake/Gradient-Of-Square-Norm                    precompile= 60.94s  load= 0.41s  run= 0.17s
+  Optim/Rosenbrock-Minimization-With-Bfgs             precompile=  7.76s  load= 0.23s  run= 0.25s
+  Optimization/Rosenbrock-Minimization-With-Bfgs-Using-Forwarddiffprecompile= 20.05s  load= 0.56s  run= 0.56s
+  OrdinaryDiffEq/Solve-The-Lorenz-Equation            precompile= 99.94s  load= 1.58s  run= 0.08s
+  QuantumAlgebra/Commute-Two-Operators                precompile=  9.79s  load= 0.16s  run= 0.00s
+  ReverseDiff/Gradient-Of-Square-Norm                 precompile= 13.80s  load= 1.58s  run= 0.07s
+  ShareAdd/Get-Info-On-Stdlib-In-Internal-Shareadd-Formatprecompile=  3.45s  load= 0.27s  run= 0.00s
+  SparseMatrixColorings/Basic-Coloring                precompile=  4.36s  load= 0.17s  run= 0.01s
+  StaticArrays/Matrix-Multiplication                  precompile=  3.83s  load= 0.08s  run= 0.01s
+  UnROOT/Loading-A-Typical-Hep-Ex--Root-File          precompile= 22.58s  load= 0.59s  run= 0.33s
+  Zygote/Gradient-Of-Square-Norm                      precompile= 21.05s  load= 0.45s  run= 0.05s
+
+Done. Results written to /private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/pr62966/results.json
+exit=0

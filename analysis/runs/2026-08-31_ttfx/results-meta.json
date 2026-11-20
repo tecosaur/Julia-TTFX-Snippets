@@ -1,0 +1,79 @@
+{
+  "timestamp": "2026-08-31T16:08:45.042Z",
+  "system": {
+    "hostname": "Mac.localdomain",
+    "cpu": "Apple M5 Pro",
+    "cpu_threads": 5,
+    "cpu_speed_mhz": 2400,
+    "cpu_target": "",
+    "total_memory_gb": 24.0,
+    "machine": "arm64-apple-darwin25.5.0",
+    "kernel": "Darwin",
+    "uname": "Darwin 25.6.0",
+    "driver_julia": "1.12.7"
+  },
+  "repo": {
+    "commit": "aa131eb235a19ad1ffba631b24d918b5b172e9bf",
+    "branch": "ib/benchmark",
+    "dirty": true
+  },
+  "settings": {
+    "task_repeats": 3,
+    "depot": "/private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot",
+    "n_tasks": 39,
+    "version_opt": {},
+    "env": {}
+  },
+  "julia_builds": {
+    "1.10": {
+      "channel": "1.10",
+      "version": "1.10.12",
+      "commit": "d93beab124c850d5f600f290069853e81413f7ca",
+      "commit_short": "d93beab124c",
+      "commit_date": "2026-08-15 10:29 UTC",
+      "branch": "v1.10.12",
+      "machine": "arm64-apple-darwin25.5.0",
+      "word_size": 64
+    },
+    "1.11": {
+      "channel": "1.11",
+      "version": "1.11.9",
+      "commit": "53a02c0720cdc5d7fc0f35447886dd14bb2491a6",
+      "commit_short": "53a02c0720c",
+      "commit_date": "2026-02-06 00:27 UTC",
+      "branch": "v1.11.9",
+      "machine": "arm64-apple-darwin24.0.0",
+      "word_size": 64
+    },
+    "1.12": {
+      "channel": "1.12",
+      "version": "1.12.7",
+      "commit": "6d172b025e4befc4d274d9fbc9339917a8a86b65",
+      "commit_short": "6d172b025e4",
+      "commit_date": "2026-08-15 08:05 UTC",
+      "branch": "v1.12.7",
+      "machine": "arm64-apple-darwin25.5.0",
+      "word_size": 64
+    },
+    "1.13+pr62934": {
+      "channel": "1.13-pr62934",
+      "version": "1.13.0-rc3.32",
+      "commit": "1483760d1ed1beafbd4c527ac533123560e6cac9",
+      "commit_short": "1483760d1e*",
+      "commit_date": "2026-08-30 21:16 UTC",
+      "branch": "HEAD",
+      "machine": "arm64-apple-darwin25.6.0",
+      "word_size": 64
+    },
+    "nightly+pr62934": {
+      "channel": "nightly-pr62934",
+      "version": "1.14.0-DEV.3079",
+      "commit": "d37af83d43cd85c342c57e99ad4b62c889cc20f3",
+      "commit_short": "d37af83d43",
+      "commit_date": "2026-08-31 13:34 UTC",
+      "branch": "ib/pkgimage-skip-image-callees",
+      "machine": "arm64-apple-darwin25.6.0",
+      "word_size": 64
+    }
+  }
+}
