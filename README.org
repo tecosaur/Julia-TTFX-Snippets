@@ -39,3 +39,7 @@ Also take note this is a community effort involving package authors and
  third-party contributions. While we try to ensure the submissions are of a
  reasonable quality, it is always sensible to take precautions when running a
  collection of snippets, such as using containers.
+
+* Historical Record of Benchmarks
+
+Performance of these snippets, tracked since Julia 1.8.0, including data for Julia nightly, alpha, release, and lts are available in this [[repository][https://github.com/JuliaEcosystemBenchmarks/julia-ecosystem-benchmarks/tree/jeb_logs/plots/Julia-TTFX-Snippets]].
