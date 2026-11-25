@@ -1,0 +1,39 @@
+{
+  "timestamp": "2026-09-01T20:48:46.482Z",
+  "system": {
+    "hostname": "MacBook-Pro.lan",
+    "cpu": "Apple M5 Pro",
+    "cpu_threads": 5,
+    "cpu_speed_mhz": 2400,
+    "cpu_target": "",
+    "total_memory_gb": 24.0,
+    "machine": "arm64-apple-darwin25.5.0",
+    "kernel": "Darwin",
+    "uname": "Darwin 25.6.0",
+    "driver_julia": "1.12.7"
+  },
+  "repo": {
+    "commit": "",
+    "branch": "",
+    "dirty": false
+  },
+  "settings": {
+    "task_repeats": 3,
+    "depot": "/private/tmp/claude-501/-Users-ian-Documents-GitHub-Julia-TTFX-Snippets/d6f463de-6b1e-4334-a743-14c0cc6db43b/scratchpad/depot",
+    "n_tasks": 39,
+    "version_opt": {},
+    "env": {}
+  },
+  "julia_builds": {
+    "1.13": {
+      "channel": "1.13-pr62959-head",
+      "version": "1.13.0-rc3.55",
+      "commit": "87fb992dde47ad3fd112f610791d1d13eca7c073",
+      "commit_short": "87fb992dde",
+      "commit_date": "2026-09-01 20:33 UTC",
+      "branch": "HEAD",
+      "machine": "arm64-apple-darwin25.6.0",
+      "word_size": 64
+    }
+  }
+}

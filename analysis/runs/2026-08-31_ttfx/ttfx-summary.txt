@@ -1,0 +1,8 @@
+geomeans over 35 tasks with complete data on all 5 versions
+
+                  TTFX run    TTSX run   TTFX load   TTSX load  precompile   TTSX/TTFX run
+nightly+pr62934      0.112s      0.034s      0.508s      0.177s      9.212s           0.30x
+1.13+pr62934        0.097s      0.092s      0.454s      0.146s      8.457s           0.95x
+1.12                0.100s      0.095s      0.479s      0.160s     10.104s           0.96x
+1.11                0.117s      0.114s      0.499s      0.169s      9.322s           0.97x
+1.10                0.093s      0.091s      0.444s      0.140s      9.518s           0.97x
